@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+import math
 
 import pandas as pd
 
@@ -22,25 +23,28 @@ ETSY_PAYMENT_RATE = 0.03
 ETSY_PAYMENT_FIXED_FEE = 0.25
 
 # Offsite Ads intentionally excluded.
-# Etsy listing fee is also excluded from the per-sale
-# calculation because it is charged when a listing is
-# created/renewed, not on every sale.
+# Etsy listing fee intentionally excluded from the
+# per-sale profitability calculation.
 
 
-def build_profitability_report(comparison: pd.DataFrame):
+# ---------------------------------------------------------
+# VARIANT-LEVEL PROFITABILITY
+# ---------------------------------------------------------
+
+def build_profitability_report(
+    comparison: pd.DataFrame,
+):
     """
-    Calculate estimated net profit for Etsy/Printify
-    matched variants.
+    Calculate estimated net profit for matched Etsy/Printify
+    variants.
 
     Assumptions:
-      - U.S. customer
-      - Customer pays $0 shipping
-      - Seller pays Printify shipping
-      - Printify first-item U.S. shipping is used
-      - Etsy transaction fee = 6.5%
-      - Etsy payment processing = 3% + $0.25
-      - Offsite Ads excluded
-      - Etsy listing fee excluded from per-sale calculation
+      - Customer pays $0 shipping.
+      - Seller pays Printify U.S. first-item shipping.
+      - Etsy transaction fee = 6.5%.
+      - Etsy payment processing = 3% + $0.25.
+      - Offsite Ads excluded.
+      - Etsy listing fee excluded.
 
     Returns:
       profitability_all
@@ -62,8 +66,8 @@ def build_profitability_report(comparison: pd.DataFrame):
 
         return empty, empty
 
-    # Only calculate profitability where we have a real
-    # Etsy -> Printify match.
+    # Only calculate profitability where Etsy and Printify
+    # have a real SKU match.
     profit = comparison[
         comparison["match_status"] == "MATCHED"
     ].copy()
@@ -71,7 +75,10 @@ def build_profitability_report(comparison: pd.DataFrame):
     if profit.empty:
         return profit, profit
 
-    # Convert numeric fields safely.
+    # -----------------------------------------------------
+    # NUMERIC VALUES
+    # -----------------------------------------------------
+
     profit["etsy_price_for_profit"] = pd.to_numeric(
         profit["etsy_price"],
         errors="coerce",
@@ -87,13 +94,15 @@ def build_profitability_report(comparison: pd.DataFrame):
         errors="coerce",
     )
 
-    # Etsy transaction fee.
+    # -----------------------------------------------------
+    # ETSY FEES
+    # -----------------------------------------------------
+
     profit["etsy_transaction_fee"] = (
         profit["etsy_price_for_profit"]
         * ETSY_TRANSACTION_RATE
     )
 
-    # Etsy Payments processing fee.
     profit["etsy_payment_processing_fee"] = (
         profit["etsy_price_for_profit"]
         * ETSY_PAYMENT_RATE
@@ -105,7 +114,10 @@ def build_profitability_report(comparison: pd.DataFrame):
         + profit["etsy_payment_processing_fee"]
     )
 
-    # We cannot calculate a true net margin without shipping.
+    # -----------------------------------------------------
+    # NET PROFIT
+    # -----------------------------------------------------
+
     profit["estimated_net_profit"] = (
         profit["etsy_price_for_profit"]
         - profit["printify_cost_for_profit"]
@@ -119,7 +131,10 @@ def build_profitability_report(comparison: pd.DataFrame):
         * 100
     )
 
-    # Don't report invalid margins.
+    # -----------------------------------------------------
+    # INVALID DATA
+    # -----------------------------------------------------
+
     invalid_price = (
         profit["etsy_price_for_profit"].isna()
         | (profit["etsy_price_for_profit"] <= 0)
@@ -139,10 +154,15 @@ def build_profitability_report(comparison: pd.DataFrame):
         "estimated_net_margin_pct",
     ] = pd.NA
 
+    # -----------------------------------------------------
+    # STATUS
+    # -----------------------------------------------------
+
     profit["profitability_status"] = "OK"
 
     profit.loc[
-        profit["estimated_net_margin_pct"] < LOW_PROFIT_THRESHOLD,
+        profit["estimated_net_margin_pct"]
+        < LOW_PROFIT_THRESHOLD,
         "profitability_status",
     ] = "LOW_PROFIT"
 
@@ -156,22 +176,29 @@ def build_profitability_report(comparison: pd.DataFrame):
         "profitability_status",
     ] = "PRICE_UNAVAILABLE"
 
-    # Keep the most useful columns first.
+    # -----------------------------------------------------
+    # COLUMN ORDER
+    # -----------------------------------------------------
+
     preferred_columns = [
         "etsy_listing_id",
         "etsy_title",
         "etsy_sku",
         "etsy_price_for_profit",
+
         "printify_product_id",
         "printify_title",
         "printify_variant_id",
         "printify_variant_title",
         "printify_sku",
+
         "printify_cost_for_profit",
         "printify_shipping_for_profit",
+
         "etsy_transaction_fee",
         "etsy_payment_processing_fee",
         "etsy_total_fees",
+
         "estimated_net_profit",
         "estimated_net_margin_pct",
         "profitability_status",
@@ -212,17 +239,424 @@ def build_profitability_report(comparison: pd.DataFrame):
     return profit, low_profit
 
 
+# ---------------------------------------------------------
+# LISTING-LEVEL PROFITABILITY
+# ---------------------------------------------------------
+
+def build_listing_profitability_report(
+    profitability_all: pd.DataFrame,
+    etsy_listings: pd.DataFrame,
+):
+    """
+    Roll variant-level profitability up to one row per Etsy
+    listing.
+
+    A listing is considered underpriced if ANY matched variant
+    is below the 15% target.
+
+    For the 15% target price, we calculate:
+
+        Price - product cost - shipping
+        - transaction fee
+        - payment fee
+        = 15% of Price
+
+    Therefore:
+
+        required price =
+        (product cost + shipping + $0.25)
+        / (1 - .065 - .03 - .15)
+
+    The listing's required price is the highest required price
+    among its matched variants.
+    """
+
+    # -----------------------------------------------------
+    # TARGET PRICE CALCULATION
+    # -----------------------------------------------------
+
+    if not profitability_all.empty:
+
+        profit = profitability_all.copy()
+
+        denominator = (
+            1.0
+            - ETSY_TRANSACTION_RATE
+            - ETSY_PAYMENT_RATE
+            - LOW_PROFIT_THRESHOLD / 100.0
+        )
+
+        product_cost = pd.to_numeric(
+            profit["printify_cost_for_profit"],
+            errors="coerce",
+        )
+
+        shipping_cost = pd.to_numeric(
+            profit["printify_shipping_for_profit"],
+            errors="coerce",
+        )
+
+        base_cost = (
+            product_cost
+            + shipping_cost
+            + ETSY_PAYMENT_FIXED_FEE
+        )
+
+        profit[
+            "minimum_price_for_15pct_margin_variant"
+        ] = base_cost / denominator
+
+        # Round UP to the nearest cent so the calculated price
+        # does not fall just below the 15% target because of
+        # rounding.
+        profit[
+            "minimum_price_for_15pct_margin_variant"
+        ] = profit[
+            "minimum_price_for_15pct_margin_variant"
+        ].apply(
+            lambda value:
+                math.ceil(value * 100 - 1e-9) / 100
+                if pd.notna(value)
+                else pd.NA
+        )
+
+        # -------------------------------------------------
+        # SUMMARIZE EACH LISTING
+        # -------------------------------------------------
+
+        def summarize_listing(group):
+
+            margins = pd.to_numeric(
+                group["estimated_net_margin_pct"],
+                errors="coerce",
+            ).dropna()
+
+            profits = pd.to_numeric(
+                group["estimated_net_profit"],
+                errors="coerce",
+            ).dropna()
+
+            prices = pd.to_numeric(
+                group["etsy_price_for_profit"],
+                errors="coerce",
+            ).dropna()
+
+            target_prices = pd.to_numeric(
+                group[
+                    "minimum_price_for_15pct_margin_variant"
+                ],
+                errors="coerce",
+            ).dropna()
+
+            if margins.empty:
+                worst_margin = None
+                best_margin = None
+            else:
+                worst_margin = float(margins.min())
+                best_margin = float(margins.max())
+
+            worst_profit = (
+                float(profits.min())
+                if not profits.empty
+                else None
+            )
+
+            current_price_min = (
+                float(prices.min())
+                if not prices.empty
+                else None
+            )
+
+            current_price_max = (
+                float(prices.max())
+                if not prices.empty
+                else None
+            )
+
+            minimum_price = (
+                float(target_prices.max())
+                if not target_prices.empty
+                else None
+            )
+
+            if worst_margin is None:
+                status = "NOT_CALCULABLE"
+
+            elif worst_margin < 0:
+                status = "LOSS"
+
+            elif worst_margin < 10:
+                status = "UNDER_10%"
+
+            elif worst_margin < LOW_PROFIT_THRESHOLD:
+                status = "10_TO_14.99%"
+
+            else:
+                status = "15%+"
+
+            return pd.Series(
+                {
+                    "matched_variant_count": len(group),
+
+                    "current_price_min":
+                        current_price_min,
+
+                    "current_price_max":
+                        current_price_max,
+
+                    "worst_net_profit":
+                        worst_profit,
+
+                    "worst_net_margin_pct":
+                        worst_margin,
+
+                    "best_net_margin_pct":
+                        best_margin,
+
+                    "minimum_price_for_15pct_margin":
+                        minimum_price,
+
+                    "status":
+                        status,
+                }
+            )
+
+        listing_profitability = (
+            profit.groupby(
+                [
+                    "etsy_listing_id",
+                    "etsy_title",
+                ],
+                dropna=False,
+                as_index=False,
+            )
+            .apply(
+                summarize_listing,
+                include_groups=False,
+            )
+            .reset_index(drop=True)
+        )
+
+    else:
+
+        listing_profitability = pd.DataFrame(
+            columns=[
+                "etsy_listing_id",
+                "etsy_title",
+                "matched_variant_count",
+                "current_price_min",
+                "current_price_max",
+                "worst_net_profit",
+                "worst_net_margin_pct",
+                "best_net_margin_pct",
+                "minimum_price_for_15pct_margin",
+                "status",
+            ]
+        )
+
+    # -----------------------------------------------------
+    # START WITH ALL ETSY LISTINGS
+    # -----------------------------------------------------
+
+    base = etsy_listings[
+        [
+            "etsy_listing_key",
+            "title",
+            "price",
+        ]
+    ].copy()
+
+    base = base.rename(
+        columns={
+            "etsy_listing_key":
+                "etsy_listing_id",
+
+            "title":
+                "etsy_title",
+
+            "price":
+                "current_etsy_price",
+        }
+    )
+
+    base["etsy_listing_id"] = (
+        base["etsy_listing_id"]
+        .astype(str)
+    )
+
+    if listing_profitability.empty:
+
+        report = base.copy()
+
+        for column in [
+            "matched_variant_count",
+            "current_price_min",
+            "current_price_max",
+            "worst_net_profit",
+            "worst_net_margin_pct",
+            "best_net_margin_pct",
+            "minimum_price_for_15pct_margin",
+        ]:
+            report[column] = pd.NA
+
+        report["status"] = "NOT_CALCULABLE"
+
+    else:
+
+        listing_profitability[
+            "etsy_listing_id"
+        ] = (
+            listing_profitability[
+                "etsy_listing_id"
+            ]
+            .astype(str)
+        )
+
+        # The title from base is the authoritative Etsy title.
+        listing_data = listing_profitability.drop(
+            columns=["etsy_title"],
+            errors="ignore",
+        )
+
+        report = base.merge(
+            listing_data,
+            on="etsy_listing_id",
+            how="left",
+        )
+
+        report["status"] = report[
+            "status"
+        ].fillna("NOT_CALCULABLE")
+
+    # -----------------------------------------------------
+    # PRICE INCREASE NEEDED
+    # -----------------------------------------------------
+
+    report["current_etsy_price"] = pd.to_numeric(
+        report["current_etsy_price"],
+        errors="coerce",
+    )
+
+    report[
+        "minimum_price_for_15pct_margin"
+    ] = pd.to_numeric(
+        report[
+            "minimum_price_for_15pct_margin"
+        ],
+        errors="coerce",
+    )
+
+    report["price_increase_needed"] = (
+        report[
+            "minimum_price_for_15pct_margin"
+        ]
+        - report["current_etsy_price"]
+    )
+
+    report.loc[
+        report["price_increase_needed"] < 0,
+        "price_increase_needed",
+    ] = 0.0
+
+    # -----------------------------------------------------
+    # FINAL COLUMN ORDER
+    # -----------------------------------------------------
+
+    report = report[
+        [
+            "etsy_listing_id",
+            "etsy_title",
+            "current_etsy_price",
+
+            "matched_variant_count",
+
+            "current_price_min",
+            "current_price_max",
+
+            "worst_net_profit",
+            "worst_net_margin_pct",
+            "best_net_margin_pct",
+
+            "minimum_price_for_15pct_margin",
+            "price_increase_needed",
+
+            "status",
+        ]
+    ]
+
+    # -----------------------------------------------------
+    # SORT
+    # -----------------------------------------------------
+
+    status_order = {
+        "LOSS": 0,
+        "UNDER_10%": 1,
+        "10_TO_14.99%": 2,
+        "15%+": 3,
+        "NOT_CALCULABLE": 4,
+    }
+
+    report["_sort"] = (
+        report["status"]
+        .map(status_order)
+        .fillna(9)
+    )
+
+    report = report.sort_values(
+        [
+            "_sort",
+            "worst_net_margin_pct",
+        ],
+        ascending=[
+            True,
+            True,
+        ],
+        na_position="last",
+    )
+
+    report = report.drop(
+        columns=["_sort"]
+    )
+
+    # Only listings actually below 15%.
+    low_profit_listings = report[
+        report["status"].isin(
+            [
+                "LOSS",
+                "UNDER_10%",
+                "10_TO_14.99%",
+            ]
+        )
+    ].copy()
+
+    return (
+        report,
+        low_profit_listings,
+    )
+
+
+# ---------------------------------------------------------
+# MAIN
+# ---------------------------------------------------------
+
 def main():
-    ts = datetime.now(timezone.utc).isoformat()
+
+    ts = datetime.now(
+        timezone.utc
+    ).isoformat()
 
     # -----------------------------------------------------
     # READ ETSY DATA
     # -----------------------------------------------------
 
-    etsy_df = read_etsy_csv(ETSY_CSV)
+    etsy_df = read_etsy_csv(
+        ETSY_CSV
+    )
 
-    etsy_listings, etsy_variants = build_etsy_tables(
-        etsy_df
+    etsy_listings, etsy_variants = (
+        build_etsy_tables(
+            etsy_df
+        )
     )
 
     etsy_rows = etsy_variants.merge(
@@ -240,11 +674,20 @@ def main():
 
     etsy_rows = etsy_rows.rename(
         columns={
-            "etsy_source_row": "etsy_row_number",
-            "etsy_listing_key": "etsy_listing_id",
-            "title": "etsy_title",
-            "price": "etsy_price",
-            "quantity": "etsy_quantity",
+            "etsy_source_row":
+                "etsy_row_number",
+
+            "etsy_listing_key":
+                "etsy_listing_id",
+
+            "title":
+                "etsy_title",
+
+            "price":
+                "etsy_price",
+
+            "quantity":
+                "etsy_quantity",
         }
     )
 
@@ -271,8 +714,10 @@ def main():
 
     shop_id = client.get_shop_id()
 
-    printify_rows = client.export_variant_rows(
-        shop_id
+    printify_rows = (
+        client.export_variant_rows(
+            shop_id
+        )
     )
 
     # -----------------------------------------------------
@@ -331,7 +776,7 @@ def main():
     )
 
     # -----------------------------------------------------
-    # NEW PROFITABILITY REPORT
+    # VARIANT-LEVEL PROFITABILITY
     # -----------------------------------------------------
 
     (
@@ -354,37 +799,71 @@ def main():
     )
 
     # -----------------------------------------------------
+    # LISTING-LEVEL PROFITABILITY
+    # -----------------------------------------------------
+
+    (
+        listing_profitability,
+        low_profit_listings,
+    ) = build_listing_profitability_report(
+        profitability_all,
+        etsy_listings,
+    )
+
+    listing_profitability.to_csv(
+        OUTPUT_DIR
+        / "listing_profitability.csv",
+        index=False,
+    )
+
+    low_profit_listings.to_csv(
+        OUTPUT_DIR
+        / "low_profit_listings.csv",
+        index=False,
+    )
+
+    # -----------------------------------------------------
     # COUNTS
     # -----------------------------------------------------
 
     status_counts = (
-        comparison["match_status"].value_counts()
+        comparison[
+            "match_status"
+        ].value_counts()
         if not comparison.empty
         else {}
     )
 
     listing_counts = (
-        listing_summary["listing_status"].value_counts()
+        listing_summary[
+            "listing_status"
+        ].value_counts()
         if not listing_summary.empty
         else {}
     )
 
-    # Products for which we have enough information to
-    # calculate profitability.
-    profit_calculable = profitability_all[
+    profit_calculable = (
         profitability_all[
-            "profitability_status"
-        ].isin(
-            [
-                "OK",
-                "LOW_PROFIT",
-            ]
-        )
-    ]
+            profitability_all[
+                "profitability_status"
+            ].isin(
+                [
+                    "OK",
+                    "LOW_PROFIT",
+                ]
+            )
+        ]
+        if not profitability_all.empty
+        else pd.DataFrame()
+    )
 
-    low_profit_count = len(low_profit)
+    calculable_count = len(
+        profit_calculable
+    )
 
-    calculable_count = len(profit_calculable)
+    low_profit_count = len(
+        low_profit
+    )
 
     low_profit_percentage = (
         low_profit_count
@@ -394,18 +873,57 @@ def main():
         else 0
     )
 
+    listing_calculable = listing_profitability[
+        listing_profitability[
+            "status"
+        ].isin(
+            [
+                "LOSS",
+                "UNDER_10%",
+                "10_TO_14.99%",
+                "15%+",
+            ]
+        )
+    ]
+
+    listing_low_profit_count = len(
+        low_profit_listings
+    )
+
+    listing_calculable_count = len(
+        listing_calculable
+    )
+
+    listing_low_profit_percentage = (
+        listing_low_profit_count
+        / listing_calculable_count
+        * 100
+        if listing_calculable_count
+        else 0
+    )
+
     # -----------------------------------------------------
     # SYNC SUMMARY
     # -----------------------------------------------------
 
     lines = [
         "ETSY ↔ PRINTIFY SYNC SUMMARY",
+
         f"Run UTC: {ts}",
+
         "",
-        f"Etsy listings: {len(etsy_listings):,}",
-        f"Etsy SKU rows: {len(etsy_rows):,}",
-        f"Printify variants: {len(printify_rows):,}",
+
+        f"Etsy listings: "
+        f"{len(etsy_listings):,}",
+
+        f"Etsy SKU rows: "
+        f"{len(etsy_rows):,}",
+
+        f"Printify variants: "
+        f"{len(printify_rows):,}",
+
         "",
+
         "SKU STATUS",
     ]
 
@@ -418,6 +936,7 @@ def main():
         "DUPLICATE_ETSY_SKU",
         "DUPLICATE_PRINTIFY_SKU",
     ]:
+
         lines.append(
             f"{status}: "
             f"{int(status_counts.get(status, 0)):,}"
@@ -425,6 +944,7 @@ def main():
 
     lines += [
         "",
+
         "LISTING STATUS",
     ]
 
@@ -437,6 +957,7 @@ def main():
         "NEEDS_REVIEW",
         "NO_REAL_SKUS",
     ]:
+
         lines.append(
             f"{status}: "
             f"{int(listing_counts.get(status, 0)):,}"
@@ -444,32 +965,69 @@ def main():
 
     lines += [
         "",
+
         "PROFITABILITY",
+
         f"Profitability threshold: "
         f"{LOW_PROFIT_THRESHOLD:.0f}%",
-        "Printify shipping: U.S. first-item shipping",
-        "Customer shipping charged: $0.00",
-        "Etsy transaction fee: 6.5%",
-        "Etsy payment processing: 3% + $0.25",
+
+        "Printify shipping: "
+        "U.S. first-item shipping",
+
+        "Customer shipping charged: "
+        "$0.00",
+
+        "Etsy transaction fee: "
+        "6.5%",
+
+        "Etsy payment processing: "
+        "3% + $0.25",
+
         "Offsite Ads: EXCLUDED",
-        "Etsy listing fee: EXCLUDED from per-sale calculation",
+
+        "Etsy listing fee: "
+        "EXCLUDED from per-sale calculation",
+
         "",
+
         f"Matched products with calculable profit: "
         f"{calculable_count:,}",
-        f"Products below {LOW_PROFIT_THRESHOLD:.0f}% margin: "
+
+        f"Products below "
+        f"{LOW_PROFIT_THRESHOLD:.0f}% margin: "
         f"{low_profit_count:,}",
+
         f"Percent below threshold: "
         f"{low_profit_percentage:.1f}%",
+
         "",
+
+        "LISTING-LEVEL PROFITABILITY",
+
+        f"Etsy listings analyzed: "
+        f"{listing_calculable_count:,}",
+
+        f"Etsy listings below "
+        f"{LOW_PROFIT_THRESHOLD:.0f}%: "
+        f"{listing_low_profit_count:,}",
+
+        f"Percent of calculable listings below threshold: "
+        f"{listing_low_profit_percentage:.1f}%",
+
+        "",
+
         "ETSY_ONLY means the Etsy SKU is not currently found in Printify.",
-        "Etsy-only SKUs are informational and are not treated as profitability problems.",
-        "Profitability requires a matched Printify SKU and available U.S. shipping data.",
+
+        "Profitability requires a matched Printify SKU "
+        "and available U.S. shipping data.",
     ]
 
     (
-        OUTPUT_DIR / "sync_summary.txt"
+        OUTPUT_DIR
+        / "sync_summary.txt"
     ).write_text(
-        "\n".join(lines) + "\n",
+        "\n".join(lines)
+        + "\n",
         encoding="utf-8",
     )
 
@@ -478,34 +1036,141 @@ def main():
     # -----------------------------------------------------
 
     profitability_lines = [
+
         "LOW PROFITABILITY SUMMARY",
+
         f"Run UTC: {ts}",
+
         "",
+
         f"Profitability threshold: "
         f"{LOW_PROFIT_THRESHOLD:.0f}%",
+
         "",
+
+        "VARIANT LEVEL",
+
         f"Matched products with calculable profit: "
         f"{calculable_count:,}",
-        f"Products below {LOW_PROFIT_THRESHOLD:.0f}%: "
+
+        f"Products below "
+        f"{LOW_PROFIT_THRESHOLD:.0f}%: "
         f"{low_profit_count:,}",
+
         f"Percent below threshold: "
         f"{low_profit_percentage:.1f}%",
+
         "",
+
+        "LISTING LEVEL",
+
+        f"Etsy listings with calculable profitability: "
+        f"{listing_calculable_count:,}",
+
+        f"Etsy listings below "
+        f"{LOW_PROFIT_THRESHOLD:.0f}%: "
+        f"{listing_low_profit_count:,}",
+
+        f"Percent of calculable listings below threshold: "
+        f"{listing_low_profit_percentage:.1f}%",
+
+        "",
+
         "ASSUMPTIONS",
+
         "Customer pays $0 shipping.",
+
         "Seller pays Printify U.S. first-item shipping.",
+
         "Etsy transaction fee: 6.5%.",
+
         "Etsy payment processing: 3% + $0.25.",
+
         "Offsite Ads excluded.",
+
         "Etsy listing fee excluded from per-sale calculation.",
+
         "",
-        "See low_profit_products.csv for the products below the threshold.",
+
+        "See low_profit_products.csv for variant-level results.",
+
+        "See listing_profitability.csv for one row per Etsy listing.",
+
+        "See low_profit_listings.csv for listings requiring pricing attention.",
     ]
 
     (
-        OUTPUT_DIR / "profitability_summary.txt"
+        OUTPUT_DIR
+        / "profitability_summary.txt"
     ).write_text(
-        "\n".join(profitability_lines) + "\n",
+        "\n".join(profitability_lines)
+        + "\n",
+        encoding="utf-8",
+    )
+
+    # -----------------------------------------------------
+    # LISTING PROFITABILITY SUMMARY
+    # -----------------------------------------------------
+
+    listing_summary_lines = [
+
+        "LISTING PROFITABILITY SUMMARY",
+
+        f"Run UTC: {ts}",
+
+        "",
+
+        f"Total Etsy listings: "
+        f"{len(etsy_listings):,}",
+
+        f"Listings with calculable profitability: "
+        f"{listing_calculable_count:,}",
+
+        f"Listings below 15%: "
+        f"{listing_low_profit_count:,}",
+
+        "",
+
+        "STATUS BREAKDOWN",
+
+        f"LOSS: "
+        f"{int((listing_profitability['status'] == 'LOSS').sum()):,}",
+
+        f"UNDER_10%: "
+        f"{int((listing_profitability['status'] == 'UNDER_10%').sum()):,}",
+
+        f"10_TO_14.99%: "
+        f"{int((listing_profitability['status'] == '10_TO_14.99%').sum()):,}",
+
+        f"15%+: "
+        f"{int((listing_profitability['status'] == '15%+').sum()):,}",
+
+        f"NOT_CALCULABLE: "
+        f"{int((listing_profitability['status'] == 'NOT_CALCULABLE').sum()):,}",
+
+        "",
+
+        "The listing status uses the worst matched variant in each Etsy listing.",
+
+        "The minimum 15% price is the highest price required by any matched variant in the listing.",
+
+        "Offsite Ads are excluded.",
+
+        "Etsy listing fees are excluded.",
+
+        "Customer shipping is assumed to be $0.",
+
+        "Seller pays Printify U.S. first-item shipping.",
+    ]
+
+    (
+        OUTPUT_DIR
+        / "listing_profitability_summary.txt"
+    ).write_text(
+        "\n".join(
+            listing_summary_lines
+        )
+        + "\n",
         encoding="utf-8",
     )
 
@@ -564,7 +1229,9 @@ def main():
     matched_count = (
         int(
             (
-                comparison["match_status"]
+                comparison[
+                    "match_status"
+                ]
                 == "MATCHED"
             ).sum()
         )
@@ -589,31 +1256,51 @@ def main():
     # -----------------------------------------------------
 
     print("")
+
     print("Sync complete.")
+
     print(
         f"Matched: "
         f"{int(status_counts.get('MATCHED', 0)):,}"
     )
+
     print(
         f"Etsy-only: "
         f"{int(status_counts.get('ETSY_ONLY', 0)):,}"
     )
+
     print(
         f"Needs attention: "
         f"{len(attention):,}"
     )
+
     print(
         f"Printify-only: "
         f"{len(printify_only):,}"
     )
+
     print("")
+
     print(
         f"Profitability products analyzed: "
         f"{calculable_count:,}"
     )
+
     print(
         f"Products below 15% margin: "
         f"{low_profit_count:,}"
+    )
+
+    print("")
+
+    print(
+        f"Etsy listings analyzed: "
+        f"{listing_calculable_count:,}"
+    )
+
+    print(
+        f"Etsy listings below 15%: "
+        f"{listing_low_profit_count:,}"
     )
 
 
