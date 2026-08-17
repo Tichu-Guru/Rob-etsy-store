@@ -199,6 +199,11 @@ class PrintifyClient:
 
         shipping_by_variant: dict[str, float] = {}
 
+                print(
+            f"SHIPPING DIAGNOSTIC: "
+            f"blueprint={blueprint_id}, "
+            f"provider={print_provider_id}"
+        )
         # -----------------------------------------------------
         # PRIMARY SOURCE:
         # Printify V2 STANDARD shipping endpoint
@@ -209,7 +214,18 @@ class PrintifyClient:
                 f"print_providers/{print_provider_id}/"
                 f"shipping/standard.json"
             )
-
+            
+            print(
+                "SHIPPING V2 RESPONSE:"
+            )
+            print(
+                json.dumps(
+                    data,
+                    indent=2,
+                    ensure_ascii=False,
+                    default=str,
+                )
+            )
             records = (
                 data.get("data", [])
                 if isinstance(data, dict)
