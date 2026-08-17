@@ -217,7 +217,7 @@ def build_comparison(etsy_rows, printify_rows):
     attention = comp[
         comp["match_status"].isin(
             [
-                "ETSY_ONLY",
+            
                 "MISSING_SKU",
                 "DUPLICATE_PRINTIFY_SKU",
             ]
