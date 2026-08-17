@@ -242,6 +242,7 @@ def build_profitability_report(
 # ---------------------------------------------------------
 # LISTING-LEVEL PROFITABILITY
 # ---------------------------------------------------------
+
 def build_listing_profitability_report(
     profitability_all: pd.DataFrame,
     etsy_listings: pd.DataFrame,
@@ -344,6 +345,7 @@ def build_listing_profitability_report(
                 under_10_count = 0
                 ten_to_fifteen_count = 0
                 at_or_above_15_count = 0
+
             else:
                 worst_margin = float(margins.min())
                 best_margin = float(margins.max())
@@ -566,6 +568,7 @@ def build_listing_profitability_report(
             report[column] = pd.NA
 
         report["status"] = "NOT_CALCULABLE"
+
         report["recommended_action"] = (
             "NO_PROFITABILITY_DATA"
         )
@@ -725,7 +728,6 @@ def build_listing_profitability_report(
         report,
         low_profit_listings,
     )
-
 
 
 # ---------------------------------------------------------
@@ -966,15 +968,19 @@ def main():
         else 0
     )
 
+    # -----------------------------------------------------
+    # CORRECTED LISTING-LEVEL STATUS NAMES
+    # -----------------------------------------------------
+
     listing_calculable = listing_profitability[
         listing_profitability[
             "status"
         ].isin(
             [
-                "LOSS",
-                "UNDER_10%",
-                "10_TO_14.99%",
-                "15%+",
+                "HAS_LOSS_VARIANT",
+                "HAS_UNDER_10_VARIANT",
+                "HAS_10_TO_14.99_VARIANT",
+                "ALL_VARIANTS_15%+",
             ]
         )
     ]
@@ -1226,17 +1232,18 @@ def main():
 
         "STATUS BREAKDOWN",
 
-        f"LOSS: "
-        f"{int((listing_profitability['status'] == 'LOSS').sum()):,}",
+        # CORRECTED STATUS NAMES
+        f"LISTINGS WITH LOSS VARIANT: "
+        f"{int((listing_profitability['status'] == 'HAS_LOSS_VARIANT').sum()):,}",
 
-        f"UNDER_10%: "
-        f"{int((listing_profitability['status'] == 'UNDER_10%').sum()):,}",
+        f"LISTINGS WITH UNDER 10% VARIANT: "
+        f"{int((listing_profitability['status'] == 'HAS_UNDER_10_VARIANT').sum()):,}",
 
-        f"10_TO_14.99%: "
-        f"{int((listing_profitability['status'] == '10_TO_14.99%').sum()):,}",
+        f"LISTINGS WITH 10–14.99% VARIANT: "
+        f"{int((listing_profitability['status'] == 'HAS_10_TO_14.99_VARIANT').sum()):,}",
 
-        f"15%+: "
-        f"{int((listing_profitability['status'] == '15%+').sum()):,}",
+        f"LISTINGS WITH ALL VARIANTS AT 15%+: "
+        f"{int((listing_profitability['status'] == 'ALL_VARIANTS_15%+').sum()):,}",
 
         f"NOT_CALCULABLE: "
         f"{int((listing_profitability['status'] == 'NOT_CALCULABLE').sum()):,}",
