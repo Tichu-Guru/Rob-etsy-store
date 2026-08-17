@@ -58,13 +58,22 @@ class PrintifyClient:
 
     def get_shipping_profiles(self, blueprint_id: Any, print_provider_id: Any):
         if not blueprint_id or not print_provider_id:
-            return []
+            return {}
 
         data = self.get(
-            f"/catalog/blueprints/{blueprint_id}/print_providers/{print_provider_id}/shipping.json"
+            f"/v2/catalog/blueprints/{blueprint_id}/print_providers/{print_provider_id}/shipping/standard.json"
         )
 
-        return data.get("profiles", []) if isinstance(data, dict) else []
+        shipping = {}
+
+        for item in data.get("data", []) if isinstance(data, dict) else []:
+            attributes = item.get("attributes", {})
+            variant_id = attributes.get("variantId")
+
+            if variant_id is not None:
+                shipping[str(variant_id)] = attributes
+
+        return shipping
 
     def export_variant_rows(self, shop_id: str):
         rows = []
