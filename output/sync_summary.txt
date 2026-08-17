@@ -1,5 +1,5 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-17T20:40:47.252333+00:00
+Run UTC: 2026-08-17T20:50:32.295096+00:00
 
 Etsy listings: 167
 Etsy SKU rows: 4,062
@@ -36,6 +36,10 @@ Matched products with calculable profit: 3,697
 Products below 15% margin: 2,299
 Percent below threshold: 62.2%
 
+LISTING-LEVEL PROFITABILITY
+Etsy listings analyzed: 136
+Etsy listings below 15%: 126
+Percent of calculable listings below threshold: 92.6%
+
 ETSY_ONLY means the Etsy SKU is not currently found in Printify.
-Etsy-only SKUs are informational and are not treated as profitability problems.
 Profitability requires a matched Printify SKU and available U.S. shipping data.
