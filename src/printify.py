@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import time
 from typing import Any
 
@@ -30,11 +31,14 @@ class PrintifyClient:
         self,
         path: str,
         params: dict[str, Any] | None = None,
+        base_url: str | None = None,
     ) -> Any:
+        url = f"{base_url or PRINTIFY_BASE_URL}{path}"
+
         for attempt in range(4):
             try:
                 r = self.session.get(
-                    f"{PRINTIFY_BASE_URL}{path}",
+                    url,
                     params=params,
                     timeout=REQUEST_TIMEOUT,
                 )
@@ -125,55 +129,70 @@ class PrintifyClient:
         print_provider_id: Any,
     ):
         """
-        Get U.S. first-item shipping costs for all variants
-        of a Printify blueprint/print-provider combination.
+        Get U.S. STANDARD first-item shipping costs
+        for each variant of a blueprint/print-provider.
 
         Returns:
             {
                 "variant_id": shipping_cost_in_dollars
             }
+
+        Printify V2 returns shipping amounts in cents.
+        Example: 399 = $3.99.
         """
 
         if not blueprint_id or not print_provider_id:
             return {}
 
+        # PRINTIFY_BASE_URL normally points to /v1.
+        # Use the corresponding V2 API base URL.
+        v2_base_url = PRINTIFY_BASE_URL.replace(
+            "/v1",
+            "/v2",
+        )
+
         try:
             data = self.get(
                 f"/catalog/blueprints/{blueprint_id}/"
-                f"print_providers/{print_provider_id}/shipping.json"
+                f"print_providers/{print_provider_id}/"
+                f"shipping/standard.json",
+                base_url=v2_base_url,
             )
         except requests.HTTPError:
-            # Some older/retired blueprint/provider combinations
-            # may no longer have shipping information.
-            # Do not allow one bad combination to stop the sync.
+            # If a blueprint/provider combination is retired
+            # or unavailable, don't stop the entire sync.
             return {}
 
-        profiles = (
-            data.get("profiles", [])
+        shipping_by_variant = {}
+
+        records = (
+            data.get("data", [])
             if isinstance(data, dict)
             else []
         )
 
-        shipping_by_variant = {}
+        for record in records:
+            attributes = record.get("attributes", {}) or {}
 
-        for profile in profiles:
-            countries = profile.get("countries", []) or []
+            variant_id = attributes.get("variantId")
 
-            # We are assuming the customer is in the United States.
-            if "US" not in countries:
+            if variant_id is None:
                 continue
 
-            first_item = profile.get("first_item", {}) or {}
-            cost = first_item.get("cost")
+            shipping_cost = (
+                attributes
+                .get("shippingCost", {})
+                .get("firstItem", {})
+                .get("amount")
+            )
 
-            if cost is None:
+            if shipping_cost is None:
                 continue
 
             # Printify returns shipping in cents.
-            shipping_cost = float(cost) / 100.0
-
-            for variant_id in profile.get("variant_ids", []) or []:
-                shipping_by_variant[str(variant_id)] = shipping_cost
+            shipping_by_variant[str(variant_id)] = (
+                float(shipping_cost) / 100.0
+            )
 
         return shipping_by_variant
 
@@ -183,7 +202,9 @@ class PrintifyClient:
 
         for product in self.get_all_products(shop_id):
             blueprint_id = product.get("blueprint_id")
-            print_provider_id = product.get("print_provider_id")
+            print_provider_id = product.get(
+                "print_provider_id"
+            )
 
             cache_key = (
                 str(blueprint_id),
@@ -209,7 +230,9 @@ class PrintifyClient:
                         "printify_title": product.get("title"),
                         "printify_variant_id": variant_id,
                         "printify_sku": variant.get("sku"),
-                        "printify_variant_title": variant.get("title"),
+                        "printify_variant_title": variant.get(
+                            "title"
+                        ),
                         "printify_price": variant.get("price"),
                         "printify_cost": variant.get("cost"),
                         "printify_enabled": variant.get(
@@ -238,8 +261,6 @@ class PrintifyClient:
 
 
 def json_safe(value):
-    import json
-
     return json.dumps(
         value,
         ensure_ascii=False,
