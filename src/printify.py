@@ -23,23 +23,9 @@ class PrintifyClient:
             raise RuntimeError("PRINTIFY_API_TOKEN is not set.")
 
         self.session = requests.Session()
-
         self.session.headers.update(
-            {
-                "Authorization": f"Bearer {token}",
-                "User-Agent": "Rob-etsy-store/1.0",
-            }
+            {"Authorization": f"Bearer {token}"}
         )
-
-        # PRINTIFY_BASE_URL is normally:
-        # https://api.printify.com/v1
-        #
-        # We derive the API root so that we can also use the
-        # current V2 catalog shipping endpoint.
-        self.api_root = PRINTIFY_BASE_URL.rstrip("/")
-
-        if self.api_root.endswith("/v1"):
-            self.api_root = self.api_root[:-3].rstrip("/")
 
     def get(
         self,
@@ -49,7 +35,7 @@ class PrintifyClient:
         for attempt in range(4):
             try:
                 r = self.session.get(
-                    f"{PRINTIFY_BASE_URL.rstrip('/')}/{path.lstrip('/')}",
+                    f"{PRINTIFY_BASE_URL}{path}",
                     params=params,
                     timeout=REQUEST_TIMEOUT,
                 )
@@ -77,16 +63,26 @@ class PrintifyClient:
         params: dict[str, Any] | None = None,
     ) -> Any:
         """
-        GET request against Printify's V2 API.
+        Make a request to the Printify V2 API.
 
-        PRINTIFY_BASE_URL points to /v1, so this method builds
-        the V2 URL from the API root.
+        PRINTIFY_BASE_URL normally points to:
+            https://api.printify.com/v1
+
+        The V2 API uses:
+            https://api.printify.com/v2
         """
+
+        base_url = PRINTIFY_BASE_URL.rstrip("/")
+
+        if base_url.endswith("/v1"):
+            base_url = base_url[:-3] + "/v2"
+        else:
+            base_url = base_url.replace("/v1/", "/v2/")
 
         for attempt in range(4):
             try:
                 r = self.session.get(
-                    f"{self.api_root}/v2/{path.lstrip('/')}",
+                    f"{base_url}{path}",
                     params=params,
                     timeout=REQUEST_TIMEOUT,
                 )
@@ -179,176 +175,145 @@ class PrintifyClient:
         print_provider_id: Any,
     ):
         """
-        Get U.S. first-item STANDARD shipping costs for all
-        variants of a Printify blueprint/print-provider pair.
+        Get U.S. standard first-item shipping costs for all
+        variants of a Printify blueprint/print-provider combination.
+
+        Printify V2 returns shipping records in this form:
+
+        {
+            "data": [
+                {
+                    "type": "...",
+                    "id": "...",
+                    "attributes": {
+                        "shippingType": "standard",
+                        "country": {
+                            "code": "US"
+                        },
+                        "variantId": 123,
+                        "shippingCost": {
+                            "firstItem": {
+                                "amount": 399,
+                                "currency": "USD"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+
+        Amounts are in cents, so 399 becomes $3.99.
 
         Returns:
             {
                 "variant_id": shipping_cost_in_dollars
             }
-
-        The current Printify V2 catalog endpoint returns the
-        first-item shipping amount in cents. For example:
-
-            758 -> $7.58
-            450 -> $4.50
         """
 
         if not blueprint_id or not print_provider_id:
             return {}
 
-        shipping_by_variant: dict[str, float] = {}
-
-                print(
+        print(
             f"SHIPPING DIAGNOSTIC: "
             f"blueprint={blueprint_id}, "
             f"provider={print_provider_id}"
         )
-        # -----------------------------------------------------
-        # PRIMARY SOURCE:
-        # Printify V2 STANDARD shipping endpoint
-        # -----------------------------------------------------
+
         try:
-                     data = self.get_v2(
+            data = self.get_v2(
                 f"/catalog/blueprints/{blueprint_id}/"
                 f"print_providers/{print_provider_id}/"
                 f"shipping/standard.json"
             )
 
-                print(
-                    "SHIPPING V2 RESPONSE:"
-                )
-                print(
-                    json.dumps(
-                        data,
-                        indent=2,
-                        ensure_ascii=False,
-                        default=str,
-                    )
-                )  
-            records = (
-                data.get("data", [])
-                if isinstance(data, dict)
-                else []
+        except Exception as e:
+            print(
+                f"SHIPPING V2 ERROR: "
+                f"blueprint={blueprint_id}, "
+                f"provider={print_provider_id}, "
+                f"error={e}"
             )
 
-            for record in records:
-                if not isinstance(record, dict):
-                    continue
+            return {}
 
-                attributes = record.get(
-                    "attributes",
-                    {},
-                ) or {}
+        print("SHIPPING V2 RESPONSE:")
+        print(
+            json.dumps(
+                data,
+                indent=2,
+                ensure_ascii=False,
+                default=str,
+            )
+        )
 
-                country = attributes.get(
-                    "country",
-                    {},
-                ) or {}
+        shipping_by_variant = {}
 
-                country_code = country.get("code")
+        if not isinstance(data, dict):
+            return shipping_by_variant
 
-                # We only want the U.S. shipping profile.
-                if country_code != "US":
-                    continue
+        records = data.get("data", [])
 
-                variant_id = attributes.get("variantId")
+        if not isinstance(records, list):
+            return shipping_by_variant
 
-                shipping_cost = (
-                    attributes.get("shippingCost", {})
-                    or {}
-                )
+        for record in records:
+            if not isinstance(record, dict):
+                continue
 
-                first_item = (
-                    shipping_cost.get("firstItem", {})
-                    or {}
-                )
+            attributes = record.get("attributes", {})
 
-                amount = first_item.get("amount")
+            if not isinstance(attributes, dict):
+                continue
 
-                if variant_id is None or amount is None:
-                    continue
+            country = attributes.get("country", {})
 
-                currency = first_item.get(
-                    "currency",
-                    "USD",
-                )
+            if not isinstance(country, dict):
+                continue
 
-                if currency != "USD":
-                    continue
+            country_code = country.get("code")
 
-                # Printify returns cents.
+            # We only want U.S. shipping.
+            if country_code != "US":
+                continue
+
+            variant_id = attributes.get("variantId")
+
+            if variant_id is None:
+                continue
+
+            shipping_cost = attributes.get(
+                "shippingCost",
+                {},
+            )
+
+            if not isinstance(shipping_cost, dict):
+                continue
+
+            first_item = shipping_cost.get(
+                "firstItem",
+                {},
+            )
+
+            if not isinstance(first_item, dict):
+                continue
+
+            amount = first_item.get("amount")
+
+            if amount is None:
+                continue
+
+            try:
                 shipping_by_variant[str(variant_id)] = (
                     float(amount) / 100.0
                 )
 
-            # If V2 gave us shipping data, use it.
-            if shipping_by_variant:
-                return shipping_by_variant
+            except (TypeError, ValueError):
+                continue
 
-        except requests.RequestException:
-            # Fall through to the legacy V1 endpoint.
-            pass
-
-        # -----------------------------------------------------
-        # FALLBACK:
-        # Legacy V1 shipping endpoint
-        #
-        # This is retained for older/retired combinations where
-        # V2 may not return data.
-        # -----------------------------------------------------
-        try:
-            data = self.get(
-                f"/catalog/blueprints/{blueprint_id}/"
-                f"print_providers/{print_provider_id}/"
-                f"shipping.json"
-            )
-        except requests.RequestException:
-            return {}
-
-        profiles = (
-            data.get("profiles", [])
-            if isinstance(data, dict)
-            else []
+        print(
+            f"SHIPPING PARSED: "
+            f"{len(shipping_by_variant)} variants"
         )
-
-        for profile in profiles:
-            countries = (
-                profile.get("countries", [])
-                or []
-            )
-
-            if "US" not in countries:
-                continue
-
-            first_item = (
-                profile.get("first_item", {})
-                or {}
-            )
-
-            cost = first_item.get("cost")
-
-            if cost is None:
-                continue
-
-            currency = first_item.get(
-                "currency",
-                "USD",
-            )
-
-            if currency != "USD":
-                continue
-
-            # Printify returns shipping in cents.
-            shipping_cost = float(cost) / 100.0
-
-            for variant_id in (
-                profile.get("variant_ids", [])
-                or []
-            ):
-                shipping_by_variant[
-                    str(variant_id)
-                ] = shipping_cost
 
         return shipping_by_variant
 
@@ -357,10 +322,7 @@ class PrintifyClient:
         shipping_cache = {}
 
         for product in self.get_all_products(shop_id):
-            blueprint_id = product.get(
-                "blueprint_id"
-            )
-
+            blueprint_id = product.get("blueprint_id")
             print_provider_id = product.get(
                 "print_provider_id"
             )
@@ -378,14 +340,15 @@ class PrintifyClient:
                     )
                 )
 
-            shipping_by_variant = (
-                shipping_cache[cache_key]
-            )
+            shipping_by_variant = shipping_cache[
+                cache_key
+            ]
 
-            for variant in (
-                product.get("variants", [])
-                or []
-            ):
+            for variant in product.get(
+                "variants",
+                [],
+            ) or []:
+
                 variant_id = variant.get("id")
 
                 rows.append(
@@ -415,7 +378,9 @@ class PrintifyClient:
                         "printify_available": variant.get(
                             "is_available"
                         ),
-                        "print_provider_id": print_provider_id,
+                        "print_provider_id": (
+                            print_provider_id
+                        ),
                         "blueprint_id": blueprint_id,
                         "printify_options_json": json_safe(
                             variant.get(
@@ -423,10 +388,12 @@ class PrintifyClient:
                                 [],
                             )
                         ),
-                        "printify_product_options_json": json_safe(
-                            product.get(
-                                "options",
-                                [],
+                        "printify_product_options_json": (
+                            json_safe(
+                                product.get(
+                                    "options",
+                                    [],
+                                )
                             )
                         ),
                         "printify_shipping_cost": (
