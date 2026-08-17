@@ -209,23 +209,23 @@ class PrintifyClient:
         # Printify V2 STANDARD shipping endpoint
         # -----------------------------------------------------
         try:
-            data = self.get_v2(
+                     data = self.get_v2(
                 f"/catalog/blueprints/{blueprint_id}/"
                 f"print_providers/{print_provider_id}/"
                 f"shipping/standard.json"
             )
-            
-            print(
-                "SHIPPING V2 RESPONSE:"
-            )
-            print(
-                json.dumps(
-                    data,
-                    indent=2,
-                    ensure_ascii=False,
-                    default=str,
+
+                print(
+                    "SHIPPING V2 RESPONSE:"
                 )
-            )
+                print(
+                    json.dumps(
+                        data,
+                        indent=2,
+                        ensure_ascii=False,
+                        default=str,
+                    )
+                )  
             records = (
                 data.get("data", [])
                 if isinstance(data, dict)
