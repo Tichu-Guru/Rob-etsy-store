@@ -57,84 +57,119 @@ class PrintifyClient:
         return products
 
     def get_shipping_profiles(self, blueprint_id: Any, print_provider_id: Any):
-        if not blueprint_id or not print_provider_id:
-            return {}
+    if not blueprint_id or not print_provider_id:
+        return {}
 
+    try:
         data = self.get(
-            f"/v2/catalog/blueprints/{blueprint_id}/print_providers/{print_provider_id}/shipping/standard.json"
+            f"/catalog/blueprints/{blueprint_id}/print_providers/"
+            f"{print_provider_id}/shipping.json"
         )
+    except requests.HTTPError:
+        # Some old/retired blueprint/provider combinations no longer
+        # have shipping data. Do not let one bad combination stop the sync.
+        return {}
 
-        shipping = {}
+    profiles = data.get("profiles", []) if isinstance(data, dict) else []
 
-        for item in data.get("data", []) if isinstance(data, dict) else []:
-            attributes = item.get("attributes", {})
-            variant_id = attributes.get("variantId")
+    shipping_by_variant = {}
 
-            if variant_id is not None:
-                shipping[str(variant_id)] = attributes
+    for profile in profiles:
+        countries = profile.get("countries", []) or []
 
-        return shipping
+        # We are assuming you pay shipping to US customers.
+        if "US" not in countries:
+            continue
 
-    def export_variant_rows(self, shop_id: str):
-        rows = []
-        shipping_cache = {}
+        first_item = profile.get("first_item", {}) or {}
+        cost = first_item.get("cost")
 
-        for product in self.get_all_products(shop_id):
-            blueprint_id = product.get("blueprint_id")
-            print_provider_id = product.get("print_provider_id")
+        if cost is None:
+            continue
 
-            cache_key = (blueprint_id, print_provider_id)
+        for variant_id in profile.get("variant_ids", []) or []:
+            shipping_by_variant[str(variant_id)] = float(cost) / 100.0
 
-            if cache_key not in shipping_cache:
-                shipping_cache[cache_key] = self.get_shipping_profiles(
-                    blueprint_id,
-                    print_provider_id,
-                )
+    return shipping_by_variant
 
-            profiles = shipping_cache[cache_key]
+  def get_shipping_profiles(self, blueprint_id: Any, print_provider_id: Any):
+    if not blueprint_id or not print_provider_id:
+        return {}
 
-            # Find the U.S. shipping profile.
-            us_profile = next(
-                (
-                    profile
-                    for profile in profiles
-                    if "US" in (profile.get("countries") or [])
-                ),
-                None,
+    try:
+        data = self.get(
+            f"/catalog/blueprints/{blueprint_id}/print_providers/"
+            f"{print_provider_id}/shipping.json"
+        )
+    except requests.HTTPError:
+        return {}
+
+    profiles = data.get("profiles", []) if isinstance(data, dict) else []
+
+    shipping_by_variant = {}
+
+    for profile in profiles:
+        if "US" not in (profile.get("countries", []) or []):
+            continue
+
+        first_item = profile.get("first_item", {}) or {}
+        cost = first_item.get("cost")
+
+        if cost is None:
+            continue
+
+        for variant_id in profile.get("variant_ids", []) or []:
+            shipping_by_variant[str(variant_id)] = float(cost) / 100.0
+
+    return shipping_by_variant
+
+
+ def export_variant_rows(self, shop_id: str):
+    rows = [] 
+    shipping_cache = {}
+
+    for product in self.get_all_products(shop_id):
+        blueprint_id = product.get("blueprint_id")
+        print_provider_id = product.get("print_provider_id")
+
+        cache_key = (str(blueprint_id), str(print_provider_id))
+
+        if cache_key not in shipping_cache:
+            shipping_cache[cache_key] = self.get_shipping_profiles(
+                blueprint_id,
+                print_provider_id
             )
 
-            for variant in product.get("variants", []) or []:
-                shipping_cost = None
+        shipping_by_variant = shipping_cache[cache_key]
 
-                if us_profile:
-                    first_item = us_profile.get("first_item") or {}
-                    cost = first_item.get("cost")
+        for variant in product.get("variants", []) or []:
+            variant_id = variant.get("id")
 
-                    if cost is not None:
-                        shipping_cost = float(cost) / 100.0
+            rows.append({
+                "printify_product_id": product.get("id"),
+                "printify_title": product.get("title"),
+                "printify_variant_id": variant_id,
+                "printify_sku": variant.get("sku"),
+                "printify_variant_title": variant.get("title"),
+                "printify_price": variant.get("price"),
+                "printify_cost": variant.get("cost"),
+                "printify_enabled": variant.get("is_enabled"),
+                "printify_available": variant.get("is_available"),
+                "print_provider_id": print_provider_id,
+                "blueprint_id": blueprint_id,
+                "printify_options_json": json_safe(
+                    variant.get("options", [])
+                ),
+                "printify_product_options_json": json_safe(
+                    product.get("options", [])
+                ),
+                "printify_shipping_cost": shipping_by_variant.get(
+                    str(variant_id)
+                ),
+            })
 
-                rows.append({
-                    "printify_product_id": product.get("id"),
-                    "printify_title": product.get("title"),
-                    "printify_variant_id": variant.get("id"),
-                    "printify_sku": variant.get("sku"),
-                    "printify_variant_title": variant.get("title"),
-                    "printify_price": variant.get("price"),
-                    "printify_cost": variant.get("cost"),
-                    "printify_shipping_us": shipping_cost,
-                    "printify_enabled": variant.get("is_enabled"),
-                    "printify_available": variant.get("is_available"),
-                    "print_provider_id": print_provider_id,
-                    "blueprint_id": blueprint_id,
-                    "printify_options_json": json_safe(
-                        variant.get("options", [])
-                    ),
-                    "printify_product_options_json": json_safe(
-                        product.get("options", [])
-                    ),
-                })
+    return rows
 
-        return rows
 
 def json_safe(value):
     import json
