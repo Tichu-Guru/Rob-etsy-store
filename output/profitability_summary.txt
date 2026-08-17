@@ -1,0 +1,18 @@
+LOW PROFITABILITY SUMMARY
+Run UTC: 2026-08-17T20:40:47.252333+00:00
+
+Profitability threshold: 15%
+
+Matched products with calculable profit: 3,697
+Products below 15%: 2,299
+Percent below threshold: 62.2%
+
+ASSUMPTIONS
+Customer pays $0 shipping.
+Seller pays Printify U.S. first-item shipping.
+Etsy transaction fee: 6.5%.
+Etsy payment processing: 3% + $0.25.
+Offsite Ads excluded.
+Etsy listing fee excluded from per-sale calculation.
+
+See low_profit_products.csv for the products below the threshold.
