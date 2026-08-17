@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import math
-from collections import Counter
+from collections import Counter, defaultdict
 from typing import Any
 
 import pandas as pd
@@ -21,20 +21,54 @@ def money(value: Any):
         return None
 
 
-def classify(sku, ec, pc):
+def build_etsy_sku_listing_map(etsy):
+    """
+    Build a map of SKU -> distinct Etsy listings.
+
+    Repeated rows for different variations of the SAME Etsy listing
+    do not count as duplicate SKU usage.
+
+    A SKU is considered duplicated only when it is used by
+    more than one distinct Etsy listing.
+    """
+    sku_listings = defaultdict(set)
+
+    for _, row in etsy.iterrows():
+        sku = normalize_sku(row.get("etsy_sku"))
+        listing_id = str(row.get("etsy_listing_id", "")).strip()
+
+        if (
+            sku
+            and sku != "UNAVAILABLE_SKU"
+            and listing_id
+        ):
+            sku_listings[sku].add(listing_id)
+
+    return sku_listings
+
+
+def classify(
+    sku,
+    listing_id,
+    sku_listings,
+    printify_counts,
+):
     if not sku:
         return "MISSING_SKU"
 
     if sku.lower() == "unavailable_sku":
         return "UNAVAILABLE_SKU"
 
-    if ec[sku] > 1:
-        return "DUPLICATE_SKU" if pc[sku] > 1 else "DUPLICATE_ETSY_SKU"
+    # Same SKU used by multiple Etsy listings = real duplicate.
+    if len(sku_listings.get(sku, set())) > 1:
+        if printify_counts[sku] > 1:
+            return "DUPLICATE_SKU"
+        return "DUPLICATE_ETSY_SKU"
 
-    if pc[sku] == 0:
+    if printify_counts[sku] == 0:
         return "ETSY_ONLY"
 
-    if pc[sku] > 1:
+    if printify_counts[sku] > 1:
         return "DUPLICATE_PRINTIFY_SKU"
 
     return "MATCHED"
@@ -70,22 +104,32 @@ def build_comparison(etsy_rows, printify_rows):
             ]
         )
 
-    etsy["normalized_sku"] = etsy["etsy_sku"].map(normalize_sku)
-    pri["normalized_sku"] = pri["printify_sku"].map(normalize_sku)
-
-    ec = Counter(
-        s for s in etsy["normalized_sku"]
-        if s and s != "UNAVAILABLE_SKU"
+    # Normalize SKUs.
+    etsy["normalized_sku"] = etsy["etsy_sku"].map(
+        normalize_sku
     )
 
-    pc = Counter(
-        s for s in pri["normalized_sku"]
-        if s
+    pri["normalized_sku"] = pri["printify_sku"].map(
+        normalize_sku
     )
 
+    # Count Printify occurrences.
+    printify_counts = Counter(
+        sku
+        for sku in pri["normalized_sku"]
+        if sku
+    )
+
+    # Determine which DISTINCT Etsy listings use each SKU.
+    sku_listings = build_etsy_sku_listing_map(
+        etsy
+    )
+
+    # Use one Printify row for the primary comparison.
+    # Duplicate Printify SKUs are separately flagged.
     join = pri.drop_duplicates(
         "normalized_sku",
-        keep="first"
+        keep="first",
     )
 
     comp = etsy.merge(
@@ -95,19 +139,37 @@ def build_comparison(etsy_rows, printify_rows):
         suffixes=("", "_printify"),
     )
 
-    comp["match_status"] = comp["normalized_sku"].map(
-        lambda s: classify(s, ec, pc)
+    # Classify each Etsy SKU row.
+    comp["match_status"] = comp.apply(
+        lambda row: classify(
+            row["normalized_sku"],
+            row["etsy_listing_id"],
+            sku_listings,
+            printify_counts,
+        ),
+        axis=1,
     )
 
-    comp["etsy_price_numeric"] = comp["etsy_price"].map(money)
-    comp["printify_cost_numeric"] = comp["printify_cost"].map(money)
+    # Numeric pricing fields.
+    comp["etsy_price_numeric"] = comp[
+        "etsy_price"
+    ].map(money)
+
+    comp["printify_cost_numeric"] = comp[
+        "printify_cost"
+    ].map(money)
 
     comp["estimated_gross_margin"] = (
         comp["etsy_price_numeric"]
         - comp["printify_cost_numeric"]
     )
 
-    etsy_skus = set(ec)
+    # Find Printify products that aren't represented on Etsy.
+    etsy_skus = {
+        sku
+        for sku in sku_listings
+        if sku
+    }
 
     ponly = pri[
         (pri["normalized_sku"] != "")
@@ -116,6 +178,7 @@ def build_comparison(etsy_rows, printify_rows):
 
     ponly["status"] = "PRINTIFY_ONLY"
 
+    # Only genuine issues go into needs_attention.
     attention = comp[
         comp["match_status"].isin(
             [
@@ -131,14 +194,19 @@ def build_comparison(etsy_rows, printify_rows):
     def listing_status(group):
         real = group[
             ~group.match_status.isin(
-                ["UNAVAILABLE_SKU", "MISSING_SKU"]
+                [
+                    "UNAVAILABLE_SKU",
+                    "MISSING_SKU",
+                ]
             )
         ]
 
         if real.empty:
             return "NO_REAL_SKUS"
 
-        statuses = set(real.match_status)
+        statuses = set(
+            real.match_status
+        )
 
         if statuses == {"MATCHED"}:
             return "FULLY_MATCHED"
@@ -164,21 +232,31 @@ def build_comparison(etsy_rows, printify_rows):
     else:
         summary = (
             comp.groupby(
-                ["etsy_listing_id", "etsy_title"],
+                [
+                    "etsy_listing_id",
+                    "etsy_title",
+                ],
                 dropna=False,
                 as_index=False,
             )
             .agg(
-                etsy_sku_rows=("etsy_sku", "size"),
+                etsy_sku_rows=(
+                    "etsy_sku",
+                    "size",
+                ),
 
                 matched_skus=(
                     "match_status",
-                    lambda s: int((s == "MATCHED").sum()),
+                    lambda s: int(
+                        (s == "MATCHED").sum()
+                    ),
                 ),
 
                 etsy_only_skus=(
                     "match_status",
-                    lambda s: int((s == "ETSY_ONLY").sum()),
+                    lambda s: int(
+                        (s == "ETSY_ONLY").sum()
+                    ),
                 ),
 
                 unavailable_skus=(
@@ -206,7 +284,10 @@ def build_comparison(etsy_rows, printify_rows):
 
         statuses = (
             comp.groupby(
-                ["etsy_listing_id", "etsy_title"],
+                [
+                    "etsy_listing_id",
+                    "etsy_title",
+                ],
                 dropna=False,
             )
             .apply(
@@ -219,7 +300,10 @@ def build_comparison(etsy_rows, printify_rows):
 
         summary = summary.merge(
             statuses,
-            on=["etsy_listing_id", "etsy_title"],
+            on=[
+                "etsy_listing_id",
+                "etsy_title",
+            ],
             how="left",
         )
 
