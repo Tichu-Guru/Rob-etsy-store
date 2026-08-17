@@ -6,7 +6,7 @@ import pandas as pd
 
 from .config import DATABASE_PATH, ETSY_CSV, OUTPUT_DIR
 from .database import initialize_database, record_run, replace_table
-from .etsy import build_etsy_rows, read_etsy_csv
+from .etsy import build_etsy_tables, read_etsy_csv
 from .matching import build_comparison
 from .printify import PrintifyClient
 
@@ -14,18 +14,57 @@ from .printify import PrintifyClient
 def main():
     ts = datetime.now(timezone.utc).isoformat()
 
-    etsy_rows = build_etsy_rows(
-        read_etsy_csv(ETSY_CSV)
+    # Read Etsy export and build its listing/variant tables.
+    etsy_df = read_etsy_csv(ETSY_CSV)
+    etsy_listings, etsy_variants = build_etsy_tables(etsy_df)
+
+    # Convert the Etsy variant table into the fields expected by
+    # the comparison engine.
+    etsy_rows = etsy_variants.merge(
+        etsy_listings[
+            [
+                "etsy_listing_key",
+                "title",
+                "price",
+                "quantity",
+            ]
+        ],
+        on="etsy_listing_key",
+        how="left",
     )
 
+    etsy_rows = etsy_rows.rename(
+        columns={
+            "etsy_source_row": "etsy_row_number",
+            "etsy_listing_key": "etsy_listing_id",
+            "title": "etsy_title",
+            "price": "etsy_price",
+            "quantity": "etsy_quantity",
+        }
+    )
+
+    etsy_rows = etsy_rows[
+        [
+            "etsy_row_number",
+            "etsy_listing_id",
+            "etsy_title",
+            "etsy_sku",
+            "etsy_price",
+            "etsy_quantity",
+        ]
+    ]
+
+    etsy_rows = etsy_rows.to_dict("records")
+
+    # Download the current Printify catalog.
     client = PrintifyClient()
     shop_id = client.get_shop_id()
-
     printify_rows = client.export_variant_rows(shop_id)
 
+    # Compare Etsy SKUs with Printify SKUs.
     (
         comparison,
-        summary,
+        listing_summary,
         attention,
         printify_only,
     ) = build_comparison(
@@ -43,7 +82,7 @@ def main():
         index=False,
     )
 
-    summary.to_csv(
+    listing_summary.to_csv(
         OUTPUT_DIR / "listing_summary.csv",
         index=False,
     )
@@ -65,6 +104,7 @@ def main():
         index=False,
     )
 
+    # Create a simple human-readable summary.
     status_counts = (
         comparison["match_status"].value_counts()
         if not comparison.empty
@@ -72,8 +112,8 @@ def main():
     )
 
     listing_counts = (
-        summary["listing_status"].value_counts()
-        if not summary.empty
+        listing_summary["listing_status"].value_counts()
+        if not listing_summary.empty
         else {}
     )
 
@@ -81,7 +121,8 @@ def main():
         "ETSY ↔ PRINTIFY SYNC SUMMARY",
         f"Run UTC: {ts}",
         "",
-        f"Etsy rows/SKU entries: {len(etsy_rows):,}",
+        f"Etsy listings: {len(etsy_listings):,}",
+        f"Etsy SKU rows: {len(etsy_rows):,}",
         f"Printify variants: {len(printify_rows):,}",
         "",
         "SKU STATUS",
@@ -132,14 +173,21 @@ def main():
         encoding="utf-8",
     )
 
+    # Update the SQLite database.
     connection = initialize_database(
         DATABASE_PATH
     )
 
     replace_table(
         connection,
-        "etsy_rows",
-        pd.DataFrame(etsy_rows),
+        "etsy_listings",
+        etsy_listings,
+    )
+
+    replace_table(
+        connection,
+        "etsy_variants",
+        etsy_variants,
     )
 
     replace_table(
@@ -157,7 +205,7 @@ def main():
     replace_table(
         connection,
         "listing_summary",
-        summary,
+        listing_summary,
     )
 
     replace_table(
@@ -186,6 +234,7 @@ def main():
     record_run(
         connection,
         ts,
+        len(etsy_listings),
         len(etsy_rows),
         len(printify_rows),
         matched_count,
