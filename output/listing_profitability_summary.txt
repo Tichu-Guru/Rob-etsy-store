@@ -1,16 +1,16 @@
 LISTING PROFITABILITY SUMMARY
-Run UTC: 2026-08-17T20:50:32.295096+00:00
+Run UTC: 2026-08-17T22:12:39.867648+00:00
 
 Total Etsy listings: 167
-Listings with calculable profitability: 136
-Listings below 15%: 126
+Listings with calculable profitability: 138
+Listings below 15%: 133
 
 STATUS BREAKDOWN
-LOSS: 88
-UNDER_10%: 10
-10_TO_14.99%: 28
-15%+: 10
-NOT_CALCULABLE: 31
+LOSS: 123
+UNDER_10%: 7
+10_TO_14.99%: 3
+15%+: 5
+NOT_CALCULABLE: 29
 
 The listing status uses the worst matched variant in each Etsy listing.
 The minimum 15% price is the highest price required by any matched variant in the listing.

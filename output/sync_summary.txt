@@ -1,5 +1,5 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-17T20:50:32.295096+00:00
+Run UTC: 2026-08-17T22:12:39.867648+00:00
 
 Etsy listings: 167
 Etsy SKU rows: 4,062
@@ -32,14 +32,14 @@ Etsy payment processing: 3% + $0.25
 Offsite Ads: EXCLUDED
 Etsy listing fee: EXCLUDED from per-sale calculation
 
-Matched products with calculable profit: 3,697
-Products below 15% margin: 2,299
-Percent below threshold: 62.2%
+Matched products with calculable profit: 3,557
+Products below 15% margin: 3,521
+Percent below threshold: 99.0%
 
 LISTING-LEVEL PROFITABILITY
-Etsy listings analyzed: 136
-Etsy listings below 15%: 126
-Percent of calculable listings below threshold: 92.6%
+Etsy listings analyzed: 138
+Etsy listings below 15%: 133
+Percent of calculable listings below threshold: 96.4%
 
 ETSY_ONLY means the Etsy SKU is not currently found in Printify.
 Profitability requires a matched Printify SKU and available U.S. shipping data.
