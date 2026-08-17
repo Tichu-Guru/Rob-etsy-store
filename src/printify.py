@@ -57,18 +57,16 @@ class PrintifyClient:
         return products
 
     def get_shipping_profiles(self, blueprint_id: Any, print_provider_id: Any):
-    if not blueprint_id or not print_provider_id:
-        return {}
+        if not blueprint_id or not print_provider_id:
+            return {}
 
-    try:
-        data = self.get(
-            f"/catalog/blueprints/{blueprint_id}/print_providers/"
-            f"{print_provider_id}/shipping.json"
-        )
-    except requests.HTTPError:
-        # Some old/retired blueprint/provider combinations no longer
-        # have shipping data. Do not let one bad combination stop the sync.
-        return {}
+        try:
+            data = self.get(
+                f"/catalog/blueprints/{blueprint_id}/print_providers/"
+                f"{print_provider_id}/shipping.json"
+            )
+        except requests.HTTPError:
+              return {}
 
     profiles = data.get("profiles", []) if isinstance(data, dict) else []
 
