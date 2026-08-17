@@ -56,43 +56,10 @@ class PrintifyClient:
             page += 1
         return products
 
-    def get_shipping_profiles(self, blueprint_id: Any, print_provider_id: Any):
-        if not blueprint_id or not print_provider_id:
-            return {}
-
-        try:
-            data = self.get(
-                f"/catalog/blueprints/{blueprint_id}/print_providers/"
-                f"{print_provider_id}/shipping.json"
-            )
-        except requests.HTTPError:
-              return {}
-
-    profiles = data.get("profiles", []) if isinstance(data, dict) else []
-
-    shipping_by_variant = {}
-
-    for profile in profiles:
-        countries = profile.get("countries", []) or []
-
-        # We are assuming you pay shipping to US customers.
-        if "US" not in countries:
-            continue
-
-        first_item = profile.get("first_item", {}) or {}
-        cost = first_item.get("cost")
-
-        if cost is None:
-            continue
-
-        for variant_id in profile.get("variant_ids", []) or []:
-            shipping_by_variant[str(variant_id)] = float(cost) / 100.0
-
-    return shipping_by_variant
-
+  
   def get_shipping_profiles(self, blueprint_id: Any, print_provider_id: Any):
-    if not blueprint_id or not print_provider_id:
-        return {}
+      if not blueprint_id or not print_provider_id:
+          return {}
 
     try:
         data = self.get(
