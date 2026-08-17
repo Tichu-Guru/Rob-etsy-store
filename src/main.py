@@ -242,38 +242,29 @@ def build_profitability_report(
 # ---------------------------------------------------------
 # LISTING-LEVEL PROFITABILITY
 # ---------------------------------------------------------
-
 def build_listing_profitability_report(
     profitability_all: pd.DataFrame,
     etsy_listings: pd.DataFrame,
 ):
     """
-    Roll variant-level profitability up to one row per Etsy
-    listing.
+    Roll variant-level profitability up to one row per Etsy listing.
 
-    A listing is considered underpriced if ANY matched variant
-    is below the 15% target.
-
-    For the 15% target price, we calculate:
-
-        Price - product cost - shipping
-        - transaction fee
-        - payment fee
-        = 15% of Price
+    IMPORTANT:
+    Etsy's exported CSV provides one base listing price, but does not
+    reliably tell us which variation price belongs to which SKU.
 
     Therefore:
-
-        required price =
-        (product cost + shipping + $0.25)
-        / (1 - .065 - .03 - .15)
-
-    The listing's required price is the highest required price
-    among its matched variants.
+      - Variant-level profitability remains authoritative.
+      - Listing-level results show how the matched SKUs perform when
+        evaluated at the exported Etsy base price.
+      - We do NOT assume that every Printify variant should be sold
+        at the same actual Etsy price.
+      - The highest required price is reported for information only.
     """
 
-    # -----------------------------------------------------
+    # ---------------------------------------------------------
     # TARGET PRICE CALCULATION
-    # -----------------------------------------------------
+    # ---------------------------------------------------------
 
     if not profitability_all.empty:
 
@@ -306,9 +297,7 @@ def build_listing_profitability_report(
             "minimum_price_for_15pct_margin_variant"
         ] = base_cost / denominator
 
-        # Round UP to the nearest cent so the calculated price
-        # does not fall just below the 15% target because of
-        # rounding.
+        # Round UP to nearest cent.
         profit[
             "minimum_price_for_15pct_margin_variant"
         ] = profit[
@@ -320,9 +309,9 @@ def build_listing_profitability_report(
                 else pd.NA
         )
 
-        # -------------------------------------------------
+        # -----------------------------------------------------
         # SUMMARIZE EACH LISTING
-        # -------------------------------------------------
+        # -----------------------------------------------------
 
         def summarize_listing(group):
 
@@ -351,9 +340,34 @@ def build_listing_profitability_report(
             if margins.empty:
                 worst_margin = None
                 best_margin = None
+                loss_count = 0
+                under_10_count = 0
+                ten_to_fifteen_count = 0
+                at_or_above_15_count = 0
             else:
                 worst_margin = float(margins.min())
                 best_margin = float(margins.max())
+
+                loss_count = int(
+                    (margins < 0).sum()
+                )
+
+                under_10_count = int(
+                    ((margins >= 0) & (margins < 10)).sum()
+                )
+
+                ten_to_fifteen_count = int(
+                    (
+                        (margins >= 10)
+                        & (margins < LOW_PROFIT_THRESHOLD)
+                    ).sum()
+                )
+
+                at_or_above_15_count = int(
+                    (
+                        margins >= LOW_PROFIT_THRESHOLD
+                    ).sum()
+                )
 
             worst_profit = (
                 float(profits.min())
@@ -373,30 +387,66 @@ def build_listing_profitability_report(
                 else None
             )
 
-            minimum_price = (
+            highest_required_price = (
                 float(target_prices.max())
                 if not target_prices.empty
                 else None
             )
 
-            if worst_margin is None:
+            # -------------------------------------------------
+            # LISTING STATUS
+            # -------------------------------------------------
+
+            if margins.empty:
                 status = "NOT_CALCULABLE"
 
-            elif worst_margin < 0:
-                status = "LOSS"
+            elif loss_count > 0:
+                status = "HAS_LOSS_VARIANT"
 
-            elif worst_margin < 10:
-                status = "UNDER_10%"
+            elif under_10_count > 0:
+                status = "HAS_UNDER_10_VARIANT"
 
-            elif worst_margin < LOW_PROFIT_THRESHOLD:
-                status = "10_TO_14.99%"
+            elif ten_to_fifteen_count > 0:
+                status = "HAS_10_TO_14.99_VARIANT"
 
             else:
-                status = "15%+"
+                status = "ALL_VARIANTS_15%+"
+
+            # -------------------------------------------------
+            # ACTION
+            # -------------------------------------------------
+
+            if status == "NOT_CALCULABLE":
+                action = "NO_PROFITABILITY_DATA"
+
+            elif status == "HAS_LOSS_VARIANT":
+                action = "REVIEW_LOSS_VARIANTS"
+
+            elif status == "HAS_UNDER_10_VARIANT":
+                action = "REVIEW_LOW_MARGIN_VARIANTS"
+
+            elif status == "HAS_10_TO_14.99_VARIANT":
+                action = "SMALL_PRICE_REVIEW"
+
+            else:
+                action = "NO_ACTION"
 
             return pd.Series(
                 {
-                    "matched_variant_count": len(group),
+                    "matched_variant_count":
+                        len(group),
+
+                    "variants_with_losses":
+                        loss_count,
+
+                    "variants_under_10pct":
+                        under_10_count,
+
+                    "variants_10_to_14_99pct":
+                        ten_to_fifteen_count,
+
+                    "variants_15pct_or_higher":
+                        at_or_above_15_count,
 
                     "current_price_min":
                         current_price_min,
@@ -414,10 +464,13 @@ def build_listing_profitability_report(
                         best_margin,
 
                     "minimum_price_for_15pct_margin":
-                        minimum_price,
+                        highest_required_price,
 
                     "status":
                         status,
+
+                    "recommended_action":
+                        action,
                 }
             )
 
@@ -444,6 +497,10 @@ def build_listing_profitability_report(
                 "etsy_listing_id",
                 "etsy_title",
                 "matched_variant_count",
+                "variants_with_losses",
+                "variants_under_10pct",
+                "variants_10_to_14_99pct",
+                "variants_15pct_or_higher",
                 "current_price_min",
                 "current_price_max",
                 "worst_net_profit",
@@ -451,12 +508,13 @@ def build_listing_profitability_report(
                 "best_net_margin_pct",
                 "minimum_price_for_15pct_margin",
                 "status",
+                "recommended_action",
             ]
         )
 
-    # -----------------------------------------------------
+    # ---------------------------------------------------------
     # START WITH ALL ETSY LISTINGS
-    # -----------------------------------------------------
+    # ---------------------------------------------------------
 
     base = etsy_listings[
         [
@@ -484,12 +542,20 @@ def build_listing_profitability_report(
         .astype(str)
     )
 
+    # ---------------------------------------------------------
+    # MERGE PROFITABILITY INTO ALL ETSY LISTINGS
+    # ---------------------------------------------------------
+
     if listing_profitability.empty:
 
         report = base.copy()
 
         for column in [
             "matched_variant_count",
+            "variants_with_losses",
+            "variants_under_10pct",
+            "variants_10_to_14_99pct",
+            "variants_15pct_or_higher",
             "current_price_min",
             "current_price_max",
             "worst_net_profit",
@@ -500,6 +566,9 @@ def build_listing_profitability_report(
             report[column] = pd.NA
 
         report["status"] = "NOT_CALCULABLE"
+        report["recommended_action"] = (
+            "NO_PROFITABILITY_DATA"
+        )
 
     else:
 
@@ -512,7 +581,6 @@ def build_listing_profitability_report(
             .astype(str)
         )
 
-        # The title from base is the authoritative Etsy title.
         listing_data = listing_profitability.drop(
             columns=["etsy_title"],
             errors="ignore",
@@ -528,9 +596,13 @@ def build_listing_profitability_report(
             "status"
         ].fillna("NOT_CALCULABLE")
 
-    # -----------------------------------------------------
-    # PRICE INCREASE NEEDED
-    # -----------------------------------------------------
+        report["recommended_action"] = report[
+            "recommended_action"
+        ].fillna("NO_PROFITABILITY_DATA")
+
+    # ---------------------------------------------------------
+    # PRICE INCREASE INFORMATION
+    # ---------------------------------------------------------
 
     report["current_etsy_price"] = pd.to_numeric(
         report["current_etsy_price"],
@@ -558,9 +630,19 @@ def build_listing_profitability_report(
         "price_increase_needed",
     ] = 0.0
 
-    # -----------------------------------------------------
+    # ---------------------------------------------------------
+    # IMPORTANT NOTE
+    # ---------------------------------------------------------
+
+    report["pricing_note"] = (
+        "Uses Etsy exported base price; "
+        "variation-specific Etsy price adjustments "
+        "are not reliably available in the CSV."
+    )
+
+    # ---------------------------------------------------------
     # FINAL COLUMN ORDER
-    # -----------------------------------------------------
+    # ---------------------------------------------------------
 
     report = report[
         [
@@ -569,6 +651,11 @@ def build_listing_profitability_report(
             "current_etsy_price",
 
             "matched_variant_count",
+
+            "variants_with_losses",
+            "variants_under_10pct",
+            "variants_10_to_14_99pct",
+            "variants_15pct_or_higher",
 
             "current_price_min",
             "current_price_max",
@@ -581,18 +668,20 @@ def build_listing_profitability_report(
             "price_increase_needed",
 
             "status",
+            "recommended_action",
+            "pricing_note",
         ]
     ]
 
-    # -----------------------------------------------------
+    # ---------------------------------------------------------
     # SORT
-    # -----------------------------------------------------
+    # ---------------------------------------------------------
 
     status_order = {
-        "LOSS": 0,
-        "UNDER_10%": 1,
-        "10_TO_14.99%": 2,
-        "15%+": 3,
+        "HAS_LOSS_VARIANT": 0,
+        "HAS_UNDER_10_VARIANT": 1,
+        "HAS_10_TO_14.99_VARIANT": 2,
+        "ALL_VARIANTS_15%+": 3,
         "NOT_CALCULABLE": 4,
     }
 
@@ -618,13 +707,16 @@ def build_listing_profitability_report(
         columns=["_sort"]
     )
 
-    # Only listings actually below 15%.
+    # ---------------------------------------------------------
+    # ONLY LISTINGS REQUIRING PROFITABILITY REVIEW
+    # ---------------------------------------------------------
+
     low_profit_listings = report[
         report["status"].isin(
             [
-                "LOSS",
-                "UNDER_10%",
-                "10_TO_14.99%",
+                "HAS_LOSS_VARIANT",
+                "HAS_UNDER_10_VARIANT",
+                "HAS_10_TO_14.99_VARIANT",
             ]
         )
     ].copy()
@@ -633,6 +725,7 @@ def build_listing_profitability_report(
         report,
         low_profit_listings,
     )
+
 
 
 # ---------------------------------------------------------
