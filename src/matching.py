@@ -14,6 +14,13 @@ def normalize_sku(value: Any) -> str:
 
 
 def money(value: Any):
+    """
+    Convert a money value to dollars.
+
+    Etsy prices are already dollar values.
+    Printify API price/cost values are cents, so those are
+    converted separately below.
+    """
     try:
         text = str(value).replace("$", "").replace(",", "").strip()
         return float(text) if text else None
@@ -21,15 +28,25 @@ def money(value: Any):
         return None
 
 
+def printify_money(value: Any):
+    """
+    Printify API returns price/cost in cents.
+    Convert cents to dollars.
+    """
+    try:
+        text = str(value).replace("$", "").replace(",", "").strip()
+        return float(text) / 100 if text else None
+    except (TypeError, ValueError):
+        return None
+
+
 def build_etsy_sku_listing_map(etsy):
     """
-    Build a map of SKU -> distinct Etsy listings.
+    Build SKU -> set of distinct Etsy listing IDs.
 
-    Repeated rows for different variations of the SAME Etsy listing
-    do not count as duplicate SKU usage.
-
-    A SKU is considered duplicated only when it is used by
-    more than one distinct Etsy listing.
+    A SKU repeated across variations of the same listing is normal.
+    It is only considered shared when it appears on multiple
+    distinct Etsy listings.
     """
     sku_listings = defaultdict(set)
 
@@ -45,33 +62,6 @@ def build_etsy_sku_listing_map(etsy):
             sku_listings[sku].add(listing_id)
 
     return sku_listings
-
-
-def classify(
-    sku,
-    listing_id,
-    sku_listings,
-    printify_counts,
-):
-    if not sku:
-        return "MISSING_SKU"
-
-    if sku.lower() == "unavailable_sku":
-        return "UNAVAILABLE_SKU"
-
-    # Same SKU used by multiple Etsy listings = real duplicate.
-    if len(sku_listings.get(sku, set())) > 1:
-        if printify_counts[sku] > 1:
-            return "DUPLICATE_SKU"
-        return "DUPLICATE_ETSY_SKU"
-
-    if printify_counts[sku] == 0:
-        return "ETSY_ONLY"
-
-    if printify_counts[sku] > 1:
-        return "DUPLICATE_PRINTIFY_SKU"
-
-    return "MATCHED"
 
 
 def build_comparison(etsy_rows, printify_rows):
@@ -104,7 +94,6 @@ def build_comparison(etsy_rows, printify_rows):
             ]
         )
 
-    # Normalize SKUs.
     etsy["normalized_sku"] = etsy["etsy_sku"].map(
         normalize_sku
     )
@@ -113,20 +102,19 @@ def build_comparison(etsy_rows, printify_rows):
         normalize_sku
     )
 
-    # Count Printify occurrences.
+    # Count how many Printify variants use each SKU.
     printify_counts = Counter(
         sku
         for sku in pri["normalized_sku"]
         if sku
     )
 
-    # Determine which DISTINCT Etsy listings use each SKU.
-    sku_listings = build_etsy_sku_listing_map(
-        etsy
-    )
+    # Determine how many distinct Etsy listings use each SKU.
+    sku_listings = build_etsy_sku_listing_map(etsy)
 
-    # Use one Printify row for the primary comparison.
-    # Duplicate Printify SKUs are separately flagged.
+    # Primary Printify row for each SKU.
+    # If Printify has the same SKU multiple times, we flag it
+    # separately rather than multiplying Etsy rows.
     join = pri.drop_duplicates(
         "normalized_sku",
         keep="first",
@@ -139,32 +127,79 @@ def build_comparison(etsy_rows, printify_rows):
         suffixes=("", "_printify"),
     )
 
-    # Classify each Etsy SKU row.
+    # Number of distinct Etsy listings using this SKU.
+    comp["etsy_listing_count_for_sku"] = (
+        comp["normalized_sku"].map(
+            lambda sku: len(
+                sku_listings.get(sku, set())
+            )
+        )
+    )
+
+    # Informational flag: the SKU is shared by multiple Etsy listings.
+    comp["etsy_sku_shared_across_listings"] = (
+        comp["etsy_listing_count_for_sku"] > 1
+    )
+
+    # Core match status.
+    def classify(row):
+        sku = row["normalized_sku"]
+
+        if not sku:
+            return "MISSING_SKU"
+
+        if sku == "UNAVAILABLE_SKU":
+            return "UNAVAILABLE_SKU"
+
+        if printify_counts[sku] == 0:
+            return "ETSY_ONLY"
+
+        if printify_counts[sku] > 1:
+            return "DUPLICATE_PRINTIFY_SKU"
+
+        # Shared Etsy SKU is still a successful Printify match.
+        return "MATCHED"
+
     comp["match_status"] = comp.apply(
-        lambda row: classify(
-            row["normalized_sku"],
-            row["etsy_listing_id"],
-            sku_listings,
-            printify_counts,
-        ),
+        classify,
         axis=1,
     )
 
-    # Numeric pricing fields.
+    # Dollar values.
     comp["etsy_price_numeric"] = comp[
         "etsy_price"
     ].map(money)
 
+    comp["printify_price_numeric"] = comp[
+        "printify_price"
+    ].map(printify_money)
+
     comp["printify_cost_numeric"] = comp[
         "printify_cost"
-    ].map(money)
+    ].map(printify_money)
 
+    # Gross product margin before Etsy fees, payment fees,
+    # shipping, taxes, etc.
     comp["estimated_gross_margin"] = (
         comp["etsy_price_numeric"]
         - comp["printify_cost_numeric"]
     )
 
-    # Find Printify products that aren't represented on Etsy.
+    # Gross margin percentage.
+    comp["estimated_gross_margin_pct"] = (
+        comp["estimated_gross_margin"]
+        / comp["etsy_price_numeric"]
+        * 100
+    )
+
+    # Avoid infinite/invalid percentages.
+    comp.loc[
+        comp["etsy_price_numeric"].isna()
+        | (comp["etsy_price_numeric"] == 0),
+        "estimated_gross_margin_pct",
+    ] = None
+
+    # Printify SKUs that do not appear anywhere in Etsy.
     etsy_skus = {
         sku
         for sku in sku_listings
@@ -178,14 +213,12 @@ def build_comparison(etsy_rows, printify_rows):
 
     ponly["status"] = "PRINTIFY_ONLY"
 
-    # Only genuine issues go into needs_attention.
+    # Only genuine actionable issues.
     attention = comp[
         comp["match_status"].isin(
             [
                 "ETSY_ONLY",
                 "MISSING_SKU",
-                "DUPLICATE_SKU",
-                "DUPLICATE_ETSY_SKU",
                 "DUPLICATE_PRINTIFY_SKU",
             ]
         )
@@ -204,9 +237,7 @@ def build_comparison(etsy_rows, printify_rows):
         if real.empty:
             return "NO_REAL_SKUS"
 
-        statuses = set(
-            real.match_status
-        )
+        statuses = set(real.match_status)
 
         if statuses == {"MATCHED"}:
             return "FULLY_MATCHED"
@@ -217,12 +248,8 @@ def build_comparison(etsy_rows, printify_rows):
         if statuses == {"ETSY_ONLY"}:
             return "NO_PRINTIFY_PRODUCTS"
 
-        if statuses & {
-            "DUPLICATE_SKU",
-            "DUPLICATE_ETSY_SKU",
-            "DUPLICATE_PRINTIFY_SKU",
-        }:
-            return "HAS_DUPLICATE_SKU"
+        if "DUPLICATE_PRINTIFY_SKU" in statuses:
+            return "HAS_PRINTIFY_SKU_PROBLEM"
 
         return "NEEDS_REVIEW"
 
@@ -266,18 +293,19 @@ def build_comparison(etsy_rows, printify_rows):
                     ),
                 ),
 
-                problem_skus=(
+                printify_duplicate_skus=(
                     "match_status",
                     lambda s: int(
-                        s.isin(
-                            [
-                                "DUPLICATE_SKU",
-                                "DUPLICATE_ETSY_SKU",
-                                "DUPLICATE_PRINTIFY_SKU",
-                                "MISSING_SKU",
-                            ]
+                        (
+                            s
+                            == "DUPLICATE_PRINTIFY_SKU"
                         ).sum()
                     ),
+                ),
+
+                shared_etsy_skus=(
+                    "etsy_sku_shared_across_listings",
+                    "sum",
                 ),
             )
         )
