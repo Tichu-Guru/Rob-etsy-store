@@ -17,12 +17,12 @@ def initialize_database(path: Path):
     con.commit()
     return con
 
-def replace_table(con, table_name, df):
-    df.to_sql(table_name, con, if_exists="replace", index=False)
-
 def record_run(con, run_timestamp, etsy_listings, etsy_sku_rows, printify_variants, matched_rows, alert_rows):
     con.execute(
         "INSERT INTO sync_runs (run_timestamp, etsy_listings, etsy_sku_rows, printify_variants, matched_rows, alert_rows) VALUES (?, ?, ?, ?, ?, ?)",
         (run_timestamp, etsy_listings, etsy_sku_rows, printify_variants, matched_rows, alert_rows)
     )
     con.commit()
+
+    # Compact the SQLite database before it is committed to GitHub.
+    con.execute("VACUUM")
