@@ -1,168 +1,162 @@
-etsy_source_row,etsy_listing_key,title,etsy_sku_rows,nonblank_skus,unavailable_skus
-2,a9fccfb50b9e5c6f,"Personalized Thanksgiving Table Runner, Custom Fall Table Decor, Autumn Pumpkin Runner for Thanksgiving Dinner, Optional Matching Napkins",6,6,0
-3,20804d138902d450,"Personalized Spooky Pumpkin Halloween Table Runner, Custom Fall Dining Decor",6,6,0
-4,77f0cb0eef191ea9,Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas,12,12,0
-5,9f4c678b63d247ae,"Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote",1,1,0
-6,eabc78ea63e61a94,"Raccoon Opossum Tote Bag, Funny Caffeine Denial Design, Holiday Canvas Gift Bag",1,1,0
-7,29dbe33a8e7f6ece,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",92,92,1
-8,29dbe33a8e7f6ece,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",92,92,1
-9,29dbe33a8e7f6ece,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",92,92,1
-10,29dbe33a8e7f6ece,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",92,92,1
-11,d3b5c9a1df0590ba,"Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign",2,2,0
-12,0edbec98658d56f2,"Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift",2,2,0
-13,2f7e39dc0aac098e,"Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag",2,2,0
-14,80b92e6d99897b05,"Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift",2,2,0
-15,45649464a174e950,"Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor",2,2,0
-16,d51668f36d38e588,"Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor",2,2,0
-17,a1d6a974422ebb02,"Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor",2,2,0
-18,17aa40f79599e60c,"Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor",2,2,0
-19,3c3742d411489438,"Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake",4,4,0
-20,f1013b196bb00894,"Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor",2,2,0
-21,59c5f7b9d587b272,"Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star",8,8,0
-22,436d0e9671c20b5f,"Personalized Faux Suede Christmas Pillow Cover, Custom Tag Decor (4 Sizes)",16,16,0
-23,e8b6d08b209225bc,"Personalized Faux Suede Christmas Pillow Cover, Custom Tag Decor",16,16,0
-24,cada1f49f99d5bc6,"Personalized Hanukkah Table Runner, Family Name Jewish Holiday Decor",18,18,0
-25,892a83ae4a16b420,"Personalized Christmas Family Name Table Runner, 4 Festive Designs, Optional Napkins",24,24,0
-26,44c4e98b5d4d9c93,"Personalized Christmas Table Runner, Festive Family Holiday Decor, 4 Designs, Optional Napkins",24,24,0
-27,f2520b7e2731b2b2,"Personalized Christmas Table Runner, Custom Family Name Holiday Decor, 4 Festive Designs",24,24,0
-28,88c434c6b9c052cb,"Halloween Table Runner, Ghost Vampire Mummy Fall Decor, Personalized Centerpiece (Optional Napkins)",6,6,0
-29,2978f5dc97511177,"Personalized Thanksgiving Table Runner, Grateful Hearts Gather Fall Decor",6,6,0
-30,cb0e6a95014b1087,"Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag",1,1,0
-31,5ac90809eacf2cb1,"Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor",2,2,0
-32,fb45f8d0714131ab,"Capybara Raccoon Ceramic Mug, Whimsical Animal Coffee Cup, Funny Coworker Boss Gift",12,12,0
-33,7ffc6b7afe1bed64,"Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift",12,12,0
-34,70871605645a914d,"Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover",1,1,0
-35,609dfa45803fdb0a,"Pet Memorial Plaque Personalized, Custom Watercolor Portrait, Dog Cat Sympathy Gift, Acrylic Wood Stand",1,1,0
-36,7db3cf9698c8af34,"Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag",2,2,0
-37,5db0775c6890479e,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,8,0
-38,177a68fad5fb929a,"Personalized Faux Suede Christmas Pillow, Plaid Holiday Decor Gift Tag",8,8,0
-39,4a793767470e56a3,"Personalized Faux Suede Christmas Pillow with Gift Tag, Plaid Holiday Decor",8,8,0
-40,62c28ae96618026c,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,8,0
-41,29fc188b7f71a667,"Personalized Christmas Doormat, Custom Family Welcome Mat, Holiday Plaid Rug Designs",5,5,0
-42,9b8182b6505e090a,"Custom Hanukkah Doormat, Personalized Family Welcome Rug, Blue Menorah Dreidel Design",2,2,0
-43,236ecc99357e2bac,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Gift, Blue Gold Designs",4,4,0
-44,e7c67c560b3ed248,"Personalized Sherpa Fleece Blanket, Custom Christmas Throw, Elf Reindeer Plaid Designs",10,10,0
-45,69a31c3027d91541,"Personalized Christmas Tote Bag, Reusable Festive Bag, Festive Design, Custom Tag",15,15,0
-46,fa12937277f7b844,"Personalized Hanukkah Tote Bag, Reusable Jewish Holiday Accessory, Custom Tag",6,6,0
-47,0534061341f17e71,"Personalized Hanukkah Tote Bag, Reusable Jewish Gift Wrap",6,6,0
-48,049476b656972772,"Personalized Christmas Tote Bag, Reusable Gift Bag, Festive Design (3 Sizes)",15,15,0
-49,465d85af22f797ef,"Personalized Thanksgiving Harvest Table Runner, Custom Family Fall Decor",6,6,0
-50,3b22cf6e3e23403e,"Halloween Table Runner, Ghost Vampire Mummy Fall Decor, Personalized Autumn Centerpiece",6,6,0
-51,1e68f3bbaf32c83e,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Throw, Two Designs",4,4,0
-52,39ef67acd1808627,"Personalized Sherpa Fleece Blanket, Custom Christmas Throw, Elf Reindeer Plaid Designs",10,10,0
-53,49615676987af3ed,"Custom Hanukkah Doormat, Personalized Jewish Holiday Welcome Rug, Menorah Dreidel Design",2,2,0
-54,7a0e8c5f0dff865d,"Personalized Christmas Doormat, Custom Family Welcome Mat, Holiday Designs",5,5,0
-55,f3fd1e1858eaad4d,"Personalized Christmas Table Runner, Family Name Holiday Decor, 4 Festive Designs",24,24,0
-56,411d2ee4e0d7eb2b,"Personalized Hanukkah Table Runner, Custom Jewish Holiday Decor, Matching Napkins",18,18,0
-57,b144dd9faef74f9a,"Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)",8,8,0
-58,590ce08c24efbd43,"Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)",8,8,0
-59,8cfbd37003875b14,"Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake",4,4,0
-60,12f311b0f92522d0,"Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake",4,4,0
-61,3679a77cf5982e22,"Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor",2,2,0
-62,b5ef77564e29c0ad,"Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag",4,4,0
-63,8684838d89bf8307,"Personalized Hanukkah Mug, Woodland Animal Jewish Holiday Gift",1,1,0
-64,7746fb7520c17770,"Personalized Hanukkah Doormat, Woodland Animals Menorah Welcome Mat, Jewish Holiday Porch Decor",1,1,0
-65,bfa852ab11a43cea,"Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor",2,2,0
-66,54d1bf601adcee61,"Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor",2,2,0
-67,561faab75df6b01a,"Personalized Thanksgiving Woodland Animals Garden Flag, Custom Family Name Fall Porch Decor",2,2,0
-68,aa5f2d4833f48227,"Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor",2,2,0
-69,f11aa2cfe055ffe8,"Personalized Cat Christmas Garden Flag, Holiday Yard Decor",2,2,0
-70,9c1b4d23db18d2e5,"Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor",2,2,0
-71,467f0b0a491d2299,"Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag",2,2,0
-72,650af8de644f63cf,"Custom Chicken Mom Shirt, Personalized Flock Tee, Backyard Chicken Keeper Apparel",42,42,0
-73,2c8b08c1fd2d18a7,"Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag",1,1,0
-74,b72b583edbb44953,"Customizable Chicken Flock Sweatshirt, Personalized Farm Crewneck, Backyard Chicken Keeper Apparel",24,24,0
-75,c4072741df1683d0,"Too Cool For Coop Chicken Mug, Funny Farmhouse Ceramic Cup, 11 Oz",1,1,0
-76,5243d5540b586b6f,"Too for Coop Chicken Shirt, Funny Farm Animal Graphic Tee",42,42,0
-77,068e4d76cfe036a1,"Customizable Chicken Flock Mug, Farmhouse Coffee Cup, Backyard Chicken Lover Gift",5,5,0
-78,4dab3519bcc4b204,"Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor",2,2,0
-79,35624159b0a64522,"Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner",2,2,0
-80,f172f470dbf4853c,"Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift",2,2,0
-81,97e7af5f1be4c177,"Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag",2,2,0
-82,d281fd5f5531e6ea,"Chicken Canvas Print, Too Cool for the Coop Wall Art, Funny Farmhouse Chicken Decor, Backyard Chicken Lover Gift, Optional Personalization",4,4,0
-83,4a4b2bf09b7fa00d,"Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel",42,42,0
-84,3a70edbe478942e6,"Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee",35,35,0
-85,5a6861cfa261a86d,"Customizable Chicken Coop T-Shirt, Farmhouse Flock Apparel, Comfort Colors Tee",35,35,0
-86,8eaf494b96ede4a1,"Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag",12,12,0
-87,4ec3e0f428844c5a,"Snowflake Monogram Mug, Personalized Christmas Coffee Cup, Custom Initial Holiday Mug, Coworker Boss Gift",2,2,0
-88,9cfe19849ad02e63,"Opossum Raccoon Pie Dad Hat, Funny Thanksgiving Baseball Cap, Fall Animal Lover Gift",5,5,0
-89,0e6c43f807671be0,"Opossum Raccoon Pie Sweatshirt, Funny Thanksgiving Crewneck, Fall Animal Lover Gift",30,30,0
-90,7a73d863aecdeb04,"Opossum Raccoon Pie Shirt, Funny Thanksgiving Graphic Tee, Fall Animal Lover Gift",35,35,0
-91,1cd1ceeb5b6b39f8,"Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee",35,35,0
-92,9ad99b97de373c6e,"Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt",24,24,0
-93,7790702ec580d8ca,"Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug",4,4,0
-94,3a89a6a9facee276,"Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag",1,1,0
-95,ee4140ecfae4034e,"Hedgehog Christmas Ornament, Acrylic Woodland Animal Decor, Funny Cozy Winter Gift, Coworker Boss Gift",1,1,0
-96,6da8b1675d43aacf,"Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift",6,6,0
-97,5128348944a6bb92,"Possum Sweatshirt, Personalized Playing Dead Is Your Cardio, Custom Name Opossum Crewneck, Animal Lover Gift",24,24,0
-98,9ae39fb20c969837,"Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug",6,6,0
-99,e9b979b0b7ce7f85,"Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover",24,24,0
-100,ea3d46c63644178d,"Capybara Halloween Mug, Witch Ghost Vampire Coffee Cup, Black Ceramic Spooky Gift",2,2,0
-101,b5732a4417f6d973,"Pet Memorial Plaque Personalized, Custom Watercolor Portrait, Dog Cat Sympathy Gift, Acrylic Wood Stand",1,1,0
-102,5ae49a27c78c6d3b,"Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift",3,3,0
-103,29dbe33a8e7f6ece,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",92,92,1
-104,2b58d0c3e358d23e,"Custom Pet Christmas Tree Skirt, Personalized Dog Cat Holiday Decor",2,2,0
-105,6490f028b7bf9566,"Woodland Animals Sweatshirt, Capybara Raccoon Possum Crewneck, Cozy Nature Lover Pullover",42,42,0
-106,d0f1e54ed4cf92f3,"Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift",2,2,0
-107,1490031d948df79e,"Custom Pet Portrait Memorial Keychain, Acrylic Pet Loss Keepsake (Digital Proof)",1,1,0
-108,76d594b606204df8,"Raccoon Possum Christmas Sweatshirt, Funny Caffeine Denial Crewneck, Holiday Animal Pullover",30,30,0
-109,5234680b76ac1e92,"Funny Raccoon Opossum Christmas Mug, Caffeine Denial Coffee Cup, Coworker Boss Gift",2,2,0
-110,d7226d2ef6a081c5,"Raccoon Opossum Christmas Lights Shirt, Funny Caffeine Denial Holiday Tee",21,21,0
-111,ed9e9d80afc2b5e6,"Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake",2,2,0
-112,36bf11a10924d777,"Possum Raccoon Canvas Art, We Heard Pie Funny Print, Animal Kitchen Wall Decor",3,3,0
-113,a430993aaeaa1b45,"Possum Raccoon Pie Sweatshirt, Funny Wildlife Animal Crewneck Pullover",24,24,0
-114,ad29feb327ac783d,"Possum Raccoon Pie Graphic Tee, Funny Wildlife Animal Shirt",7,7,0
-115,ff1a8f7098ad9af6,"Possum Raccoon Pie Coffee Mug, Funny Black Ceramic Cup, Animal Lover Gift",2,2,0
-116,6a18a9a2cec7f259,"Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor",1,1,0
-117,b1efd1a7c4af0e02,"Personalized Pet Memorial Ornament, Custom Photo Acrylic Keepsake, Dog Cat Sympathy Gift",1,1,0
-118,9f4c678b63d247ae,"Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote",1,1,0
-119,794b5f4044699887,"Capybara Scream Canvas, Museum Parody Art Print, Embrace Chaos Wall Decor",3,3,0
-120,ad7e8fb4c15dacc5,"Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift",1,1,0
-121,6f1fa7930b146de8,"Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee",7,7,0
-122,0b6cdf68adc9849a,Personalized Pet Photo Nutcracker Ornament: Custom Cat or Dog Christmas Decoration,4,4,0
-123,ec67eeaefc188223,Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup,1,1,0
-124,b74b5dbb4fdc8068,Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake,1,1,0
-125,abad981a26024447,Custom Pet Circus Sweatshirt: Vintage Carnival Dog or Cat Lover Retro Apparel,42,42,0
-126,cb36d60f571e284e,"Personalized Vintage Circus Pet T-Shirt, Custom Pet Photo Tee, Comfort Colors Shirt, FunHaus Style",42,42,0
-127,49bfb51554d6b56d,"Custom Pet Portrait Canvas: Vintage Circus Dog Art, Personalized Name Print",3,3,0
-128,ca8aeeee1454b5e7,Custom Pet Photo Tote Bag: Personalized Black Canvas Tote,1,1,0
-129,0bd0072bd76bf3e4,"Custom Pet Portrait Canvas Wall Art: Personalized Dog, Cat Memorial Gallery Wrapped Print",4,4,0
-130,c4dfc860e74eaa5d,Capybara Shirt: Humorous Vitruvian Yoga Animal Graphic Tee,42,42,0
-131,6308089d21f88c3f,"Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif",30,30,0
-132,9c040af671932db9,Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor,3,3,0
-133,5c2141b752c448f1,"Capybara Tote Bag: Funny Animal Canvas Tote, Vitruvian Man",1,1,0
-134,3a0e4028187d1842,"Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man",2,2,0
-135,5334f68be5882bc9,Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee,42,42,0
-136,6bc750bbe72efa06,Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck,30,30,0
-137,c3a632521de4b81a,"Capybara Sweatshirt – Funny Rodent Art Apparel, American Gothic Parody",30,30,0
-138,72f319b83f6b453b,"Capybara T-Shirt: Vintage Art Parody Farmhouse Humor Cotton Tee, American Gothic",42,42,0
-139,cc296d7c57652f38,"Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift",1,1,0
-140,dd8a0d21be9438a0,Funny Capybara American Gothic Tote Bag: Farmhouse Art Parody Canvas Tote,1,1,0
-141,c734af590a3da381,"Capybara Print, Museum Creation of Adam Parody Wall Art, Funny Renaissance Gallery Wrapped Canvas",4,4,0
-142,484e3859bb3d7a92,"Capybara Tote Bag: Renaissance Art Parody Canvas Tote, Funny Museum Humor",1,1,0
-143,8190f87e591df082,"Capybara Sweatshirt, Museum Humor Crewneck, Animal Lover Gift, Renaissance Art",30,30,0
-144,eb865e18338832f4,"Capybara Tank Top | Renaissance Art Parody Sleeveless Shirt, Creation of Adam",38,38,1
-145,256d67243f9f6e10,Capybara Shirt Renaissance Art Parody Tee | Capybara Lover Gift | Michelangelo Inspired Graphic T-Shirt,42,42,0
-146,fcf30bd4a959962d,"Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook",1,1,0
-147,720264d36a026cc5,"Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset",30,30,0
-148,664bfac1f07e917b,"Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt",42,42,0
-149,72d999b45d4ec805,"Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift",1,1,0
-150,d01793ea80fea84d,"Personalized Pet Portrait Mouse Pad, Custom Photo Desk Decor, Realistic Memorial Gift",1,1,0
-151,a84b722e69515daf,"Custom Watercolor Pet Portrait on Gallery Wrapped Canvas, Personalized Dog or Cat Wall Art",3,3,0
-152,d42fb00702037d87,"Custom Framed Watercolor Pet Portrait on Wrapped Canvas, Personalized Dog or Cat Wall Art",9,9,0
-153,184a2ede7c3b270c,"Funny Capybara Tee Personalized ""is on Capy Time"" Cotton T Shirt",42,42,0
-154,27e4b797a7b202f8,Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote,1,1,0
-155,8c6f8df41392a8c2,Vintage Capybara Travel Poster: Tropical Beach Paradise Canvas Wrap,3,3,0
-156,f95604cee0555094,Capybara Tee Vintage Travel Capybara Cotton T-Shirt,42,42,0
-157,452f4df636ee1406,"Personalized Sepia Pet Portrait Canvas, Custom Dog Cat Wall Art",3,3,0
-158,64ebe101734e5bdf,"Personalized Pet Sketch Portrait, Sepia Toned Dog Cat Canvas Wall Art",9,9,0
-159,bf7e1453256e5022,"Personalized Vector Pet Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art",3,3,0
-160,745395ce2ac7af9d,Personalized Framed Vector Pet Portrait on Gallery Wrapped Canvas,9,9,0
-161,ab4cbb9182eb1ec9,"Personalized Art Deco Pet Portrait, Framed Dog Cat Canvas Wall Art",9,9,0
-162,8acd1836d3b21370,Personalized Pet Portrait Vector Graphic Canvas Tote,2,2,0
-163,aabc7a10360e3c6a,Personalized Pet Portrait Vintage Botanical Pattern Canvas Tote,4,4,0
-164,77f0cb0eef191ea9,Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas,12,12,0
-165,6b95fc40ed21acb3,"Personalized Framed Art Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art",12,12,0
-166,81f9de98ccb41fa9,"Personalized Vintage Botanical Pet Portrait, Custom Dog Cat Canvas Wall Art",12,12,0
-167,ae12dc508c6670d0,"Personalized Vintage Botanical Portrait on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art",3,3,0
-168,3af3abc76fe0fc7b,Personalized Art Print Pet Portrait on Gallery Wrapped Canvas,3,3,0
+etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable_skus,problem_skus,listing_status
+049476b656972772,"Personalized Christmas Tote Bag, Reusable Gift Bag, Festive Design (3 Sizes)",15,0,0,0,15,HAS_DUPLICATE_SKU
+0534061341f17e71,"Personalized Hanukkah Tote Bag, Reusable Jewish Gift Wrap",6,0,0,0,6,HAS_DUPLICATE_SKU
+068e4d76cfe036a1,"Customizable Chicken Flock Mug, Farmhouse Coffee Cup, Backyard Chicken Lover Gift",5,5,0,0,0,FULLY_MATCHED
+0b6cdf68adc9849a,Personalized Pet Photo Nutcracker Ornament: Custom Cat or Dog Christmas Decoration,4,4,0,0,0,FULLY_MATCHED
+0bd0072bd76bf3e4,"Custom Pet Portrait Canvas Wall Art: Personalized Dog, Cat Memorial Gallery Wrapped Print",4,4,0,0,0,FULLY_MATCHED
+0e6c43f807671be0,"Opossum Raccoon Pie Sweatshirt, Funny Thanksgiving Crewneck, Fall Animal Lover Gift",30,30,0,0,0,FULLY_MATCHED
+0edbec98658d56f2,"Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift",2,0,0,0,2,HAS_DUPLICATE_SKU
+12f311b0f92522d0,"Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake",4,0,0,0,4,HAS_DUPLICATE_SKU
+1490031d948df79e,"Custom Pet Portrait Memorial Keychain, Acrylic Pet Loss Keepsake (Digital Proof)",1,1,0,0,0,FULLY_MATCHED
+177a68fad5fb929a,"Personalized Faux Suede Christmas Pillow, Plaid Holiday Decor Gift Tag",8,0,0,0,8,HAS_DUPLICATE_SKU
+17aa40f79599e60c,"Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+184a2ede7c3b270c,"Funny Capybara Tee Personalized ""is on Capy Time"" Cotton T Shirt",42,42,0,0,0,FULLY_MATCHED
+1cd1ceeb5b6b39f8,"Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee",35,35,0,0,0,FULLY_MATCHED
+1e68f3bbaf32c83e,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Throw, Two Designs",4,0,0,0,4,HAS_DUPLICATE_SKU
+20804d138902d450,"Personalized Spooky Pumpkin Halloween Table Runner, Custom Fall Dining Decor",6,0,6,0,0,NO_PRINTIFY_PRODUCTS
+236ecc99357e2bac,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Gift, Blue Gold Designs",4,0,0,0,4,HAS_DUPLICATE_SKU
+256d67243f9f6e10,Capybara Shirt Renaissance Art Parody Tee | Capybara Lover Gift | Michelangelo Inspired Graphic T-Shirt,42,42,0,0,0,FULLY_MATCHED
+27e4b797a7b202f8,Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote,1,1,0,0,0,FULLY_MATCHED
+2978f5dc97511177,"Personalized Thanksgiving Table Runner, Grateful Hearts Gather Fall Decor",6,0,0,0,6,HAS_DUPLICATE_SKU
+29dbe33a8e7f6ece,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",2300,0,0,25,2275,HAS_DUPLICATE_SKU
+29fc188b7f71a667,"Personalized Christmas Doormat, Custom Family Welcome Mat, Holiday Plaid Rug Designs",5,0,0,0,5,HAS_DUPLICATE_SKU
+2b58d0c3e358d23e,"Custom Pet Christmas Tree Skirt, Personalized Dog Cat Holiday Decor",2,2,0,0,0,FULLY_MATCHED
+2c8b08c1fd2d18a7,"Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag",1,0,0,0,1,HAS_DUPLICATE_SKU
+2f7e39dc0aac098e,"Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag",2,0,0,0,2,HAS_DUPLICATE_SKU
+35624159b0a64522,"Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner",2,2,0,0,0,FULLY_MATCHED
+3679a77cf5982e22,"Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+36bf11a10924d777,"Possum Raccoon Canvas Art, We Heard Pie Funny Print, Animal Kitchen Wall Decor",3,3,0,0,0,FULLY_MATCHED
+39ef67acd1808627,"Personalized Sherpa Fleece Blanket, Custom Christmas Throw, Elf Reindeer Plaid Designs",10,0,0,0,10,HAS_DUPLICATE_SKU
+3a0e4028187d1842,"Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man",2,0,0,0,2,HAS_DUPLICATE_SKU
+3a70edbe478942e6,"Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee",35,35,0,0,0,FULLY_MATCHED
+3a89a6a9facee276,"Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag",1,0,0,0,1,HAS_DUPLICATE_SKU
+3af3abc76fe0fc7b,Personalized Art Print Pet Portrait on Gallery Wrapped Canvas,3,3,0,0,0,FULLY_MATCHED
+3b22cf6e3e23403e,"Halloween Table Runner, Ghost Vampire Mummy Fall Decor, Personalized Autumn Centerpiece",6,0,0,0,6,HAS_DUPLICATE_SKU
+3c3742d411489438,"Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake",4,0,0,0,4,HAS_DUPLICATE_SKU
+411d2ee4e0d7eb2b,"Personalized Hanukkah Table Runner, Custom Jewish Holiday Decor, Matching Napkins",18,0,0,0,18,HAS_DUPLICATE_SKU
+436d0e9671c20b5f,"Personalized Faux Suede Christmas Pillow Cover, Custom Tag Decor (4 Sizes)",16,0,0,0,16,HAS_DUPLICATE_SKU
+44c4e98b5d4d9c93,"Personalized Christmas Table Runner, Festive Family Holiday Decor, 4 Designs, Optional Napkins",24,0,0,0,24,HAS_DUPLICATE_SKU
+452f4df636ee1406,"Personalized Sepia Pet Portrait Canvas, Custom Dog Cat Wall Art",3,3,0,0,0,FULLY_MATCHED
+45649464a174e950,"Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+465d85af22f797ef,"Personalized Thanksgiving Harvest Table Runner, Custom Family Fall Decor",6,0,0,0,6,HAS_DUPLICATE_SKU
+467f0b0a491d2299,"Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag",2,0,0,0,2,HAS_DUPLICATE_SKU
+484e3859bb3d7a92,"Capybara Tote Bag: Renaissance Art Parody Canvas Tote, Funny Museum Humor",1,1,0,0,0,FULLY_MATCHED
+49615676987af3ed,"Custom Hanukkah Doormat, Personalized Jewish Holiday Welcome Rug, Menorah Dreidel Design",2,0,0,0,2,HAS_DUPLICATE_SKU
+49bfb51554d6b56d,"Custom Pet Portrait Canvas: Vintage Circus Dog Art, Personalized Name Print",3,3,0,0,0,FULLY_MATCHED
+4a4b2bf09b7fa00d,"Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel",42,42,0,0,0,FULLY_MATCHED
+4a793767470e56a3,"Personalized Faux Suede Christmas Pillow with Gift Tag, Plaid Holiday Decor",8,0,0,0,8,HAS_DUPLICATE_SKU
+4dab3519bcc4b204,"Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+4ec3e0f428844c5a,"Snowflake Monogram Mug, Personalized Christmas Coffee Cup, Custom Initial Holiday Mug, Coworker Boss Gift",2,2,0,0,0,FULLY_MATCHED
+5128348944a6bb92,"Possum Sweatshirt, Personalized Playing Dead Is Your Cardio, Custom Name Opossum Crewneck, Animal Lover Gift",24,24,0,0,0,FULLY_MATCHED
+5234680b76ac1e92,"Funny Raccoon Opossum Christmas Mug, Caffeine Denial Coffee Cup, Coworker Boss Gift",2,2,0,0,0,FULLY_MATCHED
+5243d5540b586b6f,"Too for Coop Chicken Shirt, Funny Farm Animal Graphic Tee",42,42,0,0,0,FULLY_MATCHED
+5334f68be5882bc9,Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee,42,42,0,0,0,FULLY_MATCHED
+54d1bf601adcee61,"Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+561faab75df6b01a,"Personalized Thanksgiving Woodland Animals Garden Flag, Custom Family Name Fall Porch Decor",2,2,0,0,0,FULLY_MATCHED
+590ce08c24efbd43,"Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)",8,8,0,0,0,FULLY_MATCHED
+59c5f7b9d587b272,"Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star",8,0,0,0,8,HAS_DUPLICATE_SKU
+5a6861cfa261a86d,"Customizable Chicken Coop T-Shirt, Farmhouse Flock Apparel, Comfort Colors Tee",35,35,0,0,0,FULLY_MATCHED
+5ac90809eacf2cb1,"Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+5ae49a27c78c6d3b,"Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift",3,0,0,0,3,HAS_DUPLICATE_SKU
+5c2141b752c448f1,"Capybara Tote Bag: Funny Animal Canvas Tote, Vitruvian Man",1,1,0,0,0,FULLY_MATCHED
+5db0775c6890479e,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,0,0,0,8,HAS_DUPLICATE_SKU
+609dfa45803fdb0a,"Pet Memorial Plaque Personalized, Custom Watercolor Portrait, Dog Cat Sympathy Gift, Acrylic Wood Stand",1,0,0,0,1,HAS_DUPLICATE_SKU
+62c28ae96618026c,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,0,0,0,8,HAS_DUPLICATE_SKU
+6308089d21f88c3f,"Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif",30,30,0,0,0,FULLY_MATCHED
+6490f028b7bf9566,"Woodland Animals Sweatshirt, Capybara Raccoon Possum Crewneck, Cozy Nature Lover Pullover",42,42,0,0,0,FULLY_MATCHED
+64ebe101734e5bdf,"Personalized Pet Sketch Portrait, Sepia Toned Dog Cat Canvas Wall Art",9,9,0,0,0,FULLY_MATCHED
+650af8de644f63cf,"Custom Chicken Mom Shirt, Personalized Flock Tee, Backyard Chicken Keeper Apparel",42,42,0,0,0,FULLY_MATCHED
+664bfac1f07e917b,"Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt",42,42,0,0,0,FULLY_MATCHED
+69a31c3027d91541,"Personalized Christmas Tote Bag, Reusable Festive Bag, Festive Design, Custom Tag",15,0,0,0,15,HAS_DUPLICATE_SKU
+6a18a9a2cec7f259,"Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor",1,1,0,0,0,FULLY_MATCHED
+6b95fc40ed21acb3,"Personalized Framed Art Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art",12,12,0,0,0,FULLY_MATCHED
+6bc750bbe72efa06,Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck,30,30,0,0,0,FULLY_MATCHED
+6da8b1675d43aacf,"Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift",6,6,0,0,0,FULLY_MATCHED
+6f1fa7930b146de8,"Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee",7,7,0,0,0,FULLY_MATCHED
+70871605645a914d,"Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover",1,0,0,0,1,HAS_DUPLICATE_SKU
+720264d36a026cc5,"Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset",30,30,0,0,0,FULLY_MATCHED
+72d999b45d4ec805,"Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift",1,1,0,0,0,FULLY_MATCHED
+72f319b83f6b453b,"Capybara T-Shirt: Vintage Art Parody Farmhouse Humor Cotton Tee, American Gothic",42,42,0,0,0,FULLY_MATCHED
+745395ce2ac7af9d,Personalized Framed Vector Pet Portrait on Gallery Wrapped Canvas,9,9,0,0,0,FULLY_MATCHED
+76d594b606204df8,"Raccoon Possum Christmas Sweatshirt, Funny Caffeine Denial Crewneck, Holiday Animal Pullover",30,30,0,0,0,FULLY_MATCHED
+7746fb7520c17770,"Personalized Hanukkah Doormat, Woodland Animals Menorah Welcome Mat, Jewish Holiday Porch Decor",1,1,0,0,0,FULLY_MATCHED
+7790702ec580d8ca,"Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug",4,4,0,0,0,FULLY_MATCHED
+77f0cb0eef191ea9,Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas,48,0,0,0,48,HAS_DUPLICATE_SKU
+794b5f4044699887,"Capybara Scream Canvas, Museum Parody Art Print, Embrace Chaos Wall Decor",3,3,0,0,0,FULLY_MATCHED
+7a0e8c5f0dff865d,"Personalized Christmas Doormat, Custom Family Welcome Mat, Holiday Designs",5,0,0,0,5,HAS_DUPLICATE_SKU
+7a73d863aecdeb04,"Opossum Raccoon Pie Shirt, Funny Thanksgiving Graphic Tee, Fall Animal Lover Gift",35,35,0,0,0,FULLY_MATCHED
+7db3cf9698c8af34,"Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag",2,0,0,0,2,HAS_DUPLICATE_SKU
+7ffc6b7afe1bed64,"Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift",12,0,0,0,12,HAS_DUPLICATE_SKU
+80b92e6d99897b05,"Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift",2,0,0,0,2,HAS_DUPLICATE_SKU
+8190f87e591df082,"Capybara Sweatshirt, Museum Humor Crewneck, Animal Lover Gift, Renaissance Art",30,30,0,0,0,FULLY_MATCHED
+81f9de98ccb41fa9,"Personalized Vintage Botanical Pet Portrait, Custom Dog Cat Canvas Wall Art",12,12,0,0,0,FULLY_MATCHED
+8684838d89bf8307,"Personalized Hanukkah Mug, Woodland Animal Jewish Holiday Gift",1,1,0,0,0,FULLY_MATCHED
+88c434c6b9c052cb,"Halloween Table Runner, Ghost Vampire Mummy Fall Decor, Personalized Centerpiece (Optional Napkins)",6,0,0,0,6,HAS_DUPLICATE_SKU
+892a83ae4a16b420,"Personalized Christmas Family Name Table Runner, 4 Festive Designs, Optional Napkins",24,0,0,0,24,HAS_DUPLICATE_SKU
+8acd1836d3b21370,Personalized Pet Portrait Vector Graphic Canvas Tote,2,2,0,0,0,FULLY_MATCHED
+8c6f8df41392a8c2,Vintage Capybara Travel Poster: Tropical Beach Paradise Canvas Wrap,3,3,0,0,0,FULLY_MATCHED
+8cfbd37003875b14,"Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake",4,4,0,0,0,FULLY_MATCHED
+8eaf494b96ede4a1,"Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag",12,0,0,0,12,HAS_DUPLICATE_SKU
+97e7af5f1be4c177,"Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag",2,0,0,0,2,HAS_DUPLICATE_SKU
+9ad99b97de373c6e,"Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt",24,24,0,0,0,FULLY_MATCHED
+9ae39fb20c969837,"Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug",6,6,0,0,0,FULLY_MATCHED
+9b8182b6505e090a,"Custom Hanukkah Doormat, Personalized Family Welcome Rug, Blue Menorah Dreidel Design",2,0,0,0,2,HAS_DUPLICATE_SKU
+9c040af671932db9,Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor,3,3,0,0,0,FULLY_MATCHED
+9c1b4d23db18d2e5,"Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+9cfe19849ad02e63,"Opossum Raccoon Pie Dad Hat, Funny Thanksgiving Baseball Cap, Fall Animal Lover Gift",5,5,0,0,0,FULLY_MATCHED
+9f4c678b63d247ae,"Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote",4,0,0,0,4,HAS_DUPLICATE_SKU
+a1d6a974422ebb02,"Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+a430993aaeaa1b45,"Possum Raccoon Pie Sweatshirt, Funny Wildlife Animal Crewneck Pullover",24,24,0,0,0,FULLY_MATCHED
+a84b722e69515daf,"Custom Watercolor Pet Portrait on Gallery Wrapped Canvas, Personalized Dog or Cat Wall Art",3,3,0,0,0,FULLY_MATCHED
+a9fccfb50b9e5c6f,"Personalized Thanksgiving Table Runner, Custom Fall Table Decor, Autumn Pumpkin Runner for Thanksgiving Dinner, Optional Matching Napkins",6,0,6,0,0,NO_PRINTIFY_PRODUCTS
+aa5f2d4833f48227,"Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+aabc7a10360e3c6a,Personalized Pet Portrait Vintage Botanical Pattern Canvas Tote,4,4,0,0,0,FULLY_MATCHED
+ab4cbb9182eb1ec9,"Personalized Art Deco Pet Portrait, Framed Dog Cat Canvas Wall Art",9,9,0,0,0,FULLY_MATCHED
+abad981a26024447,Custom Pet Circus Sweatshirt: Vintage Carnival Dog or Cat Lover Retro Apparel,42,42,0,0,0,FULLY_MATCHED
+ad29feb327ac783d,"Possum Raccoon Pie Graphic Tee, Funny Wildlife Animal Shirt",7,7,0,0,0,FULLY_MATCHED
+ad7e8fb4c15dacc5,"Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift",1,1,0,0,0,FULLY_MATCHED
+ae12dc508c6670d0,"Personalized Vintage Botanical Portrait on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art",3,3,0,0,0,FULLY_MATCHED
+b144dd9faef74f9a,"Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)",8,0,0,0,8,HAS_DUPLICATE_SKU
+b1efd1a7c4af0e02,"Personalized Pet Memorial Ornament, Custom Photo Acrylic Keepsake, Dog Cat Sympathy Gift",1,1,0,0,0,FULLY_MATCHED
+b5732a4417f6d973,"Pet Memorial Plaque Personalized, Custom Watercolor Portrait, Dog Cat Sympathy Gift, Acrylic Wood Stand",1,0,0,0,1,HAS_DUPLICATE_SKU
+b5ef77564e29c0ad,"Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag",4,4,0,0,0,FULLY_MATCHED
+b72b583edbb44953,"Customizable Chicken Flock Sweatshirt, Personalized Farm Crewneck, Backyard Chicken Keeper Apparel",24,24,0,0,0,FULLY_MATCHED
+b74b5dbb4fdc8068,Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake,1,1,0,0,0,FULLY_MATCHED
+bf7e1453256e5022,"Personalized Vector Pet Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art",3,3,0,0,0,FULLY_MATCHED
+bfa852ab11a43cea,"Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+c3a632521de4b81a,"Capybara Sweatshirt – Funny Rodent Art Apparel, American Gothic Parody",30,30,0,0,0,FULLY_MATCHED
+c4072741df1683d0,"Too Cool For Coop Chicken Mug, Funny Farmhouse Ceramic Cup, 11 Oz",1,1,0,0,0,FULLY_MATCHED
+c4dfc860e74eaa5d,Capybara Shirt: Humorous Vitruvian Yoga Animal Graphic Tee,42,42,0,0,0,FULLY_MATCHED
+c734af590a3da381,"Capybara Print, Museum Creation of Adam Parody Wall Art, Funny Renaissance Gallery Wrapped Canvas",4,3,1,0,0,PARTIALLY_MATCHED
+ca8aeeee1454b5e7,Custom Pet Photo Tote Bag: Personalized Black Canvas Tote,1,1,0,0,0,FULLY_MATCHED
+cada1f49f99d5bc6,"Personalized Hanukkah Table Runner, Family Name Jewish Holiday Decor",18,0,0,0,18,HAS_DUPLICATE_SKU
+cb0e6a95014b1087,"Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag",1,0,0,0,1,HAS_DUPLICATE_SKU
+cb36d60f571e284e,"Personalized Vintage Circus Pet T-Shirt, Custom Pet Photo Tee, Comfort Colors Shirt, FunHaus Style",42,42,0,0,0,FULLY_MATCHED
+cc296d7c57652f38,"Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift",1,1,0,0,0,FULLY_MATCHED
+d01793ea80fea84d,"Personalized Pet Portrait Mouse Pad, Custom Photo Desk Decor, Realistic Memorial Gift",1,1,0,0,0,FULLY_MATCHED
+d0f1e54ed4cf92f3,"Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift",2,2,0,0,0,FULLY_MATCHED
+d281fd5f5531e6ea,"Chicken Canvas Print, Too Cool for the Coop Wall Art, Funny Farmhouse Chicken Decor, Backyard Chicken Lover Gift, Optional Personalization",4,4,0,0,0,FULLY_MATCHED
+d3b5c9a1df0590ba,"Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign",2,0,0,0,2,HAS_DUPLICATE_SKU
+d42fb00702037d87,"Custom Framed Watercolor Pet Portrait on Wrapped Canvas, Personalized Dog or Cat Wall Art",9,9,0,0,0,FULLY_MATCHED
+d51668f36d38e588,"Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+d7226d2ef6a081c5,"Raccoon Opossum Christmas Lights Shirt, Funny Caffeine Denial Holiday Tee",21,21,0,0,0,FULLY_MATCHED
+dd8a0d21be9438a0,Funny Capybara American Gothic Tote Bag: Farmhouse Art Parody Canvas Tote,1,1,0,0,0,FULLY_MATCHED
+e7c67c560b3ed248,"Personalized Sherpa Fleece Blanket, Custom Christmas Throw, Elf Reindeer Plaid Designs",10,0,0,0,10,HAS_DUPLICATE_SKU
+e8b6d08b209225bc,"Personalized Faux Suede Christmas Pillow Cover, Custom Tag Decor",16,0,0,0,16,HAS_DUPLICATE_SKU
+e9b979b0b7ce7f85,"Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover",24,24,0,0,0,FULLY_MATCHED
+ea3d46c63644178d,"Capybara Halloween Mug, Witch Ghost Vampire Coffee Cup, Black Ceramic Spooky Gift",2,2,0,0,0,FULLY_MATCHED
+eabc78ea63e61a94,"Raccoon Opossum Tote Bag, Funny Caffeine Denial Design, Holiday Canvas Gift Bag",1,1,0,0,0,FULLY_MATCHED
+eb865e18338832f4,"Capybara Tank Top | Renaissance Art Parody Sleeveless Shirt, Creation of Adam",38,37,0,1,0,FULLY_MATCHED
+ec67eeaefc188223,Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup,1,1,0,0,0,FULLY_MATCHED
+ed9e9d80afc2b5e6,"Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake",2,0,0,0,2,HAS_DUPLICATE_SKU
+ee4140ecfae4034e,"Hedgehog Christmas Ornament, Acrylic Woodland Animal Decor, Funny Cozy Winter Gift, Coworker Boss Gift",1,1,0,0,0,FULLY_MATCHED
+f1013b196bb00894,"Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+f11aa2cfe055ffe8,"Personalized Cat Christmas Garden Flag, Holiday Yard Decor",2,0,0,0,2,HAS_DUPLICATE_SKU
+f172f470dbf4853c,"Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift",2,0,0,0,2,HAS_DUPLICATE_SKU
+f2520b7e2731b2b2,"Personalized Christmas Table Runner, Custom Family Name Holiday Decor, 4 Festive Designs",24,0,0,0,24,HAS_DUPLICATE_SKU
+f3fd1e1858eaad4d,"Personalized Christmas Table Runner, Family Name Holiday Decor, 4 Festive Designs",24,0,0,0,24,HAS_DUPLICATE_SKU
+f95604cee0555094,Capybara Tee Vintage Travel Capybara Cotton T-Shirt,42,42,0,0,0,FULLY_MATCHED
+fa12937277f7b844,"Personalized Hanukkah Tote Bag, Reusable Jewish Holiday Accessory, Custom Tag",6,0,0,0,6,HAS_DUPLICATE_SKU
+fb45f8d0714131ab,"Capybara Raccoon Ceramic Mug, Whimsical Animal Coffee Cup, Funny Coworker Boss Gift",12,7,0,0,5,PARTIALLY_MATCHED
+fcf30bd4a959962d,"Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook",1,1,0,0,0,FULLY_MATCHED
+ff1a8f7098ad9af6,"Possum Raccoon Pie Coffee Mug, Funny Black Ceramic Cup, Animal Lover Gift",2,2,0,0,0,FULLY_MATCHED
