@@ -56,7 +56,7 @@ class PrintifyClient:
             page += 1
         return products
 
-        def get_shipping_profiles(self, blueprint_id: Any, print_provider_id: Any):
+    def get_shipping_profiles(self, blueprint_id: Any, print_provider_id: Any):
         if not blueprint_id or not print_provider_id:
             return []
 
