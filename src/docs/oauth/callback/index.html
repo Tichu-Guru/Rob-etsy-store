@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etsy Authorization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        code {
+            display: block;
+            background: #f5f5f5;
+            padding: 15px;
+            word-break: break-all;
+            border-radius: 5px;
+        }
+
+        .success {
+            color: #146c2e;
+        }
+
+        .error {
+            color: #a61b1b;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Etsy Authorization</h1>
+
+<div id="message" class="box">
+    Processing Etsy authorization...
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    const code = params.get("code");
+    const state = params.get("state");
+    const error = params.get("error");
+    const errorDescription = params.get("error_description");
+
+    const message = document.getElementById("message");
+
+    if (error) {
+        message.innerHTML = `
+            <div class="error">
+                <h2>Authorization failed</h2>
+                <p>${escapeHtml(error)}</p>
+                <p>${escapeHtml(errorDescription || "")}</p>
+            </div>
+        `;
+    } else if (code) {
+        message.innerHTML = `
+            <div class="success">
+                <h2>Authorization successful</h2>
+
+                <p>
+                    Etsy has returned the authorization code.
+                    Copy the two values below and use them with
+                    the Etsy API setup.
+                </p>
+
+                <h3>Authorization Code</h3>
+                <code>${escapeHtml(code)}</code>
+
+                <h3>State</h3>
+                <code>${escapeHtml(state || "")}</code>
+
+                <p>
+                    <strong>Do not share these values publicly.</strong>
+                    The authorization code is single-use.
+                </p>
+            </div>
+        `;
+    } else {
+        message.innerHTML = `
+            <div class="error">
+                <h2>No authorization code received</h2>
+                <p>
+                    Etsy did not return an authorization code.
+                    Please start the authorization process again.
+                </p>
+            </div>
+        `;
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+</script>
+
+</body>
+</html>
