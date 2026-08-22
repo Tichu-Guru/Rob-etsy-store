@@ -34,6 +34,31 @@ jobs:
           PRINTIFY_SHOP_ID: ${{ secrets.PRINTIFY_SHOP_ID }}
         run: python -m src.main
 
+      - name: Send daily summary email
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+        run: |
+          EMAIL_BODY=$(cat output/sync_summary.txt)
+
+          PAYLOAD=$(jq -n \
+            --arg from "$RESEND_FROM_EMAIL" \
+            --arg to1 "robo78640@gmail.com" \
+            --arg to2 "zuritaconsejos@hotmail.com" \
+            --arg subject "Daily Etsy ↔ Printify Sync Summary" \
+            --arg text "$EMAIL_BODY" \
+            '{
+              from: $from,
+              to: [$to1, $to2],
+              subject: $subject,
+              text: $text
+            }')
+
+          curl -sS -X POST "https://api.resend.com/emails" \
+            -H "Authorization: Bearer $RESEND_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
+
       - name: Compress database
         run: |
           if [ -f data/etsy_printify.db ]; then
