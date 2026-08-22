@@ -236,16 +236,6 @@ class PrintifyClient:
 
             return {}
 
-        print("SHIPPING V2 RESPONSE:")
-        print(
-            json.dumps(
-                data,
-                indent=2,
-                ensure_ascii=False,
-                default=str,
-            )
-        )
-
         shipping_by_variant = {}
 
         if not isinstance(data, dict):
