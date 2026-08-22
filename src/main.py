@@ -6,7 +6,14 @@ import math
 import pandas as pd
 
 from .config import DATABASE_PATH, ETSY_CSV, OUTPUT_DIR
-from .database import initialize_database, record_run, replace_table
+from .database import (
+    initialize_database,
+    initialize_history_tables,
+    create_snapshot,
+    save_comparison_history,
+    record_run,
+    replace_table,
+)
 from .etsy import build_etsy_tables, read_etsy_csv
 from .matching import build_comparison
 from .printify import PrintifyClient
@@ -1282,6 +1289,14 @@ def main():
         DATABASE_PATH
     )
 
+    # -------------------------------------------------
+    # HISTORICAL SNAPSHOT TABLES
+    # -------------------------------------------------
+
+    initialize_history_tables(
+        connection
+    )
+
     replace_table(
         connection,
         "etsy_listings",
@@ -1338,6 +1353,30 @@ def main():
         if not comparison.empty
         else 0
     )
+
+    # -------------------------------------------------
+    # HISTORICAL SNAPSHOT
+    # -------------------------------------------------
+
+    snapshot_id = create_snapshot(
+        connection,
+        ts,
+        len(etsy_listings),
+        len(etsy_rows),
+        len(printify_rows),
+        matched_count,
+        len(attention),
+    )
+
+    save_comparison_history(
+        connection,
+        snapshot_id,
+        comparison,
+    )
+
+    # -------------------------------------------------
+    # EXISTING SYNC HISTORY
+    # -------------------------------------------------
 
     record_run(
         connection,
