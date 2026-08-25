@@ -384,6 +384,60 @@ def build_listing_profitability_report(
                 else None
             )
 
+            # Capture the cost and shipping for the variant with the
+            # worst margin so the daily review gives actionable detail.
+            if margins.empty:
+                worst_margin_row = None
+            else:
+                margin_values = pd.to_numeric(
+                    group["estimated_net_margin_pct"],
+                    errors="coerce",
+                )
+                worst_margin_index = margin_values.idxmin()
+                worst_margin_row = group.loc[worst_margin_index]
+
+            worst_printify_cost = (
+                float(
+                    pd.to_numeric(
+                        worst_margin_row.get(
+                            "printify_cost_for_profit"
+                        ),
+                        errors="coerce",
+                    )
+                )
+                if worst_margin_row is not None
+                and pd.notna(
+                    pd.to_numeric(
+                        worst_margin_row.get(
+                            "printify_cost_for_profit"
+                        ),
+                        errors="coerce",
+                    )
+                )
+                else None
+            )
+
+            worst_printify_shipping = (
+                float(
+                    pd.to_numeric(
+                        worst_margin_row.get(
+                            "printify_shipping_for_profit"
+                        ),
+                        errors="coerce",
+                    )
+                )
+                if worst_margin_row is not None
+                and pd.notna(
+                    pd.to_numeric(
+                        worst_margin_row.get(
+                            "printify_shipping_for_profit"
+                        ),
+                        errors="coerce",
+                    )
+                )
+                else None
+            )
+
             current_price_min = (
                 float(prices.min())
                 if not prices.empty
@@ -466,6 +520,12 @@ def build_listing_profitability_report(
                     "worst_net_profit":
                         worst_profit,
 
+                    "worst_printify_cost":
+                        worst_printify_cost,
+
+                    "worst_printify_shipping":
+                        worst_printify_shipping,
+
                     "worst_net_margin_pct":
                         worst_margin,
 
@@ -513,6 +573,8 @@ def build_listing_profitability_report(
                 "current_price_min",
                 "current_price_max",
                 "worst_net_profit",
+                "worst_printify_cost",
+                "worst_printify_shipping",
                 "worst_net_margin_pct",
                 "best_net_margin_pct",
                 "minimum_price_for_15pct_margin",
@@ -568,6 +630,8 @@ def build_listing_profitability_report(
             "current_price_min",
             "current_price_max",
             "worst_net_profit",
+            "worst_printify_cost",
+            "worst_printify_shipping",
             "worst_net_margin_pct",
             "best_net_margin_pct",
             "minimum_price_for_15pct_margin",
@@ -645,9 +709,10 @@ def build_listing_profitability_report(
     # ---------------------------------------------------------
 
     report["pricing_note"] = (
-        "Uses Etsy exported base price; "
-        "variation-specific Etsy price adjustments "
-        "are not reliably available in the CSV."
+        "Uses Etsy exported base price for the current-price comparison; "
+        "the 15% target is the highest price required by any matched "
+        "variant in the listing. Variation-specific Etsy prices are not "
+        "reliably available in the CSV."
     )
 
     # ---------------------------------------------------------
@@ -671,6 +736,8 @@ def build_listing_profitability_report(
             "current_price_max",
 
             "worst_net_profit",
+            "worst_printify_cost",
+            "worst_printify_shipping",
             "worst_net_margin_pct",
             "best_net_margin_pct",
 
@@ -721,14 +788,15 @@ def build_listing_profitability_report(
     # ONLY LISTINGS REQUIRING PROFITABILITY REVIEW
     # ---------------------------------------------------------
 
+    # A listing belongs in the review report only when its worst
+    # calculable variant margin is strictly below the threshold.
+    # This guarantees that listings at exactly 15% or above are
+    # completely excluded from the detailed review list.
     low_profit_listings = report[
-        report["status"].isin(
-            [
-                "HAS_LOSS_VARIANT",
-                "HAS_UNDER_10_VARIANT",
-                "HAS_10_TO_14.99_VARIANT",
-            ]
-        )
+        pd.to_numeric(
+            report["worst_net_margin_pct"],
+            errors="coerce",
+        ) < LOW_PROFIT_THRESHOLD
     ].copy()
 
     return (
@@ -1121,7 +1189,128 @@ def main():
         f"{listing_low_profit_percentage:.1f}%",
 
         "",
+    ]
 
+    # ---------------------------------------------------------
+    # DAILY EMAIL: ONLY LISTINGS BELOW THE PROFIT THRESHOLD
+    # ---------------------------------------------------------
+
+    lines += [
+        "LISTINGS REQUIRING ATTENTION",
+        "",
+    ]
+
+    if low_profit_listings.empty:
+        lines += [
+            "None.",
+            "All calculable Etsy listings are at or above "
+            f"{LOW_PROFIT_THRESHOLD:.0f}% net margin.",
+            "",
+        ]
+    else:
+        lines += [
+            f"Only listings below {LOW_PROFIT_THRESHOLD:.0f}% net margin are shown.",
+            "",
+        ]
+
+        for number, (_, row) in enumerate(
+            low_profit_listings.iterrows(),
+            start=1,
+        ):
+            title = str(
+                row.get(
+                    "etsy_title",
+                    "Untitled listing",
+                )
+            ).replace("\n", " ").replace("\r", " ").strip()
+
+            current_price = pd.to_numeric(
+                row.get("current_etsy_price"),
+                errors="coerce",
+            )
+
+            worst_profit = pd.to_numeric(
+                row.get("worst_net_profit"),
+                errors="coerce",
+            )
+
+            worst_cost = pd.to_numeric(
+                row.get("worst_printify_cost"),
+                errors="coerce",
+            )
+
+            worst_shipping = pd.to_numeric(
+                row.get("worst_printify_shipping"),
+                errors="coerce",
+            )
+
+            worst_margin = pd.to_numeric(
+                row.get("worst_net_margin_pct"),
+                errors="coerce",
+            )
+
+            minimum_price = pd.to_numeric(
+                row.get("minimum_price_for_15pct_margin"),
+                errors="coerce",
+            )
+
+            price_increase = pd.to_numeric(
+                row.get("price_increase_needed"),
+                errors="coerce",
+            )
+
+            lines.append(
+                f"{number}. {title}"
+            )
+
+            detail_parts = []
+
+            if pd.notna(current_price):
+                detail_parts.append(
+                    f"Current ${current_price:,.2f}"
+                )
+
+            if pd.notna(worst_profit):
+                detail_parts.append(
+                    f"Net ${worst_profit:,.2f}"
+                )
+
+            if pd.notna(worst_cost):
+                detail_parts.append(
+                    f"Printify ${worst_cost:,.2f}"
+                )
+
+            if pd.notna(worst_shipping):
+                detail_parts.append(
+                    f"Shipping ${worst_shipping:,.2f}"
+                )
+
+            if pd.notna(worst_margin):
+                detail_parts.append(
+                    f"Margin {worst_margin:.1f}%"
+                )
+
+            if pd.notna(minimum_price):
+                detail_parts.append(
+                    f"15% price ${minimum_price:,.2f}"
+                )
+
+            if pd.notna(price_increase) and price_increase > 0:
+                detail_parts.append(
+                    f"Increase ${price_increase:,.2f}"
+                )
+
+            if detail_parts:
+                lines.append(
+                    "   " + " | ".join(detail_parts)
+                )
+            else:
+                lines.append(
+                    "   Profitability details unavailable."
+                )
+
+    lines += [
+        "",
         "ETSY_ONLY means the Etsy SKU is not currently found in Printify.",
 
         "Profitability requires a matched Printify SKU "
@@ -1232,7 +1421,7 @@ def main():
         f"Listings with calculable profitability: "
         f"{listing_calculable_count:,}",
 
-        f"Listings below 15%: "
+        f"Listings below {LOW_PROFIT_THRESHOLD:.0f}%: "
         f"{listing_low_profit_count:,}",
 
         "",
