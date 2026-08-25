@@ -15,6 +15,7 @@ from .database import (
     replace_table,
 )
 from .etsy import build_etsy_tables, read_etsy_csv
+from .etsy_api import EtsyApiClient
 from .matching import build_comparison
 from .printify import PrintifyClient
 
@@ -590,27 +591,34 @@ def build_listing_profitability_report(
     base = etsy_listings[
         [
             "etsy_listing_key",
+            "etsy_api_listing_id",
             "title",
             "price",
+            "etsy_api_price",
         ]
     ].copy()
 
     base = base.rename(
         columns={
-            "etsy_listing_key":
-                "etsy_listing_id",
-
-            "title":
-                "etsy_title",
-
-            "price":
-                "current_etsy_price",
+            "title": "etsy_title",
+            "price": "csv_etsy_price",
+            "etsy_api_price": "current_etsy_price",
         }
     )
 
     base["etsy_listing_id"] = (
-        base["etsy_listing_id"]
+        base["etsy_api_listing_id"]
+        .fillna(base["etsy_listing_key"])
         .astype(str)
+    )
+    base["current_etsy_price"] = pd.to_numeric(
+        base["current_etsy_price"], errors="coerce"
+    ).combine_first(
+        pd.to_numeric(base["csv_etsy_price"], errors="coerce")
+    )
+    base = base.drop(
+        columns=["etsy_listing_key", "etsy_api_listing_id", "csv_etsy_price"],
+        errors="ignore",
     )
 
     # ---------------------------------------------------------
@@ -709,10 +717,10 @@ def build_listing_profitability_report(
     # ---------------------------------------------------------
 
     report["pricing_note"] = (
-        "Uses Etsy exported base price for the current-price comparison; "
-        "the 15% target is the highest price required by any matched "
-        "variant in the listing. Variation-specific Etsy prices are not "
-        "reliably available in the CSV."
+        "Uses Etsy API inventory prices for matched SKUs when available; "
+        "falls back to the Etsy CSV base price when API pricing is "
+        "unavailable. The 15% target is the highest price required by "
+        "any matched variant in the listing."
     )
 
     # ---------------------------------------------------------
@@ -806,6 +814,166 @@ def build_listing_profitability_report(
 
 
 # ---------------------------------------------------------
+# ETSY API ENRICHMENT
+# ---------------------------------------------------------
+
+def _normalize_match_text(value) -> str:
+    return " ".join(str(value or "").strip().lower().split())
+
+
+def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
+    listings = etsy_listings.copy()
+    variants = etsy_variants.copy()
+    listings["etsy_api_listing_id"] = pd.NA
+    listings["etsy_api_price"] = pd.NA
+    variants["etsy_api_listing_id"] = pd.NA
+    variants["etsy_api_price"] = pd.NA
+
+    try:
+        client = EtsyApiClient.from_environment()
+    except RuntimeError as exc:
+        print(f"Etsy API pricing enrichment skipped: {exc}")
+        return listings, variants
+
+    try:
+        api_rows = client.get_listing_inventory_rows()
+    except Exception as exc:
+        print(f"WARNING: Etsy API pricing enrichment failed: {exc}")
+        return listings, variants
+
+    if not api_rows:
+        print("WARNING: Etsy API returned no listing inventory rows.")
+        return listings, variants
+
+    api_df = pd.DataFrame(api_rows)
+    if api_df.empty:
+        return listings, variants
+
+    api_df["_title_key"] = api_df["etsy_api_title"].map(
+        _normalize_match_text
+    )
+    api_df["_sku_key"] = api_df["etsy_api_sku"].map(
+        lambda v: str(v or "").strip().lower()
+    )
+
+    for listing_index, listing in listings.iterrows():
+        title_key = _normalize_match_text(
+            listing.get("title", "")
+        )
+        candidates = api_df[
+            api_df["_title_key"] == title_key
+        ].copy()
+
+        if candidates.empty:
+            continue
+
+        csv_skus = set(
+            str(v).strip().lower()
+            for v in variants.loc[
+                variants["etsy_listing_key"]
+                == listing["etsy_listing_key"],
+                "etsy_sku",
+            ].tolist()
+            if str(v).strip()
+            and str(v).strip().lower() != "unavailable_sku"
+        )
+
+        scores = []
+        for api_listing_id, group in candidates.groupby(
+            "etsy_api_listing_id"
+        ):
+            api_skus = set(
+                str(v).strip().lower()
+                for v in group["etsy_api_sku"].tolist()
+                if str(v).strip()
+            )
+            scores.append(
+                (
+                    len(csv_skus & api_skus),
+                    len(api_skus),
+                    api_listing_id,
+                )
+            )
+
+        scores.sort(reverse=True)
+        best_overlap, _, best_id = scores[0]
+
+        if csv_skus and best_overlap == 0:
+            continue
+
+        selected = candidates[
+            candidates["etsy_api_listing_id"] == best_id
+        ]
+
+        listings.at[
+            listing_index,
+            "etsy_api_listing_id",
+        ] = str(best_id)
+
+        prices = pd.to_numeric(
+            selected["etsy_api_price"],
+            errors="coerce",
+        ).dropna()
+
+        if not prices.empty:
+            listings.at[
+                listing_index,
+                "etsy_api_price",
+            ] = float(prices.min())
+
+        mask = (
+            variants["etsy_listing_key"]
+            == listing["etsy_listing_key"]
+        )
+
+        for variant_index, variant in variants.loc[
+            mask
+        ].iterrows():
+            sku = str(
+                variant.get("etsy_sku", "")
+            ).strip().lower()
+
+            if not sku or sku == "unavailable_sku":
+                continue
+
+            matches = selected[
+                selected["_sku_key"] == sku
+            ]
+            price_values = pd.to_numeric(
+                matches["etsy_api_price"],
+                errors="coerce",
+            ).dropna()
+
+            if price_values.empty:
+                continue
+
+            variants.at[
+                variant_index,
+                "etsy_api_listing_id",
+            ] = str(best_id)
+            variants.at[
+                variant_index,
+                "etsy_api_price",
+            ] = float(price_values.iloc[0])
+
+    print(
+        "Etsy API pricing enrichment: "
+        f"{int(variants['etsy_api_price'].notna().sum()):,} "
+        "SKU prices retrieved."
+    )
+
+    return listings, variants
+
+
+def apply_etsy_api_prices(etsy_rows, etsy_variants):
+    api_columns=etsy_variants[["etsy_listing_key","etsy_sku_index","etsy_api_listing_id","etsy_api_price"]].copy()
+    rows=etsy_rows.merge(api_columns,on=["etsy_listing_key","etsy_sku_index"],how="left")
+    rows["etsy_listing_id"]=rows["etsy_api_listing_id"].fillna(rows["etsy_listing_id"])
+    rows["etsy_price"]=pd.to_numeric(rows["etsy_api_price"],errors="coerce").combine_first(pd.to_numeric(rows["etsy_price"],errors="coerce"))
+    return rows.drop(columns=["etsy_api_listing_id","etsy_api_price"],errors="ignore")
+
+
+# ---------------------------------------------------------
 # MAIN
 # ---------------------------------------------------------
 
@@ -865,8 +1033,10 @@ def main():
         [
         "etsy_row_number",
         "etsy_listing_id",
+        "etsy_listing_key",
         "etsy_title",
         "etsy_sku",
+        "etsy_sku_index",
         "etsy_price",
         "etsy_quantity",
         "etsy_variation_1_name",
@@ -876,6 +1046,33 @@ def main():
         "etsy_variation_label",
         ]
     ]
+
+    etsy_listings, etsy_variants = enrich_etsy_prices_from_api(
+        etsy_listings,
+        etsy_variants,
+    )
+
+    etsy_rows = apply_etsy_api_prices(
+        etsy_rows,
+        etsy_variants,
+    )
+
+    listing_id_map = etsy_listings[[
+        "etsy_listing_key",
+        "etsy_api_listing_id",
+    ]].copy()
+    etsy_rows = etsy_rows.merge(
+        listing_id_map,
+        on="etsy_listing_key",
+        how="left",
+    )
+    etsy_rows["etsy_listing_id"] = etsy_rows[
+        "etsy_api_listing_id"
+    ].fillna(etsy_rows["etsy_listing_id"])
+    etsy_rows = etsy_rows.drop(
+        columns=["etsy_api_listing_id"],
+        errors="ignore",
+    )
 
     etsy_rows = etsy_rows.to_dict(
         "records"
