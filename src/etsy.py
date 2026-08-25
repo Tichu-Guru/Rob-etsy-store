@@ -58,9 +58,8 @@ def read_etsy_csv(path: Path) -> pd.DataFrame:
         )
 
     missing = [
-        column
-        for column in EXPECTED_COLUMNS
-        if column not in df.columns
+        c for c in EXPECTED_COLUMNS
+        if c not in df.columns
     ]
 
     if missing:
@@ -74,19 +73,19 @@ def read_etsy_csv(path: Path) -> pd.DataFrame:
 
 def split_csv_field(value: Any) -> list[str]:
     text = (
-        ""
-        if value is None
+        "" if value is None
         else str(value).strip()
     )
 
-    if not text:
-        return []
-
-    return [
-        item.strip()
-        for item in text.split(",")
-        if item.strip()
-    ]
+    return (
+        [
+            x.strip()
+            for x in text.split(",")
+            if x.strip()
+        ]
+        if text
+        else []
+    )
 
 
 def listing_key(row: pd.Series) -> str:
@@ -115,95 +114,95 @@ def listing_key(row: pd.Series) -> str:
     ).hexdigest()[:16]
 
 
-def build_variation_rows(
+def build_variation_labels(
     row: pd.Series,
+    sku_index: int,
     sku_count: int,
-) -> list[dict[str, Any]]:
+) -> tuple[str, str, str]:
     """
-    Build one variation record for each Etsy SKU.
+    Preserve the Etsy variation information associated with
+    each SKU row.
 
-    Etsy's CSV stores variation values and SKUs as
-    comma-separated fields. The corresponding positions
-    are used to associate each SKU with its variation
-    value(s).
+    Etsy's CSV export provides variation values as comma-
+    separated lists and SKUs as a comma-separated list.
 
-    This preserves the variation information needed later
-    when matching an Etsy SKU to the correct Printify
-    variant.
+    When there is one variation, map the SKU position to
+    the corresponding variation value.
 
-    Important:
-      Etsy's export does not provide a separate price for
-      each variation. Therefore this function preserves
-      variation identity but does not invent variation
-      prices.
+    When there are two variations, Etsy's export represents
+    the SKU rows in the variation-combination order. Build
+    a readable label from the available values.
+
+    If the relationship cannot be determined reliably, leave
+    the value blank rather than inventing one.
     """
 
-    variation_1_values = split_csv_field(
-        row.get("VARIATION 1 VALUES", "")
-    )
-
-    variation_2_values = split_csv_field(
-        row.get("VARIATION 2 VALUES", "")
-    )
-
-    variation_1_name = str(
-        row.get("VARIATION 1 NAME", "")
+    name1 = str(
+        row.get(
+            "VARIATION 1 NAME",
+            "",
+        )
     ).strip()
 
-    variation_2_name = str(
-        row.get("VARIATION 2 NAME", "")
+    name2 = str(
+        row.get(
+            "VARIATION 2 NAME",
+            "",
+        )
     ).strip()
 
-    variation_rows = []
+    values1 = split_csv_field(
+        row.get(
+            "VARIATION 1 VALUES",
+            "",
+        )
+    )
 
-    for index in range(sku_count):
-        value_1 = (
-            variation_1_values[index]
-            if index < len(variation_1_values)
-            else ""
+    values2 = split_csv_field(
+        row.get(
+            "VARIATION 2 VALUES",
+            "",
+        )
+    )
+
+    value1 = ""
+    value2 = ""
+
+    if values1 and sku_count == len(values1):
+        if 0 <= sku_index < len(values1):
+            value1 = values1[sku_index]
+
+    elif values1 and not values2:
+        if len(values1) == 1:
+            value1 = values1[0]
+
+    if values2 and sku_count == len(values2):
+        if 0 <= sku_index < len(values2):
+            value2 = values2[sku_index]
+
+    elif values2 and not values1:
+        if len(values2) == 1:
+            value2 = values2[0]
+
+    label_parts = []
+
+    if name1 and value1:
+        label_parts.append(
+            f"{name1}: {value1}"
         )
 
-        value_2 = (
-            variation_2_values[index]
-            if index < len(variation_2_values)
-            else ""
+    if name2 and value2:
+        label_parts.append(
+            f"{name2}: {value2}"
         )
 
-        parts = []
+    label = " / ".join(label_parts)
 
-        if value_1:
-            if variation_1_name:
-                parts.append(
-                    f"{variation_1_name}: {value_1}"
-                )
-            else:
-                parts.append(value_1)
-
-        if value_2:
-            if variation_2_name:
-                parts.append(
-                    f"{variation_2_name}: {value_2}"
-                )
-            else:
-                parts.append(value_2)
-
-        variation_rows.append(
-            {
-                "etsy_variation_1_name": (
-                    variation_1_name
-                ),
-                "etsy_variation_1_value": value_1,
-                "etsy_variation_2_name": (
-                    variation_2_name
-                ),
-                "etsy_variation_2_value": value_2,
-                "etsy_variation_label": " / ".join(
-                    parts
-                ),
-            }
-        )
-
-    return variation_rows
+    return (
+        value1,
+        value2,
+        label,
+    )
 
 
 def build_etsy_tables(df: pd.DataFrame):
@@ -226,7 +225,9 @@ def build_etsy_tables(df: pd.DataFrame):
                 ],
                 "quantity": row["QUANTITY"],
                 "tags": row["TAGS"],
-                "materials": row["MATERIALS"],
+                "materials": row[
+                    "MATERIALS"
+                ],
                 "variation_1_type": row[
                     "VARIATION 1 TYPE"
                 ],
@@ -276,44 +277,76 @@ def build_etsy_tables(df: pd.DataFrame):
                     "etsy_sku_index": None,
                     "etsy_sku": "",
                     "etsy_sku_status": "MISSING",
-                    "etsy_variation_1_name": "",
+                    "etsy_variation_1_name": str(
+                        row.get(
+                            "VARIATION 1 NAME",
+                            "",
+                        )
+                    ).strip(),
                     "etsy_variation_1_value": "",
-                    "etsy_variation_2_name": "",
+                    "etsy_variation_2_name": str(
+                        row.get(
+                            "VARIATION 2 NAME",
+                            "",
+                        )
+                    ).strip(),
                     "etsy_variation_2_value": "",
                     "etsy_variation_label": "",
                 }
             )
 
-            continue
+        else:
+            sku_count = len(skus)
 
-        variation_rows = build_variation_rows(
-            row,
-            len(skus),
-        )
+            for n, sku in enumerate(
+                skus,
+                1,
+            ):
+                (
+                    variation1,
+                    variation2,
+                    variation_label,
+                ) = build_variation_labels(
+                    row,
+                    n - 1,
+                    sku_count,
+                )
 
-        for index, sku in enumerate(
-            skus,
-            start=1,
-        ):
-            variation = variation_rows[
-                index - 1
-            ]
-
-            variants.append(
-                {
-                    "etsy_source_row": source_row,
-                    "etsy_listing_key": key,
-                    "etsy_sku_index": index,
-                    "etsy_sku": sku,
-                    "etsy_sku_status": (
-                        "UNAVAILABLE"
-                        if sku.lower()
-                        == "unavailable_sku"
-                        else "PRESENT"
-                    ),
-                    **variation,
-                }
-            )
+                variants.append(
+                    {
+                        "etsy_source_row": source_row,
+                        "etsy_listing_key": key,
+                        "etsy_sku_index": n,
+                        "etsy_sku": sku,
+                        "etsy_sku_status": (
+                            "UNAVAILABLE"
+                            if sku.lower()
+                            == "unavailable_sku"
+                            else "PRESENT"
+                        ),
+                        "etsy_variation_1_name": str(
+                            row.get(
+                                "VARIATION 1 NAME",
+                                "",
+                            )
+                        ).strip(),
+                        "etsy_variation_1_value": (
+                            variation1
+                        ),
+                        "etsy_variation_2_name": str(
+                            row.get(
+                                "VARIATION 2 NAME",
+                                "",
+                            )
+                        ).strip(),
+                        "etsy_variation_2_value": (
+                            variation2
+                        ),
+                        "etsy_variation_label": (
+                            variation_label
+                        ),
+                    }
+                )
 
     return (
         pd.DataFrame(listings),
