@@ -85,7 +85,8 @@ def initialize_history_tables(con):
     Existing current-state tables are left untouched.
     """
 
-    con.execute("""
+    con.execute(
+        """
         CREATE TABLE IF NOT EXISTS sync_snapshots (
             snapshot_id INTEGER PRIMARY KEY AUTOINCREMENT,
             run_timestamp TEXT NOT NULL,
@@ -95,9 +96,11 @@ def initialize_history_tables(con):
             matched_rows INTEGER NOT NULL,
             alert_rows INTEGER NOT NULL
         )
-    """)
+        """
+    )
 
-    con.execute("""
+    con.execute(
+        """
         CREATE TABLE IF NOT EXISTS comparison_history (
             snapshot_id INTEGER NOT NULL,
             etsy_row_number INTEGER,
@@ -129,7 +132,8 @@ def initialize_history_tables(con):
             estimated_gross_margin REAL,
             estimated_gross_margin_pct REAL
         )
-    """)
+        """
+    )
 
     con.commit()
 
@@ -284,3 +288,375 @@ def save_comparison_history(
     )
 
     con.commit()
+
+
+# ---------------------------------------------------------
+# HISTORICAL CHANGE DETECTION
+# ---------------------------------------------------------
+
+def get_previous_snapshot_id(
+    con,
+    current_snapshot_id,
+):
+    """
+    Return the snapshot immediately preceding the supplied snapshot.
+
+    Returns None when there is no previous snapshot.
+    """
+
+    row = con.execute(
+        """
+        SELECT MAX(snapshot_id)
+        FROM sync_snapshots
+        WHERE snapshot_id < ?
+        """,
+        (int(current_snapshot_id),),
+    ).fetchone()
+
+    if row is None or row[0] is None:
+        return None
+
+    return int(row[0])
+
+
+def build_changes_since_previous_snapshot(
+    con,
+    previous_snapshot_id,
+    current_snapshot_id,
+):
+    """
+    Compare two historical comparison snapshots.
+
+    The primary identity is the combination of:
+
+        etsy_listing_id + etsy_sku
+
+    This is intentional. A SKU can legitimately be shared by more
+    than one Etsy listing, so SKU alone is not sufficient.
+
+    Rows without a real Etsy SKU are excluded from change detection
+    because Etsy CSV row numbers are not a reliable historical key.
+
+    Returns one row per meaningful change.
+    """
+
+    output_columns = [
+        "change_type",
+        "etsy_listing_id",
+        "etsy_title",
+        "etsy_sku",
+        "field_changed",
+        "previous_value",
+        "current_value",
+        "previous_snapshot_id",
+        "current_snapshot_id",
+    ]
+
+    if (
+        previous_snapshot_id is None
+        or current_snapshot_id is None
+    ):
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    columns = [
+        "etsy_listing_id",
+        "etsy_title",
+        "etsy_sku",
+        "etsy_price_numeric",
+        "printify_cost_numeric",
+        "printify_shipping_cost",
+        "printify_available",
+        "match_status",
+    ]
+
+    column_sql = ", ".join(columns)
+
+    previous = pd.read_sql_query(
+        f"""
+        SELECT {column_sql}
+        FROM comparison_history
+        WHERE snapshot_id = ?
+        """,
+        con,
+        params=(int(previous_snapshot_id),),
+    )
+
+    current = pd.read_sql_query(
+        f"""
+        SELECT {column_sql}
+        FROM comparison_history
+        WHERE snapshot_id = ?
+        """,
+        con,
+        params=(int(current_snapshot_id),),
+    )
+
+    if previous.empty and current.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    # -----------------------------------------------------
+    # CLEAN AND NORMALIZE IDENTIFIERS
+    # -----------------------------------------------------
+
+    for frame in [previous, current]:
+
+        frame["etsy_listing_id"] = (
+            frame["etsy_listing_id"]
+            .astype("string")
+            .str.strip()
+        )
+
+        frame["etsy_sku"] = (
+            frame["etsy_sku"]
+            .astype("string")
+            .str.strip()
+        )
+
+    # A missing/blank Etsy SKU is not a reliable historical key.
+    previous = previous[
+        previous["etsy_sku"].notna()
+        & (previous["etsy_sku"] != "")
+    ].copy()
+
+    current = current[
+        current["etsy_sku"].notna()
+        & (current["etsy_sku"] != "")
+    ].copy()
+
+    # -----------------------------------------------------
+    # PRIMARY KEY
+    # -----------------------------------------------------
+
+    previous["_history_key"] = (
+        previous["etsy_listing_id"].fillna("")
+        + "\x1f"
+        + previous["etsy_sku"].fillna("")
+    )
+
+    current["_history_key"] = (
+        current["etsy_listing_id"].fillna("")
+        + "\x1f"
+        + current["etsy_sku"].fillna("")
+    )
+
+    # The comparison schema normally contains one row per Etsy
+    # SKU/listing combination. If duplicate rows somehow exist,
+    # retain the first one rather than producing duplicate changes.
+    previous = previous.drop_duplicates(
+        subset=["_history_key"],
+        keep="first",
+    )
+
+    current = current.drop_duplicates(
+        subset=["_history_key"],
+        keep="first",
+    )
+
+    previous_keys = set(
+        previous["_history_key"]
+    )
+
+    current_keys = set(
+        current["_history_key"]
+    )
+
+    changes = []
+
+    # -----------------------------------------------------
+    # NEW ETSY SKUS
+    # -----------------------------------------------------
+
+    for key in sorted(
+        current_keys - previous_keys
+    ):
+
+        row = current.loc[
+            current["_history_key"] == key
+        ].iloc[0]
+
+        changes.append(
+            {
+                "change_type": "NEW_ETSY_SKU",
+                "etsy_listing_id": row["etsy_listing_id"],
+                "etsy_title": row["etsy_title"],
+                "etsy_sku": row["etsy_sku"],
+                "field_changed": "",
+                "previous_value": "",
+                "current_value": "Present",
+                "previous_snapshot_id": previous_snapshot_id,
+                "current_snapshot_id": current_snapshot_id,
+            }
+        )
+
+    # -----------------------------------------------------
+    # REMOVED ETSY SKUS
+    # -----------------------------------------------------
+
+    for key in sorted(
+        previous_keys - current_keys
+    ):
+
+        row = previous.loc[
+            previous["_history_key"] == key
+        ].iloc[0]
+
+        changes.append(
+            {
+                "change_type": "REMOVED_ETSY_SKU",
+                "etsy_listing_id": row["etsy_listing_id"],
+                "etsy_title": row["etsy_title"],
+                "etsy_sku": row["etsy_sku"],
+                "field_changed": "",
+                "previous_value": "Present",
+                "current_value": "",
+                "previous_snapshot_id": previous_snapshot_id,
+                "current_snapshot_id": current_snapshot_id,
+            }
+        )
+
+    # -----------------------------------------------------
+    # EXISTING SKU CHANGES
+    # -----------------------------------------------------
+
+    fields = [
+        (
+            "etsy_price_numeric",
+            "ETSY_PRICE_CHANGED",
+        ),
+        (
+            "printify_cost_numeric",
+            "PRINTIFY_COST_CHANGED",
+        ),
+        (
+            "printify_shipping_cost",
+            "PRINTIFY_SHIPPING_CHANGED",
+        ),
+        (
+            "printify_available",
+            "PRINTIFY_AVAILABILITY_CHANGED",
+        ),
+        (
+            "match_status",
+            "MATCH_STATUS_CHANGED",
+        ),
+    ]
+
+    common_keys = sorted(
+        previous_keys & current_keys
+    )
+
+    for key in common_keys:
+
+        previous_row = previous.loc[
+            previous["_history_key"] == key
+        ].iloc[0]
+
+        current_row = current.loc[
+            current["_history_key"] == key
+        ].iloc[0]
+
+        for field, change_type in fields:
+
+            old_value = previous_row[field]
+            new_value = current_row[field]
+
+            old_missing = pd.isna(old_value)
+            new_missing = pd.isna(new_value)
+
+            if old_missing and new_missing:
+                continue
+
+            if old_missing != new_missing:
+                changed = True
+
+            else:
+                changed = (
+                    old_value != new_value
+                )
+
+            if not changed:
+                continue
+
+            # -------------------------------------------------
+            # MATCH STATUS CHANGES GET A MORE SPECIFIC LABEL
+            # -------------------------------------------------
+
+            actual_change_type = change_type
+
+            if field == "match_status":
+
+                old_status = (
+                    str(old_value)
+                    if not pd.isna(old_value)
+                    else ""
+                )
+
+                new_status = (
+                    str(new_value)
+                    if not pd.isna(new_value)
+                    else ""
+                )
+
+                if (
+                    old_status == "MATCHED"
+                    and new_status == "ETSY_ONLY"
+                ):
+                    actual_change_type = (
+                        "MATCHED_TO_ETSY_ONLY"
+                    )
+
+                elif (
+                    old_status == "ETSY_ONLY"
+                    and new_status == "MATCHED"
+                ):
+                    actual_change_type = (
+                        "ETSY_ONLY_TO_MATCHED"
+                    )
+
+            changes.append(
+                {
+                    "change_type": actual_change_type,
+                    "etsy_listing_id": current_row[
+                        "etsy_listing_id"
+                    ],
+                    "etsy_title": current_row[
+                        "etsy_title"
+                    ],
+                    "etsy_sku": current_row[
+                        "etsy_sku"
+                    ],
+                    "field_changed": field,
+                    "previous_value": (
+                        ""
+                        if old_missing
+                        else old_value
+                    ),
+                    "current_value": (
+                        ""
+                        if new_missing
+                        else new_value
+                    ),
+                    "previous_snapshot_id": (
+                        previous_snapshot_id
+                    ),
+                    "current_snapshot_id": (
+                        current_snapshot_id
+                    ),
+                }
+            )
+
+    if not changes:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    result = pd.DataFrame(
+        changes,
+        columns=output_columns,
+    )
+
+    return result
