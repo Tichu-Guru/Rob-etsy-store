@@ -1,5 +1,5 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-25T08:49:34.515513+00:00
+Run UTC: 2026-08-25T18:34:15.239779+00:00
 
 Etsy listings: 167
 Etsy SKU rows: 4,062
@@ -32,14 +32,231 @@ Etsy payment processing: 3% + $0.25
 Offsite Ads: EXCLUDED
 Etsy listing fee: EXCLUDED from per-sale calculation
 
-Matched products with calculable profit: 3,579
-Products below 15% margin: 2,181
-Percent below threshold: 60.9%
+Matched products with calculable profit: 3,430
+Products below 15% margin: 2,032
+Percent below threshold: 59.2%
 
 LISTING-LEVEL PROFITABILITY
-Etsy listings analyzed: 137
-Etsy listings below 15%: 127
-Percent of calculable listings below threshold: 92.7%
+Etsy listings analyzed: 116
+Etsy listings below 15%: 106
+Percent of calculable listings below threshold: 91.4%
+
+LISTINGS REQUIRING ATTENTION
+
+Only listings below 15% net margin are shown.
+
+1. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
+   Current $16.99 | Net $-67.69 | Printify $75.83 | Shipping $6.99 | Margin -398.4% | 15% price $110.03 | Increase $93.04
+2. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
+   Current $16.99 | Net $-67.69 | Printify $75.83 | Shipping $6.99 | Margin -398.4% | 15% price $110.03 | Increase $93.04
+3. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
+   Current $16.99 | Net $-67.69 | Printify $75.83 | Shipping $6.99 | Margin -398.4% | 15% price $110.03 | Increase $93.04
+4. Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)
+   Current $16.99 | Net $-67.69 | Printify $75.83 | Shipping $6.99 | Margin -398.4% | 15% price $110.03 | Increase $93.04
+5. Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake
+   Current $16.99 | Net $-67.69 | Printify $75.83 | Shipping $6.99 | Margin -398.4% | 15% price $110.03 | Increase $93.04
+6. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
+   Current $16.99 | Net $-67.69 | Printify $75.83 | Shipping $6.99 | Margin -398.4% | 15% price $110.03 | Increase $93.04
+7. Personalized Pet Photo Nutcracker Ornament: Custom Cat or Dog Christmas Decoration
+   Current $14.99 | Net $-58.28 | Printify $48.31 | Shipping $23.29 | Margin -388.8% | 15% price $95.17 | Increase $80.18
+8. Custom Chicken Mom Shirt, Personalized Flock Tee, Backyard Chicken Keeper Apparel
+   Current $19.99 | Net $-7.89 | Printify $20.98 | Shipping $4.75 | Margin -39.5% | 15% price $34.42 | Increase $14.43
+9. Too for Coop Chicken Shirt, Funny Farm Animal Graphic Tee
+   Current $19.99 | Net $-7.89 | Printify $20.98 | Shipping $4.75 | Margin -39.5% | 15% price $34.42 | Increase $14.43
+10. Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt
+   Current $19.99 | Net $-7.89 | Printify $20.98 | Shipping $4.75 | Margin -39.5% | 15% price $34.42 | Increase $14.43
+11. Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel
+   Current $21.99 | Net $-6.08 | Printify $20.98 | Shipping $4.75 | Margin -27.6% | 15% price $34.42 | Increase $12.43
+12. Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+13. Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+14. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+15. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+16. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+17. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+18. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+19. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+20. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+21. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+22. Personalized Thanksgiving Woodland Animals Garden Flag, Custom Family Name Fall Porch Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+23. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+24. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+25. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+26. Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+27. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+28. Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+29. Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift
+   Current $22.99 | Net $-5.58 | Printify $20.05 | Shipping $6.09 | Margin -24.3% | 15% price $34.96 | Increase $11.97
+30. Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+31. Customizable Chicken Coop T-Shirt, Farmhouse Flock Apparel, Comfort Colors Tee
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+32. Opossum Raccoon Pie Shirt, Funny Thanksgiving Graphic Tee, Fall Animal Lover Gift
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+33. Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+34. Possum Raccoon Pie Graphic Tee, Funny Wildlife Animal Shirt
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+35. Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+36. Personalized Vintage Circus Pet T-Shirt, Custom Pet Photo Tee, Comfort Colors Shirt, FunHaus Style
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+37. Capybara Shirt: Humorous Vitruvian Yoga Animal Graphic Tee
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+38. Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+39. Capybara T-Shirt: Vintage Art Parody Farmhouse Humor Cotton Tee, American Gothic
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+40. Capybara Shirt Renaissance Art Parody Tee | Capybara Lover Gift | Michelangelo Inspired Graphic T-Shirt
+   Current $22.99 | Net $-5.17 | Printify $20.98 | Shipping $4.75 | Margin -22.5% | 15% price $34.42 | Increase $11.43
+41. Capybara Halloween Mug, Witch Ghost Vampire Coffee Cup, Black Ceramic Spooky Gift
+   Current $14.99 | Net $-3.33 | Printify $9.66 | Shipping $6.99 | Margin -22.2% | 15% price $22.39 | Increase $7.40
+42. Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift
+   Current $64.99 | Net $-13.14 | Printify $59.72 | Shipping $11.99 | Margin -20.2% | 15% price $95.32 | Increase $30.33
+43. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
+   Current $23.99 | Net $-4.27 | Printify $20.98 | Shipping $4.75 | Margin -17.8% | 15% price $34.42 | Increase $10.43
+44. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
+   Current $23.99 | Net $-4.27 | Printify $20.98 | Shipping $4.75 | Margin -17.8% | 15% price $34.42 | Increase $10.43
+45. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
+   Current $23.99 | Net $-4.27 | Printify $20.98 | Shipping $4.75 | Margin -17.8% | 15% price $34.42 | Increase $10.43
+46. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
+   Current $23.99 | Net $-4.27 | Printify $20.98 | Shipping $4.75 | Margin -17.8% | 15% price $34.42 | Increase $10.43
+47. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
+   Current $23.99 | Net $-4.27 | Printify $20.98 | Shipping $4.75 | Margin -17.8% | 15% price $34.42 | Increase $10.43
+48. Raccoon Opossum Christmas Lights Shirt, Funny Caffeine Denial Holiday Tee
+   Current $23.99 | Net $-4.27 | Printify $20.98 | Shipping $4.75 | Margin -17.8% | 15% price $34.42 | Increase $10.43
+49. Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift
+   Current $14.99 | Net $-1.79 | Printify $6.12 | Shipping $8.99 | Margin -12.0% | 15% price $20.35 | Increase $5.36
+50. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
+   Current $59.99 | Net $-6.26 | Printify $48.31 | Shipping $11.99 | Margin -10.4% | 15% price $80.20 | Increase $20.21
+51. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
+   Current $59.99 | Net $-6.26 | Printify $48.31 | Shipping $11.99 | Margin -10.4% | 15% price $80.20 | Increase $20.21
+52. Funny Raccoon Opossum Christmas Mug, Caffeine Denial Coffee Cup, Coworker Boss Gift
+   Current $17.99 | Net $-1.56 | Printify $8.60 | Shipping $8.99 | Margin -8.7% | 15% price $23.63 | Increase $5.64
+53. Possum Raccoon Pie Coffee Mug, Funny Black Ceramic Cup, Animal Lover Gift
+   Current $17.99 | Net $-1.56 | Printify $8.60 | Shipping $8.99 | Margin -8.7% | 15% price $23.63 | Increase $5.64
+54. Customizable Chicken Flock Sweatshirt, Personalized Farm Crewneck, Backyard Chicken Keeper Apparel
+   Current $37.99 | Net $-2.74 | Printify $26.88 | Shipping $9.99 | Margin -7.2% | 15% price $49.17 | Increase $11.18
+55. Capybara Raccoon Ceramic Mug, Whimsical Animal Coffee Cup, Funny Coworker Boss Gift
+   Current $16.99 | Net $-0.37 | Printify $6.51 | Shipping $8.99 | Margin -2.2% | 15% price $20.87 | Increase $3.88
+56. Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man
+   Current $16.99 | Net $-0.37 | Printify $6.51 | Shipping $8.99 | Margin -2.2% | 15% price $20.87 | Increase $3.88
+57. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
+   Current $24.99 | Net $-0.41 | Printify $16.89 | Shipping $5.89 | Margin -1.7% | 15% price $30.51 | Increase $5.52
+58. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
+   Current $24.99 | Net $-0.41 | Printify $16.89 | Shipping $5.89 | Margin -1.7% | 15% price $30.51 | Increase $5.52
+59. Opossum Raccoon Pie Sweatshirt, Funny Thanksgiving Crewneck, Fall Animal Lover Gift
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+60. Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+61. Possum Sweatshirt, Personalized Playing Dead Is Your Cardio, Custom Name Opossum Crewneck, Animal Lover Gift
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+62. Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+63. Woodland Animals Sweatshirt, Capybara Raccoon Possum Crewneck, Cozy Nature Lover Pullover
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+64. Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+65. Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+66. Capybara Sweatshirt – Funny Rodent Art Apparel, American Gothic Parody
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+67. Capybara Sweatshirt, Museum Humor Crewneck, Animal Lover Gift, Renaissance Art
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+68. Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset
+   Current $34.99 | Net $-0.41 | Printify $23.34 | Shipping $8.49 | Margin -1.2% | 15% price $42.50 | Increase $7.51
+69. Raccoon Possum Christmas Sweatshirt, Funny Caffeine Denial Crewneck, Holiday Animal Pullover
+   Current $35.99 | Net $0.49 | Printify $23.34 | Shipping $8.49 | Margin 1.4% | 15% price $42.50 | Increase $6.51
+70. Possum Raccoon Pie Sweatshirt, Funny Wildlife Animal Crewneck Pullover
+   Current $35.99 | Net $0.49 | Printify $23.34 | Shipping $8.49 | Margin 1.4% | 15% price $42.50 | Increase $6.51
+71. Custom Pet Circus Sweatshirt: Vintage Carnival Dog or Cat Lover Retro Apparel
+   Current $35.99 | Net $0.49 | Printify $23.34 | Shipping $8.49 | Margin 1.4% | 15% price $42.50 | Increase $6.51
+72. Funny Capybara Tee Personalized "is on Capy Time" Cotton T Shirt
+   Current $19.99 | Net $0.32 | Printify $12.77 | Shipping $4.75 | Margin 1.6% | 15% price $23.54 | Increase $3.55
+73. Capybara Tank Top | Renaissance Art Parody Sleeveless Shirt, Creation of Adam
+   Current $24.99 | Net $0.91 | Printify $16.71 | Shipping $4.75 | Margin 3.6% | 15% price $28.76 | Increase $3.77
+74. Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag
+   Current $26.99 | Net $1.40 | Printify $16.89 | Shipping $5.89 | Margin 5.2% | 15% price $30.51 | Increase $3.52
+75. Personalized Pet Portrait Vector Graphic Canvas Tote
+   Current $27.99 | Net $2.30 | Printify $16.89 | Shipping $5.89 | Margin 8.2% | 15% price $30.51 | Increase $2.52
+76. Personalized Pet Portrait Vintage Botanical Pattern Canvas Tote
+   Current $27.99 | Net $2.30 | Printify $16.89 | Shipping $5.89 | Margin 8.2% | 15% price $30.51 | Increase $2.52
+77. Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift
+   Current $31.99 | Net $3.11 | Printify $15.30 | Shipping $10.29 | Margin 9.7% | 15% price $34.23 | Increase $2.24
+78. Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift
+   Current $17.99 | Net $1.78 | Printify $7.26 | Shipping $6.99 | Margin 9.9% | 15% price $19.21 | Increase $1.22
+79. Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug
+   Current $16.99 | Net $1.82 | Printify $6.32 | Shipping $6.99 | Margin 10.7% | 15% price $17.97 | Increase $0.98
+80. Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift
+   Current $16.99 | Net $1.82 | Printify $6.32 | Shipping $6.99 | Margin 10.7% | 15% price $17.97 | Increase $0.98
+81. Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug
+   Current $16.99 | Net $1.82 | Printify $6.32 | Shipping $6.99 | Margin 10.7% | 15% price $17.97 | Increase $0.98
+82. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
+   Current $47.99 | Net $5.80 | Printify $23.39 | Shipping $13.99 | Margin 12.1% | 15% price $49.85 | Increase $1.86
+83. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
+   Current $47.99 | Net $5.80 | Printify $23.39 | Shipping $13.99 | Margin 12.1% | 15% price $49.85 | Increase $1.86
+84. Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor
+   Current $43.99 | Net $5.44 | Printify $22.13 | Shipping $11.99 | Margin 12.4% | 15% price $45.53 | Increase $1.54
+85. Custom Pet Christmas Tree Skirt, Personalized Dog Cat Holiday Decor
+   Current $64.99 | Net $8.49 | Printify $43.09 | Shipping $6.99 | Margin 13.1% | 15% price $66.67 | Increase $1.68
+86. Capybara Tee Vintage Travel Capybara Cotton T-Shirt
+   Current $22.99 | Net $3.04 | Printify $12.77 | Shipping $4.75 | Margin 13.2% | 15% price $23.54 | Increase $0.55
+87. Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+88. Raccoon Opossum Tote Bag, Funny Caffeine Denial Design, Holiday Canvas Gift Bag
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+89. Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+90. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+91. Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+92. Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+93. Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+94. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+95. Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+96. Custom Pet Photo Tote Bag: Personalized Black Canvas Tote
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+97. Capybara Tote Bag: Funny Animal Canvas Tote, Vitruvian Man
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+98. Funny Capybara American Gothic Tote Bag: Farmhouse Art Parody Canvas Tote
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+99. Capybara Tote Bag: Renaissance Art Parody Canvas Tote, Funny Museum Humor
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+100. Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote
+   Current $19.99 | Net $2.77 | Printify $10.32 | Shipping $4.75 | Margin 13.9% | 15% price $20.30 | Increase $0.31
+101. Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift
+   Current $18.99 | Net $2.66 | Printify $8.29 | Shipping $5.99 | Margin 14.0% | 15% price $19.25 | Increase $0.26
+102. Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook
+   Current $18.99 | Net $2.66 | Printify $8.29 | Shipping $5.99 | Margin 14.0% | 15% price $19.25 | Increase $0.26
+103. Too Cool For Coop Chicken Mug, Funny Farmhouse Ceramic Cup, 11 Oz
+   Current $18.99 | Net $2.69 | Printify $7.26 | Shipping $6.99 | Margin 14.1% | 15% price $19.21 | Increase $0.22
+104. Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake
+   Current $15.99 | Net $2.32 | Printify $6.21 | Shipping $5.69 | Margin 14.5% | 15% price $16.10 | Increase $0.11
+105. Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup
+   Current $16.99 | Net $2.50 | Printify $5.64 | Shipping $6.99 | Margin 14.7% | 15% price $17.06 | Increase $0.07
+106. Opossum Raccoon Pie Dad Hat, Funny Thanksgiving Baseball Cap, Fall Animal Lover Gift
+   Current $24.99 | Net $3.75 | Printify $11.13 | Shipping $7.49 | Margin 15.0% | 15% price $25.00 | Increase $0.01
 
 ETSY_ONLY means the Etsy SKU is not currently found in Printify.
 Profitability requires a matched Printify SKU and available U.S. shipping data.
