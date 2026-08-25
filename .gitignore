@@ -1,0 +1,4 @@
+
+.etsy_tokens.json
+data/etsy_printify.db
+src/__pycache__/
