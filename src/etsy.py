@@ -352,3 +352,5 @@ def build_etsy_tables(df: pd.DataFrame):
         pd.DataFrame(listings),
         pd.DataFrame(variants),
     )
+
+
