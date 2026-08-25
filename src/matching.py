@@ -8,9 +8,46 @@ import pandas as pd
 
 
 def normalize_sku(value: Any) -> str:
-    if value is None or (isinstance(value, float) and math.isnan(value)):
+    if value is None or (
+        isinstance(value, float)
+        and math.isnan(value)
+    ):
         return ""
+
     return str(value).strip().upper()
+
+
+def normalize_text(value: Any) -> str:
+    """
+    Normalize variation text for comparison.
+
+    This intentionally keeps the words and numbers while
+    removing punctuation and making comparison
+    case-insensitive.
+    """
+    if value is None:
+        return ""
+
+    text = str(value).strip().lower()
+
+    if not text:
+        return ""
+
+    replacements = {
+        "/": " ",
+        "-": " ",
+        "_": " ",
+        ",": " ",
+        "(": " ",
+        ")": " ",
+        "[": " ",
+        "]": " ",
+    }
+
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+
+    return " ".join(text.split())
 
 
 def money(value: Any):
@@ -18,12 +55,17 @@ def money(value: Any):
     Convert a money value to dollars.
 
     Etsy prices are already dollar values.
-    Printify API price/cost values are cents, so those are
-    converted separately below.
     """
     try:
-        text = str(value).replace("$", "").replace(",", "").strip()
+        text = (
+            str(value)
+            .replace("$", "")
+            .replace(",", "")
+            .strip()
+        )
+
         return float(text) if text else None
+
     except (TypeError, ValueError):
         return None
 
@@ -34,8 +76,15 @@ def printify_money(value: Any):
     Convert cents to dollars.
     """
     try:
-        text = str(value).replace("$", "").replace(",", "").strip()
+        text = (
+            str(value)
+            .replace("$", "")
+            .replace(",", "")
+            .strip()
+        )
+
         return float(text) / 100 if text else None
+
     except (TypeError, ValueError):
         return None
 
@@ -44,29 +93,270 @@ def build_etsy_sku_listing_map(etsy):
     """
     Build SKU -> set of distinct Etsy listing IDs.
 
-    A SKU repeated across variations of the same listing is normal.
-    It is only considered shared when it appears on multiple
-    distinct Etsy listings.
+    A SKU repeated across variations of the same listing
+    is normal.
+
+    It is only considered shared when it appears on
+    multiple distinct Etsy listings.
     """
     sku_listings = defaultdict(set)
 
     for _, row in etsy.iterrows():
-        sku = normalize_sku(row.get("etsy_sku"))
-        listing_id = str(row.get("etsy_listing_id", "")).strip()
+        sku = normalize_sku(
+            row.get("etsy_sku")
+        )
+
+        listing_id = str(
+            row.get(
+                "etsy_listing_id",
+                "",
+            )
+        ).strip()
 
         if (
             sku
             and sku != "UNAVAILABLE_SKU"
             and listing_id
         ):
-            sku_listings[sku].add(listing_id)
+            sku_listings[sku].add(
+                listing_id
+            )
 
     return sku_listings
 
 
-def build_comparison(etsy_rows, printify_rows):
-    etsy = pd.DataFrame(etsy_rows)
-    pri = pd.DataFrame(printify_rows)
+def variation_tokens(row: pd.Series) -> set[str]:
+    """
+    Return normalized tokens representing the Etsy
+    variation identity.
+
+    Example:
+
+        "Quantity: 10 pcs"
+
+    becomes tokens containing:
+
+        quantity
+        10
+        pcs
+
+    The variation name is retained because it can help
+    distinguish otherwise similar values.
+    """
+    values = []
+
+    for column in [
+        "etsy_variation_1_name",
+        "etsy_variation_1_value",
+        "etsy_variation_2_name",
+        "etsy_variation_2_value",
+        "etsy_variation_label",
+    ]:
+        value = normalize_text(
+            row.get(column, "")
+        )
+
+        if value:
+            values.extend(
+                value.split()
+            )
+
+    return set(values)
+
+
+def printify_option_tokens(row: pd.Series) -> set[str]:
+    """
+    Extract normalized variation tokens from the
+    Printify variant title and option JSON.
+
+    Printify commonly exposes values such as:
+
+        Snowflake / 10 pcs / One size
+
+    so this gives the matcher enough information to select
+    the correct Printify variant when one SKU is shared by
+    multiple variants.
+    """
+    values = []
+
+    for column in [
+        "printify_variant_title",
+        "printify_options_json",
+        "printify_product_options_json",
+    ]:
+        value = row.get(column, "")
+
+        if value is None:
+            continue
+
+        text = str(value)
+
+        if not text.strip():
+            continue
+
+        normalized = normalize_text(text)
+
+        if normalized:
+            values.extend(
+                normalized.split()
+            )
+
+    return set(values)
+
+
+def variation_match_score(
+    etsy_row: pd.Series,
+    printify_row: pd.Series,
+) -> int:
+    """
+    Score how well an Etsy variation matches a Printify
+    variant.
+
+    This is deliberately conservative.
+
+    The SKU remains the primary identifier.
+
+    Variation text is used only to distinguish among
+    multiple Printify variants carrying the same SKU.
+
+    Exact tokens receive the strongest signal.
+    """
+    etsy_tokens = variation_tokens(
+        etsy_row
+    )
+
+    if not etsy_tokens:
+        return 0
+
+    printify_tokens = printify_option_tokens(
+        printify_row
+    )
+
+    if not printify_tokens:
+        return 0
+
+    common = (
+        etsy_tokens
+        & printify_tokens
+    )
+
+    if not common:
+        return 0
+
+    score = len(common)
+
+    # Quantity values are especially important.
+    quantity_words = {
+        "1",
+        "3",
+        "5",
+        "10",
+        "25",
+        "50",
+        "100",
+    }
+
+    quantity_matches = (
+        etsy_tokens
+        & quantity_words
+        & printify_tokens
+    )
+
+    score += (
+        len(quantity_matches) * 10
+    )
+
+    return score
+
+
+def choose_printify_variant(
+    etsy_row: pd.Series,
+    candidates: pd.DataFrame,
+):
+    """
+    Select the appropriate Printify row from candidates
+    sharing the same normalized SKU.
+
+    Returns:
+
+        selected_row, status
+
+    where status is one of:
+
+        MATCHED
+        MATCHED_BY_VARIATION
+        DUPLICATE_PRINTIFY_SKU
+    """
+    if candidates.empty:
+        return None, "ETSY_ONLY"
+
+    if len(candidates) == 1:
+        return (
+            candidates.iloc[0],
+            "MATCHED",
+        )
+
+    scored = []
+
+    for index, candidate in candidates.iterrows():
+        score = variation_match_score(
+            etsy_row,
+            candidate,
+        )
+
+        scored.append(
+            (
+                score,
+                index,
+            )
+        )
+
+    scored.sort(
+        key=lambda item: item[0],
+        reverse=True,
+    )
+
+    best_score, best_index = (
+        scored[0]
+    )
+
+    second_score = (
+        scored[1][0]
+        if len(scored) > 1
+        else -1
+    )
+
+    # A positive score that is strictly better than
+    # every other candidate gives us an unambiguous
+    # variation match.
+    if (
+        best_score > 0
+        and best_score > second_score
+    ):
+        return (
+            candidates.loc[best_index],
+            "MATCHED_BY_VARIATION",
+        )
+
+    # If the variation information cannot distinguish
+    # the candidates, do not guess.
+    return (
+        None,
+        "DUPLICATE_PRINTIFY_SKU",
+    )
+
+
+def build_comparison(
+    etsy_rows,
+    printify_rows,
+):
+    etsy = pd.DataFrame(
+        etsy_rows
+    )
+
+    pri = pd.DataFrame(
+        printify_rows
+    )
 
     if etsy.empty:
         etsy = pd.DataFrame(
@@ -77,6 +367,11 @@ def build_comparison(etsy_rows, printify_rows):
                 "etsy_sku",
                 "etsy_price",
                 "etsy_quantity",
+                "etsy_variation_1_name",
+                "etsy_variation_1_value",
+                "etsy_variation_2_name",
+                "etsy_variation_2_value",
+                "etsy_variation_label",
             ]
         )
 
@@ -90,16 +385,22 @@ def build_comparison(etsy_rows, printify_rows):
                 "printify_price",
                 "printify_cost",
                 "printify_enabled",
+                "printify_available",
+                "printify_variant_title",
                 "print_provider_id",
             ]
         )
 
-    etsy["normalized_sku"] = etsy["etsy_sku"].map(
-        normalize_sku
+    etsy["normalized_sku"] = (
+        etsy["etsy_sku"].map(
+            normalize_sku
+        )
     )
 
-    pri["normalized_sku"] = pri["printify_sku"].map(
-        normalize_sku
+    pri["normalized_sku"] = (
+        pri["printify_sku"].map(
+            normalize_sku
+        )
     )
 
     # Count how many Printify variants use each SKU.
@@ -110,96 +411,215 @@ def build_comparison(etsy_rows, printify_rows):
     )
 
     # Determine how many distinct Etsy listings use each SKU.
-    sku_listings = build_etsy_sku_listing_map(etsy)
-
-    # Primary Printify row for each SKU.
-    # If Printify has the same SKU multiple times, we flag it
-    # separately rather than multiplying Etsy rows.
-    join = pri.drop_duplicates(
-        "normalized_sku",
-        keep="first",
-    )
-
-    comp = etsy.merge(
-        join,
-        on="normalized_sku",
-        how="left",
-        suffixes=("", "_printify"),
-    )
-
-    # Number of distinct Etsy listings using this SKU.
-    comp["etsy_listing_count_for_sku"] = (
-        comp["normalized_sku"].map(
-            lambda sku: len(
-                sku_listings.get(sku, set())
-            )
+    sku_listings = (
+        build_etsy_sku_listing_map(
+            etsy
         )
     )
 
-    # Informational flag: the SKU is shared by multiple Etsy listings.
-    comp["etsy_sku_shared_across_listings"] = (
-        comp["etsy_listing_count_for_sku"] > 1
-    )
+    # -----------------------------------------------------
+    # MATCH EACH ETSY ROW
+    # -----------------------------------------------------
 
-    # Core match status.
-    def classify(row):
-        sku = row["normalized_sku"]
+    matched_rows = []
+
+    for _, etsy_row in etsy.iterrows():
+
+        sku = normalize_sku(
+            etsy_row.get(
+                "etsy_sku"
+            )
+        )
+
+        result = etsy_row.to_dict()
+
+        result["etsy_listing_count_for_sku"] = len(
+            sku_listings.get(
+                sku,
+                set(),
+            )
+        )
+
+        result[
+            "etsy_sku_shared_across_listings"
+        ] = (
+            result[
+                "etsy_listing_count_for_sku"
+            ]
+            > 1
+        )
 
         if not sku:
-            return "MISSING_SKU"
+            result[
+                "match_status"
+            ] = "MISSING_SKU"
+
+            matched_rows.append(
+                result
+            )
+            continue
 
         if sku == "UNAVAILABLE_SKU":
-            return "UNAVAILABLE_SKU"
+            result[
+                "match_status"
+            ] = "UNAVAILABLE_SKU"
 
-        if printify_counts[sku] == 0:
-            return "ETSY_ONLY"
+            matched_rows.append(
+                result
+            )
+            continue
 
-        if printify_counts[sku] > 1:
-            return "DUPLICATE_PRINTIFY_SKU"
+        candidates = pri[
+            pri["normalized_sku"]
+            == sku
+        ]
 
-        # Shared Etsy SKU is still a successful Printify match.
-        return "MATCHED"
+        if candidates.empty:
+            result[
+                "match_status"
+            ] = "ETSY_ONLY"
 
-    comp["match_status"] = comp.apply(
-        classify,
-        axis=1,
+            matched_rows.append(
+                result
+            )
+            continue
+
+        selected, status = (
+            choose_printify_variant(
+                etsy_row,
+                candidates,
+            )
+        )
+
+        if selected is None:
+            result[
+                "match_status"
+            ] = status
+
+            matched_rows.append(
+                result
+            )
+            continue
+
+        # Copy Printify fields into the Etsy row.
+        for column in pri.columns:
+            if column == "normalized_sku":
+                continue
+
+            result[column] = (
+                selected.get(column)
+            )
+
+        result[
+            "match_status"
+        ] = status
+
+        matched_rows.append(
+            result
+        )
+
+    comp = pd.DataFrame(
+        matched_rows
     )
 
-    # Dollar values.
-    comp["etsy_price_numeric"] = comp[
-        "etsy_price"
-    ].map(money)
+    # -----------------------------------------------------
+    # DOLLAR VALUES
+    # -----------------------------------------------------
 
-    comp["printify_price_numeric"] = comp[
-        "printify_price"
-    ].map(printify_money)
+    if comp.empty:
+        comp["etsy_price_numeric"] = (
+            pd.Series(dtype="float64")
+        )
 
-    comp["printify_cost_numeric"] = comp[
-        "printify_cost"
-    ].map(printify_money)
+        comp[
+            "printify_price_numeric"
+        ] = pd.Series(
+            dtype="float64"
+        )
 
-    # Gross product margin before Etsy fees, payment fees,
-    # shipping, taxes, etc.
-    comp["estimated_gross_margin"] = (
-        comp["etsy_price_numeric"]
-        - comp["printify_cost_numeric"]
-    )
+        comp[
+            "printify_cost_numeric"
+        ] = pd.Series(
+            dtype="float64"
+        )
 
-    # Gross margin percentage.
-    comp["estimated_gross_margin_pct"] = (
-        comp["estimated_gross_margin"]
-        / comp["etsy_price_numeric"]
-        * 100
-    )
+        comp[
+            "estimated_gross_margin"
+        ] = pd.Series(
+            dtype="float64"
+        )
 
-    # Avoid infinite/invalid percentages.
-    comp.loc[
-        comp["etsy_price_numeric"].isna()
-        | (comp["etsy_price_numeric"] == 0),
-        "estimated_gross_margin_pct",
-    ] = None
+        comp[
+            "estimated_gross_margin_pct"
+        ] = pd.Series(
+            dtype="float64"
+        )
 
-    # Printify SKUs that do not appear anywhere in Etsy.
+    else:
+        comp[
+            "etsy_price_numeric"
+        ] = comp[
+            "etsy_price"
+        ].map(money)
+
+        comp[
+            "printify_price_numeric"
+        ] = comp[
+            "printify_price"
+        ].map(
+            printify_money
+        )
+
+        comp[
+            "printify_cost_numeric"
+        ] = comp[
+            "printify_cost"
+        ].map(
+            printify_money
+        )
+
+        # Gross product margin before Etsy fees,
+        # payment fees, shipping, taxes, etc.
+        comp[
+            "estimated_gross_margin"
+        ] = (
+            comp[
+                "etsy_price_numeric"
+            ]
+            - comp[
+                "printify_cost_numeric"
+            ]
+        )
+
+        comp[
+            "estimated_gross_margin_pct"
+        ] = (
+            comp[
+                "estimated_gross_margin"
+            ]
+            / comp[
+                "etsy_price_numeric"
+            ]
+            * 100
+        )
+
+        comp.loc[
+            comp[
+                "etsy_price_numeric"
+            ].isna()
+            | (
+                comp[
+                    "etsy_price_numeric"
+                ]
+                == 0
+            ),
+            "estimated_gross_margin_pct",
+        ] = None
+
+    # -----------------------------------------------------
+    # PRINTIFY-ONLY SKUS
+    # -----------------------------------------------------
+
     etsy_skus = {
         sku
         for sku in sku_listings
@@ -208,21 +628,35 @@ def build_comparison(etsy_rows, printify_rows):
 
     ponly = pri[
         (pri["normalized_sku"] != "")
-        & (~pri["normalized_sku"].isin(etsy_skus))
+        & (
+            ~pri[
+                "normalized_sku"
+            ].isin(etsy_skus)
+        )
     ].copy()
 
-    ponly["status"] = "PRINTIFY_ONLY"
+    ponly["status"] = (
+        "PRINTIFY_ONLY"
+    )
 
-    # Only genuine actionable issues.
+    # -----------------------------------------------------
+    # ATTENTION
+    # -----------------------------------------------------
+
     attention = comp[
-        comp["match_status"].isin(
+        comp[
+            "match_status"
+        ].isin(
             [
-            
                 "MISSING_SKU",
                 "DUPLICATE_PRINTIFY_SKU",
             ]
         )
     ].copy()
+
+    # -----------------------------------------------------
+    # LISTING STATUS
+    # -----------------------------------------------------
 
     def listing_status(group):
         real = group[
@@ -237,19 +671,37 @@ def build_comparison(etsy_rows, printify_rows):
         if real.empty:
             return "NO_REAL_SKUS"
 
-        statuses = set(real.match_status)
+        statuses = set(
+            real.match_status
+        )
 
-        if statuses == {"MATCHED"}:
+        # Both normal SKU matches and unambiguous
+        # variation matches count as successful matches.
+        successful = {
+            "MATCHED",
+            "MATCHED_BY_VARIATION",
+        }
+
+        if statuses.issubset(
+            successful
+        ):
             return "FULLY_MATCHED"
 
-        if "MATCHED" in statuses:
+        if statuses & successful:
             return "PARTIALLY_MATCHED"
 
-        if statuses == {"ETSY_ONLY"}:
+        if statuses == {
+            "ETSY_ONLY"
+        }:
             return "NO_PRINTIFY_PRODUCTS"
 
-        if "DUPLICATE_PRINTIFY_SKU" in statuses:
-            return "HAS_PRINTIFY_SKU_PROBLEM"
+        if (
+            "DUPLICATE_PRINTIFY_SKU"
+            in statuses
+        ):
+            return (
+                "HAS_PRINTIFY_SKU_PROBLEM"
+            )
 
         return "NEEDS_REVIEW"
 
@@ -275,21 +727,32 @@ def build_comparison(etsy_rows, printify_rows):
                 matched_skus=(
                     "match_status",
                     lambda s: int(
-                        (s == "MATCHED").sum()
+                        s.isin(
+                            [
+                                "MATCHED",
+                                "MATCHED_BY_VARIATION",
+                            ]
+                        ).sum()
                     ),
                 ),
 
                 etsy_only_skus=(
                     "match_status",
                     lambda s: int(
-                        (s == "ETSY_ONLY").sum()
+                        (
+                            s
+                            == "ETSY_ONLY"
+                        ).sum()
                     ),
                 ),
 
                 unavailable_skus=(
                     "match_status",
                     lambda s: int(
-                        (s == "UNAVAILABLE_SKU").sum()
+                        (
+                            s
+                            == "UNAVAILABLE_SKU"
+                        ).sum()
                     ),
                 ),
 
@@ -322,7 +785,9 @@ def build_comparison(etsy_rows, printify_rows):
                 listing_status,
                 include_groups=False,
             )
-            .rename("listing_status")
+            .rename(
+                "listing_status"
+            )
             .reset_index()
         )
 
@@ -337,16 +802,22 @@ def build_comparison(etsy_rows, printify_rows):
 
     return (
         comp.drop(
-            columns=["normalized_sku"],
+            columns=[
+                "normalized_sku"
+            ],
             errors="ignore",
         ),
         summary,
         attention.drop(
-            columns=["normalized_sku"],
+            columns=[
+                "normalized_sku"
+            ],
             errors="ignore",
         ),
         ponly.drop(
-            columns=["normalized_sku"],
+            columns=[
+                "normalized_sku"
+            ],
             errors="ignore",
         ),
     )
