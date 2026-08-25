@@ -863,12 +863,17 @@ def main():
 
     etsy_rows = etsy_rows[
         [
-            "etsy_row_number",
-            "etsy_listing_id",
-            "etsy_title",
-            "etsy_sku",
-            "etsy_price",
-            "etsy_quantity",
+        "etsy_row_number",
+        "etsy_listing_id",
+        "etsy_title",
+        "etsy_sku",
+        "etsy_price",
+        "etsy_quantity",
+        "etsy_variation_1_name",
+        "etsy_variation_1_value",
+        "etsy_variation_2_name",
+        "etsy_variation_2_value",
+        "etsy_variation_label",
         ]
     ]
 
