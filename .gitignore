@@ -2,3 +2,6 @@
 data/etsy_printify.db
 src/__pycache__/
 
+output/etsy_printify_comparison.csv
+output/low_profit_products.csv
+output/profitability_all.csv
