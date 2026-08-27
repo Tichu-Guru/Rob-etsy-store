@@ -68,35 +68,6 @@ def read_etsy_csv(path: Path) -> pd.DataFrame:
             f"Missing columns: {missing}"
         )
 
-    # -----------------------------------------------------
-    # REMOVE EXACT DUPLICATE ETSY LISTING ROWS
-    # -----------------------------------------------------
-    #
-    # Etsy can sometimes export the exact same listing more
-    # than once. Those duplicate records must not be treated
-    # as separate listings because doing so duplicates every
-    # SKU belonging to the listing.
-    #
-    # Only completely identical rows are removed.
-    # Legitimate listings are not affected.
-    #
-    duplicate_count = int(
-        df.duplicated(keep="first").sum()
-    )
-
-    if duplicate_count:
-        print(
-            "Etsy CSV: removed "
-            f"{duplicate_count:,} exact duplicate "
-            "listing row(s)."
-        )
-
-        df = (
-            df
-            .drop_duplicates(keep="first")
-            .reset_index(drop=True)
-        )
-
     return df
 
 
@@ -117,7 +88,18 @@ def split_csv_field(value: Any) -> list[str]:
     )
 
 
-def listing_key(row: pd.Series) -> str:
+def listing_content_key(row: pd.Series) -> str:
+    """
+    Create a content-based fingerprint for an Etsy listing.
+
+    IMPORTANT:
+    This is NOT the relational listing identity.
+
+    Multiple legitimate Etsy listings may have identical or
+    nearly identical content, so this value must never be used
+    as the primary key for joining listings to variants.
+    """
+
     basis = "|".join(
         [
             str(row.get("TITLE", "")).strip(),
@@ -143,6 +125,25 @@ def listing_key(row: pd.Series) -> str:
     ).hexdigest()[:16]
 
 
+def listing_key(
+    row: pd.Series,
+    source_row: int,
+) -> str:
+    """
+    Create a unique internal identity for one Etsy CSV row.
+
+    The CSV source row is intentionally part of the key.
+
+    This prevents separate Etsy listings with identical titles,
+    descriptions, prices, variations, and SKUs from collapsing
+    into one listing.
+
+    This is an internal relational key, not an Etsy API listing ID.
+    """
+
+    return f"csv_row_{source_row}"
+
+
 def build_variation_labels(
     row: pd.Series,
     sku_index: int,
@@ -159,8 +160,8 @@ def build_variation_labels(
     corresponding variation value.
 
     When there are two variations, Etsy's export represents
-    the SKU rows in the variation-combination order. Build
-    a readable label from the available values.
+    the SKU rows in the variation-combination order. Build a
+    readable label from the available values.
 
     If the relationship cannot be determined reliably, leave
     the value blank rather than inventing one.
@@ -240,12 +241,27 @@ def build_etsy_tables(df: pd.DataFrame):
 
     for idx, row in df.iterrows():
         source_row = idx + 2
-        key = listing_key(row)
+
+        # -------------------------------------------------
+        # IMPORTANT:
+        # Use a unique per-CSV-row identity.
+        #
+        # Do NOT use title/description/price as the
+        # relational listing key.
+        # -------------------------------------------------
+
+        key = listing_key(
+            row,
+            source_row,
+        )
+
+        content_key = listing_content_key(row)
 
         listings.append(
             {
                 "etsy_source_row": source_row,
                 "etsy_listing_key": key,
+                "etsy_content_key": content_key,
                 "title": row["TITLE"],
                 "description": row["DESCRIPTION"],
                 "price": row["PRICE"],
@@ -303,6 +319,7 @@ def build_etsy_tables(df: pd.DataFrame):
                 {
                     "etsy_source_row": source_row,
                     "etsy_listing_key": key,
+                    "etsy_content_key": content_key,
                     "etsy_sku_index": None,
                     "etsy_sku": "",
                     "etsy_sku_status": "MISSING",
@@ -345,6 +362,7 @@ def build_etsy_tables(df: pd.DataFrame):
                     {
                         "etsy_source_row": source_row,
                         "etsy_listing_key": key,
+                        "etsy_content_key": content_key,
                         "etsy_sku_index": n,
                         "etsy_sku": sku,
                         "etsy_sku_status": (
