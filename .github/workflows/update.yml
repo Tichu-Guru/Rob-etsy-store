@@ -28,6 +28,40 @@ jobs:
             gunzip -f data/etsy_printify.db.gz
           fi
 
+       - name: Check Etsy credentials
+        env:
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+
+          key = os.getenv("ETSY_API_KEY", "")
+          secret = os.getenv("ETSY_API_SHARED_SECRET", "")
+          access = os.getenv("ETSY_ACCESS_TOKEN", "")
+          refresh = os.getenv("ETSY_REFRESH_TOKEN", "")
+
+          print("ETSY_API_KEY present:", bool(key))
+          print("ETSY_API_SHARED_SECRET present:", bool(secret))
+          print("ETSY_ACCESS_TOKEN present:", bool(access))
+          print("ETSY_REFRESH_TOKEN present:", bool(refresh))
+
+          access_match = re.fullmatch(r"[0-9]+\..+", access)
+          refresh_match = re.fullmatch(r"[0-9]+\..+", refresh)
+
+          print("ETSY_ACCESS_TOKEN format valid:", bool(access_match))
+          print("ETSY_REFRESH_TOKEN format valid:", bool(refresh_match))
+
+          if access_match:
+              print("Access token user ID:", access.split(".", 1)[0])
+
+          if refresh_match:
+              print("Refresh token user ID:", refresh.split(".", 1)[0])
+          PY
+
       - name: Run sync
         env:
           PRINTIFY_API_TOKEN: ${{ secrets.PRINTIFY_API_TOKEN }}
