@@ -1015,8 +1015,6 @@ def main():
             "etsy_source_row":
                 "etsy_row_number",
 
-            "etsy_listing_key":
-                "etsy_listing_id",
 
             "title":
                 "etsy_title",
@@ -1027,6 +1025,10 @@ def main():
             "quantity":
                 "etsy_quantity",
         }
+    )
+
+    etsy_rows["etsy_listing_id"] = (
+        etsy_rows["etsy_listing_key"]
     )
 
     etsy_rows = etsy_rows[
