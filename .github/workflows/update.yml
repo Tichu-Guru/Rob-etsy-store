@@ -61,6 +61,105 @@ jobs:
           if refresh_match:
               print("Refresh token user ID:", refresh.split(".", 1)[0])
           PY2
+      - name: Etsy API listing diagnostic
+        env:
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+        run: |
+          python - <<'PY'
+          from src.etsy_api import EtsyApiClient
+
+          client = EtsyApiClient.from_environment()
+
+          print("=== ETSY API LISTING DIAGNOSTIC ===")
+
+          shop_id = client.get_shop_id()
+          print("SHOP ID:", shop_id)
+
+          listings = client.get_all_listings(shop_id)
+
+          print("API LISTING RECORDS:", len(listings))
+
+          listing_ids = [
+              str(x.get("listing_id", "")).strip()
+              for x in listings
+              if x.get("listing_id")
+          ]
+
+          print("API LISTING IDs:", len(listing_ids))
+          print("UNIQUE API LISTING IDs:", len(set(listing_ids)))
+          print()
+
+          print("LISTINGS BY STATE:")
+          for state in (
+              "active",
+              "inactive",
+              "sold_out",
+              "draft",
+              "expired",
+          ):
+              offset = 0
+              count = 0
+
+              while True:
+                  data = client.request(
+                      "GET",
+                      f"/shops/{shop_id}/listings",
+                      params={
+                          "state": state,
+                          "limit": 100,
+                          "offset": offset,
+                      },
+                  )
+
+                  results = data.get("results", [])
+                  count += len(results)
+
+                  if len(results) < 100:
+                      break
+
+                  offset += len(results)
+
+              print(f"  {state}: {count}")
+
+          print()
+          print("=== API LISTINGS ===")
+
+          seen = set()
+
+          for listing in sorted(
+              listings,
+              key=lambda x: str(x.get("title", "")).lower(),
+          ):
+              listing_id = str(
+                  listing.get("listing_id", "")
+              ).strip()
+
+              if not listing_id:
+                  continue
+
+              if listing_id in seen:
+                  continue
+
+              seen.add(listing_id)
+
+              title = str(
+                  listing.get("title", "")
+              ).strip()
+
+              state = str(
+                  listing.get("state", "")
+              ).strip()
+
+              print(
+                  f"{listing_id} | {state} | {title}"
+              )
+
+          print()
+          print("=== END DIAGNOSTIC ===")
+          PY
 
       - name: Run sync
         env:
