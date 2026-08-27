@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -88,30 +87,18 @@ def split_csv_field(value: Any) -> list[str]:
     )
 
 
-def listing_key(row: pd.Series) -> str:
-    basis = "|".join(
-        [
-            str(row.get("TITLE", "")).strip(),
-            str(row.get("DESCRIPTION", "")).strip(),
-            str(row.get("PRICE", "")).strip(),
-            str(
-                row.get(
-                    "VARIATION 1 NAME",
-                    "",
-                )
-            ).strip(),
-            str(
-                row.get(
-                    "VARIATION 2 NAME",
-                    "",
-                )
-            ).strip(),
-        ]
-    )
+def listing_key(source_row: int) -> str:
+    """
+    Create a unique key for one Etsy CSV source row.
 
-    return hashlib.sha1(
-        basis.encode("utf-8")
-    ).hexdigest()[:16]
+    The Etsy CSV export does not contain an Etsy listing ID.
+    Therefore the CSV source row is the only guaranteed unique
+    identifier available during CSV processing.
+
+    The real Etsy API listing ID is applied later when available.
+    """
+
+    return f"CSV_ROW_{source_row}"
 
 
 def build_variation_labels(
@@ -126,8 +113,8 @@ def build_variation_labels(
     Etsy's CSV export provides variation values as comma-
     separated lists and SKUs as a comma-separated list.
 
-    When there is one variation, map the SKU position to
-    the corresponding variation value.
+    When there is one variation, map the SKU position to the
+    corresponding variation value.
 
     When there are two variations, Etsy's export represents
     the SKU rows in the variation-combination order. Build
@@ -211,7 +198,13 @@ def build_etsy_tables(df: pd.DataFrame):
 
     for idx, row in df.iterrows():
         source_row = idx + 2
-        key = listing_key(row)
+
+        # The CSV source row is guaranteed to be unique within
+        # this Etsy export. Do not derive identity from listing
+        # content because separate Etsy listings can have
+        # identical titles, descriptions, prices, and variation
+        # names.
+        key = listing_key(source_row)
 
         listings.append(
             {
@@ -352,5 +345,3 @@ def build_etsy_tables(df: pd.DataFrame):
         pd.DataFrame(listings),
         pd.DataFrame(variants),
     )
-
-
