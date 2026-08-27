@@ -69,18 +69,16 @@ def read_etsy_csv(path: Path) -> pd.DataFrame:
         )
 
     # -----------------------------------------------------
-    # REMOVE EXACT DUPLICATE LISTING RECORDS
+    # REMOVE EXACT DUPLICATE ETSY LISTING ROWS
     # -----------------------------------------------------
     #
-    # Etsy's CSV can contain the same complete listing row
-    # more than once. These are not separate listings.
+    # Etsy can sometimes export the exact same listing more
+    # than once. Those duplicate records must not be treated
+    # as separate listings because doing so duplicates every
+    # SKU belonging to the listing.
     #
-    # Keeping them causes every SKU/variant on the listing
-    # to be duplicated, which then corrupts downstream
-    # matching and profitability calculations.
-    #
-    # Only completely identical rows are removed. Legitimate
-    # listings that differ in any exported field are preserved.
+    # Only completely identical rows are removed.
+    # Legitimate listings are not affected.
     #
     duplicate_count = int(
         df.duplicated(keep="first").sum()
@@ -93,9 +91,11 @@ def read_etsy_csv(path: Path) -> pd.DataFrame:
             "listing row(s)."
         )
 
-        df = df.drop_duplicates(
-            keep="first"
-        ).reset_index(drop=True)
+        df = (
+            df
+            .drop_duplicates(keep="first")
+            .reset_index(drop=True)
+        )
 
     return df
 
