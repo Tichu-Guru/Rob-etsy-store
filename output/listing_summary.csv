@@ -1,9 +1,4 @@
 etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable_skus,printify_duplicate_skus,shared_etsy_skus,listing_status
-177a68fad5fb929a,"Personalized Faux Suede Christmas Pillow, Plaid Holiday Decor Gift Tag",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
-184a2ede7c3b270c,"Funny Capybara Tee Personalized ""is on Capy Time"" Cotton T Shirt",42,42,0,0,0,0,FULLY_MATCHED
-1cd1ceeb5b6b39f8,"Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee",35,35,0,0,0,0,FULLY_MATCHED
-2f7e39dc0aac098e,"Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag",2,2,0,0,0,2,FULLY_MATCHED
-3a89a6a9facee276,"Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag",1,1,0,0,0,1,FULLY_MATCHED
 4514657407,Personalized Art Print Pet Portrait on Gallery Wrapped Canvas,3,3,0,0,0,0,FULLY_MATCHED
 4514701886,"Personalized Vintage Botanical Portrait on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art",3,3,0,0,0,0,FULLY_MATCHED
 4514726518,"Personalized Vintage Botanical Pet Portrait, Custom Dog Cat Canvas Wall Art",12,12,0,0,0,0,FULLY_MATCHED
@@ -140,19 +135,24 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4555318408,"Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor",2,2,0,0,0,2,FULLY_MATCHED
 4555320738,"Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift",4,4,0,0,0,0,FULLY_MATCHED
 4555321598,"Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign",2,2,0,0,0,2,FULLY_MATCHED
-4555323242,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",57500,56875,0,625,0,0,FULLY_MATCHED
-4555324692,"Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote",16,16,0,0,0,0,FULLY_MATCHED
-4555873876,Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas,192,192,0,0,0,0,FULLY_MATCHED
+4555323242,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",460,455,0,5,0,0,FULLY_MATCHED
+4555324692,"Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote",2,2,0,0,0,0,FULLY_MATCHED
+4555873876,Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas,24,24,0,0,0,0,FULLY_MATCHED
 4556984930,"Personalized Spooky Pumpkin Halloween Table Runner, Custom Fall Dining Decor",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
 4559441906,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Gift, Blue Gold Designs",4,0,4,0,0,4,NO_PRINTIFY_PRODUCTS
-467f0b0a491d2299,"Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag",2,2,0,0,0,2,FULLY_MATCHED
-4a793767470e56a3,"Personalized Faux Suede Christmas Pillow with Gift Tag, Plaid Holiday Decor",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
-5db0775c6890479e,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
-62c28ae96618026c,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
-664bfac1f07e917b,"Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt",42,42,0,0,0,0,FULLY_MATCHED
-70871605645a914d,"Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover",1,1,0,0,0,1,FULLY_MATCHED
-720264d36a026cc5,"Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset",30,30,0,0,0,0,FULLY_MATCHED
-7790702ec580d8ca,"Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug",4,4,0,0,0,0,FULLY_MATCHED
-9ad99b97de373c6e,"Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt",24,24,0,0,0,0,FULLY_MATCHED
-a9fccfb50b9e5c6f,"Personalized Thanksgiving Table Runner, Custom Fall Table Decor, Autumn Pumpkin Runner for Thanksgiving Dinner, Optional Matching Napkins",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
-fcf30bd4a959962d,"Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook",1,1,0,0,0,0,FULLY_MATCHED
+CSV_ROW_13,"Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag",2,2,0,0,0,2,FULLY_MATCHED
+CSV_ROW_146,"Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook",1,1,0,0,0,0,FULLY_MATCHED
+CSV_ROW_147,"Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset",30,30,0,0,0,0,FULLY_MATCHED
+CSV_ROW_148,"Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt",42,42,0,0,0,0,FULLY_MATCHED
+CSV_ROW_153,"Funny Capybara Tee Personalized ""is on Capy Time"" Cotton T Shirt",42,42,0,0,0,0,FULLY_MATCHED
+CSV_ROW_2,"Personalized Thanksgiving Table Runner, Custom Fall Table Decor, Autumn Pumpkin Runner for Thanksgiving Dinner, Optional Matching Napkins",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
+CSV_ROW_34,"Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover",1,1,0,0,0,1,FULLY_MATCHED
+CSV_ROW_37,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
+CSV_ROW_38,"Personalized Faux Suede Christmas Pillow, Plaid Holiday Decor Gift Tag",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
+CSV_ROW_39,"Personalized Faux Suede Christmas Pillow with Gift Tag, Plaid Holiday Decor",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
+CSV_ROW_40,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
+CSV_ROW_71,"Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag",2,2,0,0,0,2,FULLY_MATCHED
+CSV_ROW_91,"Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee",35,35,0,0,0,0,FULLY_MATCHED
+CSV_ROW_92,"Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt",24,24,0,0,0,0,FULLY_MATCHED
+CSV_ROW_93,"Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug",4,4,0,0,0,0,FULLY_MATCHED
+CSV_ROW_94,"Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag",1,1,0,0,0,1,FULLY_MATCHED
