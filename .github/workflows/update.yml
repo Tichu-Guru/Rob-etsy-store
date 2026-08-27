@@ -160,6 +160,235 @@ jobs:
           print()
           print("=== END DIAGNOSTIC ===")
           PY
+      - name: Etsy CSV to API Listing Diagnostic
+        env:
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+        run: |
+          python - <<'PY'
+          import pandas as pd
+
+          from src.main import read_etsy_csv, ETSY_CSV
+          from src.etsy_api import EtsyApiClient
+
+          print("=" * 70)
+          print("ETSY CSV → API LISTING DIAGNOSTIC")
+          print("=" * 70)
+
+          # -------------------------------------------------
+          # CSV
+          # -------------------------------------------------
+
+          csv_df = read_etsy_csv(ETSY_CSV)
+
+          print()
+          print("CSV LISTINGS:", len(csv_df))
+          print("CSV UNIQUE TITLES:", csv_df["TITLE"].nunique())
+
+          # -------------------------------------------------
+          # FULL ETSY API LISTINGS
+          # -------------------------------------------------
+
+          client = EtsyApiClient.from_environment()
+          shop_id = client.get_shop_id()
+          api_listings = client.get_all_listings(shop_id)
+
+          print("API LISTINGS:", len(api_listings))
+
+          # -------------------------------------------------
+          # Build API title map
+          # -------------------------------------------------
+
+          api_records = []
+
+          for listing in api_listings:
+              listing_id = listing.get("listing_id")
+
+              if not listing_id:
+                  continue
+
+              api_records.append(
+                  {
+                      "api_listing_id": str(listing_id),
+                      "api_title": str(
+                          listing.get("title", "")
+                      ).strip(),
+                      "api_state": str(
+                          listing.get("state", "")
+                      ).strip(),
+                  }
+              )
+
+          api_df = pd.DataFrame(api_records)
+
+          print(
+              "API UNIQUE LISTING IDS:",
+              api_df["api_listing_id"].nunique()
+          )
+
+          # -------------------------------------------------
+          # Map title → API listings
+          # -------------------------------------------------
+
+          api_by_title = (
+              api_df
+              .groupby("api_title", dropna=False)
+              ["api_listing_id"]
+              .agg(list)
+              .to_dict()
+          )
+
+          state_by_id = dict(
+              zip(
+                  api_df["api_listing_id"],
+                  api_df["api_state"],
+              )
+          )
+
+          # -------------------------------------------------
+          # Compare every CSV row
+          # -------------------------------------------------
+
+          results = []
+
+          for idx, row in csv_df.iterrows():
+
+              title = str(
+                  row["TITLE"]
+              ).strip()
+
+              matches = api_by_title.get(
+                  title,
+                  []
+              )
+
+              results.append(
+                  {
+                      "csv_row": idx + 2,
+                      "csv_title": title,
+                      "api_match_count": len(matches),
+                      "api_listing_ids": ",".join(matches),
+                      "api_states": ",".join(
+                          state_by_id.get(
+                              listing_id,
+                              ""
+                          )
+                          for listing_id in matches
+                      ),
+                  }
+              )
+
+          result_df = pd.DataFrame(results)
+
+          # -------------------------------------------------
+          # Summary
+          # -------------------------------------------------
+
+          exact_one = (
+              result_df["api_match_count"] == 1
+          ).sum()
+
+          multiple = (
+              result_df["api_match_count"] > 1
+          ).sum()
+
+          none = (
+              result_df["api_match_count"] == 0
+          ).sum()
+
+          print()
+          print("=" * 70)
+          print("RESULTS")
+          print("=" * 70)
+
+          print(
+              "CSV rows with EXACTLY ONE API title match:",
+              exact_one
+          )
+
+          print(
+              "CSV rows with MULTIPLE API title matches:",
+              multiple
+          )
+
+          print(
+              "CSV rows with NO API title match:",
+              none
+          )
+
+          # -------------------------------------------------
+          # Multiple matches
+          # -------------------------------------------------
+
+          print()
+          print("=" * 70)
+          print("MULTIPLE API MATCHES")
+          print("=" * 70)
+
+          multi = result_df[
+              result_df["api_match_count"] > 1
+          ]
+
+          if multi.empty:
+              print("NONE")
+          else:
+              for _, row in multi.iterrows():
+                  print()
+                  print("CSV ROW:", row["csv_row"])
+                  print("TITLE:", row["csv_title"])
+                  print(
+                      "API MATCHES:",
+                      row["api_listing_ids"]
+                  )
+                  print(
+                      "API STATES:",
+                      row["api_states"]
+                  )
+
+          # -------------------------------------------------
+          # No matches
+          # -------------------------------------------------
+
+          print()
+          print("=" * 70)
+          print("NO API MATCH")
+          print("=" * 70)
+
+          no_match = result_df[
+              result_df["api_match_count"] == 0
+          ]
+
+          if no_match.empty:
+              print("NONE")
+          else:
+              for _, row in no_match.iterrows():
+                  print()
+                  print("CSV ROW:", row["csv_row"])
+                  print("TITLE:", row["csv_title"])
+
+          # -------------------------------------------------
+          # Save complete diagnostic
+          # -------------------------------------------------
+
+          output_path = (
+              "output/csv_api_listing_mapping.csv"
+          )
+
+          result_df.to_csv(
+              output_path,
+              index=False,
+          )
+
+          print()
+          print("=" * 70)
+          print(
+              "FULL DIAGNOSTIC:",
+              output_path
+          )
+          print("=" * 70)
+          PY
 
       - name: Run sync
         env:
