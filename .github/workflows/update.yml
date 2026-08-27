@@ -49,8 +49,8 @@ jobs:
           print("ETSY_ACCESS_TOKEN present:", bool(access))
           print("ETSY_REFRESH_TOKEN present:", bool(refresh))
 
-          access_match = re.fullmatch(r"[0-9]+\\..+", access)
-          refresh_match = re.fullmatch(r"[0-9]+\\..+", refresh)
+          access_match = re.fullmatch(r"[0-9]+\..+", access)
+          refresh_match = re.fullmatch(r"[0-9]+\..+", refresh)
 
           print("ETSY_ACCESS_TOKEN format valid:", bool(access_match))
           print("ETSY_REFRESH_TOKEN format valid:", bool(refresh_match))
