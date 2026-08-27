@@ -1,5 +1,5 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-27T17:40:55.273163+00:00
+Run UTC: 2026-08-27T18:08:44.230531+00:00
 
 Etsy listings: 167
 Etsy SKU rows: 59,418
@@ -241,16 +241,16 @@ Only listings below 15% net margin are shown.
    Current $27.99 | Net $1.77 | Printify $17.22 | Shipping $6.09 | Margin 6.3% | 15% price $31.21 | Increase $3.22
 98. Personalized Pet Portrait Vintage Botanical Pattern Canvas Tote
    Current $27.99 | Net $1.77 | Printify $17.22 | Shipping $6.09 | Margin 6.3% | 15% price $31.21 | Increase $3.22
-99. Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift
+99. Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift
+   Current $31.99 | Net $2.31 | Printify $15.60 | Shipping $10.79 | Margin 7.2% | 15% price $35.29 | Increase $3.30
+100. Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift
    Current $17.99 | Net $1.33 | Printify $7.41 | Shipping $7.29 | Margin 7.4% | 15% price $19.81 | Increase $1.82
-100. Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug
+101. Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug
    Current $16.99 | Net $1.39 | Printify $6.45 | Shipping $7.29 | Margin 8.2% | 15% price $18.53 | Increase $1.54
-101. Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift
+102. Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift
    Current $16.99 | Net $1.39 | Printify $6.45 | Shipping $7.29 | Margin 8.2% | 15% price $18.53 | Increase $1.54
-102. Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug
+103. Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug
    Current $16.99 | Net $1.39 | Printify $6.45 | Shipping $7.29 | Margin 8.2% | 15% price $18.53 | Increase $1.54
-103. Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift
-   Current $31.99 | Net $2.81 | Printify $15.60 | Shipping $10.29 | Margin 8.8% | 15% price $34.63 | Increase $2.64
 104. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
    Current $47.99 | Net $4.74 | Printify $23.85 | Shipping $14.59 | Margin 9.9% | 15% price $51.25 | Increase $3.26
 105. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
