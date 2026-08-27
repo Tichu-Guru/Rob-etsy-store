@@ -88,60 +88,21 @@ def split_csv_field(value: Any) -> list[str]:
     )
 
 
-def listing_content_key(row: pd.Series) -> str:
+def listing_key(row: pd.Series, source_row: int) -> str:
     """
-    Create a content-based fingerprint for an Etsy listing.
+    Return a stable identity for one physical Etsy CSV row.
 
     IMPORTANT:
-    This is NOT the relational listing identity.
+    The Etsy CSV export does not contain an Etsy listing ID.
+    Therefore the physical CSV row is the safest identity
+    available at this stage.
 
-    Multiple legitimate Etsy listings may have identical or
-    nearly identical content, so this value must never be used
-    as the primary key for joining listings to variants.
+    Do NOT derive listing identity from title/description/
+    price because multiple real Etsy listings can legitimately
+    have identical listing content and differ only in photos.
     """
 
-    basis = "|".join(
-        [
-            str(row.get("TITLE", "")).strip(),
-            str(row.get("DESCRIPTION", "")).strip(),
-            str(row.get("PRICE", "")).strip(),
-            str(
-                row.get(
-                    "VARIATION 1 NAME",
-                    "",
-                )
-            ).strip(),
-            str(
-                row.get(
-                    "VARIATION 2 NAME",
-                    "",
-                )
-            ).strip(),
-        ]
-    )
-
-    return hashlib.sha1(
-        basis.encode("utf-8")
-    ).hexdigest()[:16]
-
-
-def listing_key(
-    row: pd.Series,
-    source_row: int,
-) -> str:
-    """
-    Create a unique internal identity for one Etsy CSV row.
-
-    The CSV source row is intentionally part of the key.
-
-    This prevents separate Etsy listings with identical titles,
-    descriptions, prices, variations, and SKUs from collapsing
-    into one listing.
-
-    This is an internal relational key, not an Etsy API listing ID.
-    """
-
-    return f"csv_row_{source_row}"
+    return f"CSV_ROW_{source_row}"
 
 
 def build_variation_labels(
@@ -160,8 +121,8 @@ def build_variation_labels(
     corresponding variation value.
 
     When there are two variations, Etsy's export represents
-    the SKU rows in the variation-combination order. Build a
-    readable label from the available values.
+    the SKU rows in the variation-combination order. Build
+    a readable label from the available values.
 
     If the relationship cannot be determined reliably, leave
     the value blank rather than inventing one.
@@ -239,29 +200,96 @@ def build_etsy_tables(df: pd.DataFrame):
     listings = []
     variants = []
 
+    # ---------------------------------------------------------
+    # IDENTIFY DUPLICATE-TITLE LISTINGS
+    # ---------------------------------------------------------
+    #
+    # We retain ALL CSV rows.
+    #
+    # For identical titles:
+    #   first occurrence = primary
+    #   later occurrences = secondary
+    #
+    # Secondary listings are not deleted here. They are marked
+    # so the analysis layer can explicitly exclude them.
+    #
+    # This is intentional because identical titles can represent
+    # separate Etsy listings whose photos differ.
+    # ---------------------------------------------------------
+
+    normalized_titles = (
+        df["TITLE"]
+        .fillna("")
+        .astype(str)
+        .map(
+            lambda value:
+            " ".join(
+                value.strip().lower().split()
+            )
+        )
+    )
+
+    title_occurrence = {}
+    duplicate_group_counts = (
+        normalized_titles.value_counts(
+            dropna=False
+        )
+        .to_dict()
+    )
+
     for idx, row in df.iterrows():
         source_row = idx + 2
 
-        # -------------------------------------------------
-        # IMPORTANT:
-        # Use a unique per-CSV-row identity.
-        #
-        # Do NOT use title/description/price as the
-        # relational listing key.
-        # -------------------------------------------------
+        title_key = normalized_titles.iloc[idx]
+
+        occurrence = (
+            title_occurrence.get(
+                title_key,
+                0,
+            )
+            + 1
+        )
+
+        title_occurrence[title_key] = occurrence
+
+        is_duplicate_title = (
+            bool(title_key)
+            and duplicate_group_counts.get(
+                title_key,
+                0,
+            ) > 1
+        )
+
+        is_primary = occurrence == 1
 
         key = listing_key(
             row,
             source_row,
         )
 
-        content_key = listing_content_key(row)
-
         listings.append(
             {
                 "etsy_source_row": source_row,
                 "etsy_listing_key": key,
-                "etsy_content_key": content_key,
+
+                # -------------------------------------------------
+                # Analysis identity
+                # -------------------------------------------------
+                "etsy_analysis_include": (
+                    is_primary
+                ),
+                "etsy_duplicate_title": (
+                    is_duplicate_title
+                ),
+                "etsy_duplicate_title_group": (
+                    title_key
+                    if is_duplicate_title
+                    else ""
+                ),
+                "etsy_duplicate_title_occurrence": (
+                    occurrence
+                ),
+
                 "title": row["TITLE"],
                 "description": row["DESCRIPTION"],
                 "price": row["PRICE"],
@@ -319,23 +347,35 @@ def build_etsy_tables(df: pd.DataFrame):
                 {
                     "etsy_source_row": source_row,
                     "etsy_listing_key": key,
-                    "etsy_content_key": content_key,
+
+                    # Match the listing-level analysis flag.
+                    "etsy_analysis_include": (
+                        is_primary
+                    ),
+                    "etsy_duplicate_title": (
+                        is_duplicate_title
+                    ),
+
                     "etsy_sku_index": None,
                     "etsy_sku": "",
                     "etsy_sku_status": "MISSING",
+
                     "etsy_variation_1_name": str(
                         row.get(
                             "VARIATION 1 NAME",
                             "",
                         )
                     ).strip(),
+
                     "etsy_variation_1_value": "",
+
                     "etsy_variation_2_name": str(
                         row.get(
                             "VARIATION 2 NAME",
                             "",
                         )
                     ).strip(),
+
                     "etsy_variation_2_value": "",
                     "etsy_variation_label": "",
                 }
@@ -362,7 +402,15 @@ def build_etsy_tables(df: pd.DataFrame):
                     {
                         "etsy_source_row": source_row,
                         "etsy_listing_key": key,
-                        "etsy_content_key": content_key,
+
+                        # Match the listing-level analysis flag.
+                        "etsy_analysis_include": (
+                            is_primary
+                        ),
+                        "etsy_duplicate_title": (
+                            is_duplicate_title
+                        ),
+
                         "etsy_sku_index": n,
                         "etsy_sku": sku,
                         "etsy_sku_status": (
@@ -371,24 +419,29 @@ def build_etsy_tables(df: pd.DataFrame):
                             == "unavailable_sku"
                             else "PRESENT"
                         ),
+
                         "etsy_variation_1_name": str(
                             row.get(
                                 "VARIATION 1 NAME",
                                 "",
                             )
                         ).strip(),
+
                         "etsy_variation_1_value": (
                             variation1
                         ),
+
                         "etsy_variation_2_name": str(
                             row.get(
                                 "VARIATION 2 NAME",
                                 "",
                             )
                         ).strip(),
+
                         "etsy_variation_2_value": (
                             variation2
                         ),
+
                         "etsy_variation_label": (
                             variation_label
                         ),
