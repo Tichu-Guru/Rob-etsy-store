@@ -22,11 +22,19 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      # ---------------------------------------------------
+      # RESTORE DATABASE
+      # ---------------------------------------------------
+
       - name: Restore compressed database
         run: |
           if [ -f data/etsy_printify.db.gz ]; then
             gunzip -f data/etsy_printify.db.gz
           fi
+
+      # ---------------------------------------------------
+      # CHECK ETSY CREDENTIALS
+      # ---------------------------------------------------
 
       - name: Check Etsy credentials
         env:
@@ -52,115 +60,34 @@ jobs:
           access_match = re.fullmatch(r"[0-9]+\..+", access)
           refresh_match = re.fullmatch(r"[0-9]+\..+", refresh)
 
-          print("ETSY_ACCESS_TOKEN format valid:", bool(access_match))
-          print("ETSY_REFRESH_TOKEN format valid:", bool(refresh_match))
+          print(
+              "ETSY_ACCESS_TOKEN format valid:",
+              bool(access_match),
+          )
+
+          print(
+              "ETSY_REFRESH_TOKEN format valid:",
+              bool(refresh_match),
+          )
 
           if access_match:
-              print("Access token user ID:", access.split(".", 1)[0])
-
-          if refresh_match:
-              print("Refresh token user ID:", refresh.split(".", 1)[0])
-          PY2
-      - name: Etsy API listing diagnostic
-        env:
-          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
-          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
-          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
-          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
-        run: |
-          python - <<'PY'
-          from src.etsy_api import EtsyApiClient
-
-          client = EtsyApiClient.from_environment()
-
-          print("=== ETSY API LISTING DIAGNOSTIC ===")
-
-          shop_id = client.get_shop_id()
-          print("SHOP ID:", shop_id)
-
-          listings = client.get_all_listings(shop_id)
-
-          print("API LISTING RECORDS:", len(listings))
-
-          listing_ids = [
-              str(x.get("listing_id", "")).strip()
-              for x in listings
-              if x.get("listing_id")
-          ]
-
-          print("API LISTING IDs:", len(listing_ids))
-          print("UNIQUE API LISTING IDs:", len(set(listing_ids)))
-          print()
-
-          print("LISTINGS BY STATE:")
-          for state in (
-              "active",
-              "inactive",
-              "sold_out",
-              "draft",
-              "expired",
-          ):
-              offset = 0
-              count = 0
-
-              while True:
-                  data = client.request(
-                      "GET",
-                      f"/shops/{shop_id}/listings",
-                      params={
-                          "state": state,
-                          "limit": 100,
-                          "offset": offset,
-                      },
-                  )
-
-                  results = data.get("results", [])
-                  count += len(results)
-
-                  if len(results) < 100:
-                      break
-
-                  offset += len(results)
-
-              print(f"  {state}: {count}")
-
-          print()
-          print("=== API LISTINGS ===")
-
-          seen = set()
-
-          for listing in sorted(
-              listings,
-              key=lambda x: str(x.get("title", "")).lower(),
-          ):
-              listing_id = str(
-                  listing.get("listing_id", "")
-              ).strip()
-
-              if not listing_id:
-                  continue
-
-              if listing_id in seen:
-                  continue
-
-              seen.add(listing_id)
-
-              title = str(
-                  listing.get("title", "")
-              ).strip()
-
-              state = str(
-                  listing.get("state", "")
-              ).strip()
-
               print(
-                  f"{listing_id} | {state} | {title}"
+                  "Access token user ID:",
+                  access.split(".", 1)[0],
               )
 
-          print()
-          print("=== END DIAGNOSTIC ===")
-          PY
-      - name: Etsy CSV to API Listing Diagnostic
+          if refresh_match:
+              print(
+                  "Refresh token user ID:",
+                  refresh.split(".", 1)[0],
+              )
+          PY2
+
+      # ---------------------------------------------------
+      # ETSY API LISTING DIAGNOSTIC
+      # ---------------------------------------------------
+
+      - name: Etsy API listing diagnostic
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
           ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
@@ -170,225 +97,208 @@ jobs:
           python - <<'PY'
           import pandas as pd
 
-          from src.main import read_etsy_csv, ETSY_CSV
+          from src.main import (
+              read_etsy_csv,
+              ETSY_CSV,
+          )
           from src.etsy_api import EtsyApiClient
 
           print("=" * 70)
-          print("ETSY CSV → API LISTING DIAGNOSTIC")
+          print("ETSY API LISTING DIAGNOSTIC")
           print("=" * 70)
-
-          # -------------------------------------------------
-          # CSV
-          # -------------------------------------------------
-
-          csv_df = read_etsy_csv(ETSY_CSV)
-
           print()
-          print("CSV LISTINGS:", len(csv_df))
-          print("CSV UNIQUE TITLES:", csv_df["TITLE"].nunique())
 
           # -------------------------------------------------
-          # FULL ETSY API LISTINGS
+          # READ CSV
+          # -------------------------------------------------
+
+          df = read_etsy_csv(ETSY_CSV)
+
+          print("CSV LISTINGS:", len(df))
+          print()
+
+          # -------------------------------------------------
+          # GET ETSY API INVENTORY
           # -------------------------------------------------
 
           client = EtsyApiClient.from_environment()
-          shop_id = client.get_shop_id()
-          api_listings = client.get_all_listings(shop_id)
 
-          print("API LISTINGS:", len(api_listings))
+          rows = client.get_listing_inventory_rows()
 
-          # -------------------------------------------------
-          # Build API title map
-          # -------------------------------------------------
+          api = pd.DataFrame(rows)
 
-          api_records = []
+          if api.empty:
+              print("API INVENTORY ROWS: 0")
+              print()
+              print("NO API INVENTORY DATA WAS RETURNED.")
+              raise SystemExit(0)
 
-          for listing in api_listings:
-              listing_id = listing.get("listing_id")
-
-              if not listing_id:
-                  continue
-
-              api_records.append(
-                  {
-                      "api_listing_id": str(listing_id),
-                      "api_title": str(
-                          listing.get("title", "")
-                      ).strip(),
-                      "api_state": str(
-                          listing.get("state", "")
-                      ).strip(),
-                  }
-              )
-
-          api_df = pd.DataFrame(api_records)
-
-          print(
-              "API UNIQUE LISTING IDS:",
-              api_df["api_listing_id"].nunique()
+          api = (
+              api[
+                  [
+                      "etsy_api_listing_id",
+                      "etsy_api_title",
+                  ]
+              ]
+              .drop_duplicates()
           )
 
+          api_listing_count = (
+              api["etsy_api_listing_id"]
+              .nunique()
+          )
+
+          print(
+              "API LISTINGS WITH INVENTORY/SKU DATA:",
+              api_listing_count,
+          )
+          print()
+
           # -------------------------------------------------
-          # Map title → API listings
+          # GROUP API LISTINGS BY TITLE
           # -------------------------------------------------
 
           api_by_title = (
-              api_df
-              .groupby("api_title", dropna=False)
-              ["api_listing_id"]
+              api.groupby("etsy_api_title")
+              ["etsy_api_listing_id"]
               .agg(list)
               .to_dict()
           )
 
-          state_by_id = dict(
-              zip(
-                  api_df["api_listing_id"],
-                  api_df["api_state"],
-              )
-          )
-
           # -------------------------------------------------
-          # Compare every CSV row
+          # MATCH CSV TITLES TO API TITLES
           # -------------------------------------------------
 
-          results = []
+          exact_one = []
+          multiple = []
+          none = []
 
-          for idx, row in csv_df.iterrows():
+          for idx, row in df.iterrows():
 
+              csv_row = idx + 2
               title = str(
                   row["TITLE"]
               ).strip()
 
               matches = api_by_title.get(
                   title,
-                  []
+                  [],
               )
 
-              results.append(
-                  {
-                      "csv_row": idx + 2,
-                      "csv_title": title,
-                      "api_match_count": len(matches),
-                      "api_listing_ids": ",".join(matches),
-                      "api_states": ",".join(
-                          state_by_id.get(
-                              listing_id,
-                              ""
-                          )
-                          for listing_id in matches
-                      ),
-                  }
-              )
+              result = {
+                  "csv_row": csv_row,
+                  "title": title,
+                  "api_listing_ids": matches,
+              }
 
-          result_df = pd.DataFrame(results)
+              if len(matches) == 1:
+                  exact_one.append(result)
+
+              elif len(matches) > 1:
+                  multiple.append(result)
+
+              else:
+                  none.append(result)
 
           # -------------------------------------------------
-          # Summary
+          # SUMMARY
           # -------------------------------------------------
-
-          exact_one = (
-              result_df["api_match_count"] == 1
-          ).sum()
-
-          multiple = (
-              result_df["api_match_count"] > 1
-          ).sum()
-
-          none = (
-              result_df["api_match_count"] == 0
-          ).sum()
-
-          print()
-          print("=" * 70)
-          print("RESULTS")
-          print("=" * 70)
 
           print(
               "CSV rows with EXACTLY ONE API title match:",
-              exact_one
+              len(exact_one),
           )
 
           print(
               "CSV rows with MULTIPLE API title matches:",
-              multiple
+              len(multiple),
           )
 
           print(
               "CSV rows with NO API title match:",
-              none
+              len(none),
           )
 
+          print()
+
           # -------------------------------------------------
-          # Multiple matches
+          # EXACTLY ONE MATCH
+          # -------------------------------------------------
+
+          print("=" * 70)
+          print("CSV ROWS WITH EXACTLY ONE API TITLE MATCH")
+          print("=" * 70)
+
+          for item in exact_one:
+              print()
+              print(
+                  "CSV ROW:",
+                  item["csv_row"],
+              )
+              print(
+                  "TITLE:",
+                  item["title"],
+              )
+              print(
+                  "API LISTING ID:",
+                  item["api_listing_ids"][0],
+              )
+
+          # -------------------------------------------------
+          # MULTIPLE MATCHES
           # -------------------------------------------------
 
           print()
           print("=" * 70)
-          print("MULTIPLE API MATCHES")
+          print("CSV ROWS WITH MULTIPLE API TITLE MATCHES")
           print("=" * 70)
 
-          multi = result_df[
-              result_df["api_match_count"] > 1
-          ]
-
-          if multi.empty:
-              print("NONE")
-          else:
-              for _, row in multi.iterrows():
-                  print()
-                  print("CSV ROW:", row["csv_row"])
-                  print("TITLE:", row["csv_title"])
-                  print(
-                      "API MATCHES:",
-                      row["api_listing_ids"]
-                  )
-                  print(
-                      "API STATES:",
-                      row["api_states"]
-                  )
+          for item in multiple:
+              print()
+              print(
+                  "CSV ROW:",
+                  item["csv_row"],
+              )
+              print(
+                  "TITLE:",
+                  item["title"],
+              )
+              print(
+                  "API LISTING IDS:",
+                  ", ".join(
+                      item["api_listing_ids"]
+                  ),
+              )
 
           # -------------------------------------------------
-          # No matches
+          # NO MATCH
           # -------------------------------------------------
 
           print()
           print("=" * 70)
-          print("NO API MATCH")
+          print("CSV ROWS WITH NO API TITLE MATCH")
           print("=" * 70)
 
-          no_match = result_df[
-              result_df["api_match_count"] == 0
-          ]
-
-          if no_match.empty:
-              print("NONE")
-          else:
-              for _, row in no_match.iterrows():
-                  print()
-                  print("CSV ROW:", row["csv_row"])
-                  print("TITLE:", row["csv_title"])
-
-          # -------------------------------------------------
-          # Save complete diagnostic
-          # -------------------------------------------------
-
-          output_path = (
-              "output/csv_api_listing_mapping.csv"
-          )
-
-          result_df.to_csv(
-              output_path,
-              index=False,
-          )
+          for item in none:
+              print()
+              print(
+                  "CSV ROW:",
+                  item["csv_row"],
+              )
+              print(
+                  "TITLE:",
+                  item["title"],
+              )
 
           print()
           print("=" * 70)
-          print(
-              "FULL DIAGNOSTIC:",
-              output_path
-          )
+          print("END ETSY API LISTING DIAGNOSTIC")
           print("=" * 70)
           PY
+
+      # ---------------------------------------------------
+      # RUN SYNC
+      # ---------------------------------------------------
 
       - name: Run sync
         env:
@@ -399,6 +309,10 @@ jobs:
           ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
           ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
         run: python -m src.main
+
+      # ---------------------------------------------------
+      # SEND DAILY SUMMARY EMAIL
+      # ---------------------------------------------------
 
       - name: Send daily summary email
         env:
@@ -425,11 +339,19 @@ jobs:
             -H "Content-Type: application/json" \
             -d "$PAYLOAD"
 
+      # ---------------------------------------------------
+      # COMPRESS DATABASE
+      # ---------------------------------------------------
+
       - name: Compress database
         run: |
           if [ -f data/etsy_printify.db ]; then
             gzip -f data/etsy_printify.db
           fi
+
+      # ---------------------------------------------------
+      # COMMIT REPORTS
+      # ---------------------------------------------------
 
       - name: Commit reports
         run: |
@@ -441,6 +363,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update Etsy Printify data"
+            git commit -m "Update Etsy Printify database and reports"
             git push
           fi
