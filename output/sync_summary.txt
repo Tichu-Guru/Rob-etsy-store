@@ -1,5 +1,5 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-27T17:27:54.760780+00:00
+Run UTC: 2026-08-27T17:40:55.273163+00:00
 
 Etsy listings: 167
 Etsy SKU rows: 59,418
@@ -58,7 +58,7 @@ Only listings below 15% net margin are shown.
 6. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
    Current $16.99 | Net $-68.08 | Printify $77.32 | Shipping $5.89 | Margin -400.7% | 15% price $110.55 | Increase $93.56
 7. Personalized Pet Photo Nutcracker Ornament: Custom Cat or Dog Christmas Decoration
-   Current $14.99 | Net $-59.23 | Printify $49.26 | Shipping $23.29 | Margin -395.2% | 15% price $96.43 | Increase $81.44
+   Current $14.99 | Net $-59.93 | Printify $49.26 | Shipping $23.99 | Margin -399.8% | 15% price $97.36 | Increase $82.37
 8. Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor
    Current $27.99 | Net $-46.09 | Printify $52.88 | Shipping $18.29 | Margin -164.7% | 15% price $94.60 | Increase $66.61
 9. Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas
@@ -293,16 +293,16 @@ Only listings below 15% net margin are shown.
    Current $16.99 | Net $2.09 | Printify $5.75 | Shipping $7.29 | Margin 12.3% | 15% price $17.61 | Increase $0.62
 124. Customizable Chicken Flock Mug, Farmhouse Coffee Cup, Backyard Chicken Lover Gift
    Current $17.99 | Net $2.29 | Printify $6.45 | Shipping $7.29 | Margin 12.7% | 15% price $18.53 | Increase $0.54
-125. Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor
+125. Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift
+   Current $18.99 | Net $2.46 | Printify $8.29 | Shipping $6.19 | Margin 12.9% | 15% price $19.51 | Increase $0.52
+126. Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook
+   Current $18.99 | Net $2.46 | Printify $8.29 | Shipping $6.19 | Margin 12.9% | 15% price $19.51 | Increase $0.52
+127. Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor
    Current $43.99 | Net $5.95 | Printify $21.12 | Shipping $12.49 | Margin 13.5% | 15% price $44.85 | Increase $0.86
-126. Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift
-   Current $18.99 | Net $2.66 | Printify $8.29 | Shipping $5.99 | Margin 14.0% | 15% price $19.25 | Increase $0.26
-127. Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook
-   Current $18.99 | Net $2.66 | Printify $8.29 | Shipping $5.99 | Margin 14.0% | 15% price $19.25 | Increase $0.26
-128. Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake
+128. Hedgehog Christmas Ornament, Acrylic Woodland Animal Decor, Funny Cozy Winter Gift, Coworker Boss Gift
+   Current $22.99 | Net $3.19 | Printify $11.48 | Shipping $5.89 | Margin 13.9% | 15% price $23.34 | Increase $0.35
+129. Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake
    Current $15.99 | Net $2.32 | Printify $6.21 | Shipping $5.69 | Margin 14.5% | 15% price $16.10 | Increase $0.11
-129. Hedgehog Christmas Ornament, Acrylic Woodland Animal Decor, Funny Cozy Winter Gift, Coworker Boss Gift
-   Current $22.99 | Net $3.39 | Printify $11.48 | Shipping $5.69 | Margin 14.7% | 15% price $23.08 | Increase $0.09
 
 ETSY_ONLY means the Etsy SKU is not currently found in Printify.
 Profitability requires a matched Printify SKU and available U.S. shipping data.
