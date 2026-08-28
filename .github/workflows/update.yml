@@ -337,7 +337,6 @@ jobs:
               from: $from,
               to: [$to1, $to2],
               subject: $subject,
-              to: [$to1, $to2],
               text: $text
             }')
 
