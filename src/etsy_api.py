@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+from html import unescape
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +16,6 @@ DEFAULT_TOKEN_FILE = Path(".etsy_tokens.json")
 
 class EtsyApiClient:
     """Small Etsy Open API v3 client used for listing inventory prices."""
-
     def __init__(
         self,
         api_key: str,
@@ -33,7 +33,6 @@ class EtsyApiClient:
             else None
         )
         self.token_file = token_file
-
         if not self.api_key:
             raise RuntimeError("ETSY_API_KEY is not set.")
         if not self.shared_secret:
@@ -53,7 +52,6 @@ class EtsyApiClient:
                 str(DEFAULT_TOKEN_FILE),
             )
         )
-
         token_data: dict[str, Any] = {}
         if token_file.exists():
             try:
@@ -222,6 +220,7 @@ class EtsyApiClient:
 
     def get_shop_id(self) -> int:
         user_id = self.access_token.split(".", 1)[0]
+
         if not user_id.isdigit():
             raise RuntimeError(
                 "Could not determine the Etsy user ID from the OAuth token."
@@ -233,6 +232,7 @@ class EtsyApiClient:
         )
 
         shop_id = data.get("shop_id")
+
         if not shop_id:
             raise RuntimeError(
                 "Etsy did not return a shop_id for the authenticated user."
@@ -303,6 +303,91 @@ class EtsyApiClient:
 
         return amount / divisor
 
+    @staticmethod
+    def _extract_variation_values(
+        product: dict[str, Any],
+    ) -> tuple[
+        str,
+        str,
+        str,
+        str,
+        str,
+    ]:
+        """
+        Extract Etsy inventory property values for one SKU.
+
+        Etsy's inventory API stores the actual variation combination
+        on each product in property_values. This is authoritative for
+        the SKU and must not be reconstructed from CSV SKU position.
+        """
+
+        property_values = product.get("property_values") or []
+
+        values: list[tuple[str, str]] = []
+
+        for property_value in property_values:
+            if not isinstance(property_value, dict):
+                continue
+
+            property_name = unescape(
+                str(
+                    property_value.get(
+                        "property_name",
+                        "",
+                    )
+                    or ""
+                ).strip()
+            )
+
+            raw_values = property_value.get("values") or []
+
+            if isinstance(raw_values, list):
+                value_text = ", ".join(
+                    unescape(str(value).strip())
+                    for value in raw_values
+                    if str(value).strip()
+                )
+            else:
+                value_text = unescape(
+                    str(raw_values).strip()
+                )
+
+            if property_name and value_text:
+                values.append(
+                    (
+                        property_name,
+                        value_text,
+                    )
+                )
+
+        value1 = values[0][1] if len(values) >= 1 else ""
+        value2 = values[1][1] if len(values) >= 2 else ""
+
+        name1 = values[0][0] if len(values) >= 1 else ""
+        name2 = values[1][0] if len(values) >= 2 else ""
+
+        label_parts = []
+
+        if name1 and value1:
+            label_parts.append(
+                f"{name1}: {value1}"
+            )
+
+        if name2 and value2:
+            label_parts.append(
+                f"{name2}: {value2}"
+            )
+
+        label = " / ".join(label_parts)
+
+        return (
+            name1,
+            value1,
+            name2,
+            value2,
+            label,
+        )
+
     def get_listing_inventory_rows(self) -> list[dict[str, Any]]:
         shop_id = self.get_shop_id()
         listings = self.get_all_listings(shop_id)
@@ -337,18 +422,31 @@ class EtsyApiClient:
                 if not sku:
                     continue
 
+                (
+                    variation_1_name,
+                    variation_1_value,
+                    variation_2_name,
+                    variation_2_value,
+                    variation_label,
+                ) = self._extract_variation_values(
+                    product
+                )
+
                 offerings = product.get("offerings") or []
+
                 enabled_prices: list[float] = []
 
                 for offering in offerings:
                     if offering.get("is_deleted"):
                         continue
+
                     if offering.get("is_enabled") is False:
                         continue
 
                     price = self._money_to_float(
                         offering.get("price")
                     )
+
                     if price is not None:
                         enabled_prices.append(price)
 
@@ -361,10 +459,27 @@ class EtsyApiClient:
 
                 rows.append(
                     {
-                        "etsy_api_listing_id": str(listing_id),
+                        "etsy_api_listing_id": str(
+                            listing_id
+                        ),
                         "etsy_api_title": title,
                         "etsy_api_sku": sku,
                         "etsy_api_price": price,
+                        "etsy_api_variation_1_name": (
+                            variation_1_name
+                        ),
+                        "etsy_api_variation_1_value": (
+                            variation_1_value
+                        ),
+                        "etsy_api_variation_2_name": (
+                            variation_2_name
+                        ),
+                        "etsy_api_variation_2_value": (
+                            variation_2_value
+                        ),
+                        "etsy_api_variation_label": (
+                            variation_label
+                        ),
                     }
                 )
 
