@@ -421,6 +421,106 @@ jobs:
         run: python -m src.main
 
       # ---------------------------------------------------
+      # NUTCRACKER COMPARISON OUTPUT DIAGNOSTIC
+      # ---------------------------------------------------
+
+      - name: Nutcracker comparison output diagnostic
+        run: |
+          python - <<'PY'
+          import pandas as pd
+
+          path = "output/etsy_printify_comparison.csv"
+          df = pd.read_csv(path)
+
+          result = df[
+              df["etsy_title"].astype(str).str.contains(
+                  "Personalized Pet Photo Nutcracker Ornament",
+                  case=False,
+                  na=False,
+              )
+          ]
+
+          print("=" * 100)
+          print("NUTCRACKER COMPARISON OUTPUT DIAGNOSTIC")
+          print("=" * 100)
+          print("ROWS:", len(result))
+          print()
+
+          if result.empty:
+              print("NO NUTCRACKER ROWS FOUND")
+          else:
+              columns = [
+                  "etsy_sku",
+                  "etsy_price",
+                  "printify_sku",
+                  "printify_variant_title",
+                  "printify_cost_numeric",
+                  "printify_shipping_cost",
+                  "match_status",
+              ]
+              columns = [
+                  c for c in columns if c in result.columns
+              ]
+              print(result[columns].to_string(index=False))
+
+          print()
+          print("=" * 100)
+          print("END NUTCRACKER COMPARISON OUTPUT DIAGNOSTIC")
+          print("=" * 100)
+          PY
+
+
+      # ---------------------------------------------------
+      # NUTCRACKER COMPARISON OUTPUT DIAGNOSTIC
+      # ---------------------------------------------------
+
+      - name: Nutcracker comparison output diagnostic
+        run: |
+          python - <<'PY'
+          import pandas as pd
+
+          path = "output/etsy_printify_comparison.csv"
+          df = pd.read_csv(path)
+
+          result = df[
+              df["etsy_title"].astype(str).str.contains(
+                  "Personalized Pet Photo Nutcracker Ornament",
+                  case=False,
+                  na=False,
+              )
+          ]
+
+          print("=" * 100)
+          print("NUTCRACKER COMPARISON OUTPUT DIAGNOSTIC")
+          print("=" * 100)
+          print("ROWS:", len(result))
+          print()
+
+          if result.empty:
+              print("NO NUTCRACKER ROWS FOUND")
+          else:
+              columns = [
+                  "etsy_sku",
+                  "etsy_price",
+                  "printify_sku",
+                  "printify_variant_title",
+                  "printify_cost_numeric",
+                  "printify_shipping_cost",
+                  "match_status",
+              ]
+              columns = [
+                  c for c in columns if c in result.columns
+              ]
+              print(result[columns].to_string(index=False))
+
+          print()
+          print("=" * 100)
+          print("END NUTCRACKER COMPARISON OUTPUT DIAGNOSTIC")
+          print("=" * 100)
+          PY
+
+
+      # ---------------------------------------------------
       # FINAL COMPARISON PRICE DIAGNOSTIC
       # ---------------------------------------------------
 
