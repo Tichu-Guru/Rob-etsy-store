@@ -828,6 +828,9 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
     listings["etsy_api_price"] = pd.NA
     variants["etsy_api_listing_id"] = pd.NA
     variants["etsy_api_price"] = pd.NA
+    variants["etsy_api_variation_1_name"] = pd.NA
+    variants["etsy_api_variation_1_value"] = pd.NA
+    variants["etsy_api_variation_label"] = pd.NA
 
     try:
         client = EtsyApiClient.from_environment()
@@ -956,6 +959,19 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
                 "etsy_api_price",
             ] = float(price_values.iloc[0])
 
+            api_match = matches.iloc[0]
+
+            for column in [
+                "etsy_api_variation_1_name",
+                "etsy_api_variation_1_value",
+                "etsy_api_variation_label",
+            ]:
+                if column in api_match.index:
+                    variants.at[
+                        variant_index,
+                        column,
+                    ] = api_match[column]
+
     print(
         "Etsy API pricing enrichment: "
         f"{int(variants['etsy_api_price'].notna().sum()):,} "
@@ -966,11 +982,130 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
 
 
 def apply_etsy_api_prices(etsy_rows, etsy_variants):
-    api_columns=etsy_variants[["etsy_listing_key","etsy_sku_index","etsy_api_listing_id","etsy_api_price"]].copy()
-    rows=etsy_rows.merge(api_columns,on=["etsy_listing_key","etsy_sku_index"],how="left")
-    rows["etsy_listing_id"]=rows["etsy_api_listing_id"].fillna(rows["etsy_listing_id"])
-    rows["etsy_price"]=pd.to_numeric(rows["etsy_api_price"],errors="coerce").combine_first(pd.to_numeric(rows["etsy_price"],errors="coerce"))
-    return rows.drop(columns=["etsy_api_listing_id","etsy_api_price"],errors="ignore")
+    """
+    Apply Etsy API prices and variation information by SKU.
+
+    The Etsy API associates each price with a specific SKU.
+    Therefore, do not use the CSV SKU position to determine
+    which API price belongs to a variant.
+    """
+
+    api_columns = etsy_variants[
+        [
+            "etsy_listing_key",
+            "etsy_sku",
+            "etsy_api_listing_id",
+            "etsy_api_price",
+            "etsy_api_variation_1_name",
+            "etsy_api_variation_1_value",
+            "etsy_api_variation_label",
+        ]
+    ].copy()
+
+    api_columns["_sku_key"] = (
+        api_columns["etsy_sku"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        .str.lower()
+    )
+
+    rows = etsy_rows.copy()
+
+    rows["_sku_key"] = (
+        rows["etsy_sku"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        .str.lower()
+    )
+
+    rows = rows.merge(
+        api_columns,
+        on=[
+            "etsy_listing_key",
+            "_sku_key",
+        ],
+        how="left",
+    )
+
+    rows["etsy_listing_id"] = (
+        rows["etsy_api_listing_id"]
+        .fillna(rows["etsy_listing_id"])
+    )
+
+    rows["etsy_price"] = (
+        pd.to_numeric(
+            rows["etsy_api_price"],
+            errors="coerce",
+        )
+        .combine_first(
+            pd.to_numeric(
+                rows["etsy_price"],
+                errors="coerce",
+            )
+        )
+    )
+
+    api_label_available = (
+        rows["etsy_api_variation_label"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        != ""
+    )
+
+    rows.loc[
+        api_label_available,
+        "etsy_variation_label",
+    ] = rows.loc[
+        api_label_available,
+        "etsy_api_variation_label",
+    ]
+
+    api_value_available = (
+        rows["etsy_api_variation_1_value"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        != ""
+    )
+
+    rows.loc[
+        api_value_available,
+        "etsy_variation_1_value",
+    ] = rows.loc[
+        api_value_available,
+        "etsy_api_variation_1_value",
+    ]
+
+    api_name_available = (
+        rows["etsy_api_variation_1_name"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        != ""
+    )
+
+    rows.loc[
+        api_name_available,
+        "etsy_variation_1_name",
+    ] = rows.loc[
+        api_name_available,
+        "etsy_api_variation_1_name",
+    ]
+
+    return rows.drop(
+        columns=[
+            "_sku_key",
+            "etsy_api_listing_id",
+            "etsy_api_price",
+            "etsy_api_variation_1_name",
+            "etsy_api_variation_1_value",
+            "etsy_api_variation_label",
+        ],
+        errors="ignore",
+    )
 
 
 # ---------------------------------------------------------
