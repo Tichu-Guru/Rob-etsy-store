@@ -1,5 +1,5 @@
 LOW PROFITABILITY SUMMARY
-Run UTC: 2026-08-28T17:15:31.262731+00:00
+Run UTC: 2026-08-28T17:30:43.906736+00:00
 
 Profitability threshold: 15%
 
@@ -9,9 +9,9 @@ Products below 15%: 1,728
 Percent below threshold: 94.3%
 
 LISTING LEVEL
-Etsy listings with calculable profitability: 137
-Etsy listings below 15%: 128
-Percent of calculable listings below threshold: 93.4%
+Etsy listings with calculable profitability: 171
+Etsy listings below 15%: 160
+Percent of calculable listings below threshold: 93.6%
 
 ASSUMPTIONS
 Customer pays $0 shipping.
