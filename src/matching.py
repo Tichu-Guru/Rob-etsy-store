@@ -354,6 +354,41 @@ def build_comparison(
         etsy_rows
     )
 
+    diagnostic_skus = {
+        "11975776294672016378",
+        "17119814508216010683",
+        "27331151771594285206",
+        "11731818812456775837",
+    }
+
+    diagnostic_rows = etsy[
+        etsy["etsy_sku"].astype(str).str.strip().isin(
+            diagnostic_skus
+        )
+    ]
+
+    print()
+    print("=" * 80)
+    print("BUILD COMPARISON INPUT DIAGNOSTIC")
+    print("=" * 80)
+
+    if diagnostic_rows.empty:
+        print("NO NUTCRACKER SKUS FOUND")
+    else:
+        print(
+            diagnostic_rows[
+                [
+                    "etsy_sku",
+                    "etsy_price",
+                    "etsy_variation_label",
+                ]
+            ].to_string(index=False)
+        )
+
+    print("=" * 80)
+    print("END BUILD COMPARISON INPUT DIAGNOSTIC")
+    print()
+
     pri = pd.DataFrame(
         printify_rows
     )
