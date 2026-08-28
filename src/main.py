@@ -986,8 +986,10 @@ def apply_etsy_api_prices(etsy_rows, etsy_variants):
     Apply Etsy API prices and variation information by SKU.
 
     The Etsy API associates each price with a specific SKU.
-    Therefore, do not use the CSV SKU position to determine
-    which API price belongs to a variant.
+    Therefore, API pricing must be matched by SKU rather than
+    by the SKU's positional index in the Etsy CSV.
+
+    The original etsy_sku column in etsy_rows is preserved.
     """
 
     api_columns = etsy_variants[
@@ -1020,6 +1022,20 @@ def apply_etsy_api_prices(etsy_rows, etsy_variants):
         .str.lower()
     )
 
+    # Do not merge etsy_sku itself.  etsy_rows already contains
+    # the authoritative Etsy SKU column.
+    api_columns = api_columns[
+        [
+            "etsy_listing_key",
+            "_sku_key",
+            "etsy_api_listing_id",
+            "etsy_api_price",
+            "etsy_api_variation_1_name",
+            "etsy_api_variation_1_value",
+            "etsy_api_variation_label",
+        ]
+    ]
+
     rows = rows.merge(
         api_columns,
         on=[
@@ -1047,6 +1063,7 @@ def apply_etsy_api_prices(etsy_rows, etsy_variants):
         )
     )
 
+    # API variation information is authoritative when available.
     api_label_available = (
         rows["etsy_api_variation_label"]
         .fillna("")
@@ -1106,7 +1123,6 @@ def apply_etsy_api_prices(etsy_rows, etsy_variants):
         ],
         errors="ignore",
     )
-
 
 # ---------------------------------------------------------
 # MAIN
