@@ -21,7 +21,6 @@ jobs:
           cache: "pip"
 
       - run: pip install -r requirements.txt
-
       # ---------------------------------------------------
       # RESTORE DATABASE
       # ---------------------------------------------------
@@ -35,7 +34,6 @@ jobs:
       # ---------------------------------------------------
       # CHECK ETSY CREDENTIALS
       # ---------------------------------------------------
-
       - name: Check Etsy credentials
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
@@ -46,7 +44,6 @@ jobs:
           python - <<'PY2'
           import os
           import re
-
           key = os.getenv("ETSY_API_KEY", "")
           secret = os.getenv("ETSY_API_SHARED_SECRET", "")
           access = os.getenv("ETSY_ACCESS_TOKEN", "")
@@ -56,7 +53,6 @@ jobs:
           print("ETSY_API_SHARED_SECRET present:", bool(secret))
           print("ETSY_ACCESS_TOKEN present:", bool(access))
           print("ETSY_REFRESH_TOKEN present:", bool(refresh))
-
           access_match = re.fullmatch(r"[0-9]+\..+", access)
           refresh_match = re.fullmatch(r"[0-9]+\..+", refresh)
 
@@ -75,7 +71,6 @@ jobs:
                   "Access token user ID:",
                   access.split(".", 1)[0],
               )
-
           if refresh_match:
               print(
                   "Refresh token user ID:",
@@ -86,7 +81,6 @@ jobs:
       # ---------------------------------------------------
       # RAW ETSY INVENTORY DIAGNOSTIC
       # ---------------------------------------------------
-
       - name: Raw Etsy inventory diagnostic
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
@@ -100,7 +94,6 @@ jobs:
           LISTING_ID = 4557429557
 
           client = EtsyApiClient.from_environment()
-
           inventory = client.get_listing_inventory(LISTING_ID)
 
           print("=" * 80)
@@ -119,21 +112,15 @@ jobs:
               sku = str(
                   product.get("sku") or ""
               ).strip()
-
               print("-" * 80)
               print("PRODUCT:", number)
               print("SKU:", sku)
 
-              # Etsy's inventory API stores the variation/property
-              # information here. Print the complete property values
-              # for this product so we can see exactly which variant
-              # Etsy associates with the SKU.
               property_values = (
                   product.get("property_values") or []
               )
 
               print("PROPERTY VALUES:")
-
               if not property_values:
                   print("  NONE")
               else:
@@ -148,7 +135,6 @@ jobs:
               )
 
               print("OFFERINGS:")
-
               if not offerings:
                   print("  NONE")
               else:
@@ -165,7 +151,6 @@ jobs:
                       is_deleted = offering.get(
                           "is_deleted"
                       )
-
                       price = offering.get(
                           "price"
                       )
@@ -184,7 +169,6 @@ jobs:
                           "  DELETED:",
                           is_deleted,
                       )
-
                       print(
                           "  PRICE:",
                           price,
@@ -200,7 +184,6 @@ jobs:
       # ---------------------------------------------------
       # ETSY VARIANT PRICE DIAGNOSTIC
       # ---------------------------------------------------
-
       - name: Etsy variant price diagnostic
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
@@ -210,7 +193,6 @@ jobs:
         run: |
           python - <<'PY'
           import pandas as pd
-
           from src.main import (
               read_etsy_csv,
               build_etsy_tables,
@@ -228,7 +210,6 @@ jobs:
           print()
           print("CSV LISTINGS:", len(listings))
           print("CSV VARIANT ROWS:", len(variants))
-
           client = EtsyApiClient.from_environment()
           api_rows = client.get_listing_inventory_rows()
 
@@ -278,6 +259,11 @@ jobs:
                       "etsy_api_title",
                       "etsy_api_sku",
                       "etsy_api_price",
+                      "etsy_api_variation_1_name",
+                      "etsy_api_variation_1_value",
+                      "etsy_api_variation_2_name",
+                      "etsy_api_variation_2_value",
+                      "etsy_api_variation_label",
                       "normalized_sku",
                   ]
               ],
@@ -287,7 +273,6 @@ jobs:
           )
 
           listing_groups = []
-
           for source_row, group in merged.groupby(
               "etsy_source_row",
               dropna=False,
@@ -303,7 +288,6 @@ jobs:
                       for p in prices
                   )
               )
-
               if len(unique_prices) <= 1:
                   continue
 
@@ -375,7 +359,6 @@ jobs:
       # ---------------------------------------------------
       # RUN SYNC
       # ---------------------------------------------------
-
       - name: Run sync
         env:
           PRINTIFY_API_TOKEN: ${{ secrets.PRINTIFY_API_TOKEN }}
@@ -402,7 +385,6 @@ jobs:
           print("=" * 70)
 
           df = pd.read_csv(path)
-
           print()
           print("COMPARISON ROWS:", len(df))
 
@@ -411,7 +393,6 @@ jobs:
               case=False,
               na=False,
           )
-
           result = df.loc[
               mask,
               [
@@ -434,7 +415,6 @@ jobs:
                   if c in df.columns
               ],
           ]
-
           print()
           print("THANKSGIVING RUNNER FINAL COMPARISON ROWS:")
           print()
@@ -460,7 +440,6 @@ jobs:
           RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
         run: |
           EMAIL_BODY=$(cat output/sync_summary.txt)
-
           PAYLOAD=$(jq -n \
             --arg from "$RESEND_FROM_EMAIL" \
             --arg to1 "robo78640@gmail.com" \
@@ -473,7 +452,6 @@ jobs:
               subject: $subject,
               text: $text
             }')
-
           curl -sS -X POST "https://api.resend.com/emails" \
             -H "Authorization: Bearer $RESEND_API_KEY" \
             -H "Content-Type: application/json" \
@@ -499,7 +477,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add -A data output
-
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
