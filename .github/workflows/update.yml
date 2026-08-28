@@ -84,6 +84,120 @@ jobs:
           PY2
 
       # ---------------------------------------------------
+      # RAW ETSY INVENTORY DIAGNOSTIC
+      # ---------------------------------------------------
+
+      - name: Raw Etsy inventory diagnostic
+        env:
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+        run: |
+          python - <<'PY'
+          from src.etsy_api import EtsyApiClient
+
+          LISTING_ID = 4557429557
+
+          client = EtsyApiClient.from_environment()
+
+          inventory = client.get_listing_inventory(LISTING_ID)
+
+          print("=" * 80)
+          print("RAW ETSY INVENTORY DIAGNOSTIC")
+          print("=" * 80)
+          print()
+          print("LISTING ID:", LISTING_ID)
+
+          products = inventory.get("products", [])
+
+          print("PRODUCT COUNT:", len(products))
+          print()
+
+          for number, product in enumerate(products, 1):
+
+              sku = str(
+                  product.get("sku") or ""
+              ).strip()
+
+              print("-" * 80)
+              print("PRODUCT:", number)
+              print("SKU:", sku)
+
+              # Etsy's inventory API stores the variation/property
+              # information here. Print the complete property values
+              # for this product so we can see exactly which variant
+              # Etsy associates with the SKU.
+              property_values = (
+                  product.get("property_values") or []
+              )
+
+              print("PROPERTY VALUES:")
+
+              if not property_values:
+                  print("  NONE")
+              else:
+                  for prop in property_values:
+                      print(
+                          " ",
+                          prop,
+                      )
+
+              offerings = (
+                  product.get("offerings") or []
+              )
+
+              print("OFFERINGS:")
+
+              if not offerings:
+                  print("  NONE")
+              else:
+                  for offering in offerings:
+
+                      offering_id = offering.get(
+                          "offering_id"
+                      )
+
+                      is_enabled = offering.get(
+                          "is_enabled"
+                      )
+
+                      is_deleted = offering.get(
+                          "is_deleted"
+                      )
+
+                      price = offering.get(
+                          "price"
+                      )
+
+                      print(
+                          "  OFFERING ID:",
+                          offering_id,
+                      )
+
+                      print(
+                          "  ENABLED:",
+                          is_enabled,
+                      )
+
+                      print(
+                          "  DELETED:",
+                          is_deleted,
+                      )
+
+                      print(
+                          "  PRICE:",
+                          price,
+                      )
+
+              print()
+
+          print("=" * 80)
+          print("END RAW ETSY INVENTORY DIAGNOSTIC")
+          print("=" * 80)
+          PY
+
+      # ---------------------------------------------------
       # ETSY VARIANT PRICE DIAGNOSTIC
       # ---------------------------------------------------
 
