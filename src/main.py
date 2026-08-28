@@ -1272,6 +1272,48 @@ def main():
         etsy_variants,
     )
 
+    # -----------------------------------------------------
+    # TEMPORARY ETSY API PRICE FLOW DIAGNOSTIC
+    # -----------------------------------------------------
+
+    diagnostic_skus = {
+        "PMK72",
+        "PMK724",
+        "PMK728",
+        "PMK90",
+        "PMK904",
+        "PMK908",
+    }
+
+    diagnostic_rows = etsy_rows[
+        etsy_rows["etsy_sku"]
+        .astype(str)
+        .str.strip()
+        .isin(diagnostic_skus)
+    ]
+
+    print()
+    print("=" * 80)
+    print("ETSY API PRICE FLOW DIAGNOSTIC")
+    print("=" * 80)
+
+    if diagnostic_rows.empty:
+        print("NO NUTCRACKER SKUS FOUND IN ETSY ROWS")
+    else:
+        print(
+            diagnostic_rows[
+                [
+                    "etsy_sku",
+                    "etsy_price",
+                    "etsy_variation_label",
+                ]
+            ].to_string(index=False)
+        )
+
+    print("=" * 80)
+    print("END ETSY API PRICE FLOW DIAGNOSTIC")
+    print()
+
     listing_id_map = etsy_listings[[
         "etsy_listing_key",
         "etsy_api_listing_id",
