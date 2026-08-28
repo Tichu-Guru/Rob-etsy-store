@@ -84,10 +84,10 @@ jobs:
           PY2
 
       # ---------------------------------------------------
-      # ETSY API LISTING DIAGNOSTIC
+      # ETSY VARIANT PRICE DIAGNOSTIC
       # ---------------------------------------------------
 
-      - name: Etsy API listing diagnostic
+      - name: Etsy variant price diagnostic
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
           ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
@@ -99,200 +99,206 @@ jobs:
 
           from src.main import (
               read_etsy_csv,
+              build_etsy_tables,
               ETSY_CSV,
           )
           from src.etsy_api import EtsyApiClient
 
           print("=" * 70)
-          print("ETSY API LISTING DIAGNOSTIC")
+          print("ETSY VARIANT PRICE DIAGNOSTIC")
           print("=" * 70)
+
+          # -------------------------------------------------
+          # CSV
+          # -------------------------------------------------
+
+          csv_df = read_etsy_csv(ETSY_CSV)
+          listings, variants = build_etsy_tables(csv_df)
+
           print()
+          print("CSV LISTINGS:", len(listings))
+          print("CSV VARIANT ROWS:", len(variants))
 
           # -------------------------------------------------
-          # READ CSV
-          # -------------------------------------------------
-
-          df = read_etsy_csv(ETSY_CSV)
-
-          print("CSV LISTINGS:", len(df))
-          print()
-
-          # -------------------------------------------------
-          # GET ETSY API INVENTORY
+          # ETSY API
           # -------------------------------------------------
 
           client = EtsyApiClient.from_environment()
 
-          rows = client.get_listing_inventory_rows()
+          api_rows = client.get_listing_inventory_rows()
 
-          api = pd.DataFrame(rows)
+          api_df = pd.DataFrame(api_rows)
 
-          if api.empty:
-              print("API INVENTORY ROWS: 0")
+          if api_df.empty:
               print()
-              print("NO API INVENTORY DATA WAS RETURNED.")
-              raise SystemExit(0)
+              print("ERROR: Etsy API returned no inventory rows.")
+              raise SystemExit(1)
 
-          api = (
-              api[
+          api_df = api_df[
+              [
+                  "etsy_api_listing_id",
+                  "etsy_api_title",
+                  "etsy_api_sku",
+                  "etsy_api_price",
+              ]
+          ].copy()
+
+          # -------------------------------------------------
+          # NORMALIZE SKUs
+          # -------------------------------------------------
+
+          def normalize_sku(value):
+              return (
+                  str(value or "")
+                  .strip()
+                  .upper()
+                  .replace(" ", "")
+                  .replace("-", "")
+                  .replace("_", "")
+              )
+
+          api_df["normalized_sku"] = (
+              api_df["etsy_api_sku"]
+              .map(normalize_sku)
+          )
+
+          variants["normalized_sku"] = (
+              variants["etsy_sku"]
+              .map(normalize_sku)
+          )
+
+          # -------------------------------------------------
+          # MATCH CSV VARIANTS TO API PRICES
+          # -------------------------------------------------
+
+          merged = variants.merge(
+              api_df[
                   [
                       "etsy_api_listing_id",
                       "etsy_api_title",
+                      "etsy_api_sku",
+                      "etsy_api_price",
+                      "normalized_sku",
                   ]
-              ]
-              .drop_duplicates()
-          )
-
-          api_listing_count = (
-              api["etsy_api_listing_id"]
-              .nunique()
-          )
-
-          print(
-              "API LISTINGS WITH INVENTORY/SKU DATA:",
-              api_listing_count,
-          )
-          print()
-
-          # -------------------------------------------------
-          # GROUP API LISTINGS BY TITLE
-          # -------------------------------------------------
-
-          api_by_title = (
-              api.groupby("etsy_api_title")
-              ["etsy_api_listing_id"]
-              .agg(list)
-              .to_dict()
+              ],
+              on="normalized_sku",
+              how="left",
+              suffixes=("_csv", "_api"),
           )
 
           # -------------------------------------------------
-          # MATCH CSV TITLES TO API TITLES
+          # FIND CSV LISTINGS WITH MULTIPLE API PRICES
           # -------------------------------------------------
 
-          exact_one = []
-          multiple = []
-          none = []
+          listing_groups = []
 
-          for idx, row in df.iterrows():
+          for source_row, group in merged.groupby(
+              "etsy_source_row",
+              dropna=False,
+          ):
 
-              csv_row = idx + 2
-              title = str(
-                  row["TITLE"]
-              ).strip()
+              prices = pd.to_numeric(
+                  group["etsy_api_price"],
+                  errors="coerce",
+              ).dropna()
 
-              matches = api_by_title.get(
-                  title,
-                  [],
+              unique_prices = sorted(
+                  set(
+                      round(float(p), 2)
+                      for p in prices
+                  )
               )
 
-              result = {
-                  "csv_row": csv_row,
-                  "title": title,
-                  "api_listing_ids": matches,
-              }
+              if len(unique_prices) <= 1:
+                  continue
 
-              if len(matches) == 1:
-                  exact_one.append(result)
+              title = str(
+                  csv_df.iloc[int(source_row) - 2]["TITLE"]
+              ).strip()
 
-              elif len(matches) > 1:
-                  multiple.append(result)
-
-              else:
-                  none.append(result)
+              listing_groups.append(
+                  {
+                      "csv_row": int(source_row),
+                      "title": title,
+                      "unique_api_prices": unique_prices,
+                      "variant_count": len(group),
+                  }
+              )
 
           # -------------------------------------------------
           # SUMMARY
           # -------------------------------------------------
 
-          print(
-              "CSV rows with EXACTLY ONE API title match:",
-              len(exact_one),
-          )
+          print()
+          print("=" * 70)
+          print("SUMMARY")
+          print("=" * 70)
 
           print(
-              "CSV rows with MULTIPLE API title matches:",
-              len(multiple),
+              "LISTINGS WITH MULTIPLE API PRICES:",
+              len(listing_groups),
           )
 
-          print(
-              "CSV rows with NO API title match:",
-              len(none),
-          )
+          # -------------------------------------------------
+          # DETAILS
+          # -------------------------------------------------
 
           print()
-
-          # -------------------------------------------------
-          # EXACTLY ONE MATCH
-          # -------------------------------------------------
-
           print("=" * 70)
-          print("CSV ROWS WITH EXACTLY ONE API TITLE MATCH")
+          print("LISTINGS WITH MULTIPLE ETSY VARIANT PRICES")
           print("=" * 70)
 
-          for item in exact_one:
+          for item in listing_groups:
+
               print()
               print(
                   "CSV ROW:",
                   item["csv_row"],
               )
-              print(
-                  "TITLE:",
-                  item["title"],
-              )
-              print(
-                  "API LISTING ID:",
-                  item["api_listing_ids"][0],
-              )
 
-          # -------------------------------------------------
-          # MULTIPLE MATCHES
-          # -------------------------------------------------
-
-          print()
-          print("=" * 70)
-          print("CSV ROWS WITH MULTIPLE API TITLE MATCHES")
-          print("=" * 70)
-
-          for item in multiple:
-              print()
-              print(
-                  "CSV ROW:",
-                  item["csv_row"],
-              )
-              print(
-                  "TITLE:",
-                  item["title"],
-              )
-              print(
-                  "API LISTING IDS:",
-                  ", ".join(
-                      item["api_listing_ids"]
-                  ),
-              )
-
-          # -------------------------------------------------
-          # NO MATCH
-          # -------------------------------------------------
-
-          print()
-          print("=" * 70)
-          print("CSV ROWS WITH NO API TITLE MATCH")
-          print("=" * 70)
-
-          for item in none:
-              print()
-              print(
-                  "CSV ROW:",
-                  item["csv_row"],
-              )
               print(
                   "TITLE:",
                   item["title"],
               )
 
+              print(
+                  "API PRICES:",
+                  item["unique_api_prices"],
+              )
+
+              print(
+                  "VARIANT ROWS:",
+                  item["variant_count"],
+              )
+
+              group = merged[
+                  merged["etsy_source_row"]
+                  == item["csv_row"]
+              ].copy()
+
+              display_columns = [
+                  "etsy_sku",
+                  "etsy_variation_label",
+                  "etsy_api_listing_id",
+                  "etsy_api_sku",
+                  "etsy_api_price",
+              ]
+
+              print(
+                  group[
+                      [
+                          c
+                          for c in display_columns
+                          if c in group.columns
+                      ]
+                  ].to_string(
+                      index=False
+                  )
+              )
+
           print()
           print("=" * 70)
-          print("END ETSY API LISTING DIAGNOSTIC")
+          print("END ETSY VARIANT PRICE DIAGNOSTIC")
           print("=" * 70)
           PY
 
@@ -331,6 +337,7 @@ jobs:
               from: $from,
               to: [$to1, $to2],
               subject: $subject,
+              to: [$to1, $to2],
               text: $text
             }')
 
