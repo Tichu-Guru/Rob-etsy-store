@@ -245,6 +245,11 @@ jobs:
                   "etsy_api_title",
                   "etsy_api_sku",
                   "etsy_api_price",
+                  "etsy_api_variation_1_name",
+                  "etsy_api_variation_1_value",
+                  "etsy_api_variation_2_name",
+                  "etsy_api_variation_2_value",
+                  "etsy_api_variation_label",
               ]
           ].copy()
 
@@ -345,6 +350,7 @@ jobs:
               display_columns = [
                   "etsy_sku",
                   "etsy_variation_label",
+                  "etsy_api_variation_label",
                   "etsy_api_listing_id",
                   "etsy_api_sku",
                   "etsy_api_price",
