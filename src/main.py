@@ -860,15 +860,20 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
     )
 
     for listing_index, listing in listings.iterrows():
-        title_key = _normalize_match_text(
-            listing.get("title", "")
-        )
-        candidates = api_df[
-            api_df["_title_key"] == title_key
-        ].copy()
 
-        if candidates.empty:
-            continue
+        # -----------------------------------------------------
+        # IDENTIFY THE ETSY API LISTING BY SKU FIRST
+        # -----------------------------------------------------
+        #
+        # SKU is the reliable variant identity.  The Etsy CSV title
+        # can differ from the Etsy API title even when both refer to
+        # the same real Etsy listing.  Therefore the title must NOT
+        # be a required gate for API enrichment.
+        #
+        # We score every API listing by overlap with the CSV SKUs.
+        # The title is retained only as a secondary fallback when
+        # no SKU overlap can identify a listing.
+        # -----------------------------------------------------
 
         csv_skus = set(
             str(v).strip().lower()
@@ -882,7 +887,8 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
         )
 
         scores = []
-        for api_listing_id, group in candidates.groupby(
+
+        for api_listing_id, group in api_df.groupby(
             "etsy_api_listing_id"
         ):
             api_skus = set(
@@ -890,23 +896,79 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
                 for v in group["etsy_api_sku"].tolist()
                 if str(v).strip()
             )
-            scores.append(
-                (
-                    len(csv_skus & api_skus),
-                    len(api_skus),
-                    api_listing_id,
+
+            overlap = len(csv_skus & api_skus)
+
+            if overlap > 0:
+                scores.append(
+                    (
+                        overlap,
+                        len(api_skus),
+                        api_listing_id,
+                    )
                 )
+
+        # -----------------------------------------------------
+        # SKU MATCH FOUND
+        # -----------------------------------------------------
+
+        if scores:
+            scores.sort(reverse=True)
+            best_overlap, _, best_id = scores[0]
+
+            selected = api_df[
+                api_df["etsy_api_listing_id"]
+                == best_id
+            ].copy()
+
+        else:
+            # -------------------------------------------------
+            # TITLE FALLBACK
+            # -------------------------------------------------
+            #
+            # This is only used when there are no usable SKU
+            # matches.  It preserves the previous behavior for
+            # listings whose CSV/API SKU information cannot be
+            # matched.
+            # -------------------------------------------------
+
+            title_key = _normalize_match_text(
+                listing.get("title", "")
             )
 
-        scores.sort(reverse=True)
-        best_overlap, _, best_id = scores[0]
+            candidates = api_df[
+                api_df["_title_key"] == title_key
+            ].copy()
 
-        if csv_skus and best_overlap == 0:
-            continue
+            if candidates.empty:
+                continue
 
-        selected = candidates[
-            candidates["etsy_api_listing_id"] == best_id
-        ]
+            scores = []
+
+            for api_listing_id, group in candidates.groupby(
+                "etsy_api_listing_id"
+            ):
+                api_skus = set(
+                    str(v).strip().lower()
+                    for v in group["etsy_api_sku"].tolist()
+                    if str(v).strip()
+                )
+
+                scores.append(
+                    (
+                        len(csv_skus & api_skus),
+                        len(api_skus),
+                        api_listing_id,
+                    )
+                )
+
+            scores.sort(reverse=True)
+            best_overlap, _, best_id = scores[0]
+
+            selected = candidates[
+                candidates["etsy_api_listing_id"]
+                == best_id
+            ].copy()
 
         listings.at[
             listing_index,
