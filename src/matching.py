@@ -558,6 +558,76 @@ def build_comparison(
     )
 
     # -----------------------------------------------------
+    # TARGETED MATCHING DIAGNOSTIC
+    # -----------------------------------------------------
+
+    target_listing_id = "4523147592"
+
+    target_skus = {
+        "11975776294672016378",
+        "17119814508216010683",
+        "27331151771594285206",
+        "11731818812456775837",
+    }
+
+    target_rows = comp[
+        (
+            comp.get(
+                "etsy_listing_id",
+                pd.Series(dtype=str),
+            ).astype(str).str.strip()
+            == target_listing_id
+        )
+        |
+        (
+            comp.get(
+                "etsy_sku",
+                pd.Series(dtype=str),
+            ).astype(str).str.strip()
+            .isin(target_skus)
+        )
+    ]
+
+    print()
+    print("=" * 120)
+    print("TARGETED ETSY -> PRINTIFY MATCHING DIAGNOSTIC")
+    print("=" * 120)
+
+    if target_rows.empty:
+        print("NO TARGET ROWS FOUND")
+    else:
+        columns_to_show = [
+            column
+            for column in [
+                "etsy_listing_id",
+                "etsy_sku",
+                "etsy_price",
+                "etsy_variation_label",
+                "printify_product_id",
+                "printify_sku",
+                "printify_variant_id",
+                "printify_variant_title",
+                "printify_cost",
+                "printify_shipping_cost",
+                "match_status",
+            ]
+            if column in target_rows.columns
+        ]
+
+        print(
+            target_rows[
+                columns_to_show
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 120)
+    print("END TARGETED ETSY -> PRINTIFY MATCHING DIAGNOSTIC")
+    print("=" * 120)
+    print()
+
+    # -----------------------------------------------------
     # KNOWN-GOOD ORNAMENT COMPARISON OUTPUT DIAGNOSTIC
     # -----------------------------------------------------
 
