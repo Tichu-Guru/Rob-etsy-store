@@ -16,6 +16,7 @@ DEFAULT_TOKEN_FILE = Path(".etsy_tokens.json")
 
 class EtsyApiClient:
     """Small Etsy Open API v3 client used for listing inventory prices."""
+
     def __init__(
         self,
         api_key: str,
@@ -33,12 +34,15 @@ class EtsyApiClient:
             else None
         )
         self.token_file = token_file
+
         if not self.api_key:
             raise RuntimeError("ETSY_API_KEY is not set.")
+
         if not self.shared_secret:
             raise RuntimeError(
                 "ETSY_API_SHARED_SECRET is not set."
             )
+
         if not self.access_token:
             raise RuntimeError(
                 "No Etsy OAuth access token is available."
@@ -52,7 +56,9 @@ class EtsyApiClient:
                 str(DEFAULT_TOKEN_FILE),
             )
         )
+
         token_data: dict[str, Any] = {}
+
         if token_file.exists():
             try:
                 token_data = json.loads(
@@ -60,7 +66,10 @@ class EtsyApiClient:
                         encoding="utf-8"
                     )
                 )
-            except (OSError, json.JSONDecodeError) as exc:
+            except (
+                OSError,
+                json.JSONDecodeError,
+            ) as exc:
                 raise RuntimeError(
                     f"Could not read Etsy token file: {exc}"
                 ) from exc
@@ -99,18 +108,27 @@ class EtsyApiClient:
     @property
     def headers(self) -> dict[str, str]:
         return {
-            "x-api-key": f"{self.api_key}:{self.shared_secret}",
-            "Authorization": f"Bearer {self.access_token}",
+            "x-api-key": (
+                f"{self.api_key}:{self.shared_secret}"
+            ),
+            "Authorization": (
+                f"Bearer {self.access_token}"
+            ),
             "Accept": "application/json",
         }
 
-    def _save_tokens(self, token_data: dict[str, Any]) -> None:
-        """Persist a refreshed token set when a local token file is used."""
+    def _save_tokens(
+        self,
+        token_data: dict[str, Any],
+    ) -> None:
+        """Persist refreshed tokens when a local token file is used."""
+
         if not self.token_file:
             return
 
         try:
             existing: dict[str, Any] = {}
+
             if self.token_file.exists():
                 existing = json.loads(
                     self.token_file.read_text(
@@ -129,17 +147,17 @@ class EtsyApiClient:
                 + "\n",
                 encoding="utf-8",
             )
+
         except OSError:
-            # A CI environment may intentionally make the token file
-            # read-only or omit it. The current access token can still be
-            # used for the rest of this run.
+            # CI environments may intentionally make the token
+            # file read-only or omit it.
             pass
 
     def refresh_access_token(self) -> None:
         if not self.refresh_token:
             raise RuntimeError(
-                "Etsy access token is invalid/expired and no refresh "
-                "token is available."
+                "Etsy access token is invalid/expired and no "
+                "refresh token is available."
             )
 
         response = requests.post(
@@ -155,12 +173,19 @@ class EtsyApiClient:
         if not response.ok:
             raise RuntimeError(
                 "Etsy OAuth refresh failed: "
-                f"HTTP {response.status_code} {response.text}"
+                f"HTTP {response.status_code} "
+                f"{response.text}"
             )
 
         token_data = response.json()
-        new_access_token = token_data.get("access_token")
-        new_refresh_token = token_data.get("refresh_token")
+
+        new_access_token = token_data.get(
+            "access_token"
+        )
+
+        new_refresh_token = token_data.get(
+            "refresh_token"
+        )
 
         if not new_access_token:
             raise RuntimeError(
@@ -168,10 +193,14 @@ class EtsyApiClient:
                 "an access_token."
             )
 
-        self.access_token = str(new_access_token)
+        self.access_token = str(
+            new_access_token
+        )
 
         if new_refresh_token:
-            self.refresh_token = str(new_refresh_token)
+            self.refresh_token = str(
+                new_refresh_token
+            )
 
         self._save_tokens(token_data)
 
@@ -181,6 +210,7 @@ class EtsyApiClient:
         path: str,
         **kwargs: Any,
     ) -> dict[str, Any]:
+
         url = (
             path
             if path.startswith("http")
@@ -195,10 +225,14 @@ class EtsyApiClient:
             **kwargs,
         )
 
-        # Etsy access tokens are short-lived. If the token is rejected and
-        # a refresh token is available, refresh once and retry the request.
-        if response.status_code == 401 and self.refresh_token:
+        # Etsy access tokens are short-lived.
+        # Refresh once and retry when possible.
+        if (
+            response.status_code == 401
+            and self.refresh_token
+        ):
             self.refresh_access_token()
+
             response = requests.request(
                 method,
                 url,
@@ -209,8 +243,10 @@ class EtsyApiClient:
 
         if not response.ok:
             raise RuntimeError(
-                f"Etsy API request failed: {method} {url} "
-                f"HTTP {response.status_code}: {response.text}"
+                f"Etsy API request failed: "
+                f"{method} {url} "
+                f"HTTP {response.status_code}: "
+                f"{response.text}"
             )
 
         if not response.content:
@@ -219,11 +255,15 @@ class EtsyApiClient:
         return response.json()
 
     def get_shop_id(self) -> int:
-        user_id = self.access_token.split(".", 1)[0]
+        user_id = self.access_token.split(
+            ".",
+            1,
+        )[0]
 
         if not user_id.isdigit():
             raise RuntimeError(
-                "Could not determine the Etsy user ID from the OAuth token."
+                "Could not determine the Etsy user ID "
+                "from the OAuth token."
             )
 
         data = self.request(
@@ -235,16 +275,21 @@ class EtsyApiClient:
 
         if not shop_id:
             raise RuntimeError(
-                "Etsy did not return a shop_id for the authenticated user."
+                "Etsy did not return a shop_id for the "
+                "authenticated user."
             )
 
         return int(shop_id)
 
-    def get_all_listings(self, shop_id: int) -> list[dict[str, Any]]:
+    def get_all_listings(
+        self,
+        shop_id: int,
+    ) -> list[dict[str, Any]]:
+
         listings: list[dict[str, Any]] = []
 
-        # The Etsy CSV can contain listings in states other than active.
-        # Fetch all states so pricing does not silently disappear.
+        # Fetch all listing states because the CSV may
+        # contain inactive or draft listings.
         for state in (
             "active",
             "inactive",
@@ -265,7 +310,11 @@ class EtsyApiClient:
                     },
                 )
 
-                results = data.get("results", [])
+                results = data.get(
+                    "results",
+                    [],
+                )
+
                 listings.extend(results)
 
                 if len(results) < 100:
@@ -279,13 +328,17 @@ class EtsyApiClient:
         self,
         listing_id: int,
     ) -> dict[str, Any]:
+
         return self.request(
             "GET",
             f"/listings/{listing_id}/inventory",
         )
 
     @staticmethod
-    def _money_to_float(value: Any) -> float | None:
+    def _money_to_float(
+        value: Any,
+    ) -> float | None:
+
         if not isinstance(value, dict):
             return None
 
@@ -295,7 +348,10 @@ class EtsyApiClient:
         try:
             amount = float(amount)
             divisor = float(divisor)
-        except (TypeError, ValueError):
+        except (
+            TypeError,
+            ValueError,
+        ):
             return None
 
         if divisor == 0:
@@ -316,17 +372,25 @@ class EtsyApiClient:
         """
         Extract Etsy inventory property values for one SKU.
 
-        Etsy's inventory API stores the actual variation combination
-        on each product in property_values. This is authoritative for
-        the SKU and must not be reconstructed from CSV SKU position.
+        Etsy's inventory API stores the actual variation
+        combination on each product in property_values.
         """
 
-        property_values = product.get("property_values") or []
+        property_values = (
+            product.get("property_values")
+            or []
+        )
 
-        values: list[tuple[str, str]] = []
+        values: list[
+            tuple[str, str]
+        ] = []
 
         for property_value in property_values:
-            if not isinstance(property_value, dict):
+
+            if not isinstance(
+                property_value,
+                dict,
+            ):
                 continue
 
             property_name = unescape(
@@ -339,11 +403,19 @@ class EtsyApiClient:
                 ).strip()
             )
 
-            raw_values = property_value.get("values") or []
+            raw_values = (
+                property_value.get("values")
+                or []
+            )
 
-            if isinstance(raw_values, list):
+            if isinstance(
+                raw_values,
+                list,
+            ):
                 value_text = ", ".join(
-                    unescape(str(value).strip())
+                    unescape(
+                        str(value).strip()
+                    )
                     for value in raw_values
                     if str(value).strip()
                 )
@@ -352,7 +424,10 @@ class EtsyApiClient:
                     str(raw_values).strip()
                 )
 
-            if property_name and value_text:
+            if (
+                property_name
+                and value_text
+            ):
                 values.append(
                     (
                         property_name,
@@ -360,11 +435,29 @@ class EtsyApiClient:
                     )
                 )
 
-        value1 = values[0][1] if len(values) >= 1 else ""
-        value2 = values[1][1] if len(values) >= 2 else ""
+        value1 = (
+            values[0][1]
+            if len(values) >= 1
+            else ""
+        )
 
-        name1 = values[0][0] if len(values) >= 1 else ""
-        name2 = values[1][0] if len(values) >= 2 else ""
+        value2 = (
+            values[1][1]
+            if len(values) >= 2
+            else ""
+        )
+
+        name1 = (
+            values[0][0]
+            if len(values) >= 1
+            else ""
+        )
+
+        name2 = (
+            values[1][0]
+            if len(values) >= 2
+            else ""
+        )
 
         label_parts = []
 
@@ -378,7 +471,9 @@ class EtsyApiClient:
                 f"{name2}: {value2}"
             )
 
-        label = " / ".join(label_parts)
+        label = " / ".join(
+            label_parts
+        )
 
         return (
             name1,
@@ -388,35 +483,195 @@ class EtsyApiClient:
             label,
         )
 
-    def get_listing_inventory_rows(self) -> list[dict[str, Any]]:
-        shop_id = self.get_shop_id()
-        listings = self.get_all_listings(shop_id)
+    def get_listing_inventory_rows(
+        self,
+    ) -> list[dict[str, Any]]:
 
-        rows: list[dict[str, Any]] = []
+        shop_id = self.get_shop_id()
+
+        listings = self.get_all_listings(
+            shop_id
+        )
+
+        rows: list[
+            dict[str, Any]
+        ] = []
+
+        # Temporary diagnostic listing.
+        diagnostic_listing_id = "4532255496"
 
         for listing in listings:
-            listing_id = listing.get("listing_id")
-            title = listing.get("title", "")
+
+            listing_id = listing.get(
+                "listing_id"
+            )
+
+            title = listing.get(
+                "title",
+                "",
+            )
 
             if not listing_id:
                 continue
 
             try:
-                inventory = self.get_listing_inventory(
-                    int(listing_id)
+                inventory = (
+                    self.get_listing_inventory(
+                        int(listing_id)
+                    )
                 )
+
             except RuntimeError as exc:
-                # Some old/non-inventory listings may not have an inventory
-                # record. Skip those instead of failing the entire sync.
+
                 print(
                     f"Etsy inventory skipped for listing "
                     f"{listing_id}: {exc}"
                 )
+
                 continue
 
-            for product in inventory.get("products", []):
+            # -------------------------------------------------
+            # INVENTORY-LEVEL DIAGNOSTIC
+            # -------------------------------------------------
+            #
+            # We already know the individual offering prices
+            # are not giving the effective variation prices for
+            # this listing. Inspect the inventory metadata that
+            # controls pricing.
+            # -------------------------------------------------
+
+            if (
+                str(listing_id)
+                == diagnostic_listing_id
+            ):
+                print()
+                print(
+                    "=" * 100
+                )
+                print(
+                    "ETSY INVENTORY METADATA DIAGNOSTIC"
+                )
+                print(
+                    "LISTING ID:",
+                    listing_id,
+                )
+                print(
+                    "=" * 100
+                )
+
+                print()
+                print(
+                    "TOP-LEVEL INVENTORY KEYS:"
+                )
+
+                print(
+                    sorted(
+                        inventory.keys()
+                    )
+                )
+
+                print()
+                print(
+                    "PRICE_ON_PROPERTY:"
+                )
+
+                print(
+                    json.dumps(
+                        inventory.get(
+                            "price_on_property"
+                        ),
+                        indent=2,
+                        default=str,
+                    )
+                )
+
+                print()
+                print(
+                    "QUANTITY_ON_PROPERTY:"
+                )
+
+                print(
+                    json.dumps(
+                        inventory.get(
+                            "quantity_on_property"
+                        ),
+                        indent=2,
+                        default=str,
+                    )
+                )
+
+                print()
+                print(
+                    "SKU_ON_PROPERTY:"
+                )
+
+                print(
+                    json.dumps(
+                        inventory.get(
+                            "sku_on_property"
+                        ),
+                        indent=2,
+                        default=str,
+                    )
+                )
+
+                print()
+                print(
+                    "READINESS_STATE_ON_PROPERTY:"
+                )
+
+                print(
+                    json.dumps(
+                        inventory.get(
+                            "readiness_state_on_property"
+                        ),
+                        indent=2,
+                        default=str,
+                    )
+                )
+
+                print()
+                print(
+                    "FULL INVENTORY METADATA "
+                    "(EXCLUDING PRODUCTS):"
+                )
+
+                metadata = {
+                    key: value
+                    for key, value
+                    in inventory.items()
+                    if key != "products"
+                }
+
+                print(
+                    json.dumps(
+                        metadata,
+                        indent=2,
+                        default=str,
+                    )
+                )
+
+                print(
+                    "=" * 100
+                )
+                print(
+                    "END ETSY INVENTORY METADATA "
+                    "DIAGNOSTIC"
+                )
+                print()
+
+            # -------------------------------------------------
+            # NORMAL PRODUCT PROCESSING
+            # -------------------------------------------------
+
+            for product in inventory.get(
+                "products",
+                [],
+            ):
+
                 sku = str(
-                    product.get("sku") or ""
+                    product.get("sku")
+                    or ""
                 ).strip()
 
                 if not sku:
@@ -428,78 +683,87 @@ class EtsyApiClient:
                     variation_2_name,
                     variation_2_value,
                     variation_label,
-                ) = self._extract_variation_values(
-                    product
+                ) = (
+                    self._extract_variation_values(
+                        product
+                    )
                 )
 
-                offerings = product.get("offerings") or []
+                offerings = (
+                    product.get("offerings")
+                    or []
+                )
 
-                # -------------------------------------------------
-                # TEMPORARY RAW ETSY OFFERING DIAGNOSTIC
-                # -------------------------------------------------
-                diagnostic_skus = {
-                    "17119814508216010683",
-                    "11731818812456775837",
-                    "27331151771594285206",
-                    "11975776294672016378",
-                }
-
-                if sku in diagnostic_skus:
-                    print()
-                    print("=" * 100)
-                    print("RAW ETSY OFFERING DIAGNOSTIC")
-                    print("LISTING ID:", listing_id)
-                    print("SKU:", sku)
-                    print("VARIATION:", variation_label)
-                    print("OFFERINGS:", offerings)
-                    print("=" * 100)
-
-                enabled_prices: list[float] = []
+                enabled_prices: list[
+                    float
+                ] = []
 
                 for offering in offerings:
-                    if offering.get("is_deleted"):
+
+                    if offering.get(
+                        "is_deleted"
+                    ):
                         continue
 
-                    if offering.get("is_enabled") is False:
+                    if (
+                        offering.get(
+                            "is_enabled"
+                        )
+                        is False
+                    ):
                         continue
 
-                    price = self._money_to_float(
-                        offering.get("price")
+                    price = (
+                        self._money_to_float(
+                            offering.get(
+                                "price"
+                            )
+                        )
                     )
 
                     if price is not None:
-                        enabled_prices.append(price)
+                        enabled_prices.append(
+                            price
+                        )
 
                 if not enabled_prices:
-                    # If no enabled offering is present, keep a price-less
-                    # row so the listing/SKU can still be identified.
+
                     price = None
+
                 else:
-                    price = min(enabled_prices)
+
+                    price = min(
+                        enabled_prices
+                    )
 
                 rows.append(
                     {
-                        "etsy_api_listing_id": str(
-                            listing_id
-                        ),
-                        "etsy_api_title": title,
-                        "etsy_api_sku": sku,
-                        "etsy_api_price": price,
-                        "etsy_api_variation_1_name": (
-                            variation_1_name
-                        ),
-                        "etsy_api_variation_1_value": (
-                            variation_1_value
-                        ),
-                        "etsy_api_variation_2_name": (
-                            variation_2_name
-                        ),
-                        "etsy_api_variation_2_value": (
-                            variation_2_value
-                        ),
-                        "etsy_api_variation_label": (
-                            variation_label
-                        ),
+                        "etsy_api_listing_id":
+                            str(listing_id),
+
+                        "etsy_api_title":
+                            title,
+
+                        "etsy_api_sku":
+                            sku,
+
+                        "etsy_api_price":
+                            price,
+
+                        "etsy_api_variation_1_name":
+                            variation_1_name,
+
+                        "etsy_api_variation_1_value":
+                            variation_1_value,
+
+                        "etsy_api_variation_2_name":
+                            variation_2_name,
+
+                        "etsy_api_variation_2_value":
+                            variation_2_value,
+
+                        "etsy_api_variation_label":
+                            variation_label,
                     }
                 )
 
