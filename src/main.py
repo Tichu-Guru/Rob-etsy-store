@@ -1315,6 +1315,72 @@ def main():
     )
 
     # -----------------------------------------------------
+    # CAPYBARA SHIRT AFTER APPLY_ETSY_API_PRICES DIAGNOSTIC
+    # -----------------------------------------------------
+
+    capybara_listing_id = "4523147592"
+
+    capybara_rows = [
+        row
+        for row in etsy_rows
+        if str(
+            row.get(
+                "etsy_listing_id",
+                ""
+            )
+        ).strip()
+        == capybara_listing_id
+    ]
+
+    print()
+    print("=" * 100)
+    print(
+        "CAPYBARA SHIRT AFTER APPLY_ETSY_API_PRICES DIAGNOSTIC"
+    )
+    print("=" * 100)
+
+    if not capybara_rows:
+        print(
+            "NO ROWS FOUND FOR LISTING ID:",
+            capybara_listing_id,
+        )
+    else:
+        capybara_df = pd.DataFrame(
+            capybara_rows
+        )
+
+        columns_to_show = [
+            column
+            for column in [
+                "etsy_listing_id",
+                "etsy_sku",
+                "etsy_price",
+                "etsy_variation_1_name",
+                "etsy_variation_1_value",
+                "etsy_variation_2_name",
+                "etsy_variation_2_value",
+                "etsy_variation_label",
+            ]
+            if column in capybara_df.columns
+        ]
+
+        print(
+            capybara_df[
+                columns_to_show
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 100)
+    print(
+        "END CAPYBARA SHIRT AFTER APPLY_ETSY_API_PRICES DIAGNOSTIC"
+    )
+    print("=" * 100)
+    print()
+
+
+    # -----------------------------------------------------
     # KNOWN-GOOD ORNAMENT PRICE FLOW DIAGNOSTIC
     # -----------------------------------------------------
     # These four SKUs were verified directly against Etsy's
