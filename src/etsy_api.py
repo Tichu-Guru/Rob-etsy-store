@@ -497,8 +497,12 @@ class EtsyApiClient:
             dict[str, Any]
         ] = []
 
-        # Temporary diagnostic listing.
-        diagnostic_listing_id = "4532255496"
+        # -------------------------------------------------
+        # TEMPORARY DIAGNOSTIC SKU FAMILY
+        # -------------------------------------------------
+        # Find the Etsy listing containing this known SKU, then
+        # print the entire inventory for that listing.
+        diagnostic_target_sku = "10448240795186895362"
 
         for listing in listings:
 
@@ -540,9 +544,10 @@ class EtsyApiClient:
             # controls pricing.
             # -------------------------------------------------
 
-            if (
-                str(listing_id)
-                == diagnostic_listing_id
+            if any(
+                str(product.get("sku") or "").strip()
+                == diagnostic_target_sku
+                for product in inventory.get("products", [])
             ):
                 print()
                 print(
@@ -674,9 +679,10 @@ class EtsyApiClient:
             # than offering["price"].
             # -------------------------------------------------
 
-            if (
-                str(listing_id)
-                == diagnostic_listing_id
+            if any(
+                str(product.get("sku") or "").strip()
+                == diagnostic_target_sku
+                for product in inventory.get("products", [])
             ):
                 print()
                 print("=" * 100)
