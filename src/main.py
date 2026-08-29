@@ -327,78 +327,150 @@ def build_listing_profitability_report(
             margins = pd.to_numeric(
                 group["estimated_net_margin_pct"],
                 errors="coerce",
-            ).dropna()
+            )
 
             profits = pd.to_numeric(
                 group["estimated_net_profit"],
                 errors="coerce",
-            ).dropna()
+            )
 
             prices = pd.to_numeric(
                 group["etsy_price_for_profit"],
                 errors="coerce",
-            ).dropna()
+            )
 
             target_prices = pd.to_numeric(
                 group[
                     "minimum_price_for_15pct_margin_variant"
                 ],
                 errors="coerce",
-            ).dropna()
+            )
 
-            if margins.empty:
+            valid_margins = margins.dropna()
+
+            if valid_margins.empty:
+
                 worst_margin = None
                 best_margin = None
                 loss_count = 0
                 under_10_count = 0
                 ten_to_fifteen_count = 0
                 at_or_above_15_count = 0
+                worst_margin_row = None
 
             else:
-                worst_margin = float(margins.min())
-                best_margin = float(margins.max())
+
+                worst_margin = float(
+                    valid_margins.min()
+                )
+
+                best_margin = float(
+                    valid_margins.max()
+                )
 
                 loss_count = int(
-                    (margins < 0).sum()
+                    (valid_margins < 0).sum()
                 )
 
                 under_10_count = int(
-                    ((margins >= 0) & (margins < 10)).sum()
+                    (
+                        (valid_margins >= 0)
+                        & (valid_margins < 10)
+                    ).sum()
                 )
 
                 ten_to_fifteen_count = int(
                     (
-                        (margins >= 10)
-                        & (margins < LOW_PROFIT_THRESHOLD)
+                        (valid_margins >= 10)
+                        & (
+                            valid_margins
+                            < LOW_PROFIT_THRESHOLD
+                        )
                     ).sum()
                 )
 
                 at_or_above_15_count = int(
                     (
-                        margins >= LOW_PROFIT_THRESHOLD
+                        valid_margins
+                        >= LOW_PROFIT_THRESHOLD
                     ).sum()
                 )
 
-            worst_profit = (
-                float(profits.min())
-                if not profits.empty
-                else None
-            )
+                worst_margin_index = (
+                    margins.idxmin()
+                )
 
-            # Capture the cost and shipping for the variant with the
-            # worst margin so the daily review gives actionable detail.
-            if margins.empty:
-                worst_margin_row = None
+                worst_margin_row = group.loc[
+                    worst_margin_index
+                ]
+
+            # -------------------------------------------------
+            # KEEP ALL "WORST VARIANT" VALUES TOGETHER
+            #
+            # Do NOT combine the minimum Etsy price from one
+            # SKU with the Printify cost from another SKU.
+            # -------------------------------------------------
+
+            if worst_margin_row is None:
+
+                worst_sku = None
+                worst_variation_label = None
+                worst_current_price = None
+                worst_net_profit = None
+                worst_printify_cost = None
+                worst_printify_shipping = None
+
             else:
-                margin_values = pd.to_numeric(
-                    group["estimated_net_margin_pct"],
-                    errors="coerce",
-                )
-                worst_margin_index = margin_values.idxmin()
-                worst_margin_row = group.loc[worst_margin_index]
 
-            worst_printify_cost = (
-                float(
+                worst_sku = str(
+                    worst_margin_row.get(
+                        "etsy_sku",
+                        "",
+                    )
+                    or ""
+                ).strip() or None
+
+                worst_variation_label = (
+                    worst_margin_row.get(
+                        "etsy_variation_label"
+                    )
+                )
+
+                worst_current_price_value = (
+                    pd.to_numeric(
+                        worst_margin_row.get(
+                            "etsy_price_for_profit"
+                        ),
+                        errors="coerce",
+                    )
+                )
+
+                worst_current_price = (
+                    float(worst_current_price_value)
+                    if pd.notna(
+                        worst_current_price_value
+                    )
+                    else None
+                )
+
+                worst_net_profit_value = (
+                    pd.to_numeric(
+                        worst_margin_row.get(
+                            "estimated_net_profit"
+                        ),
+                        errors="coerce",
+                    )
+                )
+
+                worst_net_profit = (
+                    float(worst_net_profit_value)
+                    if pd.notna(
+                        worst_net_profit_value
+                    )
+                    else None
+                )
+
+                worst_printify_cost_value = (
                     pd.to_numeric(
                         worst_margin_row.get(
                             "printify_cost_for_profit"
@@ -406,20 +478,16 @@ def build_listing_profitability_report(
                         errors="coerce",
                     )
                 )
-                if worst_margin_row is not None
-                and pd.notna(
-                    pd.to_numeric(
-                        worst_margin_row.get(
-                            "printify_cost_for_profit"
-                        ),
-                        errors="coerce",
-                    )
-                )
-                else None
-            )
 
-            worst_printify_shipping = (
-                float(
+                worst_printify_cost = (
+                    float(worst_printify_cost_value)
+                    if pd.notna(
+                        worst_printify_cost_value
+                    )
+                    else None
+                )
+
+                worst_printify_shipping_value = (
                     pd.to_numeric(
                         worst_margin_row.get(
                             "printify_shipping_for_profit"
@@ -427,33 +495,32 @@ def build_listing_profitability_report(
                         errors="coerce",
                     )
                 )
-                if worst_margin_row is not None
-                and pd.notna(
-                    pd.to_numeric(
-                        worst_margin_row.get(
-                            "printify_shipping_for_profit"
-                        ),
-                        errors="coerce",
+
+                worst_printify_shipping = (
+                    float(
+                        worst_printify_shipping_value
                     )
+                    if pd.notna(
+                        worst_printify_shipping_value
+                    )
+                    else None
                 )
-                else None
-            )
 
             current_price_min = (
                 float(prices.min())
-                if not prices.empty
+                if not prices.dropna().empty
                 else None
             )
 
             current_price_max = (
                 float(prices.max())
-                if not prices.empty
+                if not prices.dropna().empty
                 else None
             )
 
             highest_required_price = (
                 float(target_prices.max())
-                if not target_prices.empty
+                if not target_prices.dropna().empty
                 else None
             )
 
@@ -461,7 +528,7 @@ def build_listing_profitability_report(
             # LISTING STATUS
             # -------------------------------------------------
 
-            if margins.empty:
+            if valid_margins.empty:
                 status = "NOT_CALCULABLE"
 
             elif loss_count > 0:
@@ -518,8 +585,17 @@ def build_listing_profitability_report(
                     "current_price_max":
                         current_price_max,
 
+                    "worst_variant_sku":
+                        worst_sku,
+
+                    "worst_variant_label":
+                        worst_variation_label,
+
+                    "worst_variant_current_price":
+                        worst_current_price,
+
                     "worst_net_profit":
-                        worst_profit,
+                        worst_net_profit,
 
                     "worst_printify_cost":
                         worst_printify_cost,
@@ -573,6 +649,9 @@ def build_listing_profitability_report(
                 "variants_15pct_or_higher",
                 "current_price_min",
                 "current_price_max",
+                "worst_variant_sku",
+                "worst_variant_label",
+                "worst_variant_current_price",
                 "worst_net_profit",
                 "worst_printify_cost",
                 "worst_printify_shipping",
@@ -637,6 +716,9 @@ def build_listing_profitability_report(
             "variants_15pct_or_higher",
             "current_price_min",
             "current_price_max",
+            "worst_variant_sku",
+            "worst_variant_label",
+            "worst_variant_current_price",
             "worst_net_profit",
             "worst_printify_cost",
             "worst_printify_shipping",
