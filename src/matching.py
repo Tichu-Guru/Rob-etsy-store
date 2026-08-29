@@ -558,6 +558,63 @@ def build_comparison(
     )
 
     # -----------------------------------------------------
+    # KNOWN-GOOD ORNAMENT COMPARISON OUTPUT DIAGNOSTIC
+    # -----------------------------------------------------
+
+    diagnostic_skus = {
+        "10448240795186895362",
+        "13846807837356636519",
+        "24666151708130655347",
+        "47663316682177534068",
+    }
+
+    diagnostic_rows = comp[
+        comp["etsy_sku"]
+        .astype(str)
+        .str.strip()
+        .isin(diagnostic_skus)
+    ]
+
+    print()
+    print("=" * 100)
+    print("KNOWN-GOOD ORNAMENT COMPARISON OUTPUT DIAGNOSTIC")
+    print("=" * 100)
+
+    if diagnostic_rows.empty:
+        print("NO KNOWN-GOOD ORNAMENT SKUS FOUND IN COMPARISON")
+    else:
+        columns_to_show = [
+            column
+            for column in [
+                "etsy_sku",
+                "etsy_price",
+                "etsy_variation_label",
+                "printify_sku",
+                "printify_variant_title",
+                "printify_price",
+                "printify_cost",
+                "match_status",
+            ]
+            if column in diagnostic_rows.columns
+        ]
+
+        print(
+            diagnostic_rows[
+                columns_to_show
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 100)
+    print(
+        "END KNOWN-GOOD ORNAMENT "
+        "COMPARISON OUTPUT DIAGNOSTIC"
+    )
+    print()
+
+
+    # -----------------------------------------------------
     # DOLLAR VALUES
     # -----------------------------------------------------
 
