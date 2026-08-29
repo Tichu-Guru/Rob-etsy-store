@@ -1,5 +1,5 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-29T21:11:39.985041+00:00
+Run UTC: 2026-08-29T21:31:35.083104+00:00
 
 Etsy listings: 167
 Etsy SKU rows: 2,196
@@ -86,7 +86,7 @@ Only listings below 15% net margin are shown.
 20. Possum Raccoon Canvas Art, We Heard Pie Funny Print, Animal Kitchen Wall Decor
    Current $29.99 | Net $-2.42 | Printify $17.42 | Shipping $11.89 | Margin -8.1% | 15% price $94.60 | Increase $64.61
 21. Vintage Capybara Travel Poster: Tropical Beach Paradise Canvas Wrap
-   Current $36.99 | Net $-3.44 | Printify $22.22 | Shipping $13.59 | Margin -7.0% | 15% price $76.47 | Increase $39.48
+   Current $36.99 | Net $-2.58 | Printify $22.22 | Shipping $13.59 | Margin -7.0% | 15% price $76.47 | Increase $39.48
 22. Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor
    Current $27.99 | Net $-1.62 | Printify $14.81 | Shipping $11.89 | Margin -5.8% | 15% price $94.60 | Increase $66.61
 23. Capybara Raccoon Ceramic Mug, Whimsical Animal Coffee Cup, Funny Coworker Boss Gift
@@ -128,7 +128,7 @@ Only listings below 15% net margin are shown.
 41. Personalized Vintage Botanical Pet Portrait, Custom Dog Cat Canvas Wall Art
    Current $49.99 | Net $0.28 | Printify $102.75 | Shipping $18.89 | Margin 0.2% | 15% price $161.45 | Increase $111.46
 42. Custom Pet Portrait Canvas Wall Art: Personalized Dog, Cat Memorial Gallery Wrapped Print
-   Current $29.99 | Net $0.13 | Printify $40.69 | Shipping $16.79 | Margin 0.3% | 15% price $76.47 | Increase $46.48
+   Current $29.99 | Net $0.18 | Printify $40.69 | Shipping $16.79 | Margin 0.3% | 15% price $76.47 | Increase $46.48
 43. Capybara Scream Canvas, Museum Parody Art Print, Embrace Chaos Wall Decor
    Current $32.99 | Net $0.30 | Printify $17.42 | Shipping $11.89 | Margin 0.9% | 15% price $94.60 | Increase $61.61
 44. Custom Watercolor Pet Portrait on Gallery Wrapped Canvas, Personalized Dog or Cat Wall Art
@@ -176,7 +176,7 @@ Only listings below 15% net margin are shown.
 65. Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover
    Current $34.99 | Net $2.09 | Printify $22.35 | Shipping $8.79 | Margin 5.6% | 15% price $43.49 | Increase $8.50
 66. Possum Raccoon Pie Coffee Mug, Funny Black Ceramic Cup, Animal Lover Gift
-   Current $17.99 | Net $1.33 | Printify $8.77 | Shipping $9.39 | Margin 6.8% | 15% price $24.39 | Increase $6.40
+   Current $17.99 | Net $1.49 | Printify $8.77 | Shipping $9.39 | Margin 6.8% | 15% price $24.39 | Increase $6.40
 67. Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift
    Current $31.99 | Net $2.31 | Printify $15.60 | Shipping $10.79 | Margin 7.2% | 15% price $35.29 | Increase $3.30
 68. Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift
@@ -274,17 +274,17 @@ Only listings below 15% net margin are shown.
 114. Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote
    Current $19.99 | Net $2.36 | Printify $10.53 | Shipping $4.95 | Margin 11.8% | 15% price $20.84 | Increase $0.85
 115. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
-   Current $24.99 | Net $3.55 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $6.22
+   Current $24.99 | Net $3.58 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $6.22
 116. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
-   Current $24.99 | Net $3.55 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $6.22
+   Current $24.99 | Net $3.58 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $6.22
 117. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
-   Current $24.99 | Net $3.55 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $6.22
+   Current $24.99 | Net $3.58 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $6.22
 118. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
-   Current $24.99 | Net $3.55 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $6.22
+   Current $24.99 | Net $3.58 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $6.22
 119. Personalized Pet Portrait Vector Graphic Canvas Tote
-   Current $27.99 | Net $3.55 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $3.22
+   Current $27.99 | Net $3.58 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $3.22
 120. Personalized Pet Portrait Vintage Botanical Pattern Canvas Tote
-   Current $27.99 | Net $3.55 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $3.22
+   Current $27.99 | Net $3.58 | Printify $17.22 | Shipping $6.09 | Margin 11.9% | 15% price $31.21 | Increase $3.22
 121. Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup
    Current $16.99 | Net $2.09 | Printify $5.75 | Shipping $7.29 | Margin 12.3% | 15% price $17.61 | Increase $0.62
 122. Customizable Chicken Flock Mug, Farmhouse Coffee Cup, Backyard Chicken Lover Gift
@@ -296,69 +296,69 @@ Only listings below 15% net margin are shown.
 125. Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook
    Current $18.99 | Net $2.46 | Printify $8.29 | Shipping $6.19 | Margin 12.9% | 15% price $19.51 | Increase $0.52
 126. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
-   Current $59.99 | Net $9.36 | Printify $49.26 | Shipping $12.49 | Margin 13.0% | 15% price $82.12 | Increase $22.13
+   Current $59.99 | Net $10.39 | Printify $49.26 | Shipping $12.49 | Margin 13.0% | 15% price $82.12 | Increase $22.13
 127. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
-   Current $59.99 | Net $9.36 | Printify $49.26 | Shipping $12.49 | Margin 13.0% | 15% price $82.12 | Increase $22.13
+   Current $59.99 | Net $10.39 | Printify $49.26 | Shipping $12.49 | Margin 13.0% | 15% price $82.12 | Increase $22.13
 128. Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 129. Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 130. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 131. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 132. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 133. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 134. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 135. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 136. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 137. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 138. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 139. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 140. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 141. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 142. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 143. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 144. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 145. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 146. Personalized Thanksgiving Woodland Animals Garden Flag, Custom Family Name Fall Porch Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 147. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 148. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 149. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 150. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 151. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 152. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 153. Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 154. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 155. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 156. Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 157. Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift
-   Current $22.99 | Net $3.68 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
+   Current $22.99 | Net $4.59 | Printify $20.44 | Shipping $6.39 | Margin 13.1% | 15% price $35.87 | Increase $12.88
 158. Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake
    Current $15.99 | Net $2.12 | Printify $6.21 | Shipping $5.89 | Margin 13.3% | 15% price $16.36 | Increase $0.37
 159. Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor
