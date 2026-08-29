@@ -502,7 +502,7 @@ class EtsyApiClient:
         # -------------------------------------------------
         # Find the Etsy listing containing this known SKU, then
         # print the entire inventory for that listing.
-        diagnostic_target_sku = "10448240795186895362"
+        diagnostic_target_sku = "25948355735011311481"
 
         for listing in listings:
 
