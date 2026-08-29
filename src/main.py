@@ -859,6 +859,48 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
         lambda v: str(v or "").strip().lower()
     )
 
+    # -----------------------------------------------------
+    # RAW API DATA DIAGNOSTIC
+    # -----------------------------------------------------
+
+    diagnostic_skus = {
+        "11975776294672016378",
+        "17119814508216010683",
+        "27331151771594285206",
+        "11731818812456775837",
+    }
+
+    api_diagnostic = api_df[
+        api_df["etsy_api_sku"]
+        .astype(str)
+        .str.strip()
+        .isin(diagnostic_skus)
+    ]
+
+    print()
+    print("=" * 80)
+    print("RAW API_DF PRICE DIAGNOSTIC")
+    print("=" * 80)
+
+    if api_diagnostic.empty:
+        print("NO NUTCRACKER SKUS FOUND IN API_DF")
+    else:
+        print(
+            api_diagnostic[
+                [
+                    "etsy_api_listing_id",
+                    "etsy_api_sku",
+                    "etsy_api_price",
+                    "etsy_api_variation_label",
+                ]
+            ].to_string(index=False)
+        )
+
+    print("=" * 80)
+    print("END RAW API_DF PRICE DIAGNOSTIC")
+    print()
+
+
     for listing_index, listing in listings.iterrows():
 
         # -----------------------------------------------------
