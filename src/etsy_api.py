@@ -664,6 +664,44 @@ class EtsyApiClient:
             # NORMAL PRODUCT PROCESSING
             # -------------------------------------------------
 
+            # -------------------------------------------------
+            # FULL PRODUCT DIAGNOSTIC
+            # -------------------------------------------------
+            #
+            # Print the complete raw product objects for the
+            # diagnostic listing so we can determine whether Etsy
+            # stores variation price information somewhere other
+            # than offering["price"].
+            # -------------------------------------------------
+
+            if (
+                str(listing_id)
+                == diagnostic_listing_id
+            ):
+                print()
+                print("=" * 100)
+                print("FULL ETSY PRODUCT DIAGNOSTIC")
+                print("LISTING ID:", listing_id)
+                print("=" * 100)
+
+                for diagnostic_product in inventory.get(
+                    "products",
+                    [],
+                ):
+                    print()
+                    print(
+                        json.dumps(
+                            diagnostic_product,
+                            indent=2,
+                            default=str,
+                        )
+                    )
+
+                print("=" * 100)
+                print("END FULL ETSY PRODUCT DIAGNOSTIC")
+                print("=" * 100)
+                print()
+
             for product in inventory.get(
                 "products",
                 [],
