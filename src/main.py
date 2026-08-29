@@ -1315,6 +1315,58 @@ def main():
     )
 
     # -----------------------------------------------------
+    # KNOWN-GOOD ORNAMENT PRICE FLOW DIAGNOSTIC
+    # -----------------------------------------------------
+    # These four SKUs were verified directly against Etsy's
+    # inventory API and have distinct variation-specific prices.
+    diagnostic_skus = {
+        "10448240795186895362",
+        "13846807837356636519",
+        "24666151708130655347",
+        "47663316682177534068",
+    }
+
+    diagnostic_rows = etsy_rows[
+        etsy_rows["etsy_sku"]
+        .astype(str)
+        .str.strip()
+        .isin(diagnostic_skus)
+    ]
+
+    print()
+    print("=" * 100)
+    print("KNOWN-GOOD ORNAMENT AFTER APPLY_ETSY_API_PRICES DIAGNOSTIC")
+    print("=" * 100)
+
+    if diagnostic_rows.empty:
+        print("NO KNOWN-GOOD ORNAMENT SKUS FOUND IN ETSY_ROWS")
+    else:
+        columns_to_show = [
+            column
+            for column in [
+                "etsy_sku",
+                "etsy_price",
+                "etsy_variation_label",
+            ]
+            if column in diagnostic_rows.columns
+        ]
+
+        print(
+            diagnostic_rows[
+                columns_to_show
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 100)
+    print(
+        "END KNOWN-GOOD ORNAMENT AFTER "
+        "APPLY_ETSY_API_PRICES DIAGNOSTIC"
+    )
+    print()
+
+    # -----------------------------------------------------
     # TEMPORARY ETSY API PRICE FLOW DIAGNOSTIC
     # -----------------------------------------------------
 
