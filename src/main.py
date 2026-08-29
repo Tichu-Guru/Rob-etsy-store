@@ -1292,7 +1292,7 @@ def main():
 
     print()
     print("=" * 80)
-    print("ETSY API PRICE FLOW DIAGNOSTIC")
+    print("### ROB TEST 2026-08-29 ### ETSY API PRICE FLOW DIAGNOSTIC")
     print("=" * 80)
 
     if diagnostic_rows.empty:
