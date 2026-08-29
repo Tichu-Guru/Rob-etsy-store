@@ -434,6 +434,26 @@ class EtsyApiClient:
 
                 offerings = product.get("offerings") or []
 
+                # -------------------------------------------------
+                # TEMPORARY RAW ETSY OFFERING DIAGNOSTIC
+                # -------------------------------------------------
+                diagnostic_skus = {
+                    "17119814508216010683",
+                    "11731818812456775837",
+                    "27331151771594285206",
+                    "11975776294672016378",
+                }
+
+                if sku in diagnostic_skus:
+                    print()
+                    print("=" * 100)
+                    print("RAW ETSY OFFERING DIAGNOSTIC")
+                    print("LISTING ID:", listing_id)
+                    print("SKU:", sku)
+                    print("VARIATION:", variation_label)
+                    print("OFFERINGS:", offerings)
+                    print("=" * 100)
+
                 enabled_prices: list[float] = []
 
                 for offering in offerings:
