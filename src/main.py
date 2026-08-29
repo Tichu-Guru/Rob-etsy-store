@@ -1460,6 +1460,60 @@ def main():
         index=False,
     )
 
+    # -----------------------------------------------------
+    # NUTCRACKER PROFITABILITY DIAGNOSTIC
+    # -----------------------------------------------------
+
+    nutcracker_rows = comparison[
+        comparison["etsy_title"]
+        .astype(str)
+        .str.contains(
+            "Nutcracker",
+            case=False,
+            na=False,
+        )
+    ].copy()
+
+    print()
+    print("=" * 120)
+    print("NUTCRACKER COMPARISON / PROFITABILITY DIAGNOSTIC")
+    print("=" * 120)
+
+    if nutcracker_rows.empty:
+
+        print("NO NUTCRACKER ROWS FOUND")
+
+    else:
+
+        columns_to_show = [
+            column
+            for column in [
+                "etsy_listing_id",
+                "etsy_title",
+                "etsy_sku",
+                "etsy_price",
+                "etsy_variation_label",
+                "printify_sku",
+                "printify_variant_title",
+                "printify_cost",
+                "printify_shipping_cost",
+                "match_status",
+            ]
+            if column in nutcracker_rows.columns
+        ]
+
+        print(
+            nutcracker_rows[
+                columns_to_show
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 120)
+    print("END NUTCRACKER COMPARISON / PROFITABILITY DIAGNOSTIC")
+    print()
+
     listing_summary.to_csv(
         OUTPUT_DIR
         / "listing_summary.csv",
