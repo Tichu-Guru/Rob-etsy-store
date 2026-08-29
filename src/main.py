@@ -1320,18 +1320,6 @@ def main():
 
     capybara_listing_id = "4523147592"
 
-    capybara_rows = [
-        row
-        for row in etsy_rows
-        if str(
-            row.get(
-                "etsy_listing_id",
-                ""
-            )
-        ).strip()
-        == capybara_listing_id
-    ]
-
     print()
     print("=" * 100)
     print(
@@ -1339,38 +1327,54 @@ def main():
     )
     print("=" * 100)
 
-    if not capybara_rows:
+    if "etsy_listing_id" not in etsy_rows.columns:
+
         print(
-            "NO ROWS FOUND FOR LISTING ID:",
-            capybara_listing_id,
+            "ERROR: etsy_listing_id column not found."
         )
+
     else:
-        capybara_df = pd.DataFrame(
-            capybara_rows
-        )
 
-        columns_to_show = [
-            column
-            for column in [
-                "etsy_listing_id",
-                "etsy_sku",
-                "etsy_price",
-                "etsy_variation_1_name",
-                "etsy_variation_1_value",
-                "etsy_variation_2_name",
-                "etsy_variation_2_value",
-                "etsy_variation_label",
-            ]
-            if column in capybara_df.columns
-        ]
+        capybara_df = etsy_rows[
+            etsy_rows[
+                "etsy_listing_id"
+            ].astype(
+                str
+            ).str.strip()
+            == capybara_listing_id
+        ].copy()
 
-        print(
-            capybara_df[
-                columns_to_show
-            ].to_string(
-                index=False
+        if capybara_df.empty:
+
+            print(
+                "NO ROWS FOUND FOR LISTING ID:",
+                capybara_listing_id,
             )
-        )
+
+        else:
+
+            columns_to_show = [
+                column
+                for column in [
+                    "etsy_listing_id",
+                    "etsy_sku",
+                    "etsy_price",
+                    "etsy_variation_1_name",
+                    "etsy_variation_1_value",
+                    "etsy_variation_2_name",
+                    "etsy_variation_2_value",
+                    "etsy_variation_label",
+                ]
+                if column in capybara_df.columns
+            ]
+
+            print(
+                capybara_df[
+                    columns_to_show
+                ].to_string(
+                    index=False
+                )
+            )
 
     print("=" * 100)
     print(
