@@ -1541,6 +1541,63 @@ def main():
     )
 
     # -----------------------------------------------------
+    # NUTCRACKER PROFITABILITY INPUT DIAGNOSTIC
+    # -----------------------------------------------------
+
+    nutcracker_mask = comparison.astype(str).apply(
+        lambda col: col.str.contains(
+            "Nutcracker",
+            case=False,
+            na=False,
+        )
+    ).any(axis=1)
+
+    nutcracker_rows = comparison[
+        nutcracker_mask
+    ]
+
+    print()
+    print("=" * 120)
+    print("NUTCRACKER PROFITABILITY INPUT DIAGNOSTIC")
+    print("=" * 120)
+
+    if nutcracker_rows.empty:
+        print("NO NUTCRACKER ROWS FOUND")
+    else:
+
+        columns_to_show = [
+            column
+            for column in [
+                "etsy_listing_id",
+                "etsy_title",
+                "etsy_sku",
+                "etsy_price",
+                "etsy_variation_label",
+                "printify_product_id",
+                "printify_sku",
+                "printify_variant_title",
+                "printify_price",
+                "printify_cost",
+                "printify_shipping_cost",
+                "match_status",
+            ]
+            if column in nutcracker_rows.columns
+        ]
+
+        print(
+            nutcracker_rows[
+                columns_to_show
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 120)
+    print("END NUTCRACKER PROFITABILITY INPUT DIAGNOSTIC")
+    print("=" * 120)
+    print()
+
+    # -----------------------------------------------------
     # VARIANT-LEVEL PROFITABILITY
     # -----------------------------------------------------
 
