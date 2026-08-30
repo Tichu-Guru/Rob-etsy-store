@@ -1350,11 +1350,74 @@ def main():
         ETSY_CSV
     )
 
+    print()
+    print("=" * 120)
+    print("ETSY LISTING COUNT PIPELINE DIAGNOSTIC")
+    print("=" * 120)
+    print(f"CSV physical rows: {len(etsy_df)}")
+
     etsy_listings, etsy_variants = (
         build_etsy_tables(
             etsy_df
         )
     )
+
+    print(f"Listings after build_etsy_tables: {len(etsy_listings)}")
+    print(f"Variant rows after build_etsy_tables: {len(etsy_variants)}")
+
+    if "etsy_analysis_include" in etsy_listings.columns:
+        included_count = int(
+            etsy_listings[
+                "etsy_analysis_include"
+            ].fillna(False).astype(bool).sum()
+        )
+
+        excluded_count = (
+            len(etsy_listings)
+            - included_count
+        )
+
+        print(
+            f"Listings marked analysis_include=True: "
+            f"{included_count}"
+        )
+        print(
+            f"Listings excluded by analysis_include flag: "
+            f"{excluded_count}"
+        )
+
+        if excluded_count > 0:
+            excluded = etsy_listings[
+                ~etsy_listings[
+                    "etsy_analysis_include"
+                ].fillna(False).astype(bool)
+            ]
+
+            diagnostic_columns = [
+                column
+                for column in [
+                    "etsy_listing_key",
+                    "title",
+                    "etsy_duplicate_title",
+                    "etsy_duplicate_title_group",
+                ]
+                if column in excluded.columns
+            ]
+
+            print()
+            print("EXCLUDED LISTINGS:")
+            print(
+                excluded[
+                    diagnostic_columns
+                ].to_string(
+                    index=False
+                )
+            )
+
+    print("=" * 120)
+    print("END ETSY LISTING COUNT PIPELINE DIAGNOSTIC")
+    print("=" * 120)
+    print()
 
     etsy_rows = etsy_variants.merge(
         etsy_listings[
