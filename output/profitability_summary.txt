@@ -1,11 +1,11 @@
 LOW PROFITABILITY SUMMARY
-Run UTC: 2026-08-29T21:47:21.471816+00:00
+Run UTC: 2026-08-30T13:23:10.272564+00:00
 
 Profitability threshold: 15%
 
 VARIANT LEVEL
-Matched products with calculable profit: 1,832
-Products below 15%: 1,728
+Matched products with calculable profit: 1,818
+Products below 15%: 1,714
 Percent below threshold: 94.3%
 
 LISTING LEVEL
