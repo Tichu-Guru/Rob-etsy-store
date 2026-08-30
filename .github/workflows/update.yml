@@ -408,9 +408,9 @@ jobs:
           PY
 
       # ---------------------------------------------------
-      # LIVE ETSY LISTING COUNT DIAGNOSTIC
+      # LIVE ETSY LISTING UNIVERSE DIAGNOSTIC
       # ---------------------------------------------------
-      - name: Live Etsy listing count diagnostic
+      - name: Live Etsy listing universe diagnostic
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
           ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
@@ -419,44 +419,260 @@ jobs:
         run: |
           python - <<'PY'
           from collections import Counter
+          import pandas as pd
+
           from src.etsy_api import EtsyApiClient
+          from src.etsy import read_etsy_csv
+          from src.config import ETSY_CSV
+
+
+          def normalize_title(value):
+              return " ".join(
+                  str(value or "")
+                  .strip()
+                  .lower()
+                  .split()
+              )
+
+
+          print()
+          print("=" * 120)
+          print("LIVE ETSY LISTING UNIVERSE DIAGNOSTIC")
+          print("=" * 120)
+
+          # ------------------------------------------------
+          # LOAD CURRENT CSV
+          # ------------------------------------------------
+
+          csv_df = read_etsy_csv(ETSY_CSV)
+
+          csv_titles = {
+              normalize_title(title)
+              for title in csv_df["TITLE"].tolist()
+              if normalize_title(title)
+          }
+
+          print()
+          print("CSV PHYSICAL ROW COUNT:", len(csv_df))
+          print(
+              "CSV UNIQUE NON-BLANK TITLES:",
+              len(csv_titles),
+          )
+
+          # ------------------------------------------------
+          # LOAD ALL ETSY LISTINGS
+          # ------------------------------------------------
 
           client = EtsyApiClient.from_environment()
           shop_id = client.get_shop_id()
-          listings = client.get_all_listings(shop_id)
 
-          print()
-          print("=" * 100)
-          print("LIVE ETSY LISTING COUNT DIAGNOSTIC")
-          print("=" * 100)
-          print("SHOP ID:", shop_id)
-          print("TOTAL LISTINGS RETURNED:", len(listings))
-          print()
-
-          states = Counter(
-              str(item.get("state") or "MISSING").lower()
-              for item in listings
+          listings = client.get_all_listings(
+              shop_id
           )
 
-          print("STATE BREAKDOWN:")
-          for state, count in sorted(states.items()):
-              print(f"  {state}: {count}")
+          print()
+          print(
+              "TOTAL API LISTINGS ALL STATES:",
+              len(listings),
+          )
+
+          state_counts = Counter(
+              str(
+                  listing.get("state", "")
+              ).strip().lower()
+              or "MISSING"
+              for listing in listings
+          )
 
           print()
-          print("ALL LISTINGS:")
-          for item in sorted(
-              listings,
-              key=lambda x: int(x.get("listing_id") or 0),
+          print("API LISTINGS BY STATE:")
+
+          for state, count in sorted(
+              state_counts.items()
           ):
               print(
-                  f"{item.get('listing_id')} | "
-                  f"{item.get('state')} | "
-                  f"{item.get('title')}"
+                  f"  {state}: {count}"
               )
 
-          print("=" * 100)
-          print("END LIVE ETSY LISTING COUNT DIAGNOSTIC")
-          print("=" * 100)
+          # ------------------------------------------------
+          # REMOVE DRAFTS
+          # ------------------------------------------------
+
+          non_draft = [
+              listing
+              for listing in listings
+              if str(
+                  listing.get("state", "")
+              ).strip().lower() != "draft"
+          ]
+
+          non_draft_titles = {
+              normalize_title(
+                  listing.get("title", "")
+              )
+              for listing in non_draft
+              if normalize_title(
+                  listing.get("title", "")
+              )
+          }
+
+          print()
+          print(
+              "NON-DRAFT API LISTINGS:",
+              len(non_draft),
+          )
+
+          print(
+              "UNIQUE NON-DRAFT API TITLES:",
+              len(non_draft_titles),
+          )
+
+          # ------------------------------------------------
+          # API LISTINGS MISSING FROM CSV
+          # ------------------------------------------------
+
+          api_missing_from_csv = [
+              listing
+              for listing in non_draft
+              if normalize_title(
+                  listing.get("title", "")
+              )
+              not in csv_titles
+          ]
+
+          print()
+          print("=" * 120)
+          print(
+              "NON-DRAFT ETSY API LISTINGS "
+              "MISSING FROM CSV"
+          )
+          print("=" * 120)
+
+          print(
+              "COUNT:",
+              len(api_missing_from_csv),
+          )
+
+          if not api_missing_from_csv:
+              print("NONE")
+          else:
+              for listing in sorted(
+                  api_missing_from_csv,
+                  key=lambda item: (
+                      str(
+                          item.get(
+                              "state",
+                              "",
+                          )
+                      ),
+                      str(
+                          item.get(
+                              "title",
+                              "",
+                          )
+                      ),
+                  ),
+              ):
+                  print(
+                      f"{listing.get('listing_id')} | "
+                      f"{listing.get('state')} | "
+                      f"{listing.get('title')}"
+                  )
+
+          # ------------------------------------------------
+          # CSV LISTINGS MISSING FROM NON-DRAFT API
+          # ------------------------------------------------
+
+          api_title_to_listing = {}
+
+          for listing in non_draft:
+              title_key = normalize_title(
+                  listing.get("title", "")
+              )
+
+              if title_key:
+                  api_title_to_listing.setdefault(
+                      title_key,
+                      []
+                  ).append(listing)
+
+          csv_missing_from_api = [
+              title
+              for title in sorted(csv_titles)
+              if title not in api_title_to_listing
+          ]
+
+          print()
+          print("=" * 120)
+          print(
+              "CSV TITLES MISSING FROM "
+              "NON-DRAFT ETSY API"
+          )
+          print("=" * 120)
+
+          print(
+              "COUNT:",
+              len(csv_missing_from_api),
+          )
+
+          if not csv_missing_from_api:
+              print("NONE")
+          else:
+              for title in csv_missing_from_api:
+                  print(title)
+
+          # ------------------------------------------------
+          # CURRENT / ACTIVE-STYLE BREAKDOWN
+          # ------------------------------------------------
+
+          current_states = {
+              "active",
+              "edit",
+          }
+
+          current_listings = [
+              listing
+              for listing in listings
+              if str(
+                  listing.get("state", "")
+              ).strip().lower()
+              in current_states
+          ]
+
+          print()
+          print("=" * 120)
+          print("CURRENT ETSY LISTINGS")
+          print("=" * 120)
+
+          print(
+              "ACTIVE + EDIT COUNT:",
+              len(current_listings),
+          )
+
+          print()
+          print(
+              "STATE | LISTING ID | TITLE"
+          )
+
+          for listing in sorted(
+              current_listings,
+              key=lambda item: str(
+                  item.get("listing_id", "")
+              ),
+          ):
+              print(
+                  f"{listing.get('state')} | "
+                  f"{listing.get('listing_id')} | "
+                  f"{listing.get('title')}"
+              )
+
+          print()
+          print("=" * 120)
+          print(
+              "END LIVE ETSY LISTING UNIVERSE "
+              "DIAGNOSTIC"
+          )
+          print("=" * 120)
           PY
 
       # ---------------------------------------------------
