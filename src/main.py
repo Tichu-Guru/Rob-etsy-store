@@ -952,34 +952,56 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
         "11731818812456775837",
     }
 
+    # -----------------------------------------------------
+    # RAW API NUTCRACKER DIAGNOSTIC
+    #
+    # Show ALL current Etsy API inventory rows for listings
+    # containing "Nutcracker", not just a predefined SKU set.
+    # -----------------------------------------------------
+
     api_diagnostic = api_df[
-        api_df["etsy_api_sku"]
+        api_df["etsy_api_title"]
         .astype(str)
-        .str.strip()
-        .isin(diagnostic_skus)
+        .str.contains(
+            "Nutcracker",
+            case=False,
+            na=False,
+        )
     ]
 
     print()
-    print("=" * 80)
-    print("RAW API_DF PRICE DIAGNOSTIC")
-    print("=" * 80)
+    print("=" * 120)
+    print("RAW CURRENT ETSY API NUTCRACKER INVENTORY")
+    print("=" * 120)
 
     if api_diagnostic.empty:
-        print("NO NUTCRACKER SKUS FOUND IN API_DF")
+        print("NO NUTCRACKER LISTINGS FOUND IN API_DF")
     else:
+        diagnostic_columns = [
+            column
+            for column in [
+                "etsy_api_listing_id",
+                "etsy_api_title",
+                "etsy_api_sku",
+                "etsy_api_price",
+                "etsy_api_variation_1_name",
+                "etsy_api_variation_1_value",
+                "etsy_api_variation_label",
+            ]
+            if column in api_diagnostic.columns
+        ]
+
         print(
             api_diagnostic[
-                [
-                    "etsy_api_listing_id",
-                    "etsy_api_sku",
-                    "etsy_api_price",
-                    "etsy_api_variation_label",
-                ]
-            ].to_string(index=False)
+                diagnostic_columns
+            ].to_string(
+                index=False
+            )
         )
 
-    print("=" * 80)
-    print("END RAW API_DF PRICE DIAGNOSTIC")
+    print("=" * 120)
+    print("END RAW CURRENT ETSY API NUTCRACKER INVENTORY")
+    print("=" * 120)
     print()
 
 
