@@ -15,7 +15,7 @@ DEFAULT_TOKEN_FILE = Path(".etsy_tokens.json")
 
 
 class EtsyApiClient:
-    """Small Etsy Open API v3 client used for listing inventory prices."""
+    """Small Etsy Open API v3 client for listing and inventory data."""
 
     def __init__(
         self,
@@ -28,15 +28,19 @@ class EtsyApiClient:
         self.api_key = api_key.strip()
         self.shared_secret = shared_secret.strip()
         self.access_token = access_token.strip()
+
         self.refresh_token = (
             refresh_token.strip()
             if refresh_token
             else None
         )
+
         self.token_file = token_file
 
         if not self.api_key:
-            raise RuntimeError("ETSY_API_KEY is not set.")
+            raise RuntimeError(
+                "ETSY_API_KEY is not set."
+            )
 
         if not self.shared_secret:
             raise RuntimeError(
@@ -49,7 +53,9 @@ class EtsyApiClient:
             )
 
     @classmethod
-    def from_environment(cls) -> "EtsyApiClient":
+    def from_environment(
+        cls,
+    ) -> "EtsyApiClient":
         token_file = Path(
             os.getenv(
                 "ETSY_TOKEN_FILE",
@@ -121,7 +127,10 @@ class EtsyApiClient:
         self,
         token_data: dict[str, Any],
     ) -> None:
-        """Persist refreshed tokens when a local token file is used."""
+        """
+        Persist refreshed tokens when a local token file
+        is being used.
+        """
 
         if not self.token_file:
             return
@@ -137,6 +146,7 @@ class EtsyApiClient:
                 )
 
             existing.update(token_data)
+
             existing["api_key"] = self.api_key
 
             self.token_file.write_text(
@@ -149,11 +159,13 @@ class EtsyApiClient:
             )
 
         except OSError:
-            # CI environments may intentionally make the token
-            # file read-only or omit it.
+            # CI environments may intentionally make the
+            # token file read-only or omit it.
             pass
 
-    def refresh_access_token(self) -> None:
+    def refresh_access_token(
+        self,
+    ) -> None:
         if not self.refresh_token:
             raise RuntimeError(
                 "Etsy access token is invalid/expired and no "
@@ -202,7 +214,9 @@ class EtsyApiClient:
                 new_refresh_token
             )
 
-        self._save_tokens(token_data)
+        self._save_tokens(
+            token_data
+        )
 
     def request(
         self,
@@ -210,6 +224,12 @@ class EtsyApiClient:
         path: str,
         **kwargs: Any,
     ) -> dict[str, Any]:
+        """
+        Make an Etsy API request.
+
+        If the access token has expired, refresh once and
+        retry automatically when a refresh token is available.
+        """
 
         url = (
             path
@@ -225,8 +245,6 @@ class EtsyApiClient:
             **kwargs,
         )
 
-        # Etsy access tokens are short-lived.
-        # Refresh once and retry when possible.
         if (
             response.status_code == 401
             and self.refresh_token
@@ -254,7 +272,13 @@ class EtsyApiClient:
 
         return response.json()
 
-    def get_shop_id(self) -> int:
+    def get_shop_id(
+        self,
+    ) -> int:
+        """
+        Determine the authenticated user's Etsy shop ID.
+        """
+
         user_id = self.access_token.split(
             ".",
             1,
@@ -271,7 +295,9 @@ class EtsyApiClient:
             f"/users/{user_id}/shops",
         )
 
-        shop_id = data.get("shop_id")
+        shop_id = data.get(
+            "shop_id"
+        )
 
         if not shop_id:
             raise RuntimeError(
@@ -285,11 +311,18 @@ class EtsyApiClient:
         self,
         shop_id: int,
     ) -> list[dict[str, Any]]:
+        """
+        Retrieve all Etsy listings across relevant states.
 
-        listings: list[dict[str, Any]] = []
+        Pagination is handled independently for each state.
+        """
 
-        # Fetch all listing states because the CSV may
-        # contain inactive or draft listings.
+        listings: list[
+            dict[str, Any]
+        ] = []
+
+        seen_listing_ids: set[str] = set()
+
         for state in (
             "active",
             "inactive",
@@ -315,7 +348,29 @@ class EtsyApiClient:
                     [],
                 )
 
-                listings.extend(results)
+                if not results:
+                    break
+
+                for listing in results:
+                    listing_id = str(
+                        listing.get(
+                            "listing_id",
+                            "",
+                        )
+                    ).strip()
+
+                    if (
+                        listing_id
+                        and listing_id
+                        not in seen_listing_ids
+                    ):
+                        listings.append(
+                            listing
+                        )
+
+                        seen_listing_ids.add(
+                            listing_id
+                        )
 
                 if len(results) < 100:
                     break
@@ -324,10 +379,44 @@ class EtsyApiClient:
 
         return listings
 
+    def get_current_listings(
+        self,
+        shop_id: int,
+    ) -> list[dict[str, Any]]:
+        """
+        Return listings considered current/sellable.
+
+        Etsy's normal current listing state is 'active'.
+        'edit' is retained defensively because some API
+        responses/workflows may expose it during editing.
+        """
+
+        all_listings = self.get_all_listings(
+            shop_id
+        )
+
+        return [
+            listing
+            for listing in all_listings
+            if str(
+                listing.get(
+                    "state",
+                    "",
+                )
+            ).strip().lower()
+            in (
+                "active",
+                "edit",
+            )
+        ]
+
     def get_listing_inventory(
         self,
         listing_id: int,
     ) -> dict[str, Any]:
+        """
+        Retrieve Etsy inventory for one listing.
+        """
 
         return self.request(
             "GET",
@@ -338,12 +427,23 @@ class EtsyApiClient:
     def _money_to_float(
         value: Any,
     ) -> float | None:
+        """
+        Convert Etsy money objects to floating-point dollars.
+        """
 
-        if not isinstance(value, dict):
+        if not isinstance(
+            value,
+            dict,
+        ):
             return None
 
-        amount = value.get("amount")
-        divisor = value.get("divisor")
+        amount = value.get(
+            "amount"
+        )
+
+        divisor = value.get(
+            "divisor"
+        )
 
         try:
             amount = float(amount)
@@ -377,7 +477,9 @@ class EtsyApiClient:
         """
 
         property_values = (
-            product.get("property_values")
+            product.get(
+                "property_values"
+            )
             or []
         )
 
@@ -404,7 +506,9 @@ class EtsyApiClient:
             )
 
             raw_values = (
-                property_value.get("values")
+                property_value.get(
+                    "values"
+                )
                 or []
             )
 
@@ -486,6 +590,18 @@ class EtsyApiClient:
     def get_listing_inventory_rows(
         self,
     ) -> list[dict[str, Any]]:
+        """
+        Return the current sellable Etsy SKU inventory.
+
+        IMPORTANT:
+
+        A product is included only when it has at least one
+        enabled, non-deleted offering.
+
+        This prevents obsolete Etsy variants from entering the
+        current inventory universe merely because Etsy still
+        retains historical product/SKU records internally.
+        """
 
         shop_id = self.get_shop_id()
 
@@ -527,10 +643,6 @@ class EtsyApiClient:
 
                 continue
 
-            # -------------------------------------------------
-            # NORMAL PRODUCT PROCESSING
-            # -------------------------------------------------
-
             for product in inventory.get(
                 "products",
                 [],
@@ -544,20 +656,10 @@ class EtsyApiClient:
                 if not sku:
                     continue
 
-                (
-                    variation_1_name,
-                    variation_1_value,
-                    variation_2_name,
-                    variation_2_value,
-                    variation_label,
-                ) = (
-                    self._extract_variation_values(
-                        product
-                    )
-                )
-
                 offerings = (
-                    product.get("offerings")
+                    product.get(
+                        "offerings"
+                    )
                     or []
                 )
 
@@ -593,15 +695,32 @@ class EtsyApiClient:
                             price
                         )
 
+                # ---------------------------------------------
+                # CRITICAL:
+                #
+                # If this Etsy product/SKU has no enabled,
+                # non-deleted offering, it is not a currently
+                # sellable variant.
+                #
+                # Do not emit a row with a None price.
+                # That would preserve obsolete variants in
+                # downstream matching and profitability logic.
+                # ---------------------------------------------
+
                 if not enabled_prices:
+                    continue
 
-                    price = None
-
-                else:
-
-                    price = min(
-                        enabled_prices
+                (
+                    variation_1_name,
+                    variation_1_value,
+                    variation_2_name,
+                    variation_2_value,
+                    variation_label,
+                ) = (
+                    self._extract_variation_values(
+                        product
                     )
+                )
 
                 rows.append(
                     {
@@ -615,7 +734,9 @@ class EtsyApiClient:
                             sku,
 
                         "etsy_api_price":
-                            price,
+                            min(
+                                enabled_prices
+                            ),
 
                         "etsy_api_variation_1_name":
                             variation_1_name,
