@@ -926,6 +926,149 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
         print(f"WARNING: Etsy API pricing enrichment failed: {exc}")
         return listings, variants
 
+    # -----------------------------------------------------
+    # LIVE ETSY API vs CSV LISTING UNIVERSE DIAGNOSTIC
+    # -----------------------------------------------------
+    #
+    # Compare unique listing titles represented in the CSV
+    # against the unique live Etsy listing IDs returned by
+    # the Etsy API inventory retrieval.
+    #
+    # This identifies listings that exist on Etsy but are
+    # completely absent from the local CSV input.
+    # -----------------------------------------------------
+
+    try:
+        shop_id = client.get_shop_id()
+
+        live_listings = client.get_all_listings(
+            shop_id
+        )
+
+        csv_title_map = {}
+
+        for _, listing in listings.iterrows():
+            title = str(
+                listing.get("title", "")
+                or ""
+            ).strip()
+
+            normalized_title = (
+                _normalize_match_text(title)
+            )
+
+            if normalized_title:
+                csv_title_map.setdefault(
+                    normalized_title,
+                    []
+                ).append(
+                    listing.get(
+                        "etsy_listing_key",
+                        ""
+                    )
+                )
+
+        live_listing_map = {}
+
+        for listing in live_listings:
+            title = str(
+                listing.get("title", "")
+                or ""
+            ).strip()
+
+            normalized_title = (
+                _normalize_match_text(title)
+            )
+
+            listing_id = listing.get(
+                "listing_id"
+            )
+
+            if normalized_title:
+                live_listing_map[
+                    str(listing_id)
+                ] = {
+                    "title": title,
+                    "title_key": normalized_title,
+                    "state": listing.get(
+                        "state",
+                        ""
+                    ),
+                }
+
+        missing_live_listings = []
+
+        for listing_id, live_listing in (
+            live_listing_map.items()
+        ):
+            if (
+                live_listing["title_key"]
+                not in csv_title_map
+            ):
+                missing_live_listings.append(
+                    {
+                        "etsy_api_listing_id":
+                            listing_id,
+                        "title":
+                            live_listing["title"],
+                        "state":
+                            live_listing["state"],
+                    }
+                )
+
+        print()
+        print("=" * 120)
+        print("LIVE ETSY API vs CSV LISTING UNIVERSE DIAGNOSTIC")
+        print("=" * 120)
+        print(
+            f"CSV listing rows: {len(listings)}"
+        )
+        print(
+            f"Live Etsy API listings: "
+            f"{len(live_listing_map)}"
+        )
+        print(
+            f"Live listings missing from CSV by title: "
+            f"{len(missing_live_listings)}"
+        )
+
+        if missing_live_listings:
+            print()
+            print(
+                "LIVE ETSY LISTINGS NOT FOUND IN CSV:"
+            )
+
+            missing_df = pd.DataFrame(
+                missing_live_listings
+            )
+
+            print(
+                missing_df.to_string(
+                    index=False
+                )
+            )
+        else:
+            print(
+                "No live Etsy listings were missing "
+                "from the CSV by title."
+            )
+
+        print("=" * 120)
+        print(
+            "END LIVE ETSY API vs CSV LISTING "
+            "UNIVERSE DIAGNOSTIC"
+        )
+        print("=" * 120)
+        print()
+
+    except Exception as exc:
+        print()
+        print(
+            "WARNING: Could not run live Etsy API vs "
+            f"CSV diagnostic: {exc}"
+        )
+        print()
+
     if not api_rows:
         print("WARNING: Etsy API returned no listing inventory rows.")
         return listings, variants
