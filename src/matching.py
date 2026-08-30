@@ -269,6 +269,74 @@ def variation_match_score(
     return score
 
 
+
+def extract_quantity(text) -> int | None:
+    """
+    Extract an explicit product quantity from variation text.
+
+    Examples:
+        "Quantity: 1 pc" -> 1
+        "Quantity: 10 pcs" -> 10
+        "Round / 20 pcs / One size" -> 20
+
+    Returns None when no explicit quantity is found.
+    """
+    import re
+
+    if text is None:
+        return None
+
+    value = str(text).lower()
+
+    match = re.search(
+        r"\b(\d+)\s*(?:pc|pcs|piece|pieces)\b",
+        value,
+    )
+
+    if match:
+        return int(match.group(1))
+
+    return None
+
+
+def etsy_quantity(row: pd.Series) -> int | None:
+    """
+    Extract quantity from Etsy variation information.
+    """
+    for column in [
+        "etsy_variation_label",
+        "etsy_variation_1_value",
+        "etsy_variation_2_value",
+    ]:
+        quantity = extract_quantity(
+            row.get(column)
+        )
+
+        if quantity is not None:
+            return quantity
+
+    return None
+
+
+def printify_quantity(row: pd.Series) -> int | None:
+    """
+    Extract quantity from Printify variant information.
+    """
+    for column in [
+        "printify_variant_title",
+        "printify_options_json",
+        "printify_product_options_json",
+    ]:
+        quantity = extract_quantity(
+            row.get(column)
+        )
+
+        if quantity is not None:
+            return quantity
+
+    return None
+
+
 def choose_printify_variant(
     etsy_row: pd.Series,
     candidates: pd.DataFrame,
@@ -276,6 +344,9 @@ def choose_printify_variant(
     """
     Select the appropriate Printify row from candidates
     sharing the same normalized SKU.
+
+    The SKU remains the primary identifier, but an explicit
+    quantity mismatch is never accepted.
 
     Returns:
 
@@ -286,19 +357,100 @@ def choose_printify_variant(
         MATCHED
         MATCHED_BY_VARIATION
         DUPLICATE_PRINTIFY_SKU
+        QUANTITY_MISMATCH
     """
     if candidates.empty:
         return None, "ETSY_ONLY"
 
+    etsy_qty = etsy_quantity(
+        etsy_row
+    )
+
+    # -----------------------------------------------------
+    # ONE PRINTIFY CANDIDATE
+    #
+    # Do not blindly trust the SKU if Etsy and Printify
+    # explicitly specify different quantities.
+    # -----------------------------------------------------
+
     if len(candidates) == 1:
+
+        candidate = candidates.iloc[0]
+
+        printify_qty = printify_quantity(
+            candidate
+        )
+
+        if (
+            etsy_qty is not None
+            and printify_qty is not None
+            and etsy_qty != printify_qty
+        ):
+            return (
+                None,
+                "QUANTITY_MISMATCH",
+            )
+
         return (
-            candidates.iloc[0],
+            candidate,
             "MATCHED",
         )
 
+    # -----------------------------------------------------
+    # MULTIPLE PRINTIFY CANDIDATES
+    #
+    # First eliminate candidates with explicit quantity
+    # contradictions.
+    # -----------------------------------------------------
+
+    filtered_candidates = candidates.copy()
+
+    if etsy_qty is not None:
+
+        quantity_matches = []
+
+        for index, candidate in (
+            filtered_candidates.iterrows()
+        ):
+            candidate_qty = printify_quantity(
+                candidate
+            )
+
+            if (
+                candidate_qty is None
+                or candidate_qty == etsy_qty
+            ):
+                quantity_matches.append(
+                    index
+                )
+
+        filtered_candidates = (
+            filtered_candidates.loc[
+                quantity_matches
+            ]
+        )
+
+        if filtered_candidates.empty:
+            return (
+                None,
+                "QUANTITY_MISMATCH",
+            )
+
+        if len(filtered_candidates) == 1:
+            return (
+                filtered_candidates.iloc[0],
+                "MATCHED_BY_VARIATION",
+            )
+
+    # -----------------------------------------------------
+    # SCORE REMAINING CANDIDATES
+    # -----------------------------------------------------
+
     scored = []
 
-    for index, candidate in candidates.iterrows():
+    for index, candidate in (
+        filtered_candidates.iterrows()
+    ):
         score = variation_match_score(
             etsy_row,
             candidate,
@@ -333,8 +485,28 @@ def choose_printify_variant(
         best_score > 0
         and best_score > second_score
     ):
+        selected = (
+            filtered_candidates.loc[
+                best_index
+            ]
+        )
+
+        selected_qty = printify_quantity(
+            selected
+        )
+
+        if (
+            etsy_qty is not None
+            and selected_qty is not None
+            and etsy_qty != selected_qty
+        ):
+            return (
+                None,
+                "QUANTITY_MISMATCH",
+            )
+
         return (
-            candidates.loc[best_index],
+            selected,
             "MATCHED_BY_VARIATION",
         )
 
