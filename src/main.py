@@ -1541,6 +1541,65 @@ def main():
     )
 
     # -----------------------------------------------------
+    # NUTCRACKER PRINTIFY PRODUCT VARIANT DIAGNOSTIC
+    # -----------------------------------------------------
+
+    nutcracker_product_id = "6a481f6a238fda116e0677ef"
+
+    nutcracker_printify_rows = pd.DataFrame(
+        printify_rows
+    )
+
+    if not nutcracker_printify_rows.empty:
+        nutcracker_printify_rows = (
+            nutcracker_printify_rows[
+                nutcracker_printify_rows[
+                    "printify_product_id"
+                ].astype(str)
+                == nutcracker_product_id
+            ]
+        )
+
+    print()
+    print("=" * 120)
+    print("NUTCRACKER PRINTIFY PRODUCT VARIANT DIAGNOSTIC")
+    print("=" * 120)
+
+    if nutcracker_printify_rows.empty:
+        print("NO PRINTIFY VARIANTS FOUND")
+    else:
+
+        columns_to_show = [
+            column
+            for column in [
+                "printify_product_id",
+                "printify_variant_id",
+                "printify_sku",
+                "printify_variant_title",
+                "printify_price",
+                "printify_cost",
+                "printify_shipping_cost",
+                "printify_enabled",
+                "printify_available",
+                "printify_options_json",
+            ]
+            if column in nutcracker_printify_rows.columns
+        ]
+
+        print(
+            nutcracker_printify_rows[
+                columns_to_show
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 120)
+    print("END NUTCRACKER PRINTIFY PRODUCT VARIANT DIAGNOSTIC")
+    print("=" * 120)
+    print()
+
+    # -----------------------------------------------------
     # NUTCRACKER PROFITABILITY INPUT DIAGNOSTIC
     # -----------------------------------------------------
 
