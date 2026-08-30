@@ -408,6 +408,58 @@ jobs:
           PY
 
       # ---------------------------------------------------
+      # LIVE ETSY LISTING COUNT DIAGNOSTIC
+      # ---------------------------------------------------
+      - name: Live Etsy listing count diagnostic
+        env:
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+        run: |
+          python - <<'PY'
+          from collections import Counter
+          from src.etsy_api import EtsyApiClient
+
+          client = EtsyApiClient.from_environment()
+          shop_id = client.get_shop_id()
+          listings = client.get_all_listings(shop_id)
+
+          print()
+          print("=" * 100)
+          print("LIVE ETSY LISTING COUNT DIAGNOSTIC")
+          print("=" * 100)
+          print("SHOP ID:", shop_id)
+          print("TOTAL LISTINGS RETURNED:", len(listings))
+          print()
+
+          states = Counter(
+              str(item.get("state") or "MISSING").lower()
+              for item in listings
+          )
+
+          print("STATE BREAKDOWN:")
+          for state, count in sorted(states.items()):
+              print(f"  {state}: {count}")
+
+          print()
+          print("ALL LISTINGS:")
+          for item in sorted(
+              listings,
+              key=lambda x: int(x.get("listing_id") or 0),
+          ):
+              print(
+                  f"{item.get('listing_id')} | "
+                  f"{item.get('state')} | "
+                  f"{item.get('title')}"
+              )
+
+          print("=" * 100)
+          print("END LIVE ETSY LISTING COUNT DIAGNOSTIC")
+          print("=" * 100)
+          PY
+
+      # ---------------------------------------------------
       # RUN SYNC
       # ---------------------------------------------------
       - name: Run sync
