@@ -2491,8 +2491,14 @@ def main():
 
         "LISTING-LEVEL PROFITABILITY",
 
-        f"Etsy listings analyzed: "
+        f"Total active Etsy listings: "
+        f"{len(etsy_listings):,}",
+
+        f"Etsy listings with calculable profitability: "
         f"{listing_calculable_count:,}",
+
+        f"Etsy listings without calculable profitability: "
+        f"{len(etsy_listings) - listing_calculable_count:,}",
 
         f"Etsy listings below "
         f"{LOW_PROFIT_THRESHOLD:.0f}%: "
@@ -2935,8 +2941,18 @@ def main():
     print("")
 
     print(
-        f"Etsy listings analyzed: "
+        f"Total active Etsy listings: "
+        f"{len(etsy_listings):,}"
+    )
+
+    print(
+        f"Etsy listings with calculable profitability: "
         f"{listing_calculable_count:,}"
+    )
+
+    print(
+        f"Etsy listings without calculable profitability: "
+        f"{len(etsy_listings) - listing_calculable_count:,}"
     )
 
     print(
