@@ -1124,6 +1124,14 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
             .str.lower()
         )
 
+        csv_title_keys = set(
+            listings["title"]
+            .fillna("")
+            .map(_normalize_match_text)
+        )
+
+        csv_title_keys.discard("")
+
         active_api_df = api_df[
             api_df["etsy_api_listing_id"]
             .astype(str)
@@ -1146,12 +1154,33 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
 
             live_sku_keys.discard("")
 
-            if not live_sku_keys:
-                continue
+            live_listing = active_listing_map.get(
+                str(listing_id),
+                {},
+            )
 
-            if not (
+            live_title_key = _normalize_match_text(
+                live_listing.get(
+                    "title",
+                    group[
+                        "etsy_api_title"
+                    ].iloc[0],
+                )
+            )
+
+            has_sku_match = bool(
                 live_sku_keys & csv_sku_keys
-            ):
+            )
+
+            has_title_match = bool(
+                live_title_key
+                and live_title_key in csv_title_keys
+            )
+
+            # A live listing is missing only when it has
+            # neither a SKU match nor a title match in the
+            # CSV-derived listing universe.
+            if not has_sku_match and not has_title_match:
                 missing_listing_ids.append(
                     str(listing_id)
                 )
