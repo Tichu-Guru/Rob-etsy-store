@@ -1084,7 +1084,7 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
         run: |
-          PAYLOAD=$(jq -n \
+          jq -n \
             --arg from "$RESEND_FROM_EMAIL" \
             --arg to1 "robo78640@gmail.com" \
             --arg to2 "zuritaconsejos@hotmail.com" \
@@ -1095,11 +1095,12 @@ jobs:
               to: [$to1, $to2],
               subject: $subject,
               text: $text
-            }')
+            }' > /tmp/resend_payload.json
+
           curl -sS -X POST "https://api.resend.com/emails" \
             -H "Authorization: Bearer $RESEND_API_KEY" \
             -H "Content-Type: application/json" \
-            -d "$PAYLOAD"
+            --data-binary @/tmp/resend_payload.json
 
       # ---------------------------------------------------
       # COMPRESS DATABASE
