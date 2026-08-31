@@ -1085,6 +1085,98 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
     )
 
     # -----------------------------------------------------
+    # LIVE ETSY VARIANT UNIVERSE CLEANUP
+    # -----------------------------------------------------
+    #
+    # Etsy.csv can contain stale variant rows that no longer
+    # exist as enabled Etsy offerings. The live Etsy API is
+    # authoritative for the currently sellable variants.
+    #
+    # Only API SKUs with a current enabled Etsy price should
+    # remain in the variant-level profitability analysis.
+    #
+    # Example:
+    #   Etsy CSV may contain Quantity: 1, 5, 10, 20
+    #   but the live Etsy listing may now sell only 1 pc.
+    #
+    # In that case the stale 5/10/20 rows must not be used
+    # for profitability calculations.
+    # -----------------------------------------------------
+
+    try:
+        live_api_skus = set(
+            api_df.loc[
+                pd.to_numeric(
+                    api_df["etsy_api_price"],
+                    errors="coerce",
+                ).notna(),
+                "etsy_api_sku",
+            ]
+            .fillna("")
+            .astype(str)
+            .str.strip()
+            .str.lower()
+        )
+
+        live_api_skus.discard("")
+
+        if live_api_skus:
+
+            before_variant_count = len(
+                variants
+            )
+
+            variant_sku_keys = (
+                variants["etsy_sku"]
+                .fillna("")
+                .astype(str)
+                .str.strip()
+                .str.lower()
+            )
+
+            stale_variant_mask = (
+                variant_sku_keys.ne("")
+                & ~variant_sku_keys.isin(
+                    live_api_skus
+                )
+            )
+
+            removed_variant_count = int(
+                stale_variant_mask.sum()
+            )
+
+            if removed_variant_count:
+
+                variants = variants.loc[
+                    ~stale_variant_mask
+                ].copy()
+
+                print()
+                print("=" * 120)
+                print("LIVE ETSY STALE VARIANT CLEANUP")
+                print("=" * 120)
+                print(
+                    "Variant rows before cleanup: "
+                    f"{before_variant_count}"
+                )
+                print(
+                    "Stale CSV variants removed: "
+                    f"{removed_variant_count}"
+                )
+                print(
+                    "Variant rows after cleanup: "
+                    f"{len(variants)}"
+                )
+                print("=" * 120)
+                print()
+
+    except Exception as exc:
+        print(
+            "WARNING: Could not perform live Etsy variant "
+            f"cleanup: {exc}"
+        )
+
+    # -----------------------------------------------------
     # ADD LIVE ACTIVE ETSY LISTINGS MISSING FROM CSV
     # -----------------------------------------------------
     #
@@ -2607,14 +2699,47 @@ def main():
                 lines.append("")
                 continue
 
-            # Sort the variants by profitability, worst first,
-            # while retaining every matched variant.
-            listing_variants["_margin_sort"] = pd.to_numeric(
-                listing_variants[
-                    "estimated_net_margin_pct"
-                ],
-                errors="coerce",
-            )
+            # -------------------------------------------------
+            # COLLAPSE ECONOMICALLY IDENTICAL VARIANTS
+            # -------------------------------------------------
+            #
+            # Many Etsy listings contain multiple color SKUs
+            # whose Printify economics are identical.
+            #
+            # Example:
+            #   Black / 4XL
+            #   Ivory / 4XL
+            #   Lagoon Blue / 4XL
+            #   Neon Pink / 4XL
+            #
+            # If those variants have the same Etsy price,
+            # Printify cost, shipping, net profit, margin, and
+            # 15% target price, they are economically identical
+            # and should be represented by ONE report line.
+            #
+            # The variation label is simplified to retain the
+            # economically meaningful portion such as "4XL".
+            # -------------------------------------------------
+
+            numeric_columns = [
+                "etsy_price_for_profit",
+                "printify_cost_for_profit",
+                "printify_shipping_for_profit",
+                "estimated_net_profit",
+                "estimated_net_margin_pct",
+                "minimum_price_for_15pct_margin_variant",
+            ]
+
+            for column in numeric_columns:
+                if column in listing_variants.columns:
+                    listing_variants[column] = pd.to_numeric(
+                        listing_variants[column],
+                        errors="coerce",
+                    )
+
+            listing_variants["_margin_sort"] = listing_variants[
+                "estimated_net_margin_pct"
+            ]
 
             listing_variants = listing_variants.sort_values(
                 "_margin_sort",
@@ -2622,64 +2747,139 @@ def main():
                 na_position="last",
             )
 
+            def simplified_variation_label(label):
+                """
+                Remove obvious color-only components while keeping
+                size or other economically meaningful variation text.
+
+                Examples:
+                    "Comfort Colors® Colors: Neon Pink /
+                     Clothing sizes: 4XL"
+                        -> "4XL"
+
+                    "Colors: Black / Size: 18x24"
+                        -> "18x24"
+
+                When no removable color component is present,
+                preserve the original label.
+                """
+                value = str(
+                    label
+                    or ""
+                ).strip()
+
+                if not value:
+                    return ""
+
+                parts = [
+                    part.strip()
+                    for part in value.split("/")
+                    if part.strip()
+                ]
+
+                retained = []
+
+                for part in parts:
+                    lower = part.lower()
+
+                    if (
+                        "color:" in lower
+                        or "colors:" in lower
+                        or lower.startswith("color ")
+                        or lower.startswith("colors ")
+                    ):
+                        continue
+
+                    retained.append(part)
+
+                if retained:
+                    return " / ".join(retained)
+
+                return value
+
+            listing_variants[
+                "_economic_variation"
+            ] = listing_variants[
+                "etsy_variation_label"
+            ].map(
+                simplified_variation_label
+            )
+
+            # -------------------------------------------------
+            # Build the economic grouping key.
+            #
+            # Include the meaningful variation label plus all
+            # financial inputs/outputs. This means different
+            # sizes remain separate when their economics differ,
+            # while identical color variants collapse.
+            # -------------------------------------------------
+
+            grouping_columns = [
+                "_economic_variation",
+                "etsy_price_for_profit",
+                "printify_cost_for_profit",
+                "printify_shipping_for_profit",
+                "estimated_net_profit",
+                "estimated_net_margin_pct",
+                "minimum_price_for_15pct_margin_variant",
+            ]
+
+            available_grouping_columns = [
+                column
+                for column in grouping_columns
+                if column in listing_variants.columns
+            ]
+
+            listing_variants = (
+                listing_variants
+                .drop_duplicates(
+                    subset=available_grouping_columns,
+                    keep="first",
+                )
+                .copy()
+            )
+
             for _, variant in listing_variants.iterrows():
 
                 variation_label = str(
                     variant.get(
-                        "etsy_variation_label",
+                        "_economic_variation",
                         "",
                     )
                     or ""
                 ).strip()
 
-                sku = str(
-                    variant.get(
-                        "etsy_sku",
-                        "",
-                    )
-                    or ""
-                ).strip()
+                if not variation_label:
+                    variation_label = str(
+                        variant.get(
+                            "etsy_variation_label",
+                            "",
+                        )
+                        or ""
+                    ).strip()
 
-                etsy_price = pd.to_numeric(
-                    variant.get(
-                        "etsy_price_for_profit"
-                    ),
-                    errors="coerce",
+                etsy_price = variant.get(
+                    "etsy_price_for_profit"
                 )
 
-                printify_cost = pd.to_numeric(
-                    variant.get(
-                        "printify_cost_for_profit"
-                    ),
-                    errors="coerce",
+                printify_cost = variant.get(
+                    "printify_cost_for_profit"
                 )
 
-                shipping = pd.to_numeric(
-                    variant.get(
-                        "printify_shipping_for_profit"
-                    ),
-                    errors="coerce",
+                shipping = variant.get(
+                    "printify_shipping_for_profit"
                 )
 
-                net_profit = pd.to_numeric(
-                    variant.get(
-                        "estimated_net_profit"
-                    ),
-                    errors="coerce",
+                net_profit = variant.get(
+                    "estimated_net_profit"
                 )
 
-                margin = pd.to_numeric(
-                    variant.get(
-                        "estimated_net_margin_pct"
-                    ),
-                    errors="coerce",
+                margin = variant.get(
+                    "estimated_net_margin_pct"
                 )
 
-                target_price = pd.to_numeric(
-                    variant.get(
-                        "minimum_price_for_15pct_margin_variant"
-                    ),
-                    errors="coerce",
+                target_price = variant.get(
+                    "minimum_price_for_15pct_margin_variant"
                 )
 
                 parts = []
@@ -2689,27 +2889,30 @@ def main():
                         variation_label
                     )
 
-                if sku:
-                    parts.append(
-                        f"SKU {sku}"
-                    )
-
-                if pd.notna(etsy_price):
+                if pd.notna(
+                    etsy_price
+                ):
                     parts.append(
                         f"Etsy ${etsy_price:,.2f}"
                     )
 
-                if pd.notna(printify_cost):
+                if pd.notna(
+                    printify_cost
+                ):
                     parts.append(
                         f"Printify ${printify_cost:,.2f}"
                     )
 
-                if pd.notna(shipping):
+                if pd.notna(
+                    shipping
+                ):
                     parts.append(
                         f"Shipping ${shipping:,.2f}"
                     )
 
-                if pd.notna(net_profit):
+                if pd.notna(
+                    net_profit
+                ):
                     parts.append(
                         f"Net ${net_profit:,.2f}"
                     )
@@ -2718,7 +2921,9 @@ def main():
                         "Net unavailable"
                     )
 
-                if pd.notna(margin):
+                if pd.notna(
+                    margin
+                ):
                     parts.append(
                         f"Margin {margin:.1f}%"
                     )
@@ -2727,7 +2932,9 @@ def main():
                         "Margin unavailable"
                     )
 
-                if pd.notna(target_price):
+                if pd.notna(
+                    target_price
+                ):
                     parts.append(
                         f"15% price ${target_price:,.2f}"
                     )
@@ -2749,6 +2956,8 @@ def main():
                     "   - "
                     + " | ".join(parts)
                 )
+
+            lines.append("")
 
             lines.append("")
 
