@@ -1,5 +1,5 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-31T16:08:17.315034+00:00
+Run UTC: 2026-08-31T16:22:26.537695+00:00
 
 Etsy listings: 174
 Etsy SKU rows: 2,256
@@ -37,7 +37,9 @@ Products below 15% margin: 1,720
 Percent below threshold: 94.3%
 
 LISTING-LEVEL PROFITABILITY
-Etsy listings analyzed: 168
+Total active Etsy listings: 174
+Etsy listings with calculable profitability: 168
+Etsy listings without calculable profitability: 6
 Etsy listings below 15%: 157
 Percent of calculable listings below threshold: 93.5%
 
