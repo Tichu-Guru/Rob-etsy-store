@@ -1084,13 +1084,12 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
         run: |
-          EMAIL_BODY=$(cat output/sync_summary.txt)
           PAYLOAD=$(jq -n \
             --arg from "$RESEND_FROM_EMAIL" \
             --arg to1 "robo78640@gmail.com" \
             --arg to2 "zuritaconsejos@hotmail.com" \
             --arg subject "Daily Etsy ↔ Printify Sync Summary" \
-            --arg text "$EMAIL_BODY" \
+            --rawfile text "output/sync_summary.txt" \
             '{
               from: $from,
               to: [$to1, $to2],
