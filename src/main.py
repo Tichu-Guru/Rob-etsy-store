@@ -2033,7 +2033,82 @@ def main():
     print("=" * 120)
     print()
 
-    etsy_rows = etsy_variants.merge(
+    # -----------------------------------------------------
+    # BUILD ETSY COMPARISON ROWS FROM CURRENT LIVE VARIANTS
+    # -----------------------------------------------------
+    #
+    # The CSV can contain historical Etsy variant/SKU rows
+    # that are no longer active on the live Etsy listing.
+    #
+    # After live API enrichment:
+    #
+    #   - rows with a current Etsy API price represent a
+    #     currently sellable Etsy variant;
+    #   - rows belonging to newly discovered API listings are
+    #     already populated by the API;
+    #   - stale CSV variant rows without a current API price
+    #     must not enter build_comparison().
+    #
+    # This keeps the CSV useful for listing metadata while
+    # allowing the live Etsy API to control the current
+    # variant universe.
+    # -----------------------------------------------------
+
+    etsy_variants_for_comparison = etsy_variants.copy()
+
+    if "etsy_api_price" in etsy_variants_for_comparison.columns:
+
+        api_price_numeric = pd.to_numeric(
+            etsy_variants_for_comparison[
+                "etsy_api_price"
+            ],
+            errors="coerce",
+        )
+
+        has_live_api_price = (
+            api_price_numeric.notna()
+        )
+
+        removed_stale_variant_count = int(
+            (
+                ~has_live_api_price
+            ).sum()
+        )
+
+        if removed_stale_variant_count:
+            print()
+            print("=" * 120)
+            print("CURRENT ETSY VARIANT UNIVERSE CLEANUP")
+            print("=" * 120)
+            print(
+                "Variant rows before live filtering: "
+                f"{len(etsy_variants_for_comparison)}"
+            )
+            print(
+                "Stale/non-current CSV variant rows removed: "
+                f"{removed_stale_variant_count}"
+            )
+
+            etsy_variants_for_comparison = (
+                etsy_variants_for_comparison.loc[
+                    has_live_api_price
+                ].copy()
+            )
+
+            print(
+                "Variant rows after live filtering: "
+                f"{len(etsy_variants_for_comparison)}"
+            )
+            print("=" * 120)
+            print()
+
+    else:
+        print(
+            "WARNING: etsy_api_price column is missing; "
+            "live Etsy variant filtering was not possible."
+        )
+
+    etsy_rows = etsy_variants_for_comparison.merge(
         etsy_listings[
             [
                 "etsy_listing_key",
