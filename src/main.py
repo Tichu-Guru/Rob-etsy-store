@@ -2511,7 +2511,16 @@ def main():
     ]
 
     # ---------------------------------------------------------
-    # DAILY EMAIL: ONLY LISTINGS BELOW THE PROFIT THRESHOLD
+    # DAILY EMAIL: LISTINGS WITH LOW-PROFIT VARIANTS
+    # ---------------------------------------------------------
+    #
+    # The detailed profitability information is VARIANT-LEVEL.
+    #
+    # A listing appears here when at least one matched variant
+    # is below the profitability threshold. For each flagged
+    # listing, show EVERY matched variant so the user can see
+    # the actual economics of each size/color/variation rather
+    # than seeing only a single "worst" variant.
     # ---------------------------------------------------------
 
     lines += [
@@ -2526,107 +2535,222 @@ def main():
             f"{LOW_PROFIT_THRESHOLD:.0f}% net margin.",
             "",
         ]
+
     else:
         lines += [
-            f"Only listings below {LOW_PROFIT_THRESHOLD:.0f}% net margin are shown.",
+            f"Listings with at least one variant below "
+            f"{LOW_PROFIT_THRESHOLD:.0f}% net margin are shown.",
+            "Each listing includes EVERY matched variant so "
+            "variant pricing can be reviewed individually.",
             "",
         ]
 
-        for number, (_, row) in enumerate(
+        # -----------------------------------------------------
+        # GROUP LOW-PROFIT LISTINGS
+        # -----------------------------------------------------
+
+        flagged_listing_ids = set(
+            low_profit_listings[
+                "etsy_listing_id"
+            ]
+            .astype(str)
+        )
+
+        detail_data = profitability_all.copy()
+
+        if "etsy_listing_id" in detail_data.columns:
+            detail_data["etsy_listing_id"] = (
+                detail_data["etsy_listing_id"]
+                .astype(str)
+            )
+
+        # Preserve listing order from the low-profit summary.
+        for number, (_, listing_row) in enumerate(
             low_profit_listings.iterrows(),
             start=1,
         ):
+
+            listing_id = str(
+                listing_row.get(
+                    "etsy_listing_id",
+                    "",
+                )
+            )
+
             title = str(
-                row.get(
+                listing_row.get(
                     "etsy_title",
                     "Untitled listing",
                 )
-            ).replace("\n", " ").replace("\r", " ").strip()
-
-            current_price = pd.to_numeric(
-                row.get("current_etsy_price"),
-                errors="coerce",
-            )
-
-            worst_profit = pd.to_numeric(
-                row.get("worst_net_profit"),
-                errors="coerce",
-            )
-
-            worst_cost = pd.to_numeric(
-                row.get("worst_printify_cost"),
-                errors="coerce",
-            )
-
-            worst_shipping = pd.to_numeric(
-                row.get("worst_printify_shipping"),
-                errors="coerce",
-            )
-
-            worst_margin = pd.to_numeric(
-                row.get("worst_net_margin_pct"),
-                errors="coerce",
-            )
-
-            minimum_price = pd.to_numeric(
-                row.get("minimum_price_for_15pct_margin"),
-                errors="coerce",
-            )
-
-            price_increase = pd.to_numeric(
-                row.get("price_increase_needed"),
-                errors="coerce",
-            )
+            ).replace(
+                "\n",
+                " ",
+            ).replace(
+                "\r",
+                " ",
+            ).strip()
 
             lines.append(
                 f"{number}. {title}"
             )
 
-            detail_parts = []
+            listing_variants = detail_data[
+                detail_data["etsy_listing_id"]
+                == listing_id
+            ].copy()
 
-            if pd.notna(current_price):
-                detail_parts.append(
-                    f"Current ${current_price:,.2f}"
-                )
-
-            if pd.notna(worst_profit):
-                detail_parts.append(
-                    f"Net ${worst_profit:,.2f}"
-                )
-
-            if pd.notna(worst_cost):
-                detail_parts.append(
-                    f"Printify ${worst_cost:,.2f}"
-                )
-
-            if pd.notna(worst_shipping):
-                detail_parts.append(
-                    f"Shipping ${worst_shipping:,.2f}"
-                )
-
-            if pd.notna(worst_margin):
-                detail_parts.append(
-                    f"Margin {worst_margin:.1f}%"
-                )
-
-            if pd.notna(minimum_price):
-                detail_parts.append(
-                    f"15% price ${minimum_price:,.2f}"
-                )
-
-            if pd.notna(price_increase) and price_increase > 0:
-                detail_parts.append(
-                    f"Increase ${price_increase:,.2f}"
-                )
-
-            if detail_parts:
+            if listing_variants.empty:
                 lines.append(
-                    "   " + " | ".join(detail_parts)
+                    "   No variant-level profitability "
+                    "data available."
                 )
-            else:
+                lines.append("")
+                continue
+
+            # Sort the variants by profitability, worst first,
+            # while retaining every matched variant.
+            listing_variants["_margin_sort"] = pd.to_numeric(
+                listing_variants[
+                    "estimated_net_margin_pct"
+                ],
+                errors="coerce",
+            )
+
+            listing_variants = listing_variants.sort_values(
+                "_margin_sort",
+                ascending=True,
+                na_position="last",
+            )
+
+            for _, variant in listing_variants.iterrows():
+
+                variation_label = str(
+                    variant.get(
+                        "etsy_variation_label",
+                        "",
+                    )
+                    or ""
+                ).strip()
+
+                sku = str(
+                    variant.get(
+                        "etsy_sku",
+                        "",
+                    )
+                    or ""
+                ).strip()
+
+                etsy_price = pd.to_numeric(
+                    variant.get(
+                        "etsy_price_for_profit"
+                    ),
+                    errors="coerce",
+                )
+
+                printify_cost = pd.to_numeric(
+                    variant.get(
+                        "printify_cost_for_profit"
+                    ),
+                    errors="coerce",
+                )
+
+                shipping = pd.to_numeric(
+                    variant.get(
+                        "printify_shipping_for_profit"
+                    ),
+                    errors="coerce",
+                )
+
+                net_profit = pd.to_numeric(
+                    variant.get(
+                        "estimated_net_profit"
+                    ),
+                    errors="coerce",
+                )
+
+                margin = pd.to_numeric(
+                    variant.get(
+                        "estimated_net_margin_pct"
+                    ),
+                    errors="coerce",
+                )
+
+                target_price = pd.to_numeric(
+                    variant.get(
+                        "minimum_price_for_15pct_margin_variant"
+                    ),
+                    errors="coerce",
+                )
+
+                parts = []
+
+                if variation_label:
+                    parts.append(
+                        variation_label
+                    )
+
+                if sku:
+                    parts.append(
+                        f"SKU {sku}"
+                    )
+
+                if pd.notna(etsy_price):
+                    parts.append(
+                        f"Etsy ${etsy_price:,.2f}"
+                    )
+
+                if pd.notna(printify_cost):
+                    parts.append(
+                        f"Printify ${printify_cost:,.2f}"
+                    )
+
+                if pd.notna(shipping):
+                    parts.append(
+                        f"Shipping ${shipping:,.2f}"
+                    )
+
+                if pd.notna(net_profit):
+                    parts.append(
+                        f"Net ${net_profit:,.2f}"
+                    )
+                else:
+                    parts.append(
+                        "Net unavailable"
+                    )
+
+                if pd.notna(margin):
+                    parts.append(
+                        f"Margin {margin:.1f}%"
+                    )
+                else:
+                    parts.append(
+                        "Margin unavailable"
+                    )
+
+                if pd.notna(target_price):
+                    parts.append(
+                        f"15% price ${target_price:,.2f}"
+                    )
+
+                    if pd.notna(
+                        etsy_price
+                    ):
+                        increase = (
+                            target_price
+                            - etsy_price
+                        )
+
+                        if increase > 0:
+                            parts.append(
+                                f"Increase ${increase:,.2f}"
+                            )
+
                 lines.append(
-                    "   Profitability details unavailable."
+                    "   - "
+                    + " | ".join(parts)
                 )
+
+            lines.append("")
 
     lines += [
         "",
