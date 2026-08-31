@@ -676,6 +676,232 @@ jobs:
           PY
 
       # ---------------------------------------------------
+      # ACTIVE ETSY LISTINGS MISSING FROM CSV DIAGNOSTIC
+      # ---------------------------------------------------
+      - name: Active Etsy listings missing from CSV diagnostic
+        env:
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+        run: |
+          python - <<'PY2'
+          import pandas as pd
+
+          from src.etsy_api import EtsyApiClient
+          from src.etsy import read_etsy_csv
+          from src.config import ETSY_CSV
+
+
+          def normalize_sku(value):
+              return (
+                  str(value or "")
+                  .strip()
+                  .lower()
+                  .replace(" ", "")
+                  .replace("-", "")
+                  .replace("_", "")
+              )
+
+
+          def normalize_title(value):
+              return " ".join(
+                  str(value or "")
+                  .strip()
+                  .lower()
+                  .split()
+              )
+
+
+          print()
+          print("=" * 120)
+          print("ACTIVE ETSY LISTINGS MISSING FROM CSV DIAGNOSTIC")
+          print("=" * 120)
+
+          # -------------------------------------------------
+          # LOAD CSV
+          # -------------------------------------------------
+
+          csv_df = read_etsy_csv(ETSY_CSV)
+
+          csv_titles = set(
+              csv_df["TITLE"]
+              .fillna("")
+              .map(normalize_title)
+          )
+
+          csv_skus = set()
+
+          if "SKU" in csv_df.columns:
+              for value in csv_df["SKU"].fillna(""):
+                  for sku in str(value).split(","):
+                      normalized = normalize_sku(sku)
+
+                      if normalized:
+                          csv_skus.add(normalized)
+
+          print()
+          print(f"CSV PHYSICAL LISTING ROWS: {len(csv_df)}")
+          print(f"CSV UNIQUE TITLES: {len(csv_titles)}")
+          print(f"CSV UNIQUE SKUS: {len(csv_skus)}")
+
+          # -------------------------------------------------
+          # LOAD LIVE ETSY
+          # -------------------------------------------------
+
+          client = EtsyApiClient.from_environment()
+
+          shop_id = client.get_shop_id()
+
+          all_listings = client.get_all_listings(
+              shop_id
+          )
+
+          active_listings = [
+              listing
+              for listing in all_listings
+              if str(
+                  listing.get("state", "")
+              ).strip().lower() == "active"
+          ]
+
+          print(
+              f"LIVE ACTIVE ETSY LISTINGS: "
+              f"{len(active_listings)}"
+          )
+
+          # -------------------------------------------------
+          # GET LIVE INVENTORY ROWS
+          # -------------------------------------------------
+
+          api_rows = client.get_listing_inventory_rows()
+
+          api_df = pd.DataFrame(api_rows)
+
+          if api_df.empty:
+              raise SystemExit(
+                  "ERROR: Etsy API returned no inventory rows."
+              )
+
+          api_df["etsy_api_listing_id"] = (
+              api_df["etsy_api_listing_id"]
+              .astype(str)
+          )
+
+          active_ids = {
+              str(
+                  listing.get("listing_id")
+              )
+              for listing in active_listings
+          }
+
+          active_api = api_df[
+              api_df["etsy_api_listing_id"]
+              .isin(active_ids)
+          ].copy()
+
+          # -------------------------------------------------
+          # EXAMINE EACH ACTIVE LISTING
+          # -------------------------------------------------
+
+          missing = []
+
+          for listing in active_listings:
+
+              listing_id = str(
+                  listing.get("listing_id")
+              )
+
+              title = str(
+                  listing.get("title", "")
+              ).strip()
+
+              title_key = normalize_title(title)
+
+              inventory_rows = active_api[
+                  active_api["etsy_api_listing_id"]
+                  == listing_id
+              ]
+
+              live_skus = set(
+                  normalize_sku(sku)
+                  for sku in inventory_rows[
+                      "etsy_api_sku"
+                  ].fillna("")
+                  if normalize_sku(sku)
+              )
+
+              sku_match = bool(
+                  live_skus & csv_skus
+              )
+
+              title_match = (
+                  title_key in csv_titles
+              )
+
+              if not sku_match and not title_match:
+
+                  missing.append(
+                      {
+                          "listing_id":
+                              listing_id,
+
+                          "title":
+                              title,
+
+                          "live_sku_count":
+                              len(live_skus),
+
+                          "live_skus":
+                              ", ".join(
+                                  sorted(live_skus)
+                              )
+                              if live_skus
+                              else "(NO SKU)",
+                      }
+                  )
+
+          # -------------------------------------------------
+          # OUTPUT
+          # -------------------------------------------------
+
+          print()
+          print("=" * 120)
+          print(
+              "ACTIVE ETSY LISTINGS WITH NO CSV SKU "
+              "MATCH AND NO CSV TITLE MATCH"
+          )
+          print("=" * 120)
+
+          print(
+              f"COUNT: {len(missing)}"
+          )
+
+          if not missing:
+              print()
+              print(
+                  "NONE FOUND."
+              )
+          else:
+              print()
+
+              result = pd.DataFrame(
+                  missing
+              )
+
+              print(
+                  result.to_string(
+                      index=False
+                  )
+              )
+
+          print()
+          print("=" * 120)
+          print("END ACTIVE ETSY LISTINGS MISSING FROM CSV DIAGNOSTIC")
+          print("=" * 120)
+          PY2
+
+      # ---------------------------------------------------
       # RUN SYNC
       # ---------------------------------------------------
       - name: Run sync
