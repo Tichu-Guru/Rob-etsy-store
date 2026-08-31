@@ -105,8 +105,9 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4554700261,"Capybara Raccoon Ceramic Mug, Whimsical Animal Coffee Cup, Funny Coworker Boss Gift",12,12,0,0,0,2,FULLY_MATCHED
 4554700261,"Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift",3,3,0,0,0,0,FULLY_MATCHED
 4554701147,"Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor",4,4,0,0,0,0,FULLY_MATCHED
-4554706420,"Personalized Faux Suede Christmas Pillow, Plaid Holiday Decor Gift Tag",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
-4554706846,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",16,0,16,0,0,0,NO_PRINTIFY_PRODUCTS
+4554706420,"Personalized Faux Suede Christmas Pillow with Gift Tag, Plaid Holiday Decor",8,0,8,0,0,0,NO_PRINTIFY_PRODUCTS
+4554706420,"Personalized Faux Suede Christmas Pillow, Plaid Holiday Decor Gift Tag",16,0,16,0,0,8,NO_PRINTIFY_PRODUCTS
+4554706846,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",32,0,32,0,0,0,NO_PRINTIFY_PRODUCTS
 4554708636,"Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag",2,2,0,0,0,0,FULLY_MATCHED
 4554708636,"Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag",2,2,0,0,0,0,FULLY_MATCHED
 4554710012,"Pet Memorial Plaque Personalized, Custom Watercolor Portrait, Dog Cat Sympathy Gift, Acrylic Wood Stand",2,2,0,0,0,0,FULLY_MATCHED
@@ -152,5 +153,12 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4555873876,Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas,24,24,0,0,0,0,FULLY_MATCHED
 4556984930,"Personalized Spooky Pumpkin Halloween Table Runner, Custom Fall Dining Decor",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
 4557429557,"Personalized Thanksgiving Table Runner, Custom Fall Table Decor, Autumn Pumpkin Runner for Thanksgiving Dinner, Optional Matching Napkins",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
+4558226653,"Personalized Snowflake Sherpa Fleece Blanket, Custom Family Name Throw",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
+4559021971,"Personalized Velveteen Blanket, Custom Fall Leaves Throw, Cozy Autumn Family Blanket",2,2,0,0,0,0,FULLY_MATCHED
+4559436165,"Personalized Velveteen Throw Blanket, Custom Name, Personalized Gift (50x60 or 60x80)",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
 4559441906,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Gift, Blue Gold Designs",4,0,4,0,0,0,NO_PRINTIFY_PRODUCTS
 4559441906,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Throw, Two Designs",4,0,4,0,0,0,NO_PRINTIFY_PRODUCTS
+4559501995,"Personalized Hanukkah Velveteen Blanket, Custom Jewish Holiday Throw (50x60 or 60x80)",4,0,4,0,0,0,NO_PRINTIFY_PRODUCTS
+4559566941,"Personalized Christmas Velveteen Throw, Wrapped Present with Gift Tag Design, 50x60 or 60x80",10,0,10,0,0,0,NO_PRINTIFY_PRODUCTS
+4561977513,"Personalized Pet Memorial Pillow, Custom Dog Cat Silhouette, Faux Suede Remembrance Cushion",16,0,16,0,0,0,NO_PRINTIFY_PRODUCTS
+4561993417,"Personalized Pet Memorial Pillow Cover, Custom Dog Cat Silhouette, Faux Suede Keepsake (14-20 Inch)",16,0,16,0,0,0,NO_PRINTIFY_PRODUCTS
