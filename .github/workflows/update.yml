@@ -917,6 +917,78 @@ jobs:
       # ---------------------------------------------------
       # NUTCRACKER COMPARISON OUTPUT DIAGNOSTIC
       # ---------------------------------------------------
+      # ---------------------------------------------------
+      # CERAMIC CHRISTMAS ORNAMENT MATCH DIAGNOSTIC
+      # ---------------------------------------------------
+      - name: Ceramic Christmas ornament match diagnostic
+        run: |
+          python - <<'PY2'
+          import pandas as pd
+
+          path = "output/etsy_printify_comparison.csv"
+
+          print()
+          print("=" * 120)
+          print("CERAMIC CHRISTMAS ORNAMENT MATCH DIAGNOSTIC")
+          print("=" * 120)
+
+          df = pd.read_csv(path)
+
+          mask = (
+              df["etsy_title"]
+              .astype(str)
+              .str.contains(
+                  "Personalized Ceramic Christmas Ornament",
+                  case=False,
+                  na=False,
+              )
+          )
+
+          result = df.loc[mask].copy()
+
+          print(
+              "ROWS:",
+              len(result),
+          )
+
+          if result.empty:
+              print("NO MATCHING LISTING FOUND")
+          else:
+              columns = [
+                  c
+                  for c in [
+                      "etsy_listing_id",
+                      "etsy_title",
+                      "etsy_sku",
+                      "etsy_variation_label",
+                      "etsy_price",
+                      "printify_product_id",
+                      "printify_sku",
+                      "printify_variant_title",
+                      "printify_price",
+                      "printify_cost_numeric",
+                      "printify_shipping_cost",
+                      "match_status",
+                  ]
+                  if c in result.columns
+              ]
+
+              print(
+                  result[
+                      columns
+                  ].to_string(
+                      index=False
+                  )
+              )
+
+          print()
+          print("=" * 120)
+          print(
+              "END CERAMIC CHRISTMAS ORNAMENT MATCH DIAGNOSTIC"
+          )
+          print("=" * 120)
+          PY2
+
 
       - name: Nutcracker comparison output diagnostic
         run: |
