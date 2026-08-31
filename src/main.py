@@ -2778,22 +2778,37 @@ def main():
             # COLLAPSE ECONOMICALLY IDENTICAL VARIANTS
             # -------------------------------------------------
             #
-            # Many Etsy listings contain multiple color SKUs
-            # whose Printify economics are identical.
+            # The report should show one row for each economically
+            # distinct variant.
             #
-            # Example:
-            #   Black / 4XL
-            #   Ivory / 4XL
-            #   Lagoon Blue / 4XL
-            #   Neon Pink / 4XL
+            # We do NOT special-case Color, Shape, Design, etc.
+            # Instead, variants are considered duplicates when
+            # their actual profitability economics are identical:
             #
-            # If those variants have the same Etsy price,
-            # Printify cost, shipping, net profit, margin, and
-            # 15% target price, they are economically identical
-            # and should be represented by ONE report line.
+            #   Etsy price
+            #   Printify cost
+            #   Printify shipping
+            #   Net profit
+            #   Net margin
+            #   15% target price
             #
-            # The variation label is simplified to retain the
-            # economically meaningful portion such as "4XL".
+            # This means:
+            #
+            #   Shirt:
+            #       Black / 4XL
+            #       Ivory / 4XL
+            #       Pink / 4XL
+            #
+            #   becomes one 4XL row when economics are identical.
+            #
+            #   Ornament:
+            #       Circle / 1 pc
+            #       Star / 1 pc
+            #
+            #   becomes one 1 pc row when economics are identical.
+            #
+            # Different sizes or quantities remain separate whenever
+            # they have different economics.
             # -------------------------------------------------
 
             numeric_columns = [
@@ -2822,25 +2837,17 @@ def main():
                 na_position="last",
             )
 
-            def simplified_variation_label(label):
-                """
-                Remove obvious color-only components while keeping
-                size or other economically meaningful variation text.
+            # -------------------------------------------------
+            # Determine the economically meaningful label.
+            #
+            # Strip variation components that are normally
+            # decorative choices rather than cost-driving choices.
+            # Keep quantity and size information.
+            # -------------------------------------------------
 
-                Examples:
-                    "Comfort Colors® Colors: Neon Pink /
-                     Clothing sizes: 4XL"
-                        -> "4XL"
-
-                    "Colors: Black / Size: 18x24"
-                        -> "18x24"
-
-                When no removable color component is present,
-                preserve the original label.
-                """
+            def economic_variation_label(label):
                 value = str(
-                    label
-                    or ""
+                    label or ""
                 ).strip()
 
                 if not value:
@@ -2857,40 +2864,56 @@ def main():
                 for part in parts:
                     lower = part.lower()
 
-                    if (
-                        "color:" in lower
-                        or "colors:" in lower
-                        or lower.startswith("color ")
-                        or lower.startswith("colors ")
+                    decorative_prefixes = (
+                        "color:",
+                        "colors:",
+                        "color ",
+                        "colors ",
+                        "shape:",
+                        "shapes:",
+                        "shape ",
+                        "shapes ",
+                        "design:",
+                        "designs:",
+                        "design ",
+                        "designs ",
+                        "pattern:",
+                        "patterns:",
+                        "pattern ",
+                        "patterns ",
+                    )
+
+                    if lower.startswith(
+                        decorative_prefixes
                     ):
                         continue
 
                     retained.append(part)
 
                 if retained:
-                    return " / ".join(retained)
+                    return " / ".join(
+                        retained
+                    )
 
-                return value
+                return ""
 
             listing_variants[
                 "_economic_variation"
             ] = listing_variants[
                 "etsy_variation_label"
             ].map(
-                simplified_variation_label
+                economic_variation_label
             )
 
             # -------------------------------------------------
-            # Build the economic grouping key.
+            # First group by the financial economics.
             #
-            # Include the meaningful variation label plus all
-            # financial inputs/outputs. This means different
-            # sizes remain separate when their economics differ,
-            # while identical color variants collapse.
+            # This deliberately does NOT include the raw Etsy
+            # variation label, because that would prevent identical
+            # color/shape/design variants from collapsing.
             # -------------------------------------------------
 
-            grouping_columns = [
-                "_economic_variation",
+            economic_columns = [
                 "etsy_price_for_profit",
                 "printify_cost_for_profit",
                 "printify_shipping_for_profit",
@@ -2899,19 +2922,59 @@ def main():
                 "minimum_price_for_15pct_margin_variant",
             ]
 
-            available_grouping_columns = [
+            available_economic_columns = [
                 column
-                for column in grouping_columns
+                for column in economic_columns
                 if column in listing_variants.columns
             ]
 
-            listing_variants = (
-                listing_variants
-                .drop_duplicates(
-                    subset=available_grouping_columns,
-                    keep="first",
+            collapsed_rows = []
+
+            for _, economic_group in listing_variants.groupby(
+                available_economic_columns,
+                dropna=False,
+                sort=False,
+            ):
+
+                row = economic_group.iloc[0].copy()
+
+                labels = []
+
+                for label in economic_group[
+                    "_economic_variation"
+                ].tolist():
+
+                    label = str(
+                        label or ""
+                    ).strip()
+
+                    if (
+                        label
+                        and label not in labels
+                    ):
+                        labels.append(
+                            label
+                        )
+
+                # If there is a meaningful common size/quantity
+                # label, retain it. If not, the financial row is
+                # sufficient on its own.
+                row[
+                    "_economic_variation"
+                ] = " / ".join(labels)
+
+                collapsed_rows.append(
+                    row
                 )
-                .copy()
+
+            listing_variants = pd.DataFrame(
+                collapsed_rows
+            )
+
+            listing_variants = listing_variants.sort_values(
+                "_margin_sort",
+                ascending=True,
+                na_position="last",
             )
 
             for _, variant in listing_variants.iterrows():
@@ -2923,15 +2986,6 @@ def main():
                     )
                     or ""
                 ).strip()
-
-                if not variation_label:
-                    variation_label = str(
-                        variant.get(
-                            "etsy_variation_label",
-                            "",
-                        )
-                        or ""
-                    ).strip()
 
                 etsy_price = variant.get(
                     "etsy_price_for_profit"
@@ -3031,6 +3085,8 @@ def main():
                     "   - "
                     + " | ".join(parts)
                 )
+
+            lines.append("")
 
             lines.append("")
 
