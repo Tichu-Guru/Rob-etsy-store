@@ -1085,6 +1085,333 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
     )
 
     # -----------------------------------------------------
+    # ADD LIVE ACTIVE ETSY LISTINGS MISSING FROM CSV
+    # -----------------------------------------------------
+    #
+    # The Etsy CSV is useful for supplemental metadata, but it
+    # can become stale when new listings are created after the
+    # export. The live Etsy API is therefore authoritative for
+    # the current ACTIVE listing universe.
+    #
+    # Existing CSV listings remain unchanged. This block only
+    # appends active Etsy listings whose live SKUs have no match
+    # anywhere in the CSV-derived variant table.
+    # -----------------------------------------------------
+
+    try:
+        shop_id = client.get_shop_id()
+
+        all_live_listings = client.get_all_listings(
+            shop_id
+        )
+
+        active_listing_map = {
+            str(listing.get("listing_id")): listing
+            for listing in all_live_listings
+            if str(
+                listing.get("state", "")
+            ).strip().lower() == "active"
+            and str(
+                listing.get("listing_id", "")
+            ).strip()
+        }
+
+        csv_sku_keys = set(
+            variants["etsy_sku"]
+            .fillna("")
+            .astype(str)
+            .str.strip()
+            .str.lower()
+        )
+
+        active_api_df = api_df[
+            api_df["etsy_api_listing_id"]
+            .astype(str)
+            .isin(active_listing_map.keys())
+        ].copy()
+
+        missing_listing_ids = []
+
+        for listing_id, group in active_api_df.groupby(
+            "etsy_api_listing_id",
+            dropna=False,
+        ):
+            live_sku_keys = set(
+                group["etsy_api_sku"]
+                .fillna("")
+                .astype(str)
+                .str.strip()
+                .str.lower()
+            )
+
+            live_sku_keys.discard("")
+
+            if not live_sku_keys:
+                continue
+
+            if not (
+                live_sku_keys & csv_sku_keys
+            ):
+                missing_listing_ids.append(
+                    str(listing_id)
+                )
+
+        missing_listing_ids = sorted(
+            set(missing_listing_ids)
+        )
+
+        if missing_listing_ids:
+
+            print()
+            print("=" * 120)
+            print("ADDING LIVE ACTIVE ETSY LISTINGS MISSING FROM CSV")
+            print("=" * 120)
+
+            new_listing_rows = []
+            new_variant_rows = []
+
+            for listing_id in missing_listing_ids:
+
+                live_listing = active_listing_map.get(
+                    listing_id,
+                    {}
+                )
+
+                group = active_api_df[
+                    active_api_df[
+                        "etsy_api_listing_id"
+                    ].astype(str)
+                    == listing_id
+                ].copy()
+
+                if group.empty:
+                    continue
+
+                title = str(
+                    live_listing.get(
+                        "title",
+                        group[
+                            "etsy_api_title"
+                        ].iloc[0],
+                    )
+                    or ""
+                ).strip()
+
+                listing_key = (
+                    f"API_LISTING_{listing_id}"
+                )
+
+                prices = pd.to_numeric(
+                    group["etsy_api_price"],
+                    errors="coerce",
+                ).dropna()
+
+                listing_price = (
+                    float(prices.min())
+                    if not prices.empty
+                    else pd.NA
+                )
+
+                new_listing_rows.append(
+                    {
+                        "etsy_source_row": pd.NA,
+                        "etsy_listing_key": listing_key,
+                        "etsy_analysis_include": True,
+                        "etsy_duplicate_title": False,
+                        "etsy_duplicate_title_group": "",
+                        "etsy_duplicate_title_occurrence": 1,
+                        "title": title,
+                        "description": "",
+                        "price": listing_price,
+                        "currency_code": "",
+                        "quantity": "",
+                        "tags": "",
+                        "materials": "",
+                        "variation_1_type": "",
+                        "variation_1_name": "",
+                        "variation_1_values": "",
+                        "variation_2_type": "",
+                        "variation_2_name": "",
+                        "variation_2_values": "",
+                        "image_count": pd.NA,
+                        "raw_row_json": "",
+                        "etsy_api_listing_id": listing_id,
+                        "etsy_api_price": listing_price,
+                    }
+                )
+
+                for sku_index, (
+                    _,
+                    api_variant,
+                ) in enumerate(
+                    group.iterrows(),
+                    1,
+                ):
+
+                    sku = str(
+                        api_variant.get(
+                            "etsy_api_sku",
+                            "",
+                        )
+                        or ""
+                    ).strip()
+
+                    if not sku:
+                        continue
+
+                    new_variant_rows.append(
+                        {
+                            "etsy_source_row": pd.NA,
+                            "etsy_listing_key": listing_key,
+                            "etsy_analysis_include": True,
+                            "etsy_duplicate_title": False,
+                            "etsy_sku_index": sku_index,
+                            "etsy_sku": sku,
+                            "etsy_sku_status": "PRESENT",
+                            "etsy_variation_1_name": (
+                                api_variant.get(
+                                    "etsy_api_variation_1_name",
+                                    "",
+                                )
+                            ),
+                            "etsy_variation_1_value": (
+                                api_variant.get(
+                                    "etsy_api_variation_1_value",
+                                    "",
+                                )
+                            ),
+                            "etsy_variation_2_name": (
+                                api_variant.get(
+                                    "etsy_api_variation_2_name",
+                                    "",
+                                )
+                            ),
+                            "etsy_variation_2_value": (
+                                api_variant.get(
+                                    "etsy_api_variation_2_value",
+                                    "",
+                                )
+                            ),
+                            "etsy_variation_label": (
+                                api_variant.get(
+                                    "etsy_api_variation_label",
+                                    "",
+                                )
+                            ),
+                            "etsy_api_listing_id": listing_id,
+                            "etsy_api_price": (
+                                api_variant.get(
+                                    "etsy_api_price",
+                                    pd.NA,
+                                )
+                            ),
+                            "etsy_api_variation_1_name": (
+                                api_variant.get(
+                                    "etsy_api_variation_1_name",
+                                    "",
+                                )
+                            ),
+                            "etsy_api_variation_1_value": (
+                                api_variant.get(
+                                    "etsy_api_variation_1_value",
+                                    "",
+                                )
+                            ),
+                            "etsy_api_variation_label": (
+                                api_variant.get(
+                                    "etsy_api_variation_label",
+                                    "",
+                                )
+                            ),
+                        }
+                    )
+
+                print(
+                    f"ADDED API LISTING {listing_id}: "
+                    f"{title}"
+                )
+
+            if new_listing_rows:
+
+                new_listings_df = pd.DataFrame(
+                    new_listing_rows
+                )
+
+                for column in new_listings_df.columns:
+                    if column not in listings.columns:
+                        listings[column] = pd.NA
+
+                for column in listings.columns:
+                    if column not in new_listings_df.columns:
+                        new_listings_df[column] = pd.NA
+
+                new_listings_df = new_listings_df[
+                    listings.columns
+                ]
+
+                listings = pd.concat(
+                    [
+                        listings,
+                        new_listings_df,
+                    ],
+                    ignore_index=True,
+                )
+
+            if new_variant_rows:
+
+                new_variants_df = pd.DataFrame(
+                    new_variant_rows
+                )
+
+                for column in new_variants_df.columns:
+                    if column not in variants.columns:
+                        variants[column] = pd.NA
+
+                for column in variants.columns:
+                    if column not in new_variants_df.columns:
+                        new_variants_df[column] = pd.NA
+
+                new_variants_df = new_variants_df[
+                    variants.columns
+                ]
+
+                variants = pd.concat(
+                    [
+                        variants,
+                        new_variants_df,
+                    ],
+                    ignore_index=True,
+                )
+
+            print()
+            print(
+                "LIVE ACTIVE LISTINGS ADDED: "
+                f"{len(new_listing_rows)}"
+            )
+            print(
+                "LIVE ACTIVE VARIANTS ADDED: "
+                f"{len(new_variant_rows)}"
+            )
+            print(
+                "TOTAL LISTINGS AFTER LIVE API ADDITION: "
+                f"{len(listings)}"
+            )
+            print("=" * 120)
+            print()
+
+        else:
+            print(
+                "No live active Etsy listings needed to be "
+                "added from the API."
+            )
+
+    except Exception as exc:
+        print(
+            "WARNING: Could not add missing live Etsy listings "
+            f"from API: {exc}"
+        )
+
+    # -----------------------------------------------------
     # RAW API DATA DIAGNOSTIC
     # -----------------------------------------------------
 
@@ -1508,6 +1835,29 @@ def main():
     print(f"Listings after build_etsy_tables: {len(etsy_listings)}")
     print(f"Variant rows after build_etsy_tables: {len(etsy_variants)}")
 
+    # -----------------------------------------------------
+    # ENRICH FROM LIVE ETSY API BEFORE BUILDING etsy_rows
+    # -----------------------------------------------------
+    #
+    # This allows active Etsy listings missing from the CSV
+    # to be added to both etsy_listings and etsy_variants
+    # before the comparison row table is constructed.
+    # -----------------------------------------------------
+
+    etsy_listings, etsy_variants = enrich_etsy_prices_from_api(
+        etsy_listings,
+        etsy_variants,
+    )
+
+    print(
+        "Listings after live Etsy API enrichment: "
+        f"{len(etsy_listings)}"
+    )
+    print(
+        "Variant rows after live Etsy API enrichment: "
+        f"{len(etsy_variants)}"
+    )
+
     if "etsy_analysis_include" in etsy_listings.columns:
         included_count = int(
             etsy_listings[
@@ -1613,11 +1963,6 @@ def main():
         "etsy_variation_label",
         ]
     ]
-
-    etsy_listings, etsy_variants = enrich_etsy_prices_from_api(
-        etsy_listings,
-        etsy_variants,
-    )
 
     etsy_rows = apply_etsy_api_prices(
         etsy_rows,
