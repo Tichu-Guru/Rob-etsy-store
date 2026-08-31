@@ -920,6 +920,19 @@ jobs:
       # ---------------------------------------------------
       # CERAMIC CHRISTMAS ORNAMENT MATCH DIAGNOSTIC
       # ---------------------------------------------------
+      # ---------------------------------------------------
+      # SYNC SUMMARY REPORT DIAGNOSTIC
+      # ---------------------------------------------------
+      - name: Sync summary report diagnostic
+        run: |
+          echo "============================================================"
+          echo "SYNC SUMMARY REPORT"
+          echo "============================================================"
+          cat output/sync_summary.txt
+          echo "============================================================"
+          echo "END SYNC SUMMARY REPORT"
+          echo "============================================================"
+
       - name: Ceramic Christmas ornament match diagnostic
         run: |
           python - <<'PY2'
