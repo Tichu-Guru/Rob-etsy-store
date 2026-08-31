@@ -1,12 +1,12 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-31T20:47:18.649421+00:00
+Run UTC: 2026-08-31T21:19:11.706187+00:00
 
 Etsy listings: 174
-Etsy SKU rows: 2,107
+Etsy SKU rows: 2,103
 Printify variants: 12,063
 
 SKU STATUS
-MATCHED: 1,768
+MATCHED: 1,764
 ETSY_ONLY: 339
 UNAVAILABLE_SKU: 0
 MISSING_SKU: 0
@@ -32,176 +32,148 @@ Etsy payment processing: 3% + $0.25
 Offsite Ads: EXCLUDED
 Etsy listing fee: EXCLUDED from per-sale calculation
 
-Matched products with calculable profit: 1,752
-Products below 15% margin: 1,641
-Percent below threshold: 93.7%
+Matched products with calculable profit: 1,748
+Products below 15% margin: 1,637
+Percent below threshold: 93.6%
 
 LISTING-LEVEL PROFITABILITY
 Total active Etsy listings: 174
 Etsy listings with calculable profitability: 168
 Etsy listings without calculable profitability: 6
-Etsy listings below 15%: 154
-Percent of calculable listings below threshold: 91.7%
+Etsy listings below 15%: 152
+Percent of calculable listings below threshold: 90.5%
 
 LISTINGS REQUIRING ATTENTION
 
 Listings with at least one variant below 15% net margin are shown.
 Each listing includes EVERY matched variant so variant pricing can be reviewed individually.
 
-1. Capybara Raccoon Ceramic Mug, Whimsical Animal Coffee Cup, Funny Coworker Boss Gift
-   - Size: D- Not Arguing / 11oz | Etsy $16.99 | Printify $6.63 | Shipping $9.39 | Net $-0.89 | Margin -5.3%
-   - Size: B- Raccoon / 11oz | Etsy $16.99 | Printify $6.63 | Shipping $9.39 | Net $-0.89 | Margin -5.3%
-   - Size: F - Vintage Capy / 11oz | Etsy $16.99 | Printify $6.24 | Shipping $9.39 | Net $-0.50 | Margin -3.0%
-   - Size: D- Not Arguing / 15oz | Etsy $16.99 | Printify $6.24 | Shipping $9.39 | Net $-0.50 | Margin -3.0%
-   - Size: B- Raccoon / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: F - Vintage Capy / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: C - Beach Capy / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: A - Unbothered / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: D- Not Arguing / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: E - Vitruvian Capy / 11oz | Etsy $18.99 | Printify $5.09 | Shipping $7.29 | Net $4.56 | Margin 24.0%
-   - Size: G- Creation of Capy / 11oz | Etsy $18.99 | Printify $5.09 | Shipping $7.29 | Net $4.56 | Margin 24.0%
-
-
-2. Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift
-   - Size: D- Not Arguing / 11oz | Etsy $16.99 | Printify $6.63 | Shipping $9.39 | Net $-0.89 | Margin -5.3%
-   - Size: B- Raccoon / 11oz | Etsy $16.99 | Printify $6.63 | Shipping $9.39 | Net $-0.89 | Margin -5.3%
-   - Size: F - Vintage Capy / 11oz | Etsy $16.99 | Printify $6.24 | Shipping $9.39 | Net $-0.50 | Margin -3.0%
-   - Size: D- Not Arguing / 15oz | Etsy $16.99 | Printify $6.24 | Shipping $9.39 | Net $-0.50 | Margin -3.0%
-   - Size: B- Raccoon / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: F - Vintage Capy / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: C - Beach Capy / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: A - Unbothered / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: D- Not Arguing / 11oz | Etsy $18.99 | Printify $5.75 | Shipping $7.29 | Net $3.90 | Margin 20.5%
-   - Size: E - Vitruvian Capy / 11oz | Etsy $18.99 | Printify $5.09 | Shipping $7.29 | Net $4.56 | Margin 24.0%
-   - Size: G- Creation of Capy / 11oz | Etsy $18.99 | Printify $5.09 | Shipping $7.29 | Net $4.56 | Margin 24.0%
-
-
-3. Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt
+1. Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt
    - Clothing sizes: 4XL | Etsy $28.99 | Printify $21.40 | Shipping $4.95 | Net $-0.36 | Margin -1.3%
    - Clothing sizes: 2XL | Etsy $21.99 | Printify $14.28 | Shipping $4.95 | Net $0.42 | Margin 1.9%
    - Clothing sizes: 4XL | Etsy $30.99 | Printify $21.40 | Shipping $4.95 | Net $1.45 | Margin 4.7%
    - Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
    - Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Clothing sizes: XL | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
    - Clothing sizes: L | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
    - Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
-   - Clothing sizes: XL | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
    - Clothing sizes: M | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
 
 
-4. Capybara Halloween Mug, Witch Ghost Vampire Coffee Cup, Black Ceramic Spooky Gift
+2. Capybara Halloween Mug, Witch Ghost Vampire Coffee Cup, Black Ceramic Spooky Gift
    - Size: Witch Mug / 11oz | Etsy $18.99 | Printify $9.85 | Shipping $7.29 | Net $-0.20 | Margin -1.1%
    - Size: Vampire Mug / 11oz | Etsy $18.99 | Printify $9.85 | Shipping $7.29 | Net $-0.20 | Margin -1.1%
 
 
-5. Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas
+3. Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas
    - Art & wall decor sizes: 24" x 30" (Vertical) | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
    - Art & wall decor sizes: 16″ x 20″ (Vertical) | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
    - Art & wall decor sizes: 8″ x 10″ (Vertical) | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
 
 
-6. Personalized Pet Sketch Portrait, Sepia Toned Dog Cat Canvas Wall Art
+4. Personalized Pet Sketch Portrait, Sepia Toned Dog Cat Canvas Wall Art
    - Art & wall decor sizes: 24" x 30" (Vertical) | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
    - Art & wall decor sizes: 16″ x 20″ (Vertical) | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
    - Art & wall decor sizes: 8″ x 10″ (Vertical) | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
 
 
-7. Personalized Framed Vector Pet Portrait on Gallery Wrapped Canvas
+5. Personalized Framed Vector Pet Portrait on Gallery Wrapped Canvas
    - Art & wall decor sizes: 24" x 30" (Vertical) | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
    - Art & wall decor sizes: 16″ x 20″ (Vertical) | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
    - Art & wall decor sizes: 8″ x 10″ (Vertical) | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
 
 
-8. Personalized Art Deco Pet Portrait, Framed Dog Cat Canvas Wall Art
+6. Personalized Art Deco Pet Portrait, Framed Dog Cat Canvas Wall Art
    - Art & wall decor sizes: 24" x 30" (Vertical) | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
    - Art & wall decor sizes: 16″ x 20″ (Vertical) | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
    - Art & wall decor sizes: 8″ x 10″ (Vertical) | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
 
 
-9. Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas
+7. Personalized Framed Royal Pet Portrait on Gallery Wrapped Canvas
    - Art & wall decor sizes: 24" x 30" (Vertical) | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
    - Art & wall decor sizes: 16″ x 20″ (Vertical) | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
    - Art & wall decor sizes: 8″ x 10″ (Vertical) | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
 
 
-10. Personalized Framed Art Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
+8. Personalized Framed Art Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
    - Art & wall decor sizes: 24" x 30" (Vertical) | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
    - Art & wall decor sizes: 16″ x 20″ (Vertical) | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
    - Art & wall decor sizes: 8″ x 10″ (Vertical) | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
 
 
-11. Personalized Vintage Botanical Pet Portrait, Custom Dog Cat Canvas Wall Art
+9. Personalized Vintage Botanical Pet Portrait, Custom Dog Cat Canvas Wall Art
    - Art & wall decor sizes: 24" x 30" (Vertical) | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
    - Art & wall decor sizes: 16″ x 20″ (Vertical) | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
    - Art & wall decor sizes: 8″ x 10″ (Vertical) | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
 
 
-12. Custom Pet Portrait Canvas Wall Art: Personalized Dog, Cat Memorial Gallery Wrapped Print
+10. Custom Pet Portrait Canvas Wall Art: Personalized Dog, Cat Memorial Gallery Wrapped Print
    - Sizes: 20" x 24" (Vertical) | Etsy $63.99 | Printify $40.69 | Shipping $16.79 | Net $0.18 | Margin 0.3%
    - Sizes: 12″ x 16″ (Vertical) | Etsy $39.99 | Printify $22.22 | Shipping $13.59 | Net $0.13 | Margin 0.3%
    - Sizes: 8" x 10" (Vertical) | Etsy $29.99 | Printify $14.81 | Shipping $11.89 | Net $0.19 | Margin 0.6%
    - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
 
 
-13. Vintage Capybara Travel Poster: Tropical Beach Paradise Canvas Wrap
+11. Vintage Capybara Travel Poster: Tropical Beach Paradise Canvas Wrap
    - Sizes: 12″ x 16″ (Vertical) | Etsy $39.99 | Printify $22.22 | Shipping $13.59 | Net $0.13 | Margin 0.3%
    - Sizes: 16" x 20" (Vertical) | Etsy $48.99 | Printify $29.63 | Shipping $13.59 | Net $0.87 | Margin 1.8%
    - Sizes: 20" x 24" (Vertical) | Etsy $65.99 | Printify $40.69 | Shipping $16.79 | Net $1.99 | Margin 3.0%
 
 
-14. Personalized Velveteen Blanket, Custom Fall Leaves Throw, Cozy Autumn Family Blanket
+12. Personalized Velveteen Blanket, Custom Fall Leaves Throw, Cozy Autumn Family Blanket
    - Sizes: 50" × 60" | Etsy $49.99 | Printify $34.29 | Shipping $10.39 | Net $0.31 | Margin 0.6%
    - Sizes: 60" × 80" | Etsy $68.99 | Printify $49.26 | Shipping $12.49 | Net $0.44 | Margin 0.6%
 
 
-15. Possum Raccoon Canvas Art, We Heard Pie Funny Print, Animal Kitchen Wall Decor
+13. Possum Raccoon Canvas Art, We Heard Pie Funny Print, Animal Kitchen Wall Decor
    - Sizes: 12" x 9" (Horizontal) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
    - Sizes: 30" x 24" (Horizontal) | Etsy $79.99 | Printify $52.88 | Shipping $18.29 | Net $0.97 | Margin 1.2%
    - Sizes: 20″ x 16″ (Horizontal) | Etsy $48.99 | Printify $29.63 | Shipping $13.59 | Net $0.87 | Margin 1.8%
 
 
-16. Capybara Scream Canvas, Museum Parody Art Print, Embrace Chaos Wall Decor
+14. Capybara Scream Canvas, Museum Parody Art Print, Embrace Chaos Wall Decor
    - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
    - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
    - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
 
 
-17. Custom Watercolor Pet Portrait on Gallery Wrapped Canvas, Personalized Dog or Cat Wall Art
+15. Custom Watercolor Pet Portrait on Gallery Wrapped Canvas, Personalized Dog or Cat Wall Art
    - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
    - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
    - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
 
 
-18. Personalized Sepia Pet Portrait Canvas, Custom Dog Cat Wall Art
+16. Personalized Sepia Pet Portrait Canvas, Custom Dog Cat Wall Art
    - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
    - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
    - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
 
 
-19. Personalized Vector Pet Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
+17. Personalized Vector Pet Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
    - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
    - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
    - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
 
 
-20. Personalized Vintage Botanical Portrait on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
+18. Personalized Vintage Botanical Portrait on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
    - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
    - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
    - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
 
 
-21. Personalized Art Print Pet Portrait on Gallery Wrapped Canvas
+19. Personalized Art Print Pet Portrait on Gallery Wrapped Canvas
    - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
    - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
    - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
 
 
-22. Custom Pet Portrait Canvas: Vintage Circus Dog Art, Personalized Name Print
+20. Custom Pet Portrait Canvas: Vintage Circus Dog Art, Personalized Name Print
    - Sizes: 24″ x 24″ | Etsy $79.99 | Printify $52.95 | Shipping $18.29 | Net $0.90 | Margin 1.1%
    - Sizes: 16″ x 16″ | Etsy $46.99 | Printify $27.31 | Shipping $13.59 | Net $1.38 | Margin 2.9%
    - Sizes: 10″ x 10″ | Etsy $36.99 | Printify $17.13 | Shipping $13.59 | Net $2.51 | Margin 6.8%
 
 
-23. Too for Coop Chicken Shirt, Funny Farm Animal Graphic Tee
+21. Too for Coop Chicken Shirt, Funny Farm Animal Graphic Tee
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
    - Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
@@ -212,87 +184,87 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
-24. Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel
+22. Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
-25. Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee
+23. Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
    - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
-26. Customizable Chicken Coop T-Shirt, Farmhouse Flock Apparel, Comfort Colors Tee
+24. Customizable Chicken Coop T-Shirt, Farmhouse Flock Apparel, Comfort Colors Tee
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
-27. Opossum Raccoon Pie Shirt, Funny Thanksgiving Graphic Tee, Fall Animal Lover Gift
+25. Opossum Raccoon Pie Shirt, Funny Thanksgiving Graphic Tee, Fall Animal Lover Gift
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
-28. Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee
+26. Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
-29. Personalized Vintage Circus Pet T-Shirt, Custom Pet Photo Tee, Comfort Colors Shirt, FunHaus Style
+27. Personalized Vintage Circus Pet T-Shirt, Custom Pet Photo Tee, Comfort Colors Shirt, FunHaus Style
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
-   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
-30. Capybara Shirt: Humorous Vitruvian Yoga Animal Graphic Tee
-   - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
-   - Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
-   - Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-
-
-31. Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee
+28. Capybara Shirt: Humorous Vitruvian Yoga Animal Graphic Tee
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
    - Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
-32. Capybara T-Shirt: Vintage Art Parody Farmhouse Humor Cotton Tee, American Gothic
+29. Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee
+   - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
+   - Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
+   - Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+
+
+30. Capybara T-Shirt: Vintage Art Parody Farmhouse Humor Cotton Tee, American Gothic
    - Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
    - Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
@@ -302,127 +274,109 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
    - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
-33. Customizable Chicken Flock Sweatshirt, Personalized Farm Crewneck, Backyard Chicken Keeper Apparel
+31. Customizable Chicken Flock Sweatshirt, Personalized Farm Crewneck, Backyard Chicken Keeper Apparel
    - Sizes: 2XL | Etsy $43.99 | Printify $27.91 | Shipping $10.39 | Net $1.26 | Margin 2.9%
    - Sizes: 3XL | Etsy $46.99 | Printify $29.92 | Shipping $10.39 | Net $1.97 | Margin 4.2%
-   - Sizes: L | Etsy $39.99 | Printify $22.86 | Shipping $10.39 | Net $2.69 | Margin 6.7%
-   - Sizes: XL | Etsy $39.99 | Printify $22.86 | Shipping $10.39 | Net $2.69 | Margin 6.7%
-   - Sizes: M | Etsy $39.99 | Printify $22.86 | Shipping $10.39 | Net $2.69 | Margin 6.7%
    - Sizes: S | Etsy $39.99 | Printify $22.86 | Shipping $10.39 | Net $2.69 | Margin 6.7%
+   - Sizes: M | Etsy $39.99 | Printify $22.86 | Shipping $10.39 | Net $2.69 | Margin 6.7%
+   - Sizes: XL | Etsy $39.99 | Printify $22.86 | Shipping $10.39 | Net $2.69 | Margin 6.7%
+   - Sizes: L | Etsy $39.99 | Printify $22.86 | Shipping $10.39 | Net $2.69 | Margin 6.7%
 
 
-34. Opossum Raccoon Pie Dad Hat, Funny Thanksgiving Baseball Cap, Fall Animal Lover Gift
+32. Opossum Raccoon Pie Dad Hat, Funny Thanksgiving Baseball Cap, Fall Animal Lover Gift
    - ValuCap Colors: Navy | Etsy $24.99 | Printify $13.84 | Shipping $7.79 | Net $0.74 | Margin 2.9%
-   - ValuCap Colors: Forest Green | Etsy $24.99 | Printify $13.84 | Shipping $7.79 | Net $0.74 | Margin 2.9%
-   - ValuCap Colors: White | Etsy $24.99 | Printify $13.84 | Shipping $7.79 | Net $0.74 | Margin 2.9%
    - ValuCap Colors: Black | Etsy $24.99 | Printify $13.84 | Shipping $7.79 | Net $0.74 | Margin 2.9%
+   - ValuCap Colors: White | Etsy $24.99 | Printify $13.84 | Shipping $7.79 | Net $0.74 | Margin 2.9%
    - ValuCap Colors: Red | Etsy $24.99 | Printify $13.84 | Shipping $7.79 | Net $0.74 | Margin 2.9%
+   - ValuCap Colors: Forest Green | Etsy $24.99 | Printify $13.84 | Shipping $7.79 | Net $0.74 | Margin 2.9%
 
 
-35. Custom Framed Watercolor Pet Portrait on Wrapped Canvas, Personalized Dog or Cat Wall Art
+33. Custom Framed Watercolor Pet Portrait on Wrapped Canvas, Personalized Dog or Cat Wall Art
    - Art & wall decor sizes: 24" x 30" (Vertical) | Etsy $139.99 | Printify $102.75 | Shipping $18.89 | Net $4.80 | Margin 3.4%
    - Art & wall decor sizes: 16″ x 20″ (Vertical) | Etsy $82.99 | Printify $54.99 | Shipping $16.19 | Net $3.68 | Margin 4.4%
    - Art & wall decor sizes: 8″ x 10″ (Vertical) | Etsy $54.99 | Printify $28.15 | Shipping $16.19 | Net $5.18 | Margin 9.4%
 
 
-36. Chicken Canvas Print, Too Cool for the Coop Wall Art, Funny Farmhouse Chicken Decor, Backyard Chicken Lover Gift, Optional Personalization
+34. Chicken Canvas Print, Too Cool for the Coop Wall Art, Funny Farmhouse Chicken Decor, Backyard Chicken Lover Gift, Optional Personalization
    - Sizes: 12" x 9" (Horizontal) | Etsy $33.99 | Printify $17.42 | Shipping $11.89 | Net $1.20 | Margin 3.5%
    - Sizes: 18″ x 12″ (Horizontal) | Etsy $46.99 | Printify $25.39 | Shipping $13.59 | Net $3.30 | Margin 7.0%
    - Sizes: 24″ x 16″ (Horizontal) | Etsy $59.99 | Printify $32.85 | Shipping $16.79 | Net $4.40 | Margin 7.3%
    - Sizes: 30″ x 20″ (Horizontal) | Etsy $69.99 | Printify $39.34 | Shipping $16.79 | Net $6.96 | Margin 9.9%
 
 
-37. Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor
+35. Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor
    - Sizes: 20″ x 16″ (Horizontal) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
    - Sizes: 30" x 24" (Horizontal) | Etsy $82.99 | Printify $52.88 | Shipping $18.29 | Net $3.69 | Margin 4.4%
    - Sizes: 10" x 8" (Horizontal) | Etsy $32.99 | Printify $14.81 | Shipping $11.89 | Net $2.91 | Margin 8.8%
 
 
-38. Capybara Print, Museum Creation of Adam Parody Wall Art, Funny Renaissance Gallery Wrapped Canvas
+36. Capybara Print, Museum Creation of Adam Parody Wall Art, Funny Renaissance Gallery Wrapped Canvas
    - Sizes: 30″ x 20″ (Horizontal) | Etsy $64.99 | Printify $39.34 | Shipping $16.79 | Net $2.44 | Margin 3.7%
    - Sizes: 24″ x 16″ (Horizontal) | Etsy $57.99 | Printify $32.85 | Shipping $16.79 | Net $2.59 | Margin 4.5%
    - Sizes: 18″ x 12″ (Horizontal) | Etsy $45.99 | Printify $25.39 | Shipping $13.59 | Net $2.39 | Margin 5.2%
 
 
-39. Woodland Animals Sweatshirt, Capybara Raccoon Possum Crewneck, Cozy Nature Lover Pullover
+37. Woodland Animals Sweatshirt, Capybara Raccoon Possum Crewneck, Cozy Nature Lover Pullover
    - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
-   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Net unavailable | Margin unavailable
 
 
-40. Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif
+38. Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif
    - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
-   - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: L | Etsy $34.99 | Printify $19.45 | Net unavailable | Margin unavailable
-
-
-41. Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck
-   - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
-   - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
-   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Net unavailable | Margin unavailable
 
 
-42. Capybara Sweatshirt – Funny Rodent Art Apparel, American Gothic Parody
+39. Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck
    - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
-   - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Net unavailable | Margin unavailable
 
 
-43. Capybara Sweatshirt, Museum Humor Crewneck, Animal Lover Gift, Renaissance Art
+40. Capybara Sweatshirt – Funny Rodent Art Apparel, American Gothic Parody
    - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
+   - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Net unavailable | Margin unavailable
 
 
-44. Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset
+41. Capybara Sweatshirt, Museum Humor Crewneck, Animal Lover Gift, Renaissance Art
    - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
-   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Net unavailable | Margin unavailable
 
 
-45. Opossum Raccoon Pie Sweatshirt, Funny Thanksgiving Crewneck, Fall Animal Lover Gift
+42. Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset
+   - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
-   - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
-   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-
-
-46. Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt
-   - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
-   - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
-   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: L | Etsy $34.99 | Printify $19.45 | Net unavailable | Margin unavailable
 
 
-47. Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover
+43. Opossum Raccoon Pie Sweatshirt, Funny Thanksgiving Crewneck, Fall Animal Lover Gift
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
@@ -431,232 +385,250 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
    - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
-48. Possum Raccoon Pie Coffee Mug, Funny Black Ceramic Cup, Animal Lover Gift
+44. Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt
+   - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
+   - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
+   - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+
+
+45. Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover
+   - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
+   - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
+   - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+
+
+46. Possum Raccoon Pie Coffee Mug, Funny Black Ceramic Cup, Animal Lover Gift
    - Sizes: 15oz | Etsy $21.99 | Printify $8.77 | Shipping $9.39 | Net $1.49 | Margin 6.8%
    - Sizes: 11oz | Etsy $17.99 | Printify $7.41 | Shipping $7.29 | Net $1.33 | Margin 7.4%
 
 
-49. Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift
+47. Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift
    - Etsy $31.99 | Printify $15.60 | Shipping $10.79 | Net $2.31 | Margin 7.2%
 
 
-50. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
-   - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+48. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
    - Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Witch / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Pumpkin / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+
+
+49. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
+   - Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Witch / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+
+
+50. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
+   - Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Witch / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 51. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
-   - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Witch / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Pumpkin / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 52. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
-   - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Witch / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-
-
-53. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
    - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Witch / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-
-
-54. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
-   - Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Witch / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Ghost / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Pumpkin / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
-55. Raccoon Opossum Christmas Lights Shirt, Funny Caffeine Denial Holiday Tee
+53. Raccoon Opossum Christmas Lights Shirt, Funny Caffeine Denial Holiday Tee
    - Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Clothing sizes: S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Clothing sizes: XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Clothing sizes: L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
    - Clothing sizes: M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
-   - Clothing sizes: S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
-56. Custom Chicken Mom Shirt, Personalized Flock Tee, Backyard Chicken Keeper Apparel
+54. Custom Chicken Mom Shirt, Personalized Flock Tee, Backyard Chicken Keeper Apparel
    - Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
    - Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
-57. Capybara Shirt Renaissance Art Parody Tee | Capybara Lover Gift | Michelangelo Inspired Graphic T-Shirt
+55. Capybara Shirt Renaissance Art Parody Tee | Capybara Lover Gift | Michelangelo Inspired Graphic T-Shirt
    - Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
    - Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
-58. Funny Raccoon Opossum Christmas Mug, Caffeine Denial Coffee Cup, Coworker Boss Gift
+56. Funny Raccoon Opossum Christmas Mug, Caffeine Denial Coffee Cup, Coworker Boss Gift
    - Sizes: 11oz | Etsy $17.99 | Printify $7.41 | Shipping $7.29 | Net $1.33 | Margin 7.4%
 
 
-59. Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift
+57. Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift
    - Etsy $17.99 | Printify $7.41 | Shipping $7.29 | Net $1.33 | Margin 7.4%
 
 
-60. Possum Sweatshirt, Personalized Playing Dead Is Your Cardio, Custom Name Opossum Crewneck, Animal Lover Gift
+58. Possum Sweatshirt, Personalized Playing Dead Is Your Cardio, Custom Name Opossum Crewneck, Animal Lover Gift
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
+   - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
    - Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
-61. Raccoon Possum Christmas Sweatshirt, Funny Caffeine Denial Crewneck, Holiday Animal Pullover
+59. Raccoon Possum Christmas Sweatshirt, Funny Caffeine Denial Crewneck, Holiday Animal Pullover
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
-   - Sizes: XL | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
-   - Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
    - Sizes: L | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: XL | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
    - Sizes: M | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
 
 
-62. Possum Raccoon Pie Sweatshirt, Funny Wildlife Animal Crewneck Pullover
+60. Possum Raccoon Pie Sweatshirt, Funny Wildlife Animal Crewneck Pullover
+   - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
+   - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
+   - Sizes: M | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: L | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: XL | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: L | Etsy $35.99 | Printify $19.45 | Net unavailable | Margin unavailable
+
+
+61. Custom Pet Circus Sweatshirt: Vintage Carnival Dog or Cat Lover Retro Apparel
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
    - Sizes: XL | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
-   - Sizes: L | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
    - Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: L | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
    - Sizes: M | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
    - Sizes: L | Etsy $35.99 | Printify $19.45 | Net unavailable | Margin unavailable
 
 
-63. Custom Pet Circus Sweatshirt: Vintage Carnival Dog or Cat Lover Retro Apparel
-   - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
-   - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
-   - Sizes: XL | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
-   - Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
-   - Sizes: M | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
-   - Sizes: L | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
-   - Sizes: L | Etsy $35.99 | Printify $19.45 | Net unavailable | Margin unavailable
-
-
-64. Capybara Tank Top | Renaissance Art Parody Sleeveless Shirt, Creation of Adam
+62. Capybara Tank Top | Renaissance Art Parody Sleeveless Shirt, Creation of Adam
    - Sizes: 2XL | Etsy $26.99 | Printify $17.04 | Shipping $4.95 | Net $2.19 | Margin 8.1%
-   - Sizes: XS | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
-   - Sizes: S | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
    - Sizes: XL | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
    - Sizes: L | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
+   - Sizes: XS | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
    - Sizes: M | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
+   - Sizes: S | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
    - Sizes: 2XL | Etsy $26.99 | Printify $17.04 | Net unavailable | Margin unavailable
    - Sizes: XL | Etsy $24.99 | Printify $14.61 | Net unavailable | Margin unavailable
    - Sizes: M | Etsy $24.99 | Printify $14.61 | Net unavailable | Margin unavailable
@@ -664,510 +636,510 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
    - Sizes: L | Etsy $24.99 | Printify $14.61 | Net unavailable | Margin unavailable
 
 
-65. Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug
-   - Mug color: Yellow | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
-   - Mug color: Red | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
-   - Mug color: Navy | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+63. Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug
    - Mug color: Black | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
-
-
-66. Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift
-   - Mug color: Yellow | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
-   - Mug color: Light Blue | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
    - Mug color: Navy | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Red | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Yellow | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+
+
+64. Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift
+   - Mug color: Light Blue | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
    - Mug color: Black | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
    - Mug color: Red | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
    - Mug color: Pink | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
-
-
-67. Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug
-   - Mug color: Red | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
-   - Mug color: Light Blue | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
-   - Mug color: Navy | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
-   - Mug color: Black | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
    - Mug color: Yellow | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Navy | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+
+
+65. Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug
+   - Mug color: Red | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Black | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
    - Mug color: Pink | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Navy | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Light Blue | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Yellow | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
 
 
-68. Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift
+66. Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift
    - Sizes: 80" × 60" | Etsy $89.99 | Printify $60.94 | Shipping $12.49 | Net $7.76 | Margin 8.6%
    - Sizes: 60" × 50" | Etsy $64.99 | Printify $39.73 | Shipping $10.39 | Net $8.45 | Margin 13.0%
 
 
-69. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
+67. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
    - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
    - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
 
 
-70. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
+68. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
    - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
    - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
 
 
-71. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
+69. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
+   - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
+   - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
+   - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
+   - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
+   - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
+   - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
+   - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+
+
+70. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
+   - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
+   - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
+   - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
+   - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
+   - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
+   - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
+   - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+
+
+71. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
+   - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
+   - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
+   - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
+   - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
+   - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
+   - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
+   - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+
+
+72. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
+   - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
+   - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
+   - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
+   - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
+   - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
+   - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
+   - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+
+
+73. Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)
    - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
    - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
    - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
    - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
-   - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
-
-
-72. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
-   - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
-   - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
-
-
-73. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
-   - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
-   - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
-
-
-74. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
-   - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
-   - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
-
-
-75. Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)
-   - Shapes: Star / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Shapes: Circle / Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Shapes: Circle / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Shapes: Star / Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Shapes: Circle / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Shapes: Star / Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
    - Shapes: Star / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
    - Shapes: Circle / Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
 
 
-76. Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake
+74. Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
    - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
    - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
 
 
-77. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
+75. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
    - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
    - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
 
 
-78. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
+76. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
    - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
    - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
 
 
-79. Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man
+77. Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man
    - Size: 15oz | Etsy $19.99 | Printify $6.63 | Shipping $9.39 | Net $1.82 | Margin 9.1%
    - Size: 11oz | Etsy $16.99 | Printify $5.09 | Shipping $7.29 | Net $2.75 | Margin 16.2%
 
 
-80. Possum Raccoon Pie Graphic Tee, Funny Wildlife Animal Shirt
+78. Possum Raccoon Pie Graphic Tee, Funny Wildlife Animal Shirt
    - Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
-81. Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag
+79. Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag
    - Sizes: 16" × 16'' | Etsy $26.99 | Printify $15.44 | Shipping $6.09 | Net $2.65 | Margin 9.8%
    - Sizes: 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
 
 
-82. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
-   - Finish: Frosted | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
+80. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
    - Finish: Glossy | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
-
-
-83. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
    - Finish: Frosted | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
+
+
+81. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
    - Finish: Glossy | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
-
-
-84. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
    - Finish: Frosted | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
+
+
+82. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
    - Finish: Glossy | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
-
-
-85. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
    - Finish: Frosted | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
+
+
+83. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
    - Finish: Glossy | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
+   - Finish: Frosted | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
 
 
-86. Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee
+84. Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
    - Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
-87. Custom Pet Christmas Tree Skirt, Personalized Dog Cat Holiday Decor
+85. Custom Pet Christmas Tree Skirt, Personalized Dog Cat Holiday Decor
    - One size | Etsy $64.99 | Printify $43.94 | Shipping $7.29 | Net $7.34 | Margin 11.3%
 
 
-88. Too Cool For Coop Chicken Mug, Funny Farmhouse Ceramic Cup, 11 Oz
+86. Too Cool For Coop Chicken Mug, Funny Farmhouse Ceramic Cup, 11 Oz
    - Etsy $18.99 | Printify $7.41 | Shipping $7.29 | Net $2.24 | Margin 11.8%
 
 
-89. Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote
+87. Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-90. Raccoon Opossum Tote Bag, Funny Caffeine Denial Design, Holiday Canvas Gift Bag
+88. Raccoon Opossum Tote Bag, Funny Caffeine Denial Design, Holiday Canvas Gift Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-91. Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag
+89. Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-92. Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag
+90. Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-93. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover
+91. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-94. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover
+92. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-95. Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag
+93. Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag
    - Colors: Black | Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
    - Colors: Natural | Etsy $19.99 | Printify $9.97 | Shipping $4.95 | Net $2.92 | Margin 14.6%
 
 
-96. Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag
+94. Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag
    - Colors: Black | Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
    - Colors: Natural | Etsy $19.99 | Printify $9.97 | Shipping $4.95 | Net $2.92 | Margin 14.6%
 
 
-97. Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag
+95. Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-98. Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag
+96. Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-99. Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag
+97. Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag
    - Colors: Black | Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
    - Colors: Natural | Etsy $19.99 | Printify $9.97 | Shipping $4.95 | Net $2.92 | Margin 14.6%
 
 
-100. Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag
+98. Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag
    - Colors: Black | Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
    - Colors: Natural | Etsy $19.99 | Printify $9.97 | Shipping $4.95 | Net $2.92 | Margin 14.6%
 
 
-101. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag
+99. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-102. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag
+100. Funny Opossum Christmas Tote Bag, Santa's Helper Canvas, Animal Lover Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-103. Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote
+101. Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-104. Custom Pet Photo Tote Bag: Personalized Black Canvas Tote
+102. Custom Pet Photo Tote Bag: Personalized Black Canvas Tote
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-105. Capybara Tote Bag: Funny Animal Canvas Tote, Vitruvian Man
+103. Capybara Tote Bag: Funny Animal Canvas Tote, Vitruvian Man
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-106. Funny Capybara American Gothic Tote Bag: Farmhouse Art Parody Canvas Tote
+104. Funny Capybara American Gothic Tote Bag: Farmhouse Art Parody Canvas Tote
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-107. Capybara Tote Bag: Renaissance Art Parody Canvas Tote, Funny Museum Humor
+105. Capybara Tote Bag: Renaissance Art Parody Canvas Tote, Funny Museum Humor
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-108. Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote
+106. Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
-109. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
-   - Size: Red Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+107. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
    - Size: Green Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+   - Size: Red Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Size: Red Tote Bag (AOP) / 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
    - Size: Green Tote Bag (AOP) / 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
-   - Size: Green Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
    - Size: Red Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
+   - Size: Green Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
 
 
-110. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
-   - Size: Red Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+108. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
    - Size: Green Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+   - Size: Red Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Size: Red Tote Bag (AOP) / 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
    - Size: Green Tote Bag (AOP) / 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
-   - Size: Green Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
    - Size: Red Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
+   - Size: Green Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
 
 
-111. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
-   - Size: Red Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+109. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
    - Size: Green Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+   - Size: Red Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Size: Red Tote Bag (AOP) / 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
    - Size: Green Tote Bag (AOP) / 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
-   - Size: Green Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
    - Size: Red Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
+   - Size: Green Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
 
 
-112. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
-   - Size: Red Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+110. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
    - Size: Green Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+   - Size: Red Tote Bag (AOP) / 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Size: Red Tote Bag (AOP) / 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
    - Size: Green Tote Bag (AOP) / 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
-   - Size: Green Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
    - Size: Red Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
+   - Size: Green Tote Bag (AOP) / 13" × 13'' | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
 
 
-113. Personalized Pet Portrait Vector Graphic Canvas Tote
+111. Personalized Pet Portrait Vector Graphic Canvas Tote
    - Sizes: 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Sizes: 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
 
 
-114. Personalized Pet Portrait Vintage Botanical Pattern Canvas Tote
+112. Personalized Pet Portrait Vintage Botanical Pattern Canvas Tote
    - Sizes: 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Sizes: 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
 
 
-115. Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup
+113. Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup
    - Etsy $16.99 | Printify $5.75 | Shipping $7.29 | Net $2.09 | Margin 12.3%
 
 
-116. Customizable Chicken Flock Mug, Farmhouse Coffee Cup, Backyard Chicken Lover Gift
+114. Customizable Chicken Flock Mug, Farmhouse Coffee Cup, Backyard Chicken Lover Gift
+   - Mug color: Black | Etsy $17.99 | Printify $6.45 | Shipping $7.29 | Net $2.29 | Margin 12.7%
    - Mug color: Purple | Etsy $17.99 | Printify $6.45 | Shipping $7.29 | Net $2.29 | Margin 12.7%
    - Mug color: Red | Etsy $17.99 | Printify $6.45 | Shipping $7.29 | Net $2.29 | Margin 12.7%
    - Mug color: Navy | Etsy $17.99 | Printify $6.45 | Shipping $7.29 | Net $2.29 | Margin 12.7%
-   - Mug color: Black | Etsy $17.99 | Printify $6.45 | Shipping $7.29 | Net $2.29 | Margin 12.7%
    - Mug color: Yellow | Etsy $17.99 | Printify $6.45 | Shipping $7.29 | Net $2.29 | Margin 12.7%
 
 
-117. Funny Capybara Tee Personalized "is on Capy Time" Cotton T Shirt
-   - Sizes: S | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
-   - Sizes: L | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
+115. Funny Capybara Tee Personalized "is on Capy Time" Cotton T Shirt
    - Sizes: XL | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
    - Sizes: M | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
+   - Sizes: S | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
+   - Sizes: L | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
    - Sizes: 2XL | Etsy $21.99 | Printify $11.78 | Shipping $4.95 | Net $2.92 | Margin 13.3%
    - Sizes: 3XL | Etsy $23.99 | Printify $13.03 | Shipping $4.95 | Net $3.48 | Margin 14.5%
 
 
-118. Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift
+116. Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift
    - Etsy $18.99 | Printify $8.29 | Shipping $6.19 | Net $2.46 | Margin 12.9%
 
 
-119. Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook
+117. Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook
    - Etsy $18.99 | Printify $8.29 | Shipping $6.19 | Net $2.46 | Margin 12.9%
 
 
-120. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
+118. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
    - Sizes: 60" × 80" | Etsy $79.99 | Printify $49.26 | Shipping $12.49 | Net $10.39 | Margin 13.0%
    - Sizes: 50" × 60" | Etsy $59.99 | Printify $34.29 | Shipping $10.39 | Net $9.36 | Margin 15.6%
 
 
-121. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
+119. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
    - Sizes: 60" × 80" | Etsy $79.99 | Printify $49.26 | Shipping $12.49 | Net $10.39 | Margin 13.0%
    - Sizes: 50" × 60" | Etsy $59.99 | Printify $34.29 | Shipping $10.39 | Net $9.36 | Margin 15.6%
 
 
-122. Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift
+120. Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-123. Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag
+121. Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-124. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
+122. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-125. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
+123. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-126. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
+124. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-127. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
+125. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-128. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
+126. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-129. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
+127. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-130. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
+128. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-131. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
+129. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-132. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
+130. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-133. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
+131. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-134. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
+132. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-135. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
+133. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-136. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
+134. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-137. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
+135. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-138. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
+136. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-139. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
+137. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-140. Personalized Thanksgiving Woodland Animals Garden Flag, Custom Family Name Fall Porch Decor
+138. Personalized Thanksgiving Woodland Animals Garden Flag, Custom Family Name Fall Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-141. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
+139. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-142. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
+140. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-143. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
+141. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-144. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
+142. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-145. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
+143. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-146. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
+144. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-147. Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag
+145. Funny Possum Christmas Garden Flag, Santa's Helper Yard Decor, Double Sided Holiday Outdoor Flag
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-148. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
+146. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-149. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
+147. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-150. Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner
+148. Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-151. Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift
+149. Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
-152. Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake
+150. Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake
    - Etsy $15.99 | Printify $6.21 | Shipping $5.89 | Net $2.12 | Margin 13.3%
 
 
-153. Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor
+151. Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor
    - Etsy $43.99 | Printify $21.12 | Shipping $12.49 | Net $5.95 | Margin 13.5%
 
 
-154. Hedgehog Christmas Ornament, Acrylic Woodland Animal Decor, Funny Cozy Winter Gift, Coworker Boss Gift
+152. Hedgehog Christmas Ornament, Acrylic Woodland Animal Decor, Funny Cozy Winter Gift, Coworker Boss Gift
    - Etsy $22.99 | Printify $11.48 | Shipping $5.89 | Net $3.19 | Margin 13.9%
 
 
