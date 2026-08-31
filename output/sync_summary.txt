@@ -1,5 +1,5 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-31T00:47:14.552508+00:00
+Run UTC: 2026-08-31T15:35:15.443022+00:00
 
 Etsy listings: 174
 Etsy SKU rows: 2,256
@@ -32,8 +32,8 @@ Etsy payment processing: 3% + $0.25
 Offsite Ads: EXCLUDED
 Etsy listing fee: EXCLUDED from per-sale calculation
 
-Matched products with calculable profit: 1,818
-Products below 15% margin: 1,714
+Matched products with calculable profit: 1,824
+Products below 15% margin: 1,720
 Percent below threshold: 94.3%
 
 LISTING-LEVEL PROFITABILITY
@@ -192,25 +192,25 @@ Only listings below 15% net margin are shown.
 73. Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift
    Current $64.99 | Net $7.76 | Printify $60.94 | Shipping $12.49 | Margin 8.6% | 15% price $97.59 | Increase $32.60
 74. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 75. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 76. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 77. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 78. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 79. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 80. Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 81. Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 82. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 83. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
-   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $110.55 | Increase $93.56
+   Current $16.99 | Net $1.51 | Printify $7.73 | Shipping $5.89 | Margin 8.9% | 15% price $112.40 | Increase $95.41
 84. Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man
    Current $16.99 | Net $1.82 | Printify $6.63 | Shipping $9.39 | Margin 9.1% | 15% price $21.55 | Increase $4.56
 85. Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag
