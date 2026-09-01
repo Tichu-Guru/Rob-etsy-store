@@ -1,9 +1,9 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-08-31T21:47:18.957039+00:00
+Run UTC: 2026-09-01T12:51:22.889419+00:00
 
 Etsy listings: 174
 Etsy SKU rows: 2,103
-Printify variants: 12,063
+Printify variants: 12,079
 
 SKU STATUS
 MATCHED: 1,764
@@ -523,81 +523,81 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 67. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 68. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 69. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 70. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 71. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 72. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 73. Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 74. Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 75. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 
 76. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
-   - Quantity: 5 pcs | Etsy $73.99 | Printify $38.67 | Shipping $11.49 | Net $16.55 | Margin 22.4%
-   - Quantity: 3 pcs | Etsy $47.99 | Printify $23.20 | Shipping $6.19 | Net $13.79 | Margin 28.7%
-   - Quantity: 10 pcs | Etsy $139.99 | Printify $77.32 | Shipping $7.29 | Net $41.83 | Margin 29.9%
+   - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
+   - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
+   - Quantity: 10 pcs | Etsy $129.99 | Printify $77.32 | Shipping $7.29 | Net $32.78 | Margin 25.2%
 
 
 

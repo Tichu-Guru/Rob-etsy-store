@@ -1,5 +1,5 @@
 LISTING PROFITABILITY SUMMARY
-Run UTC: 2026-08-31T21:47:18.957039+00:00
+Run UTC: 2026-09-01T12:51:22.889419+00:00
 
 Total Etsy listings: 174
 Listings with calculable profitability: 168
