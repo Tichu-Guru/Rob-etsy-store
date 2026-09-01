@@ -2125,35 +2125,68 @@ def main():
             api_price_numeric.notna()
         )
 
-        removed_stale_variant_count = int(
-            (
-                ~has_live_api_price
-            ).sum()
+        live_api_price_count = int(
+            has_live_api_price.sum()
         )
 
-        if removed_stale_variant_count:
+        # -------------------------------------------------
+        # SAFETY RULE:
+        #
+        # Only perform live-variant cleanup when the Etsy
+        # API actually returned pricing data.
+        #
+        # If API enrichment failed because credentials,
+        # rate limits, or another API problem prevented
+        # retrieval, preserving the CSV universe is safer
+        # than interpreting every row as stale.
+        # -------------------------------------------------
+
+        if live_api_price_count > 0:
+
+            removed_stale_variant_count = int(
+                (
+                    ~has_live_api_price
+                ).sum()
+            )
+
+            if removed_stale_variant_count:
+                print()
+                print("=" * 120)
+                print("CURRENT ETSY VARIANT UNIVERSE CLEANUP")
+                print("=" * 120)
+                print(
+                    "Variant rows before live filtering: "
+                    f"{len(etsy_variants_for_comparison)}"
+                )
+                print(
+                    "Stale/non-current CSV variant rows removed: "
+                    f"{removed_stale_variant_count}"
+                )
+
+                etsy_variants_for_comparison = (
+                    etsy_variants_for_comparison.loc[
+                        has_live_api_price
+                    ].copy()
+                )
+
+                print(
+                    "Variant rows after live filtering: "
+                    f"{len(etsy_variants_for_comparison)}"
+                )
+                print("=" * 120)
+                print()
+
+        else:
+
             print()
             print("=" * 120)
-            print("CURRENT ETSY VARIANT UNIVERSE CLEANUP")
+            print("CURRENT ETSY VARIANT FILTER SKIPPED")
             print("=" * 120)
             print(
-                "Variant rows before live filtering: "
-                f"{len(etsy_variants_for_comparison)}"
+                "No live Etsy API prices were retrieved."
             )
             print(
-                "Stale/non-current CSV variant rows removed: "
-                f"{removed_stale_variant_count}"
-            )
-
-            etsy_variants_for_comparison = (
-                etsy_variants_for_comparison.loc[
-                    has_live_api_price
-                ].copy()
-            )
-
-            print(
-                "Variant rows after live filtering: "
-                f"{len(etsy_variants_for_comparison)}"
+                "Preserving CSV Etsy variant rows."
             )
             print("=" * 120)
             print()
