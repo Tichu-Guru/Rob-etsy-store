@@ -125,9 +125,9 @@ jobs:
           PY2
 
       # ---------------------------------------------------
-      # RAW ETSY INVENTORY PRICE DIAGNOSTIC
+      # FULL ETSY INVENTORY PRODUCT PRICE DIAGNOSTIC
       # ---------------------------------------------------
-      - name: Raw Etsy inventory price diagnostic
+      - name: Full Etsy inventory product price diagnostic
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
           ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
@@ -135,6 +135,8 @@ jobs:
           ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
         run: |
           python - <<'PY2'
+          import json
+
           from src.etsy_api import EtsyApiClient
 
           listing_id = 4555873876
@@ -145,10 +147,11 @@ jobs:
 
           print()
           print("=" * 120)
-          print("RAW ETSY INVENTORY PRICE DIAGNOSTIC")
+          print("FULL ETSY INVENTORY PRODUCT PRICE DIAGNOSTIC")
           print("=" * 120)
           print(f"LISTING ID: {listing_id}")
           print(f"TARGET SKU: {target_sku}")
+          print()
 
           found = False
 
@@ -165,55 +168,57 @@ jobs:
 
               found = True
 
+              print(f"PRODUCT NUMBER: {product_number}")
               print()
-              print("-" * 120)
-              print(f"PRODUCT: {product_number}")
-              print(f"SKU: {sku}")
+              print("FULL RAW PRODUCT JSON:")
+              print(
+                  json.dumps(
+                      product,
+                      indent=2,
+                      sort_keys=True,
+                  )
+              )
 
-              print("PROPERTY VALUES:")
-              for prop in product.get("property_values", []) or []:
-                  print(f"  {prop}")
+              print()
+              print("PRICE-BEARING FIELDS:")
+              for key, value in product.items():
+                  key_lower = str(key).lower()
 
-              print("OFFERINGS:")
+                  if (
+                      "price" in key_lower
+                      or "cost" in key_lower
+                      or "amount" in key_lower
+                  ):
+                      print(
+                          f"  {key}: {value}"
+                      )
 
-              for offering in product.get("offerings", []) or []:
+              print()
+              print("OFFERING PRICE DETAILS:")
+
+              for offering in product.get(
+                  "offerings",
+                  [],
+              ) or []:
                   print(
-                      "  "
-                      + str(
-                          {
-                              "offering_id":
-                                  offering.get(
-                                      "offering_id"
-                                  ),
-                              "is_enabled":
-                                  offering.get(
-                                      "is_enabled"
-                                  ),
-                              "is_deleted":
-                                  offering.get(
-                                      "is_deleted"
-                                  ),
-                              "price":
-                                  offering.get(
-                                      "price"
-                                  ),
-                              "quantity":
-                                  offering.get(
-                                      "quantity"
-                                  ),
-                          }
+                      json.dumps(
+                          offering,
+                          indent=2,
+                          sort_keys=True,
                       )
                   )
 
           if not found:
-              print()
               print(
-                  "TARGET SKU NOT FOUND IN LISTING INVENTORY"
+                  "TARGET SKU NOT FOUND IN INVENTORY"
               )
 
           print()
           print("=" * 120)
-          print("END RAW ETSY INVENTORY PRICE DIAGNOSTIC")
+          print(
+              "END FULL ETSY INVENTORY PRODUCT "
+              "PRICE DIAGNOSTIC"
+          )
           print("=" * 120)
           PY2
 
