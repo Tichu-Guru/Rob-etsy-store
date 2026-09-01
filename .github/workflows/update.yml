@@ -79,6 +79,52 @@ jobs:
           PY2
 
       # ---------------------------------------------------
+      # ETSY LISTING ENDPOINT PRICE DIAGNOSTIC
+      # ---------------------------------------------------
+      - name: Etsy listing endpoint price diagnostic
+        env:
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+        run: |
+          python - <<'PY2'
+          from src.etsy_api import EtsyApiClient
+
+          listing_id = 4555873876
+          target_sku = "26983556704258408969"
+
+          client = EtsyApiClient.from_environment()
+
+          listing = client.request(
+              "GET",
+              f"/listings/{listing_id}",
+          )
+
+          print()
+          print("=" * 120)
+          print("ETSY LISTING ENDPOINT PRICE DIAGNOSTIC")
+          print("=" * 120)
+          print(f"LISTING ID: {listing_id}")
+          print(f"TARGET SKU: {target_sku}")
+          print()
+          print("LISTING ENDPOINT RESPONSE:")
+          print(
+              {
+                  "listing_id": listing.get("listing_id"),
+                  "title": listing.get("title"),
+                  "price": listing.get("price"),
+                  "quantity": listing.get("quantity"),
+                  "state": listing.get("state"),
+              }
+          )
+          print()
+          print("=" * 120)
+          print("END ETSY LISTING ENDPOINT PRICE DIAGNOSTIC")
+          print("=" * 120)
+          PY2
+
+      # ---------------------------------------------------
       # RAW ETSY INVENTORY PRICE DIAGNOSTIC
       # ---------------------------------------------------
       - name: Raw Etsy inventory price diagnostic
