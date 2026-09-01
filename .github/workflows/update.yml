@@ -125,9 +125,9 @@ jobs:
           PY2
 
       # ---------------------------------------------------
-      # FULL ETSY INVENTORY PRODUCT PRICE DIAGNOSTIC
+      # MULTI-SKU ETSY PRICE DIAGNOSTIC
       # ---------------------------------------------------
-      - name: Full Etsy inventory product price diagnostic
+      - name: Multi-SKU Etsy price diagnostic
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
           ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
@@ -135,90 +135,151 @@ jobs:
           ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
         run: |
           python - <<'PY2'
-          import json
-
           from src.etsy_api import EtsyApiClient
 
-          listing_id = 4555873876
-          target_sku = "26983556704258408969"
+          target_skus = {
+              "26983556704258408969": "4555873876",
+              "33260819367640803615": None,
+          }
 
           client = EtsyApiClient.from_environment()
-          inventory = client.get_listing_inventory(listing_id)
 
           print()
           print("=" * 120)
-          print("FULL ETSY INVENTORY PRODUCT PRICE DIAGNOSTIC")
+          print("MULTI-SKU ETSY PRICE DIAGNOSTIC")
           print("=" * 120)
-          print(f"LISTING ID: {listing_id}")
-          print(f"TARGET SKU: {target_sku}")
-          print()
 
-          found = False
+          # -------------------------------------------------
+          # Find the listing ID for any SKU where it was not
+          # supplied explicitly.
+          # -------------------------------------------------
 
-          for product_number, product in enumerate(
-              inventory.get("products", []) or [],
-              start=1,
+          if any(
+              listing_id is None
+              for listing_id in target_skus.values()
           ):
-              sku = str(
-                  product.get("sku") or ""
-              ).strip()
+              live_listing_rows = (
+                  client.get_listing_inventory_rows()
+              )
 
-              if sku != target_sku:
+              for row in live_listing_rows:
+                  sku = str(
+                      row.get(
+                          "etsy_api_sku",
+                          "",
+                      )
+                      or ""
+                  ).strip()
+
+                  if sku in target_skus:
+                      target_skus[sku] = str(
+                          row.get(
+                              "etsy_api_listing_id",
+                              "",
+                          )
+                      )
+
+          # -------------------------------------------------
+          # Inspect each target SKU's raw Etsy inventory.
+          # -------------------------------------------------
+
+          for sku, listing_id in target_skus.items():
+
+              print()
+              print("-" * 120)
+              print(f"TARGET SKU: {sku}")
+              print(
+                  f"LISTING ID: {listing_id}"
+              )
+
+              if not listing_id:
+                  print("LISTING ID NOT FOUND")
                   continue
 
-              found = True
-
-              print(f"PRODUCT NUMBER: {product_number}")
-              print()
-              print("FULL RAW PRODUCT JSON:")
-              print(
-                  json.dumps(
-                      product,
-                      indent=2,
-                      sort_keys=True,
-                  )
+              inventory = client.get_listing_inventory(
+                  int(listing_id)
               )
 
-              print()
-              print("PRICE-BEARING FIELDS:")
-              for key, value in product.items():
-                  key_lower = str(key).lower()
+              found = False
 
-                  if (
-                      "price" in key_lower
-                      or "cost" in key_lower
-                      or "amount" in key_lower
+              for product in (
+                  inventory.get(
+                      "products",
+                      [],
+                  )
+                  or []
+              ):
+
+                  product_sku = str(
+                      product.get(
+                          "sku",
+                          "",
+                      )
+                      or ""
+                  ).strip()
+
+                  if product_sku != sku:
+                      continue
+
+                  found = True
+
+                  print()
+                  print("PROPERTY VALUES:")
+                  for prop in (
+                      product.get(
+                          "property_values",
+                          [],
+                      )
+                      or []
                   ):
                       print(
-                          f"  {key}: {value}"
+                          f"  {prop}"
                       )
 
-              print()
-              print("OFFERING PRICE DETAILS:")
+                  print()
+                  print("OFFERINGS:")
 
-              for offering in product.get(
-                  "offerings",
-                  [],
-              ) or []:
+                  for offering in (
+                      product.get(
+                          "offerings",
+                          [],
+                      )
+                      or []
+                  ):
+                      print(
+                          {
+                              "offering_id":
+                                  offering.get(
+                                      "offering_id"
+                                  ),
+                              "is_enabled":
+                                  offering.get(
+                                      "is_enabled"
+                                  ),
+                              "is_deleted":
+                                  offering.get(
+                                      "is_deleted"
+                                  ),
+                              "price":
+                                  offering.get(
+                                      "price"
+                                  ),
+                              "quantity":
+                                  offering.get(
+                                      "quantity"
+                                  ),
+                          }
+                      )
+
+              if not found:
                   print(
-                      json.dumps(
-                          offering,
-                          indent=2,
-                          sort_keys=True,
-                      )
+                      "TARGET SKU NOT FOUND IN "
+                      "LISTING INVENTORY"
                   )
-
-          if not found:
-              print(
-                  "TARGET SKU NOT FOUND IN INVENTORY"
-              )
 
           print()
           print("=" * 120)
-          print(
-              "END FULL ETSY INVENTORY PRODUCT "
-              "PRICE DIAGNOSTIC"
-          )
+          print("END MULTI-SKU ETSY PRICE DIAGNOSTIC")
           print("=" * 120)
           PY2
 
