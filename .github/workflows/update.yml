@@ -921,6 +921,88 @@ jobs:
       # CERAMIC CHRISTMAS ORNAMENT MATCH DIAGNOSTIC
       # ---------------------------------------------------
       # ---------------------------------------------------
+      # RAW ETSY OFFERING DIAGNOSTIC
+      # ---------------------------------------------------
+      - name: Raw Etsy offering diagnostic
+        env:
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
+          ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
+          ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
+        run: |
+          python - <<'PY2'
+          from src.etsy_api import EtsyApiClient
+
+          sku = "26983556704258408969"
+          listing_id = 4555873876
+
+          client = EtsyApiClient.from_environment()
+          inventory = client.get_listing_inventory(listing_id)
+
+          print()
+          print("=" * 120)
+          print("RAW ETSY OFFERING DIAGNOSTIC")
+          print("=" * 120)
+          print(f"Listing ID: {listing_id}")
+          print(f"SKU: {sku}")
+          print()
+
+          found = False
+
+          for product in inventory.get("products", []):
+              product_sku = str(
+                  product.get("sku") or ""
+              ).strip()
+
+              if product_sku != sku:
+                  continue
+
+              found = True
+
+              print("PRODUCT:")
+              print(product)
+
+              print()
+              print("OFFERINGS:")
+
+              for offering in (
+                  product.get("offerings") or []
+              ):
+                  print(
+                      {
+                          "offering_id":
+                              offering.get(
+                                  "offering_id"
+                              ),
+                          "is_enabled":
+                              offering.get(
+                                  "is_enabled"
+                              ),
+                          "is_deleted":
+                              offering.get(
+                                  "is_deleted"
+                              ),
+                          "price":
+                              offering.get(
+                                  "price"
+                              ),
+                          "quantity":
+                              offering.get(
+                                  "quantity"
+                              ),
+                      }
+                  )
+
+          if not found:
+              print("SKU NOT FOUND IN RAW INVENTORY")
+
+          print()
+          print("=" * 120)
+          print("END RAW ETSY OFFERING DIAGNOSTIC")
+          print("=" * 120)
+          PY2
+
+      # ---------------------------------------------------
       # SYNC SUMMARY REPORT DIAGNOSTIC
       # ---------------------------------------------------
       - name: Sync summary report diagnostic
