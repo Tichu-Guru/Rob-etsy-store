@@ -16,6 +16,11 @@ from .database import (
 )
 from .etsy import build_etsy_tables, read_etsy_csv
 from .etsy_api import EtsyApiClient
+from .etsy_listing_map import (
+    load_mapping,
+    save_mapping,
+    bootstrap_from_database,
+)
 from .matching import build_comparison
 from .printify import PrintifyClient
 
@@ -906,6 +911,23 @@ def _normalize_match_text(value) -> str:
 def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
     listings = etsy_listings.copy()
     variants = etsy_variants.copy()
+
+    # -----------------------------------------------------
+    # PERSISTENT ETSY LISTING-ID MAPPING
+    # -----------------------------------------------------
+    #
+    # Etsy CSV exports do not contain the Etsy listing ID.
+    # Therefore we maintain a persistent mapping from the
+    # physical CSV row identity to the real Etsy listing ID.
+    #
+    # Images are deliberately NOT involved.
+    # -----------------------------------------------------
+    mapping_path = DATABASE_PATH.parent / "etsy_listing_map.csv"
+    listing_map = load_mapping(mapping_path)
+    listing_map = bootstrap_from_database(
+        DATABASE_PATH,
+        listing_map,
+    )
     listings["etsy_api_listing_id"] = pd.NA
     listings["etsy_api_price"] = pd.NA
     variants["etsy_api_listing_id"] = pd.NA
@@ -1321,6 +1343,10 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
                 listing_key = (
                     f"API_LISTING_{listing_id}"
                 )
+                listing_map.setdefault(
+                    listing_key,
+                    str(listing_id),
+                )
 
                 prices = pd.to_numeric(
                     group["etsy_api_price"],
@@ -1596,116 +1622,249 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
     print()
 
 
+    ambiguous_mappings = []
+
     for listing_index, listing in listings.iterrows():
 
-        # -----------------------------------------------------
-        # IDENTIFY THE ETSY API LISTING BY SKU FIRST
-        # -----------------------------------------------------
-        #
-        # SKU is the reliable variant identity.  The Etsy CSV title
-        # can differ from the Etsy API title even when both refer to
-        # the same real Etsy listing.  Therefore the title must NOT
-        # be a required gate for API enrichment.
-        #
-        # We score every API listing by overlap with the CSV SKUs.
-        # The title is retained only as a secondary fallback when
-        # no SKU overlap can identify a listing.
-        # -----------------------------------------------------
-
-        csv_skus = set(
-            str(v).strip().lower()
-            for v in variants.loc[
-                variants["etsy_listing_key"]
-                == listing["etsy_listing_key"],
-                "etsy_sku",
-            ].tolist()
-            if str(v).strip()
-            and str(v).strip().lower() != "unavailable_sku"
-        )
-
-        scores = []
-
-        for api_listing_id, group in api_df.groupby(
-            "etsy_api_listing_id"
-        ):
-            api_skus = set(
-                str(v).strip().lower()
-                for v in group["etsy_api_sku"].tolist()
-                if str(v).strip()
+        listing_key = str(
+            listing.get(
+                "etsy_listing_key",
+                "",
             )
-
-            overlap = len(csv_skus & api_skus)
-
-            if overlap > 0:
-                scores.append(
-                    (
-                        overlap,
-                        len(api_skus),
-                        api_listing_id,
-                    )
-                )
+            or ""
+        ).strip()
 
         # -----------------------------------------------------
-        # SKU MATCH FOUND
+        # FIRST: USE THE PERSISTENT ETSY LISTING ID
+        # -----------------------------------------------------
+        #
+        # Once a CSV row has been associated with an Etsy listing
+        # ID, that ID is authoritative.
+        #
+        # This is the critical protection against duplicate SKUs.
         # -----------------------------------------------------
 
-        if scores:
-            scores.sort(reverse=True)
-            best_overlap, _, best_id = scores[0]
+        mapped_listing_id = str(
+            listing_map.get(
+                listing_key,
+                "",
+            )
+            or ""
+        ).strip()
+
+        if mapped_listing_id:
 
             selected = api_df[
                 api_df["etsy_api_listing_id"]
-                == best_id
+                .astype(str)
+                .str.strip()
+                == mapped_listing_id
             ].copy()
 
-        else:
-            # -------------------------------------------------
-            # TITLE FALLBACK
-            # -------------------------------------------------
-            #
-            # This is only used when there are no usable SKU
-            # matches.  It preserves the previous behavior for
-            # listings whose CSV/API SKU information cannot be
-            # matched.
-            # -------------------------------------------------
+            if selected.empty:
 
-            title_key = _normalize_match_text(
-                listing.get("title", "")
-            )
+                print(
+                    "WARNING: Persistent Etsy listing mapping is "
+                    "not present in the current API response: "
+                    f"{listing_key} -> {mapped_listing_id}"
+                )
 
-            candidates = api_df[
-                api_df["_title_key"] == title_key
-            ].copy()
-
-            if candidates.empty:
                 continue
 
-            scores = []
+            best_id = mapped_listing_id
 
-            for api_listing_id, group in candidates.groupby(
+        else:
+
+            # -------------------------------------------------
+            # NO STORED MAPPING YET
+            # -------------------------------------------------
+            #
+            # We may safely create a mapping only when Etsy's
+            # current API data gives us ONE unambiguous listing.
+            #
+            # We will NEVER arbitrarily choose among multiple
+            # listings that share the same SKU/title.
+            # -------------------------------------------------
+
+            csv_skus = set(
+                str(v).strip().lower()
+                for v in variants.loc[
+                    variants["etsy_listing_key"]
+                    == listing_key,
+                    "etsy_sku",
+                ].tolist()
+                if str(v).strip()
+                and str(v).strip().lower()
+                != "unavailable_sku"
+            )
+
+            sku_candidates = []
+
+            for (
+                api_listing_id,
+                group,
+            ) in api_df.groupby(
                 "etsy_api_listing_id"
             ):
+
                 api_skus = set(
                     str(v).strip().lower()
                     for v in group["etsy_api_sku"].tolist()
                     if str(v).strip()
                 )
 
-                scores.append(
-                    (
-                        len(csv_skus & api_skus),
-                        len(api_skus),
-                        api_listing_id,
+                overlap = len(
+                    csv_skus & api_skus
+                )
+
+                if overlap > 0:
+                    sku_candidates.append(
+                        {
+                            "listing_id":
+                                str(api_listing_id),
+                            "overlap":
+                                overlap,
+                        }
+                    )
+
+            candidate_ids = sorted(
+                {
+                    item["listing_id"]
+                    for item in sku_candidates
+                }
+            )
+
+            # ---------------------------------------------
+            # EXACTLY ONE SKU CANDIDATE
+            # ---------------------------------------------
+
+            if len(candidate_ids) == 1:
+
+                best_id = candidate_ids[0]
+
+                listing_map[listing_key] = (
+                    best_id
+                )
+
+                selected = api_df[
+                    api_df["etsy_api_listing_id"]
+                    .astype(str)
+                    .str.strip()
+                    == best_id
+                ].copy()
+
+                print(
+                    "NEW ETSY LISTING MAPPING: "
+                    f"{listing_key} -> {best_id}"
+                )
+
+            else:
+
+                # -----------------------------------------
+                # NO UNIQUE SKU MATCH
+                # -----------------------------------------
+                #
+                # Try title only when it identifies exactly
+                # one API listing.
+                # -----------------------------------------
+
+                title_key = _normalize_match_text(
+                    listing.get(
+                        "title",
+                        "",
                     )
                 )
 
-            scores.sort(reverse=True)
-            best_overlap, _, best_id = scores[0]
+                title_candidates = api_df[
+                    api_df["_title_key"]
+                    == title_key
+                ].copy()
 
-            selected = candidates[
-                candidates["etsy_api_listing_id"]
-                == best_id
-            ].copy()
+                title_candidate_ids = sorted(
+                    {
+                        str(value)
+                        for value in
+                        title_candidates[
+                            "etsy_api_listing_id"
+                        ].dropna().tolist()
+                    }
+                )
+
+                if (
+                    len(title_candidate_ids) == 1
+                ):
+
+                    best_id = (
+                        title_candidate_ids[0]
+                    )
+
+                    listing_map[
+                        listing_key
+                    ] = best_id
+
+                    selected = api_df[
+                        api_df[
+                            "etsy_api_listing_id"
+                        ]
+                        .astype(str)
+                        .str.strip()
+                        == best_id
+                    ].copy()
+
+                    print(
+                        "NEW ETSY LISTING MAPPING "
+                        "FROM UNIQUE TITLE: "
+                        f"{listing_key} -> {best_id}"
+                    )
+
+                else:
+
+                    candidate_list = (
+                        candidate_ids
+                        or title_candidate_ids
+                    )
+
+                    ambiguous_mappings.append(
+                        {
+                            "etsy_listing_key":
+                                listing_key,
+                            "etsy_title":
+                                str(
+                                    listing.get(
+                                        "title",
+                                        "",
+                                    )
+                                    or ""
+                                ).strip(),
+                            "candidate_listing_ids":
+                                ",".join(
+                                    candidate_list
+                                ),
+                        }
+                    )
+
+                    if candidate_list:
+
+                        print(
+                            "AMBIGUOUS ETSY LISTING - "
+                            "NO GUESS MADE: "
+                            f"{listing_key} "
+                            f"candidates="
+                            f"{','.join(candidate_list)}"
+                        )
+
+                    else:
+
+                        print(
+                            "NO ETSY API LISTING MATCH: "
+                            f"{listing_key}"
+                        )
+
+                    continue
+
+        # -----------------------------------------------------
+        # APPLY PRICING FROM THE EXACT ETSY LISTING ID
+        # -----------------------------------------------------
 
         listings.at[
             listing_index,
@@ -1718,29 +1877,44 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
         ).dropna()
 
         if not prices.empty:
+
             listings.at[
                 listing_index,
                 "etsy_api_price",
-            ] = float(prices.min())
+            ] = float(
+                prices.min()
+            )
 
         mask = (
             variants["etsy_listing_key"]
-            == listing["etsy_listing_key"]
+            == listing_key
         )
 
-        for variant_index, variant in variants.loc[
+        for (
+            variant_index,
+            variant,
+        ) in variants.loc[
             mask
         ].iterrows():
+
             sku = str(
-                variant.get("etsy_sku", "")
+                variant.get(
+                    "etsy_sku",
+                    "",
+                )
             ).strip().lower()
 
-            if not sku or sku == "unavailable_sku":
+            if (
+                not sku
+                or sku == "unavailable_sku"
+            ):
                 continue
 
             matches = selected[
-                selected["_sku_key"] == sku
+                selected["_sku_key"]
+                == sku
             ]
+
             price_values = pd.to_numeric(
                 matches["etsy_api_price"],
                 errors="coerce",
@@ -1753,10 +1927,13 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
                 variant_index,
                 "etsy_api_listing_id",
             ] = str(best_id)
+
             variants.at[
                 variant_index,
                 "etsy_api_price",
-            ] = float(price_values.iloc[0])
+            ] = float(
+                price_values.iloc[0]
+            )
 
             api_match = matches.iloc[0]
 
@@ -1765,11 +1942,55 @@ def enrich_etsy_prices_from_api(etsy_listings, etsy_variants):
                 "etsy_api_variation_1_value",
                 "etsy_api_variation_label",
             ]:
+
                 if column in api_match.index:
+
                     variants.at[
                         variant_index,
                         column,
                     ] = api_match[column]
+
+    # -----------------------------------------------------
+    # SAVE THE PERSISTENT MAPPING
+    # -----------------------------------------------------
+
+    save_mapping(
+        listing_map,
+        mapping_path,
+    )
+
+    print()
+    print(
+        "Persistent Etsy listing mappings saved: "
+        f"{len(listing_map):,}"
+    )
+
+    if ambiguous_mappings:
+
+        print()
+        print(
+            "=" * 120
+        )
+        print(
+            "ETSY LISTINGS REQUIRING MANUAL LISTING-ID MAPPING"
+        )
+        print(
+            "=" * 120
+        )
+
+        for item in ambiguous_mappings:
+
+            print(
+                f"{item['etsy_listing_key']} | "
+                f"{item['etsy_title']} | "
+                f"Candidates: "
+                f"{item['candidate_listing_ids']}"
+            )
+
+        print(
+            "=" * 120
+        )
+        print()
 
     print(
         "Etsy API pricing enrichment: "
