@@ -1978,6 +1978,62 @@ def main():
         "Variant rows after live Etsy API enrichment: "
         f"{len(etsy_variants)}"
     )
+    # -----------------------------------------------------
+    # TARGETED ETSY PRICE UPDATE DIAGNOSTIC
+    # -----------------------------------------------------
+    # Verify one known Etsy SKU through the live API
+    # enrichment stage.
+    # -----------------------------------------------------
+
+    diagnostic_sku = "26983556704258408969"
+
+    diagnostic_variants = etsy_variants[
+        etsy_variants["etsy_sku"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        == diagnostic_sku
+    ].copy()
+
+    print()
+    print("=" * 120)
+    print("TARGETED ETSY PRICE UPDATE DIAGNOSTIC")
+    print("=" * 120)
+    print(
+        f"SKU: {diagnostic_sku}"
+    )
+
+    if diagnostic_variants.empty:
+        print("SKU NOT FOUND IN ENRICHED ETSY VARIANTS")
+    else:
+        diagnostic_columns = [
+            column
+            for column in [
+                "etsy_listing_key",
+                "etsy_sku",
+                "etsy_api_listing_id",
+                "etsy_api_price",
+                "etsy_price",
+                "etsy_variation_1_name",
+                "etsy_variation_1_value",
+                "etsy_variation_label",
+            ]
+            if column in diagnostic_variants.columns
+        ]
+
+        print(
+            diagnostic_variants[
+                diagnostic_columns
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 120)
+    print("END TARGETED ETSY PRICE UPDATE DIAGNOSTIC")
+    print("=" * 120)
+    print()
+
 
     if "etsy_analysis_include" in etsy_listings.columns:
         included_count = int(
@@ -2164,6 +2220,51 @@ def main():
         etsy_rows,
         etsy_variants,
     )
+
+    # -----------------------------------------------------
+    # TARGETED ETSY PRICE AFTER APPLY DIAGNOSTIC
+    # -----------------------------------------------------
+
+    diagnostic_rows = etsy_rows[
+        etsy_rows["etsy_sku"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        == diagnostic_sku
+    ].copy()
+
+    print()
+    print("=" * 120)
+    print("TARGETED ETSY PRICE AFTER APPLY DIAGNOSTIC")
+    print("=" * 120)
+
+    if diagnostic_rows.empty:
+        print("SKU NOT FOUND AFTER APPLY_ETSY_API_PRICES")
+    else:
+        diagnostic_columns = [
+            column
+            for column in [
+                "etsy_listing_id",
+                "etsy_listing_key",
+                "etsy_sku",
+                "etsy_price",
+                "etsy_variation_label",
+            ]
+            if column in diagnostic_rows.columns
+        ]
+
+        print(
+            diagnostic_rows[
+                diagnostic_columns
+            ].to_string(
+                index=False
+            )
+        )
+
+    print("=" * 120)
+    print("END TARGETED ETSY PRICE AFTER APPLY DIAGNOSTIC")
+    print("=" * 120)
+    print()
 
     listing_id_map = etsy_listings[[
         "etsy_listing_key",
