@@ -79,107 +79,97 @@ jobs:
           PY2
 
       # ---------------------------------------------------
-      # RAW ETSY INVENTORY DIAGNOSTIC
+      # RAW ETSY INVENTORY PRICE DIAGNOSTIC
       # ---------------------------------------------------
-      - name: Raw Etsy inventory diagnostic
+      - name: Raw Etsy inventory price diagnostic
         env:
           ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
           ETSY_API_SHARED_SECRET: ${{ secrets.ETSY_API_SHARED_SECRET }}
           ETSY_ACCESS_TOKEN: ${{ secrets.ETSY_ACCESS_TOKEN }}
           ETSY_REFRESH_TOKEN: ${{ secrets.ETSY_REFRESH_TOKEN }}
         run: |
-          python - <<'PY'
+          python - <<'PY2'
           from src.etsy_api import EtsyApiClient
 
-          LISTING_ID = 4557429557
+          listing_id = 4555873876
+          target_sku = "26983556704258408969"
 
           client = EtsyApiClient.from_environment()
-          inventory = client.get_listing_inventory(LISTING_ID)
+          inventory = client.get_listing_inventory(listing_id)
 
-          print("=" * 80)
-          print("RAW ETSY INVENTORY DIAGNOSTIC")
-          print("=" * 80)
           print()
-          print("LISTING ID:", LISTING_ID)
+          print("=" * 120)
+          print("RAW ETSY INVENTORY PRICE DIAGNOSTIC")
+          print("=" * 120)
+          print(f"LISTING ID: {listing_id}")
+          print(f"TARGET SKU: {target_sku}")
 
-          products = inventory.get("products", [])
+          found = False
 
-          print("PRODUCT COUNT:", len(products))
-          print()
-
-          for number, product in enumerate(products, 1):
-
+          for product_number, product in enumerate(
+              inventory.get("products", []) or [],
+              start=1,
+          ):
               sku = str(
                   product.get("sku") or ""
               ).strip()
-              print("-" * 80)
-              print("PRODUCT:", number)
-              print("SKU:", sku)
 
-              property_values = (
-                  product.get("property_values") or []
-              )
+              if sku != target_sku:
+                  continue
 
-              print("PROPERTY VALUES:")
-              if not property_values:
-                  print("  NONE")
-              else:
-                  for prop in property_values:
-                      print(
-                          " ",
-                          prop,
-                      )
-
-              offerings = (
-                  product.get("offerings") or []
-              )
-
-              print("OFFERINGS:")
-              if not offerings:
-                  print("  NONE")
-              else:
-                  for offering in offerings:
-
-                      offering_id = offering.get(
-                          "offering_id"
-                      )
-
-                      is_enabled = offering.get(
-                          "is_enabled"
-                      )
-
-                      is_deleted = offering.get(
-                          "is_deleted"
-                      )
-                      price = offering.get(
-                          "price"
-                      )
-
-                      print(
-                          "  OFFERING ID:",
-                          offering_id,
-                      )
-
-                      print(
-                          "  ENABLED:",
-                          is_enabled,
-                      )
-
-                      print(
-                          "  DELETED:",
-                          is_deleted,
-                      )
-                      print(
-                          "  PRICE:",
-                          price,
-                      )
+              found = True
 
               print()
+              print("-" * 120)
+              print(f"PRODUCT: {product_number}")
+              print(f"SKU: {sku}")
 
-          print("=" * 80)
-          print("END RAW ETSY INVENTORY DIAGNOSTIC")
-          print("=" * 80)
-          PY
+              print("PROPERTY VALUES:")
+              for prop in product.get("property_values", []) or []:
+                  print(f"  {prop}")
+
+              print("OFFERINGS:")
+
+              for offering in product.get("offerings", []) or []:
+                  print(
+                      "  "
+                      + str(
+                          {
+                              "offering_id":
+                                  offering.get(
+                                      "offering_id"
+                                  ),
+                              "is_enabled":
+                                  offering.get(
+                                      "is_enabled"
+                                  ),
+                              "is_deleted":
+                                  offering.get(
+                                      "is_deleted"
+                                  ),
+                              "price":
+                                  offering.get(
+                                      "price"
+                                  ),
+                              "quantity":
+                                  offering.get(
+                                      "quantity"
+                                  ),
+                          }
+                      )
+                  )
+
+          if not found:
+              print()
+              print(
+                  "TARGET SKU NOT FOUND IN LISTING INVENTORY"
+              )
+
+          print()
+          print("=" * 120)
+          print("END RAW ETSY INVENTORY PRICE DIAGNOSTIC")
+          print("=" * 120)
+          PY2
 
       # ---------------------------------------------------
       # ETSY VARIANT PRICE DIAGNOSTIC
