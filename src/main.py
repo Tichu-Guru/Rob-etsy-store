@@ -2520,6 +2520,68 @@ def main():
     print("=" * 120)
     print()
 
+    # -----------------------------------------------------
+    # AUTHORITATIVE LIVE ETSY ACTIVE-LISTING FILTER
+    # -----------------------------------------------------
+    # Etsy's live API is the source of truth for which
+    # listings are currently ACTIVE.
+    #
+    # Distinct Etsy listing IDs remain distinct. We do NOT
+    # deduplicate by title, SKU, image, or artwork.
+    try:
+        live_client = EtsyApiClient.from_environment()
+        live_shop_id = live_client.get_shop_id()
+        live_listing_rows = live_client.get_all_listings(
+            live_shop_id
+        )
+
+        live_active_ids = {
+            str(row.get("listing_id"))
+            for row in live_listing_rows
+            if str(row.get("state", "")).strip().lower() == "active"
+            and row.get("listing_id") is not None
+        }
+
+        before_count = len(etsy_listings)
+
+        mapped_ids = (
+            etsy_listings["etsy_api_listing_id"]
+            .astype("string")
+        )
+
+        etsy_listings = etsy_listings[
+            mapped_ids.isin(live_active_ids)
+        ].copy()
+
+        valid_listing_keys = set(
+            etsy_listings["etsy_listing_key"].astype(str)
+        )
+
+        etsy_variants = etsy_variants[
+            etsy_variants["etsy_listing_key"]
+            .astype(str)
+            .isin(valid_listing_keys)
+        ].copy()
+
+        print(
+            "LIVE ETSY ACTIVE LISTINGS: "
+            f"{len(live_active_ids):,}"
+        )
+        print(
+            "LISTINGS BEFORE ACTIVE FILTER: "
+            f"{before_count:,}"
+        )
+        print(
+            "LISTINGS AFTER ACTIVE FILTER: "
+            f"{len(etsy_listings):,}"
+        )
+
+    except Exception as exc:
+        print(
+            "WARNING: Live Etsy active-listing filter failed: "
+            f"{exc}"
+        )
+
     listing_id_map = etsy_listings[[
         "etsy_listing_key",
         "etsy_api_listing_id",
