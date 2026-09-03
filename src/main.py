@@ -2597,7 +2597,8 @@ def main():
 
         # Use API inventory rows to supply SKU/price/variation data
         # for API-only listings when available.
-        api_inventory_df = pd.DataFrame(api_rows)
+        api_inventory_rows = live_client.get_listing_inventory_rows()
+        api_inventory_df = pd.DataFrame(api_inventory_rows)
 
         for row in missing_active_rows:
             listing_id = str(row["listing_id"])
