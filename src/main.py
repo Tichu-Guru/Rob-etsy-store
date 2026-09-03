@@ -2568,8 +2568,22 @@ def main():
             and value in live_active_ids
         }
 
-        # Remove stale/inactive mapped CSV listings.
-        keep_mask = mapped_ids.isin(live_active_ids)
+        # Keep unmapped CSV listings because failure to map a CSV
+        # row to an API listing does not prove that the listing is
+        # inactive. Remove only listings with a mapped Etsy ID that
+        # is no longer ACTIVE.
+        has_mapped_id = (
+            mapped_ids.ne("")
+            & mapped_ids.str.lower().ne("<na>")
+        )
+
+        keep_mask = (
+            ~has_mapped_id
+            | mapped_ids.isin(live_active_ids)
+        )
+
+        removed_count = int((~keep_mask).sum())
+
         etsy_listings = etsy_listings.loc[
             keep_mask
         ].copy()
@@ -2621,11 +2635,25 @@ def main():
             ).dropna()
 
             fallback_price = row.get("price")
-            fallback_price = (
-                float(fallback_price)
-                if fallback_price is not None
-                else pd.NA
-            )
+
+            if isinstance(fallback_price, dict):
+                fallback_price = fallback_price.get(
+                    "amount",
+                    fallback_price.get(
+                        "value",
+                        fallback_price.get("price"),
+                    ),
+                )
+
+            try:
+                fallback_price = (
+                    pd.NA
+                    if fallback_price is None
+                    or pd.isna(fallback_price)
+                    else float(fallback_price)
+                )
+            except (TypeError, ValueError):
+                fallback_price = pd.NA
 
             listing_price = (
                 float(listing_prices.min())
@@ -2751,7 +2779,7 @@ def main():
         )
         print(
             "STALE/INACTIVE LISTINGS REMOVED: "
-            f"{before_count - len(existing_active_ids):,}"
+            f"{removed_count:,}"
         )
         print(
             "LIVE ACTIVE LISTINGS ADDED: "
