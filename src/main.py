@@ -2521,13 +2521,17 @@ def main():
     print()
 
     # -----------------------------------------------------
-    # AUTHORITATIVE LIVE ETSY ACTIVE-LISTING FILTER
+    # AUTHORITATIVE LIVE ETSY ACTIVE-LISTING RECONCILIATION
     # -----------------------------------------------------
-    # Etsy's live API is the source of truth for which
-    # listings are currently ACTIVE.
+    # Etsy's live API is the authoritative source for the
+    # current ACTIVE listing universe.
     #
-    # Distinct Etsy listing IDs remain distinct. We do NOT
-    # deduplicate by title, SKU, image, or artwork.
+    # Existing CSV listings remain distinct listings.
+    # Duplicate titles are NOT collapsed.
+    #
+    # Any ACTIVE Etsy listing missing from the CSV/mapping is
+    # added as an API-only listing so the report represents
+    # every current ACTIVE Etsy listing.
     try:
         live_client = EtsyApiClient.from_environment()
         live_shop_id = live_client.get_shop_id()
@@ -2535,22 +2539,39 @@ def main():
             live_shop_id
         )
 
-        live_active_ids = {
-            str(row.get("listing_id"))
+        live_active_rows = [
+            row
             for row in live_listing_rows
             if str(row.get("state", "")).strip().lower() == "active"
             and row.get("listing_id") is not None
+        ]
+
+        live_active_ids = {
+            str(row["listing_id"])
+            for row in live_active_rows
         }
 
         before_count = len(etsy_listings)
 
+        # Current CSV/API mappings already known.
         mapped_ids = (
             etsy_listings["etsy_api_listing_id"]
             .astype("string")
+            .fillna("")
+            .astype(str)
         )
 
-        etsy_listings = etsy_listings[
-            mapped_ids.isin(live_active_ids)
+        existing_active_ids = {
+            value
+            for value in mapped_ids
+            if value and value.lower() != "<na>"
+            and value in live_active_ids
+        }
+
+        # Remove stale/inactive mapped CSV listings.
+        keep_mask = mapped_ids.isin(live_active_ids)
+        etsy_listings = etsy_listings.loc[
+            keep_mask
         ].copy()
 
         valid_listing_keys = set(
@@ -2563,22 +2584,186 @@ def main():
             .isin(valid_listing_keys)
         ].copy()
 
+        # Add every live ACTIVE Etsy listing that is not already
+        # represented by a mapped CSV listing.
+        missing_active_rows = [
+            row
+            for row in live_active_rows
+            if str(row["listing_id"]) not in existing_active_ids
+        ]
+
+        added_listings = []
+        added_variants = []
+
+        # Use API inventory rows to supply SKU/price/variation data
+        # for API-only listings when available.
+        api_inventory_df = pd.DataFrame(api_rows)
+
+        for row in missing_active_rows:
+            listing_id = str(row["listing_id"])
+            api_key = f"API_LISTING_{listing_id}"
+            title = str(row.get("title", "") or "").strip()
+
+            # Prefer an API inventory price; otherwise fall back
+            # to the listing-level price if present.
+            listing_inventory = api_inventory_df[
+                api_inventory_df["etsy_api_listing_id"].astype(str)
+                == listing_id
+            ].copy()
+
+            listing_prices = pd.to_numeric(
+                listing_inventory.get(
+                    "etsy_api_price",
+                    pd.Series(dtype=float),
+                ),
+                errors="coerce",
+            ).dropna()
+
+            fallback_price = row.get("price")
+            fallback_price = (
+                float(fallback_price)
+                if fallback_price is not None
+                else pd.NA
+            )
+
+            listing_price = (
+                float(listing_prices.min())
+                if not listing_prices.empty
+                else fallback_price
+            )
+
+            quantity = row.get("quantity", 0)
+
+            added_listings.append(
+                {
+                    "etsy_source_row": pd.NA,
+                    "etsy_listing_key": api_key,
+                    "etsy_analysis_include": True,
+                    "etsy_duplicate_title": False,
+                    "etsy_duplicate_title_group": "",
+                    "etsy_duplicate_title_occurrence": 1,
+                    "title": title,
+                    "description": "",
+                    "price": listing_price,
+                    "etsy_api_listing_id": listing_id,
+                    "etsy_api_price": listing_price,
+                    "currency_code": row.get(
+                        "currency_code",
+                        "USD",
+                    ),
+                    "quantity": quantity,
+                    "tags": "",
+                    "materials": "",
+                    "variation_1_type": "",
+                    "variation_1_name": "",
+                    "variation_1_values": "",
+                    "variation_2_type": "",
+                    "variation_2_name": "",
+                    "variation_2_values": "",
+                    "image_count": 0,
+                    "raw_row_json": "{}",
+                }
+            )
+
+            for sku_index, (_, inv) in enumerate(
+                listing_inventory.iterrows(),
+                start=1,
+            ):
+                sku = str(
+                    inv.get("etsy_api_sku", "") or ""
+                ).strip()
+
+                if not sku:
+                    continue
+
+                added_variants.append(
+                    {
+                        "etsy_source_row": pd.NA,
+                        "etsy_listing_key": api_key,
+                        "etsy_analysis_include": True,
+                        "etsy_duplicate_title": False,
+                        "etsy_sku_index": sku_index,
+                        "etsy_sku": sku,
+                        "etsy_sku_status": "API_ONLY",
+                        "etsy_variation_1_name": str(
+                            inv.get(
+                                "etsy_api_variation_1_name",
+                                "",
+                            ) or ""
+                        ).strip(),
+                        "etsy_variation_1_value": str(
+                            inv.get(
+                                "etsy_api_variation_1_value",
+                                "",
+                            ) or ""
+                        ).strip(),
+                        "etsy_variation_2_name": str(
+                            inv.get(
+                                "etsy_api_variation_2_name",
+                                "",
+                            ) or ""
+                        ).strip(),
+                        "etsy_variation_2_value": str(
+                            inv.get(
+                                "etsy_api_variation_2_value",
+                                "",
+                            ) or ""
+                        ).strip(),
+                        "etsy_variation_label": str(
+                            inv.get(
+                                "etsy_api_variation_label",
+                                "",
+                            ) or ""
+                        ).strip(),
+                        "etsy_api_listing_id": listing_id,
+                        "etsy_api_price": inv.get(
+                            "etsy_api_price"
+                        ),
+                    }
+                )
+
+        if added_listings:
+            etsy_listings = pd.concat(
+                [
+                    etsy_listings,
+                    pd.DataFrame(added_listings),
+                ],
+                ignore_index=True,
+            )
+
+        if added_variants:
+            etsy_variants = pd.concat(
+                [
+                    etsy_variants,
+                    pd.DataFrame(added_variants),
+                ],
+                ignore_index=True,
+            )
+
         print(
             "LIVE ETSY ACTIVE LISTINGS: "
             f"{len(live_active_ids):,}"
         )
         print(
-            "LISTINGS BEFORE ACTIVE FILTER: "
+            "LISTINGS BEFORE ACTIVE RECONCILIATION: "
             f"{before_count:,}"
         )
         print(
-            "LISTINGS AFTER ACTIVE FILTER: "
+            "STALE/INACTIVE LISTINGS REMOVED: "
+            f"{before_count - len(existing_active_ids):,}"
+        )
+        print(
+            "LIVE ACTIVE LISTINGS ADDED: "
+            f"{len(added_listings):,}"
+        )
+        print(
+            "LISTINGS AFTER ACTIVE RECONCILIATION: "
             f"{len(etsy_listings):,}"
         )
 
     except Exception as exc:
         print(
-            "WARNING: Live Etsy active-listing filter failed: "
+            "WARNING: Live Etsy active-listing reconciliation failed: "
             f"{exc}"
         )
 
