@@ -1,9 +1,9 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-09-03T19:59:47.894596+00:00
+Run UTC: 2026-09-03T21:58:57.495290+00:00
 
-Etsy listings: 177
+Etsy listings: 136
 Etsy SKU rows: 1,629
-Printify variants: 12,195
+Printify variants: 12,208
 
 SKU STATUS
 MATCHED: 1,338
@@ -37,103 +37,18 @@ Products below 15% margin: 1,226
 Percent below threshold: 92.0%
 
 LISTING-LEVEL PROFITABILITY
-Total active Etsy listings: 177
-Etsy listings with calculable profitability: 125
-Etsy listings without calculable profitability: 52
-Etsy listings below 15%: 113
-Percent of calculable listings below threshold: 90.4%
+Total active Etsy listings: 136
+Etsy listings with calculable profitability: 108
+Etsy listings without calculable profitability: 28
+Etsy listings below 15%: 96
+Percent of calculable listings below threshold: 88.9%
 
 LISTINGS REQUIRING ATTENTION
 
 Listings with at least one variant below 15% net margin are shown.
 Each listing includes EVERY matched variant so variant pricing can be reviewed individually.
 
-1. Personalized Pet Sketch Portrait, Sepia Toned Dog Cat Canvas Wall Art
-   - Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: White | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
-   - Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Black | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
-   - Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Espresso | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
-
-
-
-2. Personalized Framed Vector Pet Portrait on Gallery Wrapped Canvas
-   - Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: White | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
-   - Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Espresso | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
-   - Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: White | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
-
-
-
-3. Personalized Art Deco Pet Portrait, Framed Dog Cat Canvas Wall Art
-   - Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Black | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
-   - Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Black | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
-   - Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Espresso | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
-
-
-
-4. Personalized Framed Art Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
-   - Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Natural / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Black | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
-   - Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Natural / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Espresso | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
-   - Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Natural / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: White | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
-
-
-
-5. Personalized Vintage Botanical Pet Portrait, Custom Dog Cat Canvas Wall Art
-   - Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Natural | Etsy $134.99 | Printify $102.75 | Shipping $18.89 | Net $0.28 | Margin 0.2%
-   - Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Natural / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: White | Etsy $79.99 | Printify $54.99 | Shipping $16.19 | Net $0.96 | Margin 1.2%
-   - Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Black / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Natural / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: White | Etsy $49.99 | Printify $28.15 | Shipping $16.19 | Net $0.65 | Margin 1.3%
-
-
-
-6. Custom Pet Portrait Canvas Wall Art: Personalized Dog, Cat Memorial Gallery Wrapped Print
-   - Sizes: 20" x 24" (Vertical) | Etsy $63.99 | Printify $40.69 | Shipping $16.79 | Net $0.18 | Margin 0.3%
-   - Sizes: 12″ x 16″ (Vertical) | Etsy $39.99 | Printify $22.22 | Shipping $13.59 | Net $0.13 | Margin 0.3%
-   - Sizes: 8" x 10" (Vertical) | Etsy $29.99 | Printify $14.81 | Shipping $11.89 | Net $0.19 | Margin 0.6%
-   - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
-
-
-
-7. Custom Watercolor Pet Portrait on Gallery Wrapped Canvas, Personalized Dog or Cat Wall Art
-   - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
-   - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
-   - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
-
-
-
-8. Personalized Sepia Pet Portrait Canvas, Custom Dog Cat Wall Art
-   - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
-   - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
-   - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
-
-
-
-9. Personalized Vector Pet Print on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
-   - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
-   - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
-   - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
-
-
-
-10. Personalized Vintage Botanical Portrait on Gallery Wrapped Canvas, Custom Dog or Cat Wall Art
-   - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
-   - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
-   - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
-
-
-
-11. Personalized Art Print Pet Portrait on Gallery Wrapped Canvas
-   - Sizes: 9" x 12" (Vertical) | Etsy $32.99 | Printify $17.42 | Shipping $11.89 | Net $0.30 | Margin 0.9%
-   - Sizes: 16" x 20" (Vertical) | Etsy $49.99 | Printify $29.63 | Shipping $13.59 | Net $1.77 | Margin 3.5%
-   - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
-
-
-
-12. Custom Pet Portrait Canvas: Vintage Circus Dog Art, Personalized Name Print
-   - Sizes: 24″ x 24″ | Etsy $79.99 | Printify $52.95 | Shipping $18.29 | Net $0.90 | Margin 1.1%
-   - Sizes: 16″ x 16″ | Etsy $46.99 | Printify $27.31 | Shipping $13.59 | Net $1.38 | Margin 2.9%
-   - Sizes: 10″ x 10″ | Etsy $36.99 | Printify $17.13 | Shipping $13.59 | Net $2.51 | Margin 6.8%
-
-
-
-13. Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee
+1. Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee
    - Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
    - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Light Green / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
    - Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Light Green / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Light Green / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Light Green / Clothing sizes: M / Comfort Colors® Colors: Light Green / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
@@ -141,39 +56,17 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-14. Capybara T-Shirt: Vintage Art Parody Farmhouse Humor Cotton Tee, American Gothic
-   - Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Red / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $29.99 | Printify $21.40 | Shipping $4.95 | Net $0.54 | Margin 1.8%
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
-   - Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-
-
-
-15. Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift
+2. Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift
    - Size: Capybara Mug / 11oz / Size: Raccoon Mug / 11oz | Etsy $14.99 | Printify $5.75 | Shipping $7.29 | Net $0.28 | Margin 1.8%
 
 
 
-16. Custom Framed Watercolor Pet Portrait on Wrapped Canvas, Personalized Dog or Cat Wall Art
-   - Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 24" x 30" (Vertical) / Canvas frames colors: Black | Etsy $139.99 | Printify $102.75 | Shipping $18.89 | Net $4.80 | Margin 3.4%
-   - Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 16″ x 20″ (Vertical) / Canvas frames colors: Black | Etsy $82.99 | Printify $54.99 | Shipping $16.19 | Net $3.68 | Margin 4.4%
-   - Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: White / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Espresso / Art & wall decor sizes: 8″ x 10″ (Vertical) / Canvas frames colors: Black | Etsy $54.99 | Printify $28.15 | Shipping $16.19 | Net $5.18 | Margin 9.4%
-
-
-
-17. Capybara Halloween Mug, Witch Ghost Vampire Coffee Cup, Black Ceramic Spooky Gift
+3. Capybara Halloween Mug, Witch Ghost Vampire Coffee Cup, Black Ceramic Spooky Gift
    - Size: Witch Mug / 11oz / Size: Vampire Mug / 11oz | Etsy $19.99 | Printify $9.85 | Shipping $7.29 | Net $0.70 | Margin 3.5%
 
 
 
-18. Capybara Print, Museum Creation of Adam Parody Wall Art, Funny Renaissance Gallery Wrapped Canvas
-   - Sizes: 30″ x 20″ (Horizontal) | Etsy $64.99 | Printify $39.34 | Shipping $16.79 | Net $2.44 | Margin 3.7%
-   - Sizes: 24″ x 16″ (Horizontal) | Etsy $57.99 | Printify $32.85 | Shipping $16.79 | Net $2.59 | Margin 4.5%
-   - Sizes: 18″ x 12″ (Horizontal) | Etsy $45.99 | Printify $25.39 | Shipping $13.59 | Net $2.39 | Margin 5.2%
-
-
-
-19. Woodland Animals Sweatshirt, Capybara Raccoon Possum Crewneck, Cozy Nature Lover Pullover
+4. Woodland Animals Sweatshirt, Capybara Raccoon Possum Crewneck, Cozy Nature Lover Pullover
    - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
@@ -181,97 +74,90 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-20. Capybara Sweatshirt – Funny Rodent Art Apparel, American Gothic Parody
-   - Sizes: 3XL | Etsy $37.99 | Printify $23.79 | Shipping $8.79 | Net $1.55 | Margin 4.1%
-   - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
-   - Sizes: XL / Sizes: M / Sizes: L / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-
-
-
-21. Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor
+5. Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor
    - Sizes: 30" x 24" (Horizontal) | Etsy $82.99 | Printify $52.88 | Shipping $18.29 | Net $3.69 | Margin 4.4%
    - Sizes: 20″ x 16″ (Horizontal) | Etsy $52.99 | Printify $29.63 | Shipping $13.59 | Net $4.49 | Margin 8.5%
    - Sizes: 10" x 8" (Horizontal) | Etsy $32.99 | Printify $14.81 | Shipping $11.89 | Net $2.91 | Margin 8.8%
 
 
 
-22. Customizable Chicken Flock Sweatshirt, Personalized Farm Crewneck, Backyard Chicken Keeper Apparel
+6. Customizable Chicken Flock Sweatshirt, Personalized Farm Crewneck, Backyard Chicken Keeper Apparel
    - Sizes: 2XL | Etsy $44.99 | Printify $27.91 | Shipping $10.39 | Net $2.17 | Margin 4.8%
    - Sizes: 3XL | Etsy $47.99 | Printify $29.92 | Shipping $10.39 | Net $2.87 | Margin 6.0%
    - Sizes: M / Sizes: XL / Sizes: S / Sizes: L | Etsy $39.99 | Printify $22.86 | Shipping $10.39 | Net $2.69 | Margin 6.7%
 
 
 
-23. Possum Raccoon Canvas Art, We Heard Pie Funny Print, Animal Kitchen Wall Decor
+7. Possum Raccoon Canvas Art, We Heard Pie Funny Print, Animal Kitchen Wall Decor
    - Sizes: 30" x 24" (Horizontal) | Etsy $83.99 | Printify $52.88 | Shipping $18.29 | Net $4.59 | Margin 5.5%
    - Sizes: 20″ x 16″ (Horizontal) | Etsy $52.99 | Printify $29.63 | Shipping $13.59 | Net $4.49 | Margin 8.5%
    - Sizes: 12" x 9" (Horizontal) | Etsy $36.99 | Printify $17.42 | Shipping $11.89 | Net $3.92 | Margin 10.6%
 
 
 
-24. Personalized Velveteen Blanket, Custom Fall Leaves Throw, Cozy Autumn Family Blanket, Instant Preview
+8. Personalized Velveteen Blanket, Custom Fall Leaves Throw, Cozy Autumn Family Blanket, Instant Preview
    - Sizes: 60" × 80" | Etsy $72.99 | Printify $49.26 | Shipping $12.49 | Net $4.06 | Margin 5.6%
    - Sizes: 50" × 60" | Etsy $52.99 | Printify $34.29 | Shipping $10.39 | Net $3.03 | Margin 5.7%
 
 
 
-25. Vintage Capybara Travel Poster: Tropical Beach Paradise Canvas Wrap
+9. Vintage Capybara Travel Poster: Tropical Beach Paradise Canvas Wrap
    - Sizes: 20" x 24" (Vertical) | Etsy $67.99 | Printify $40.69 | Shipping $16.79 | Net $3.80 | Margin 5.6%
    - Sizes: 12″ x 16″ (Vertical) | Etsy $42.99 | Printify $22.22 | Shipping $13.59 | Net $2.85 | Margin 6.6%
    - Sizes: 16" x 20" (Vertical) | Etsy $51.99 | Printify $29.63 | Shipping $13.59 | Net $3.58 | Margin 6.9%
 
 
 
-26. Opossum Raccoon Pie Sweatshirt, Funny Thanksgiving Crewneck, Fall Animal Lover Gift
+10. Opossum Raccoon Pie Sweatshirt, Funny Thanksgiving Crewneck, Fall Animal Lover Gift
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: XL / Sizes: M / Sizes: S / Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
-27. Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt
+11. Opossum Christmas Crewneck, Funny Santa's Helper Wildlife Sweatshirt
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: S / Sizes: XL / Sizes: L / Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
-28. Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover
+12. Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: S / Sizes: M / Sizes: L / Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
-29. Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif
+13. Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: M / Sizes: XL / Sizes: S / Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
-30. Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck
+14. Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: S / Sizes: M / Sizes: L / Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
-31. Capybara Sweatshirt, Museum Humor Crewneck, Animal Lover Gift, Renaissance Art
+15. Capybara Sweatshirt, Museum Humor Crewneck, Animal Lover Gift, Renaissance Art
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: S / Sizes: L / Sizes: M / Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
-32. Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset
+16. Capybara Sweatshirt, Don't Worry Be Capy Crewneck Sweatshirt | Retro Beach Sunset
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: XL / Sizes: S / Sizes: M / Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
-33. Capybara Shirt: Humorous Vitruvian Yoga Animal Graphic Tee
+17. Capybara Shirt: Humorous Vitruvian Yoga Animal Graphic Tee
    - Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
    - Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Comfort Colors® Colors: Red / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
@@ -279,7 +165,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-34. Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee
+18. Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee
    - Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
    - Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
@@ -287,20 +173,20 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-35. Capybara Scream Canvas, Museum Parody Art Print, Embrace Chaos Wall Decor
+19. Capybara Scream Canvas, Museum Parody Art Print, Embrace Chaos Wall Decor
    - Sizes: 24" x 30" (Vertical) | Etsy $84.99 | Printify $52.88 | Shipping $18.29 | Net $5.50 | Margin 6.5%
    - Sizes: 16" x 20" (Vertical) | Etsy $52.99 | Printify $29.63 | Shipping $13.59 | Net $4.49 | Margin 8.5%
    - Sizes: 9" x 12" (Vertical) | Etsy $36.99 | Printify $17.42 | Shipping $11.89 | Net $3.92 | Margin 10.6%
 
 
 
-36. Possum Raccoon Pie Coffee Mug, Funny Black Ceramic Cup, Animal Lover Gift
+20. Possum Raccoon Pie Coffee Mug, Funny Black Ceramic Cup, Animal Lover Gift
    - Sizes: 15oz | Etsy $21.99 | Printify $8.77 | Shipping $9.39 | Net $1.49 | Margin 6.8%
    - Sizes: 11oz | Etsy $17.99 | Printify $7.41 | Shipping $7.29 | Net $1.33 | Margin 7.4%
 
 
 
-37. Chicken Canvas Print, Too Cool for the Coop Wall Art, Funny Farmhouse Chicken Decor, Backyard Chicken Lover Gift, Optional Personalization
+21. Chicken Canvas Print, Too Cool for the Coop Wall Art, Funny Farmhouse Chicken Decor, Backyard Chicken Lover Gift, Optional Personalization
    - Sizes: 18″ x 12″ (Horizontal) | Etsy $46.99 | Printify $25.39 | Shipping $13.59 | Net $3.30 | Margin 7.0%
    - Sizes: 24″ x 16″ (Horizontal) | Etsy $59.99 | Printify $32.85 | Shipping $16.79 | Net $4.40 | Margin 7.3%
    - Sizes: 12" x 9" (Horizontal) | Etsy $35.99 | Printify $17.42 | Shipping $11.89 | Net $3.01 | Margin 8.4%
@@ -308,12 +194,12 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-38. Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift
+22. Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift
    - Etsy $31.99 | Printify $15.60 | Shipping $10.79 | Net $2.31 | Margin 7.2%
 
 
 
-39. Customizable Chicken Coop T-Shirt, Farmhouse Flock Apparel, Comfort Colors Tee
+23. Customizable Chicken Coop T-Shirt, Farmhouse Flock Apparel, Comfort Colors Tee
    - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Red / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
    - Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
@@ -321,14 +207,14 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-40. Raccoon Opossum Christmas Lights Shirt, Funny Caffeine Denial Holiday Tee
+24. Raccoon Opossum Christmas Lights Shirt, Funny Caffeine Denial Holiday Tee
    - Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 
-41. Personalized Vintage Circus Pet T-Shirt, Custom Pet Photo Tee, Comfort Colors Shirt, FunHaus Style
+25. Personalized Vintage Circus Pet T-Shirt, Custom Pet Photo Tee, Comfort Colors Shirt, FunHaus Style
    - Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 2XL / Comfort Colors® Colors: Butter / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Red / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
@@ -336,7 +222,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-42. Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt
+26. Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt
    - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
    - Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Red / Clothing sizes: 4XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
    - Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: L | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
@@ -344,7 +230,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-43. Custom Chicken Mom Shirt, Personalized Flock Tee, Backyard Chicken Keeper Apparel
+27. Custom Chicken Mom Shirt, Personalized Flock Tee, Backyard Chicken Keeper Apparel
    - Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
    - Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Light Green / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
    - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Light Green / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
@@ -353,7 +239,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-44. Capybara Shirt Renaissance Art Parody Tee | Capybara Lover Gift | Michelangelo Inspired Graphic T-Shirt
+28. Capybara Shirt Renaissance Art Parody Tee | Capybara Lover Gift | Michelangelo Inspired Graphic T-Shirt
    - Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Violet / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Red / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
    - Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Violet / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Violet / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
@@ -361,17 +247,17 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-45. Funny Raccoon Opossum Christmas Mug, Caffeine Denial Coffee Cup, Coworker Boss Gift
+29. Funny Raccoon Opossum Christmas Mug, Caffeine Denial Coffee Cup, Coworker Boss Gift
    - Sizes: 11oz | Etsy $17.99 | Printify $7.41 | Shipping $7.29 | Net $1.33 | Margin 7.4%
 
 
 
-46. Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift
+30. Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift
    - Etsy $17.99 | Printify $7.41 | Shipping $7.29 | Net $1.33 | Margin 7.4%
 
 
 
-47. Too for Coop Chicken Shirt, Funny Farm Animal Graphic Tee
+31. Too for Coop Chicken Shirt, Funny Farm Animal Graphic Tee
    - Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Light Green / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
    - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
    - Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Light Green / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
@@ -380,7 +266,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-48. Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel
+32. Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel
    - Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Light Green / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
    - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL / Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
    - Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Light Green / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
@@ -389,35 +275,35 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-49. Possum Sweatshirt, Personalized Playing Dead Is Your Cardio, Custom Name Opossum Crewneck, Animal Lover Gift
+33. Possum Sweatshirt, Personalized Playing Dead Is Your Cardio, Custom Name Opossum Crewneck, Animal Lover Gift
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
    - Sizes: XL / Sizes: L / Sizes: M / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
-50. Raccoon Possum Christmas Sweatshirt, Funny Caffeine Denial Crewneck, Holiday Animal Pullover
+34. Raccoon Possum Christmas Sweatshirt, Funny Caffeine Denial Crewneck, Holiday Animal Pullover
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
    - Sizes: XL / Sizes: S / Sizes: M / Sizes: L | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
 
 
 
-51. Possum Raccoon Pie Sweatshirt, Funny Wildlife Animal Crewneck Pullover
+35. Possum Raccoon Pie Sweatshirt, Funny Wildlife Animal Crewneck Pullover
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
    - Sizes: M / Sizes: XL / Sizes: L / Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
 
 
 
-52. Custom Pet Circus Sweatshirt: Vintage Carnival Dog or Cat Lover Retro Apparel
+36. Custom Pet Circus Sweatshirt: Vintage Carnival Dog or Cat Lover Retro Apparel
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
    - Sizes: XL / Sizes: L / Sizes: M / Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
 
 
 
-53. Capybara Tank Top | Renaissance Art Parody Sleeveless Shirt, Creation of Adam
+37. Capybara Tank Top | Renaissance Art Parody Sleeveless Shirt, Creation of Adam
    - Sizes: 2XL | Etsy $26.99 | Printify $17.04 | Shipping $4.95 | Net $2.19 | Margin 8.1%
    - Sizes: XL / Sizes: XS / Sizes: L / Sizes: S / Sizes: M | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
    - Sizes: 2XL | Etsy $26.99 | Printify $17.04 | Net unavailable | Margin unavailable
@@ -425,28 +311,28 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-54. Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug
+38. Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug
    - Mug color: Navy / Mug color: Red / Mug color: Black / Mug color: Yellow | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
 
 
 
-55. Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift
+39. Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift
    - Mug color: Navy / Mug color: Light Blue / Mug color: Pink / Mug color: Red / Mug color: Yellow / Mug color: Black | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
 
 
 
-56. Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug
+40. Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug
    - Mug color: Navy / Mug color: Pink / Mug color: Black / Mug color: Yellow / Mug color: Red / Mug color: Light Blue | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
 
 
 
-57. Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift
+41. Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift
    - Sizes: 80" × 60" | Etsy $89.99 | Printify $60.94 | Shipping $12.49 | Net $7.76 | Margin 8.6%
    - Sizes: 60" × 50" | Etsy $64.99 | Printify $39.73 | Shipping $10.39 | Net $8.45 | Margin 13.0%
 
 
 
-58. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
+42. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
    - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
@@ -454,7 +340,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-59. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
+43. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
    - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
@@ -462,7 +348,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-60. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
+44. Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake (2026)
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
    - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
@@ -470,7 +356,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-61. Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)
+45. Personalized First Christmas Together Ornament, Woodland Animals, 2026 Keepsake (Round or Star)
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
    - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
@@ -478,7 +364,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-62. Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake
+46. Personalized Hanukkah Ceramic Ornament, Woodland Animals Shine Bright Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
    - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
@@ -486,7 +372,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-63. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
+47. Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Keepsake
    - Quantity: 1 pc | Etsy $16.99 | Printify $7.73 | Shipping $5.89 | Net $1.51 | Margin 8.9%
    - Quantity: 5 pcs | Etsy $68.99 | Printify $38.67 | Shipping $11.49 | Net $12.03 | Margin 17.4%
    - Quantity: 3 pcs | Etsy $42.99 | Printify $23.20 | Shipping $6.19 | Net $9.27 | Margin 21.6%
@@ -494,13 +380,13 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-64. Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man
+48. Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man
    - Size: 15oz | Etsy $19.99 | Printify $6.63 | Shipping $9.39 | Net $1.82 | Margin 9.1%
    - Size: 11oz | Etsy $16.99 | Printify $5.09 | Shipping $7.29 | Net $2.75 | Margin 16.2%
 
 
 
-65. Opossum Raccoon Pie Shirt, Funny Thanksgiving Graphic Tee, Fall Animal Lover Gift
+49. Opossum Raccoon Pie Shirt, Funny Thanksgiving Graphic Tee, Fall Animal Lover Gift
    - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Violet / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Comfort Colors® Colors: Red / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Violet / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
    - Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Violet / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
@@ -508,7 +394,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-66. Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee
+50. Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee
    - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Violet / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Comfort Colors® Colors: Violet / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Red / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
    - Comfort Colors® Colors: Violet / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
@@ -516,268 +402,262 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-67. Possum Raccoon Pie Graphic Tee, Funny Wildlife Animal Shirt
+51. Possum Raccoon Pie Graphic Tee, Funny Wildlife Animal Shirt
    - Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
    - Clothing sizes: S / Clothing sizes: L / Clothing sizes: XL / Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
 
-68. Opossum Raccoon Pie Dad Hat, Funny Thanksgiving Baseball Cap, Fall Animal Lover Gift
+52. Opossum Raccoon Pie Dad Hat, Funny Thanksgiving Baseball Cap, Fall Animal Lover Gift
    - ValuCap Colors: Navy / ValuCap Colors: White / ValuCap Colors: Black / ValuCap Colors: Red / ValuCap Colors: Forest Green | Etsy $26.99 | Printify $13.84 | Shipping $7.79 | Net $2.55 | Margin 9.4%
 
 
 
-69. Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag
+53. Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag
    - Sizes: 16" × 16'' / Handle Color: Black / Sizes: 16" × 16'' / Handle Color: Navy | Etsy $26.99 | Printify $15.44 | Shipping $6.09 | Net $2.65 | Margin 9.8%
    - Sizes: 18" × 18'' / Handle Color: Navy / Sizes: 18" × 18'' / Handle Color: Black | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
 
 
 
-70. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
+54. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
    - Finish: Frosted / Finish: Glossy | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
 
 
 
-71. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
+55. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
    - Finish: Glossy / Finish: Frosted | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
 
 
 
-72. Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee
+56. Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
    - Clothing sizes: XL / Clothing sizes: L / Clothing sizes: S / Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
 
-73. Custom Pet Christmas Tree Skirt, Personalized Dog Cat Holiday Decor
+57. Custom Pet Christmas Tree Skirt, Personalized Dog Cat Holiday Decor
    - One size | Etsy $64.99 | Printify $43.94 | Shipping $7.29 | Net $7.34 | Margin 11.3%
 
 
 
-74. Too Cool For Coop Chicken Mug, Funny Farmhouse Ceramic Cup, 11 Oz
+58. Too Cool For Coop Chicken Mug, Funny Farmhouse Ceramic Cup, 11 Oz
    - Etsy $18.99 | Printify $7.41 | Shipping $7.29 | Net $2.24 | Margin 11.8%
 
 
 
-75. Raccoon Opossum Tote Bag, Funny Caffeine Denial Design, Holiday Canvas Gift Bag
+59. Raccoon Opossum Tote Bag, Funny Caffeine Denial Design, Holiday Canvas Gift Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
 
-76. Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag
+60. Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
 
-77. Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag
-   - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
-   - Etsy $19.99 | Printify $9.97 | Shipping $4.95 | Net $2.92 | Margin 14.6%
-
-
-
-78. Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag
-   - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
-
-
-
-79. Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag
+61. Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
    - Etsy $19.99 | Printify $9.97 | Shipping $4.95 | Net $2.92 | Margin 14.6%
 
 
 
-80. Custom Pet Photo Tote Bag: Personalized Black Canvas Tote
+62. Personalized Chicken Tote Bag, Custom Flock Farmhouse Shopping Bag
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
 
-81. Capybara Tote Bag: Funny Animal Canvas Tote, Vitruvian Man
+63. Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag
+   - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
+   - Etsy $19.99 | Printify $9.97 | Shipping $4.95 | Net $2.92 | Margin 14.6%
+
+
+
+64. Custom Pet Photo Tote Bag: Personalized Black Canvas Tote
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
 
-82. Funny Capybara American Gothic Tote Bag: Farmhouse Art Parody Canvas Tote
+65. Capybara Tote Bag: Funny Animal Canvas Tote, Vitruvian Man
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
 
-83. Capybara Tote Bag: Renaissance Art Parody Canvas Tote, Funny Museum Humor
+66. Funny Capybara American Gothic Tote Bag: Farmhouse Art Parody Canvas Tote
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
 
-84. Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote
+67. Capybara Tote Bag: Renaissance Art Parody Canvas Tote, Funny Museum Humor
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
 
-85. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
+68. Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote
+   - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
+
+
+
+69. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
    - Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Red | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Red | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
    - Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Black | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
 
 
 
-86. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
+70. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
    - Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Black | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Black | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
    - Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Black | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
 
 
 
-87. Personalized Pet Portrait Vector Graphic Canvas Tote
+71. Personalized Pet Portrait Vector Graphic Canvas Tote
    - Sizes: 18" × 18'' | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
    - Sizes: 16" × 16'' | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
 
 
 
-88. Personalized Pet Portrait Vintage Botanical Pattern Canvas Tote
-   - Sizes: 18" × 18'' / Handle Color: Beige / Sizes: 18" × 18'' / Handle Color: Black | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
-   - Sizes: 16" × 16'' / Handle Color: Beige / Sizes: 16" × 16'' / Handle Color: Black | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
-
-
-
-89. Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup
+72. Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup
    - Etsy $16.99 | Printify $5.75 | Shipping $7.29 | Net $2.09 | Margin 12.3%
 
 
 
-90. Customizable Chicken Flock Mug, Farmhouse Coffee Cup, Backyard Chicken Lover Gift
+73. Customizable Chicken Flock Mug, Farmhouse Coffee Cup, Backyard Chicken Lover Gift
    - Mug color: Yellow / Mug color: Black / Mug color: Red / Mug color: Purple / Mug color: Navy | Etsy $17.99 | Printify $6.45 | Shipping $7.29 | Net $2.29 | Margin 12.7%
 
 
 
-91. Funny Capybara Tee Personalized "is on Capy Time" Cotton T Shirt
+74. Funny Capybara Tee Personalized "is on Capy Time" Cotton T Shirt
    - Sizes: M / Sizes: L / Sizes: S / Sizes: XL | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
    - Sizes: 2XL | Etsy $21.99 | Printify $11.78 | Shipping $4.95 | Net $2.92 | Margin 13.3%
    - Sizes: 3XL | Etsy $23.99 | Printify $13.03 | Shipping $4.95 | Net $3.48 | Margin 14.5%
 
 
 
-92. Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift
+75. Capybara Journal: American Gothic Parody Notebook, Funny Farmhouse Art Writing Gift
    - Etsy $18.99 | Printify $8.29 | Shipping $6.19 | Net $2.46 | Margin 12.9%
 
 
 
-93. Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook
+76. Personalized Journal The Adventures of Journal, Capybara Don't Worry, Be Capy, Custom Notebook
    - Etsy $18.99 | Printify $8.29 | Shipping $6.19 | Net $2.46 | Margin 12.9%
 
 
 
-94. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
+77. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
    - Sizes: 60" × 80" | Etsy $79.99 | Printify $49.26 | Shipping $12.49 | Net $10.39 | Margin 13.0%
    - Sizes: 50" × 60" | Etsy $59.99 | Printify $34.29 | Shipping $10.39 | Net $9.36 | Margin 15.6%
 
 
 
-95. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
+78. Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor
    - Sizes: 60" × 80" | Etsy $79.99 | Printify $49.26 | Shipping $12.49 | Net $10.39 | Margin 13.0%
    - Sizes: 50" × 60" | Etsy $59.99 | Printify $34.29 | Shipping $10.39 | Net $9.36 | Margin 15.6%
 
 
 
-96. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
+79. Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-97. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
+80. Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-98. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
+81. Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-99. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
+82. Thanksgiving Raccoon Possum Pie Flag, Funny Autumn Fall Double Sided Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-100. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
+83. Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-101. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
+84. Personalized Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-102. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
+85. Custom Hanukkah Garden Flag, Woodland Animals Menorah Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-103. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
+86. Custom Autumn Garden Flag, Woodland Animals Family Name Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-104. Personalized Thanksgiving Woodland Animals Garden Flag, Custom Family Name Fall Porch Decor
+87. Personalized Thanksgiving Woodland Animals Garden Flag, Custom Family Name Fall Porch Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-105. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
+88. Thanksgiving Raccoon Possum Pie Garden Flag, Funny Autumn Fall Outdoor Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-106. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
+89. Personalized Cat Christmas Garden Flag, Holiday Yard Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-107. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
+90. Personalized Pet Christmas Garden Flag, Santa Hat Portrait, Double-Sided Holiday Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-108. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
+91. Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-109. Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner
+92. Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-110. Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake
+93. Personalized Pet Nutcracker Glass Ornament: Custom Dog Cat Christmas Keepsake
    - Etsy $15.99 | Printify $6.21 | Shipping $5.89 | Net $2.12 | Margin 13.3%
 
 
 
-111. Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor
+94. Pet Memorial Plaque Personalized, Custom Photo Slate Sign, Pet Loss Sympathy Keepsake Decor
    - Etsy $43.99 | Printify $21.12 | Shipping $12.49 | Net $5.95 | Margin 13.5%
 
 
 
-112. Custom Pet Portrait Memorial Keychain, Acrylic Pet Loss Keepsake (Digital Proof)
+95. Custom Pet Portrait Memorial Keychain, Acrylic Pet Loss Keepsake (Digital Proof)
    - Etsy $12.99 | Printify $2.12 | Shipping $7.59 | Net $1.80 | Margin 13.8%
 
 
 
-113. Hedgehog Christmas Ornament, Acrylic Woodland Animal Decor, Funny Cozy Winter Gift, Coworker Boss Gift
+96. Hedgehog Christmas Ornament, Acrylic Woodland Animal Decor, Funny Cozy Winter Gift, Coworker Boss Gift
    - Etsy $22.99 | Printify $11.48 | Shipping $5.89 | Net $3.19 | Margin 13.9%
 
 
