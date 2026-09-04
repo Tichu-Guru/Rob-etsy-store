@@ -14,7 +14,7 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4517533489,Vintage Capybara Travel Poster: Tropical Beach Paradise Canvas Wrap,3,3,0,0,0,0,FULLY_MATCHED
 4517534127,Vintage Capybara Travel Tote Bag: Paradise Vibes Canvas Tote,1,1,0,0,0,0,FULLY_MATCHED
 4517685051,"Funny Capybara Tee Personalized ""is on Capy Time"" Cotton T Shirt",42,42,0,0,0,0,FULLY_MATCHED
-4518052788,"Custom Framed Watercolor Pet Portrait on Wrapped Canvas, Personalized Dog or Cat Wall Art",9,9,0,0,0,0,FULLY_MATCHED
+4518052788,"Custom Framed Watercolor Pet Portrait on Wrapped Canvas, Personalized Dog or Cat Wall Art",6,6,0,0,0,0,FULLY_MATCHED
 4518056943,"Custom Watercolor Pet Portrait on Gallery Wrapped Canvas, Personalized Dog or Cat Wall Art",3,3,0,0,0,0,FULLY_MATCHED
 4521395216,"Personalized Pet Portrait Mouse Pad, Custom Photo Desk Decor, Realistic Memorial Gift",1,1,0,0,0,0,FULLY_MATCHED
 4521429355,"Personalized Pet Photo Desk Mat, Custom Dog or Cat Mouse Pad, Office Gift",1,1,0,0,0,0,FULLY_MATCHED
@@ -32,7 +32,7 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4524820768,"Capybara Sweatshirt – Funny Rodent Art Apparel, American Gothic Parody",30,30,0,0,0,0,FULLY_MATCHED
 4525144730,Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck,30,30,0,0,0,0,FULLY_MATCHED
 4525146950,Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee,35,35,0,0,0,0,FULLY_MATCHED
-4526243853,"Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man",2,2,0,0,0,0,FULLY_MATCHED
+4526243853,"Capybara Mug – Funny Animal Lover Gift, Zen Office Drinkware, Vitruvian Man",2,2,0,0,0,1,FULLY_MATCHED
 4526264100,"Capybara Tote Bag: Funny Animal Canvas Tote, Vitruvian Man",1,1,0,0,0,0,FULLY_MATCHED
 4526275896,Capybara Art Print: Vitruvian Renaissance Funny Animal Science Humor,3,3,0,0,0,0,FULLY_MATCHED
 4526286810,"Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif",30,30,0,0,0,0,FULLY_MATCHED
@@ -46,6 +46,7 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4532226644,Personalized Pet Nutcracker Christmas Mug: Custom Dog or Cat Coffee Cup,1,1,0,0,0,0,FULLY_MATCHED
 4532255496,Personalized Pet Photo Nutcracker Ornament: Custom Cat or Dog Christmas Decoration,1,1,0,0,0,0,FULLY_MATCHED
 4533082639,"Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee",6,6,0,0,0,0,FULLY_MATCHED
+4533101951,"Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote",1,1,0,0,0,1,FULLY_MATCHED
 4533104890,"Funny Mug, Capybara Scream Mug, Embrace Chaos Art Parody Coffee Cup, Coworker Boss Gift",1,1,0,0,0,0,FULLY_MATCHED
 4533108764,"Capybara Scream Canvas, Museum Parody Art Print, Embrace Chaos Wall Decor",3,3,0,0,0,0,FULLY_MATCHED
 4533470705,"Personalized Pet Memorial Ornament, Custom Photo Acrylic Keepsake, Dog Cat Sympathy Gift",1,1,0,0,0,0,FULLY_MATCHED
@@ -62,7 +63,9 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4535853531,"Pet Memorial Blanket Personalized, Custom Pet Portrait Woven Throw, Cotton Keepsake Sympathy Gift",2,2,0,0,0,0,FULLY_MATCHED
 4536275746,"Woodland Animals Sweatshirt, Capybara Raccoon Possum Crewneck, Cozy Nature Lover Pullover",42,42,0,0,0,0,FULLY_MATCHED
 4536659890,"Custom Pet Christmas Tree Skirt, Personalized Dog Cat Holiday Decor",2,2,0,0,0,0,FULLY_MATCHED
-4537153115,"Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift",2,2,0,0,0,0,FULLY_MATCHED
+4536671049,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",78,78,0,0,0,78,FULLY_MATCHED
+4537153115,"Capybara Raccoon Mug, Trash Panda Funny Coffee Cup, Whimsical Animal Gift, Coworker Boss Gift",2,2,0,0,0,2,FULLY_MATCHED
+4537211768,"Pet Memorial Plaque Personalized, Custom Watercolor Portrait, Dog Cat Sympathy Gift, Acrylic Wood Stand",1,1,0,0,0,1,FULLY_MATCHED
 4537361779,"Capybara Halloween Mug, Witch Ghost Vampire Coffee Cup, Black Ceramic Spooky Gift",2,2,0,0,0,0,FULLY_MATCHED
 4537770769,"Angel Capybara Sweatshirt, Heaven Sent Mostly Funny Crewneck, Cozy Animal Lover Pullover",24,24,0,0,0,0,FULLY_MATCHED
 4537837936,"Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug",6,6,0,0,0,0,FULLY_MATCHED
@@ -81,6 +84,7 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4545848047,"Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee",35,35,0,0,0,0,FULLY_MATCHED
 4546858787,"Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel",42,42,0,0,0,0,FULLY_MATCHED
 4546875991,"Chicken Canvas Print, Too Cool for the Coop Wall Art, Funny Farmhouse Chicken Decor, Backyard Chicken Lover Gift, Optional Personalization",4,4,0,0,0,0,FULLY_MATCHED
+4546898721,"Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift",2,2,0,0,0,2,FULLY_MATCHED
 4546902358,"Too for the Coop Chicken Tote Bag, Farmhouse Canvas Shopping Bag",2,2,0,0,0,2,FULLY_MATCHED
 4546923012,"Custom Chicken Garden Flag, Personalized Flock Yard Decor, Farmhouse Backyard Banner",2,2,0,0,0,0,FULLY_MATCHED
 4546958384,"Custom Pet Memorial Garden Flag, Watercolor Portrait Remembrance Decor",2,2,0,0,0,2,FULLY_MATCHED
@@ -107,6 +111,7 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4551770695,"Personalized Christmas Table Runner, Family Name Holiday Decor, 4 Festive Designs",24,0,24,0,0,24,NO_PRINTIFY_PRODUCTS
 4552226059,"Personalized Christmas Doormat, Custom Family Welcome Mat, Holiday Designs",5,0,5,0,0,5,NO_PRINTIFY_PRODUCTS
 4553309630,"Custom Hanukkah Doormat, Personalized Jewish Holiday Welcome Rug, Menorah Dreidel Design",2,2,0,0,0,2,FULLY_MATCHED
+4553348716,"Personalized Sherpa Fleece Blanket, Custom Christmas Throw, Elf Reindeer Plaid Designs",10,0,10,0,0,10,NO_PRINTIFY_PRODUCTS
 4553377454,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Throw, Two Designs",4,0,4,0,0,0,NO_PRINTIFY_PRODUCTS
 4553425287,"Halloween Table Runner, Ghost Vampire Mummy Fall Decor, Personalized Autumn Centerpiece",6,0,6,0,0,6,NO_PRINTIFY_PRODUCTS
 4553914929,"Personalized Thanksgiving Harvest Table Runner, Custom Family Fall Decor",6,0,6,0,0,6,NO_PRINTIFY_PRODUCTS
@@ -115,14 +120,18 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4554600263,"Personalized Hanukkah Tote Bag, Reusable Jewish Holiday Accessory, Custom Tag",6,0,6,0,0,6,NO_PRINTIFY_PRODUCTS
 4554601577,"Personalized Christmas Tote Bag, Reusable Festive Bag, Festive Design, Custom Tag",15,0,15,0,0,15,NO_PRINTIFY_PRODUCTS
 4554604387,"Custom Hanukkah Doormat, Personalized Family Welcome Rug, Blue Menorah Dreidel Design",2,2,0,0,0,2,FULLY_MATCHED
+4554616070,"Personalized Sherpa Fleece Blanket, Custom Christmas Throw, Elf Reindeer Plaid Designs",10,0,10,0,0,10,NO_PRINTIFY_PRODUCTS
 4554623150,"Personalized Christmas Doormat, Custom Family Welcome Mat, Holiday Plaid Rug Designs",5,0,5,0,0,5,NO_PRINTIFY_PRODUCTS
 4554699463,"Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift",12,12,0,0,0,12,FULLY_MATCHED
+4554700261,"Capybara Raccoon Ceramic Mug, Whimsical Animal Coffee Cup, Funny Coworker Boss Gift",7,7,0,0,0,3,FULLY_MATCHED
 4554701147,"Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor",4,4,0,0,0,0,FULLY_MATCHED
 4554708636,"Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag",2,2,0,0,0,2,FULLY_MATCHED
+4554710012,"Pet Memorial Plaque Personalized, Custom Watercolor Portrait, Dog Cat Sympathy Gift, Acrylic Wood Stand",1,1,0,0,0,1,FULLY_MATCHED
 4554713122,"Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag",1,1,0,0,0,1,FULLY_MATCHED
 4554777202,"Personalized Thanksgiving Table Runner, Grateful Hearts Gather Fall Decor",6,0,6,0,0,6,NO_PRINTIFY_PRODUCTS
 4554782140,"Halloween Table Runner, Ghost Vampire Mummy Fall Decor, Personalized Centerpiece (Optional Napkins)",6,0,6,0,0,6,NO_PRINTIFY_PRODUCTS
 4554783618,"Personalized Christmas Table Runner, Custom Family Name Holiday Decor, 4 Festive Designs",24,0,24,0,0,24,NO_PRINTIFY_PRODUCTS
+4554784478,"Personalized Christmas Table Runner, Festive Family Holiday Decor, 4 Designs, Optional Napkins",24,0,24,0,0,24,NO_PRINTIFY_PRODUCTS
 4554786156,"Personalized Christmas Family Name Table Runner, 4 Festive Designs, Optional Napkins",24,0,24,0,0,24,NO_PRINTIFY_PRODUCTS
 4554787768,"Personalized Hanukkah Table Runner, Family Name Jewish Holiday Decor",18,0,18,0,0,18,NO_PRINTIFY_PRODUCTS
 4555268619,"Personalized Faux Suede Christmas Pillow Cover, Custom Tag Decor",16,0,16,0,0,16,NO_PRINTIFY_PRODUCTS
@@ -132,11 +141,17 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4555307157,"Personalized Cat Christmas Garden Flag, Holiday Pet Name Yard Decor",2,2,0,0,0,2,FULLY_MATCHED
 4555307559,"Personalized Pet Christmas Garden Flag, Custom Pet Name Holiday Yard Decor",2,2,0,0,0,2,FULLY_MATCHED
 4555307889,"Custom Pet Memorial Garden Flag, Watercolor Dog Remembrance Sympathy Gift",2,2,0,0,0,2,FULLY_MATCHED
+4555309797,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",78,78,0,0,0,78,FULLY_MATCHED
+4555310663,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",78,78,0,0,0,78,FULLY_MATCHED
 4555311693,"Raccoon Opossum Tote Bag, Funny Caffeine Denial Design, Holiday Canvas Gift Bag",1,1,0,0,0,0,FULLY_MATCHED
 4555317022,"Personalized Ceramic Christmas Ornament, Woodland Animals Family Keepsake, Round or Star",8,8,0,0,0,8,FULLY_MATCHED
 4555318010,"Hanukkah Ornament 2026, Ceramic Woodland Animal Menorah Decor, Festival Lights Keepsake",4,4,0,0,0,4,FULLY_MATCHED
 4555318408,"Personalized Autumn Garden Flag, Woodland Animals, Custom Family Name Fall Decor",2,2,0,0,0,2,FULLY_MATCHED
+4555320738,"Chicken Garden Flag, Too Cool for the Coop Double Sided Flag, Funny Backyard Chicken Decor, Farmhouse Yard Flag, Chicken Lover Gift",2,2,0,0,0,2,FULLY_MATCHED
 4555321598,"Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign",2,2,0,0,0,2,FULLY_MATCHED
+4555322516,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",78,78,0,0,0,78,FULLY_MATCHED
+4555323242,"Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt",78,78,0,0,0,78,FULLY_MATCHED
+4555324692,"Capybara Tote, Embrace Chaos Art Parody Shopping Bag, Cotton Canvas Tote",1,1,0,0,0,1,FULLY_MATCHED
 4556984930,"Personalized Spooky Pumpkin Halloween Table Runner, Custom Fall Dining Decor",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
 4557429557,"Personalized Thanksgiving Table Runner, Custom Fall Table Decor, Autumn Pumpkin Runner for Thanksgiving Dinner, Optional Matching Napkins",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
 4558226653,"Personalized Snowflake Sherpa Fleece Blanket, Custom Family Name Throw",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
