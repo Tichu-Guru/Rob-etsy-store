@@ -3244,6 +3244,34 @@ def main():
             f"{len(etsy_listings):,}"
         )
 
+        final_listing_ids = (
+            etsy_listings[
+                "etsy_api_listing_id"
+            ]
+            .astype(str)
+            .str.strip()
+        )
+
+        print(
+            "FINAL UNIQUE ETSY LISTING IDS: "
+            f"{final_listing_ids.nunique():,}"
+        )
+
+        duplicate_final_ids = (
+            final_listing_ids[
+                final_listing_ids.duplicated(
+                    keep=False
+                )
+            ]
+            .drop_duplicates()
+            .tolist()
+        )
+
+        print(
+            "DUPLICATE FINAL ETSY LISTING IDS: "
+            f"{duplicate_final_ids}"
+        )
+
     except Exception as exc:
         print(
             "WARNING: Live Etsy active-listing reconciliation failed: "
