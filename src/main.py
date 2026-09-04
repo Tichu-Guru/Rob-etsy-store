@@ -2644,6 +2644,14 @@ def main():
             if value in live_active_ids
         }
 
+        # Each live Etsy listing ID may represent only one CSV
+        # listing row. This prevents the same Etsy listing from
+        # being assigned to multiple CSV rows when SKU/title
+        # matching is ambiguous.
+        assigned_live_ids = set(
+            represented_live_ids
+        )
+
         # -------------------------------------------------
         # BUILD LIVE LISTING SKU MAP
         # -------------------------------------------------
@@ -2704,7 +2712,7 @@ def main():
 
         unmatched_live_ids = (
             live_active_ids
-            - represented_live_ids
+            - assigned_live_ids
         )
 
         matched_unmapped_indexes = set()
@@ -2787,6 +2795,9 @@ def main():
                     matched_live_ids.add(
                         best_id
                     )
+                    assigned_live_ids.add(
+                        best_id
+                    )
 
                     listing_key = str(
                         etsy_listings.at[
@@ -2813,7 +2824,7 @@ def main():
 
         unmatched_live_ids = (
             live_active_ids
-            - represented_live_ids
+            - assigned_live_ids
         )
 
         # -------------------------------------------------
@@ -2903,6 +2914,9 @@ def main():
                     index
                 )
                 matched_live_ids.add(
+                    live_id
+                )
+                assigned_live_ids.add(
                     live_id
                 )
 
