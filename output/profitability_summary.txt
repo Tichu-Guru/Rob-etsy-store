@@ -1,17 +1,17 @@
 LOW PROFITABILITY SUMMARY
-Run UTC: 2026-09-08T12:22:35.584607+00:00
+Run UTC: 2026-09-09T12:34:31.176086+00:00
 
 Profitability threshold: 15%
 
 VARIANT LEVEL
-Matched products with calculable profit: 1,876
-Products below 15%: 1,759
+Matched products with calculable profit: 1,877
+Products below 15%: 1,760
 Percent below threshold: 93.8%
 
 LISTING LEVEL
 Etsy listings with calculable profitability: 124
-Etsy listings below 15%: 110
-Percent of calculable listings below threshold: 88.7%
+Etsy listings below 15%: 111
+Percent of calculable listings below threshold: 89.5%
 
 ASSUMPTIONS
 Customer pays $0 shipping.
