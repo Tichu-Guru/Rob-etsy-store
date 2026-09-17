@@ -1,13 +1,13 @@
 ETSY ↔ PRINTIFY SYNC SUMMARY
-Run UTC: 2026-09-16T12:56:14.010882+00:00
+Run UTC: 2026-09-17T12:53:06.444985+00:00
 
-Etsy listings: 175
-Etsy SKU rows: 2,799
-Printify variants: 21,752
+Etsy listings: 173
+Etsy SKU rows: 2,599
+Printify variants: 21,824
 
 SKU STATUS
-MATCHED: 2,464
-ETSY_ONLY: 335
+MATCHED: 2,252
+ETSY_ONLY: 347
 UNAVAILABLE_SKU: 0
 MISSING_SKU: 0
 DUPLICATE_SKU: 0
@@ -17,7 +17,7 @@ DUPLICATE_PRINTIFY_SKU: 0
 LISTING STATUS
 FULLY_MATCHED: 165
 PARTIALLY_MATCHED: 1
-NO_PRINTIFY_PRODUCTS: 29
+NO_PRINTIFY_PRODUCTS: 31
 HAS_DUPLICATE_SKU: 0
 HAS_PRINTIFY_SKU_PROBLEM: 0
 NEEDS_REVIEW: 0
@@ -32,14 +32,14 @@ Etsy payment processing: 3% + $0.25
 Offsite Ads: EXCLUDED
 Etsy listing fee: EXCLUDED from per-sale calculation
 
-Matched products with calculable profit: 2,439
-Products below 15% margin: 2,308
-Percent below threshold: 94.6%
+Matched products with calculable profit: 2,232
+Products below 15% margin: 2,101
+Percent below threshold: 94.1%
 
 LISTING-LEVEL PROFITABILITY
-Total active Etsy listings: 175
+Total active Etsy listings: 173
 Etsy listings with calculable profitability: 136
-Etsy listings without calculable profitability: 39
+Etsy listings without calculable profitability: 37
 Etsy listings below 15%: 120
 Percent of calculable listings below threshold: 88.2%
 
@@ -49,17 +49,17 @@ Listings with at least one variant below 15% net margin are shown.
 Each listing includes EVERY matched variant so variant pricing can be reviewed individually.
 
 1. Niagara Frontier Chord Authority T-Shirt | Music Notes, Choir Logo
-   - Gildan Colors: Tropical Blue / Clothing sizes: 5XL / Gildan Colors: Light Blue / Clothing sizes: 4XL / Gildan Colors: Tropical Blue / Clothing sizes: 4XL / Gildan Colors: Navy / Clothing sizes: 5XL / Gildan Colors: Navy / Clothing sizes: 4XL / Gildan Colors: Light Blue / Clothing sizes: 5XL / Gildan Colors: Carolina Blue / Clothing sizes: 4XL / Gildan Colors: Purple / Clothing sizes: 5XL / Gildan Colors: Purple / Clothing sizes: 4XL / Gildan Colors: Royal / Clothing sizes: 4XL / Gildan Colors: Royal / Clothing sizes: 5XL / Gildan Colors: Carolina Blue / Clothing sizes: 5XL | Etsy $30.00 | Printify $26.77 | Shipping $4.95 | Net $-4.82 | Margin -16.1%
-   - Gildan Colors: Navy / Clothing sizes: 3XL / Gildan Colors: Carolina Blue / Clothing sizes: 3XL / Gildan Colors: Light Blue / Clothing sizes: 3XL / Gildan Colors: Tropical Blue / Clothing sizes: 3XL / Gildan Colors: Royal / Clothing sizes: 3XL / Gildan Colors: Purple / Clothing sizes: 3XL | Etsy $30.00 | Printify $25.96 | Shipping $4.95 | Net $-4.01 | Margin -13.4%
-   - Gildan Colors: Purple / Clothing sizes: 2XL / Gildan Colors: Royal / Clothing sizes: 2XL / Gildan Colors: Carolina Blue / Clothing sizes: 2XL / Gildan Colors: Light Blue / Clothing sizes: 2XL / Gildan Colors: Tropical Blue / Clothing sizes: 2XL / Gildan Colors: Navy / Clothing sizes: 2XL | Etsy $30.00 | Printify $24.76 | Shipping $4.95 | Net $-2.81 | Margin -9.4%
-   - Gildan Colors: Purple / Clothing sizes: XL / Gildan Colors: Navy / Clothing sizes: S / Gildan Colors: Navy / Clothing sizes: M / Gildan Colors: Navy / Clothing sizes: XL / Gildan Colors: Navy / Clothing sizes: L / Gildan Colors: Purple / Clothing sizes: S / Gildan Colors: Purple / Clothing sizes: L / Gildan Colors: Purple / Clothing sizes: M / Gildan Colors: Royal / Clothing sizes: S / Gildan Colors: Carolina Blue / Clothing sizes: XL / Gildan Colors: Tropical Blue / Clothing sizes: M / Gildan Colors: Tropical Blue / Clothing sizes: L / Gildan Colors: Light Blue / Clothing sizes: L / Gildan Colors: Tropical Blue / Clothing sizes: S / Gildan Colors: Light Blue / Clothing sizes: M / Gildan Colors: Light Blue / Clothing sizes: S / Gildan Colors: Carolina Blue / Clothing sizes: M / Gildan Colors: Carolina Blue / Clothing sizes: S / Gildan Colors: Royal / Clothing sizes: M / Gildan Colors: Carolina Blue / Clothing sizes: L / Gildan Colors: Royal / Clothing sizes: XL / Gildan Colors: Royal / Clothing sizes: L / Gildan Colors: Light Blue / Clothing sizes: XL / Gildan Colors: Tropical Blue / Clothing sizes: XL | Etsy $30.00 | Printify $22.91 | Shipping $4.95 | Net $-0.96 | Margin -3.2%
+   - Gildan Colors: Tropical Blue / Clothing sizes: 4XL / Gildan Colors: Tropical Blue / Clothing sizes: 5XL / Gildan Colors: Carolina Blue / Clothing sizes: 4XL / Gildan Colors: Carolina Blue / Clothing sizes: 5XL / Gildan Colors: Purple / Clothing sizes: 5XL / Gildan Colors: Purple / Clothing sizes: 4XL / Gildan Colors: Royal / Clothing sizes: 5XL / Gildan Colors: Royal / Clothing sizes: 4XL / Gildan Colors: Light Blue / Clothing sizes: 4XL / Gildan Colors: Light Blue / Clothing sizes: 5XL / Gildan Colors: Navy / Clothing sizes: 5XL / Gildan Colors: Navy / Clothing sizes: 4XL | Etsy $30.00 | Printify $26.77 | Shipping $4.95 | Net $-4.82 | Margin -16.1%
+   - Gildan Colors: Carolina Blue / Clothing sizes: 3XL / Gildan Colors: Royal / Clothing sizes: 3XL / Gildan Colors: Light Blue / Clothing sizes: 3XL / Gildan Colors: Navy / Clothing sizes: 3XL / Gildan Colors: Tropical Blue / Clothing sizes: 3XL / Gildan Colors: Purple / Clothing sizes: 3XL | Etsy $30.00 | Printify $25.96 | Shipping $4.95 | Net $-4.01 | Margin -13.4%
+   - Gildan Colors: Tropical Blue / Clothing sizes: 2XL / Gildan Colors: Purple / Clothing sizes: 2XL / Gildan Colors: Navy / Clothing sizes: 2XL / Gildan Colors: Carolina Blue / Clothing sizes: 2XL / Gildan Colors: Royal / Clothing sizes: 2XL / Gildan Colors: Light Blue / Clothing sizes: 2XL | Etsy $30.00 | Printify $24.76 | Shipping $4.95 | Net $-2.81 | Margin -9.4%
+   - Gildan Colors: Carolina Blue / Clothing sizes: XL / Gildan Colors: Carolina Blue / Clothing sizes: L / Gildan Colors: Carolina Blue / Clothing sizes: M / Gildan Colors: Carolina Blue / Clothing sizes: S / Gildan Colors: Light Blue / Clothing sizes: M / Gildan Colors: Light Blue / Clothing sizes: L / Gildan Colors: Light Blue / Clothing sizes: S / Gildan Colors: Royal / Clothing sizes: XL / Gildan Colors: Purple / Clothing sizes: L / Gildan Colors: Purple / Clothing sizes: M / Gildan Colors: Purple / Clothing sizes: S / Gildan Colors: Navy / Clothing sizes: XL / Gildan Colors: Purple / Clothing sizes: XL / Gildan Colors: Royal / Clothing sizes: S / Gildan Colors: Royal / Clothing sizes: M / Gildan Colors: Tropical Blue / Clothing sizes: S / Gildan Colors: Tropical Blue / Clothing sizes: L / Gildan Colors: Tropical Blue / Clothing sizes: XL / Gildan Colors: Tropical Blue / Clothing sizes: M / Gildan Colors: Light Blue / Clothing sizes: XL / Gildan Colors: Navy / Clothing sizes: L / Gildan Colors: Navy / Clothing sizes: M / Gildan Colors: Navy / Clothing sizes: S / Gildan Colors: Royal / Clothing sizes: L | Etsy $30.00 | Printify $22.91 | Shipping $4.95 | Net $-0.96 | Margin -3.2%
 
 
 
 2. Customizable Chicken Flock Sweatshirt, Personalized Farm Crewneck, Backyard Chicken Keeper Apparel
    - Sizes: 3XL | Etsy $44.99 | Printify $29.92 | Shipping $10.39 | Net $0.16 | Margin 0.3%
    - Sizes: 2XL | Etsy $42.99 | Printify $27.91 | Shipping $10.39 | Net $0.36 | Margin 0.8%
-   - Sizes: M / Sizes: S / Sizes: L / Sizes: XL | Etsy $37.99 | Printify $22.86 | Shipping $10.39 | Net $0.88 | Margin 2.3%
+   - Sizes: L / Sizes: M / Sizes: S / Sizes: XL | Etsy $37.99 | Printify $22.86 | Shipping $10.39 | Net $0.88 | Margin 2.3%
 
 
 
@@ -77,7 +77,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-5. Personalized Velveteen Blanket, Custom Fall Leaves Throw, Cozy Autumn Family Blanket, Instant Preview
+5. Personalized Fall Blanket, Custom Name Autumn Throw, Cozy Grandma Gift, Instant Preview
    - Sizes: 60" × 80" | Etsy $72.99 | Printify $49.26 | Shipping $12.49 | Net $4.06 | Margin 5.6%
    - Sizes: 50" × 60" | Etsy $52.99 | Printify $34.29 | Shipping $10.39 | Net $3.03 | Margin 5.7%
 
@@ -93,7 +93,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 7. Opossum Raccoon Pie Sweatshirt, Funny Thanksgiving Crewneck, Fall Animal Lover Gift
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
-   - Sizes: M / Sizes: S / Sizes: L / Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: L / Sizes: M / Sizes: XL / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
@@ -107,21 +107,21 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 9. Capybara Sweatshirt: Meditation Animal Lover Yoga Zen Design, Vitruvian Motif
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
-   - Sizes: S / Sizes: M / Sizes: XL / Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: M / Sizes: L / Sizes: XL / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
 10. Funny Capybara American Gothic Sweatshirt – Vintage Art Parody Crewneck
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
-   - Sizes: S / Sizes: M / Sizes: XL / Sizes: L | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: S / Sizes: M / Sizes: L / Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
 11. Capybara Sweatshirt, Museum Humor Crewneck, Animal Lover Gift, Renaissance Art
    - Sizes: 2XL | Etsy $36.99 | Printify $22.35 | Shipping $8.79 | Net $2.09 | Margin 5.6%
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
-   - Sizes: XL / Sizes: M / Sizes: L / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: M / Sizes: L / Sizes: XL / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
@@ -133,19 +133,18 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 13. Capybara Shirt: Humorous Vitruvian Yoga Animal Graphic Tee
-   - Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
-   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
+   - Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
+   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
 
 14. Funny Capybara American Gothic Parody T Shirt: Vintage Farmhouse Humor Cotton Tee
-   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
-   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL | Etsy $22.99 | Printify $14.28 | Shipping $4.95 | Net $1.33 | Margin 5.8%
+   - Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
 
 
@@ -153,14 +152,14 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 15. Funny Halloween Sweatshirt, No Pumpkin Pie For You, Sarcastic Pumpkin Crewneck, Spooky Fall Gift
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
-   - Sizes: M / Sizes: S / Sizes: L / Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: XL / Sizes: L / Sizes: S / Sizes: M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
 16. New Year&#39;s Gnome Sweatshirt, New Year&#39;s Eve Crewneck, Funny NYE Shirt, Gnome New Year Shirt, Another Trip Around the Sun, New Year Gift
    - Sizes: 3XL | Etsy $38.99 | Printify $23.79 | Shipping $8.79 | Net $2.46 | Margin 6.3%
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
-   - Sizes: XL / Sizes: L / Sizes: M / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: M / Sizes: L / Sizes: XL / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
@@ -196,113 +195,111 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 22. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
-   - Size: Ghost / 3XL / Size: Witch / 3XL / Size: Vampire / 3XL / Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Pumpkin / 2XL / Size: Witch / 2XL / Size: Ghost / 2XL / Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Vampire / S / Size: Ghost / XL / Size: Ghost / S / Size: Pumpkin / S / Size: Vampire / L / Size: Pumpkin / L / Size: Ghost / M / Size: Ghost / L / Size: Witch / M / Size: Witch / L / Size: Vampire / XL / Size: Pumpkin / M / Size: Witch / XL / Size: Witch / S / Size: Vampire / M / Size: Pumpkin / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Ghost / 3XL / Size: Witch / 3XL / Size: Pumpkin / 3XL / Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Witch / 2XL / Size: Vampire / 2XL / Size: Ghost / 2XL / Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Witch / XL / Size: Ghost / XL / Size: Witch / L / Size: Vampire / M / Size: Vampire / L / Size: Vampire / XL / Size: Witch / M / Size: Ghost / L / Size: Pumpkin / L / Size: Pumpkin / S / Size: Ghost / M / Size: Ghost / S / Size: Vampire / S / Size: Pumpkin / XL / Size: Pumpkin / M / Size: Witch / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 
 23. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
-   - Size: Ghost / 3XL / Size: Pumpkin / 3XL / Size: Vampire / 3XL / Size: Witch / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Pumpkin / 2XL / Size: Ghost / 2XL / Size: Witch / 2XL / Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Ghost / L / Size: Witch / S / Size: Witch / M / Size: Vampire / S / Size: Pumpkin / L / Size: Witch / L / Size: Witch / XL / Size: Pumpkin / XL / Size: Vampire / M / Size: Vampire / L / Size: Vampire / XL / Size: Pumpkin / S / Size: Pumpkin / M / Size: Ghost / S / Size: Ghost / M / Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / 3XL / Size: Witch / 3XL / Size: Vampire / 3XL / Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Vampire / 2XL / Size: Witch / 2XL / Size: Ghost / 2XL / Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Vampire / S / Size: Ghost / M / Size: Vampire / L / Size: Pumpkin / S / Size: Pumpkin / M / Size: Ghost / XL / Size: Witch / S / Size: Ghost / L / Size: Pumpkin / XL / Size: Vampire / XL / Size: Vampire / M / Size: Witch / M / Size: Pumpkin / L / Size: Ghost / S / Size: Witch / XL / Size: Witch / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 
 24. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
-   - Size: Ghost / 3XL / Size: Witch / 3XL / Size: Vampire / 3XL / Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Pumpkin / 2XL / Size: Ghost / 2XL / Size: Witch / 2XL / Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Vampire / L / Size: Vampire / XL / Size: Witch / L / Size: Witch / S / Size: Witch / M / Size: Pumpkin / S / Size: Ghost / XL / Size: Pumpkin / M / Size: Pumpkin / XL / Size: Ghost / L / Size: Pumpkin / L / Size: Ghost / M / Size: Witch / XL / Size: Ghost / S / Size: Vampire / M / Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Vampire / 3XL / Size: Witch / 3XL / Size: Pumpkin / 3XL / Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Pumpkin / 2XL / Size: Witch / 2XL / Size: Ghost / 2XL / Size: Vampire / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Ghost / S / Size: Ghost / M / Size: Ghost / XL / Size: Ghost / L / Size: Witch / XL / Size: Pumpkin / M / Size: Pumpkin / L / Size: Pumpkin / XL / Size: Vampire / S / Size: Vampire / XL / Size: Vampire / M / Size: Witch / S / Size: Pumpkin / S / Size: Witch / L / Size: Vampire / L / Size: Witch / M | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 
 25. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
-   - Size: Vampire / 3XL / Size: Witch / 3XL / Size: Ghost / 3XL / Size: Pumpkin / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Vampire / 2XL / Size: Witch / 2XL / Size: Ghost / 2XL / Size: Pumpkin / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Pumpkin / S / Size: Pumpkin / M / Size: Witch / S / Size: Ghost / XL / Size: Witch / M / Size: Witch / L / Size: Pumpkin / XL / Size: Witch / XL / Size: Ghost / S / Size: Ghost / M / Size: Ghost / L / Size: Vampire / L / Size: Vampire / M / Size: Vampire / XL / Size: Pumpkin / L / Size: Vampire / S | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Pumpkin / 3XL / Size: Vampire / 3XL / Size: Witch / 3XL / Size: Ghost / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Size: Pumpkin / 2XL / Size: Ghost / 2XL / Size: Vampire / 2XL / Size: Witch / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Pumpkin / S / Size: Ghost / S / Size: Pumpkin / XL / Size: Witch / L / Size: Vampire / L / Size: Witch / S / Size: Witch / M / Size: Ghost / M / Size: Witch / XL / Size: Vampire / XL / Size: Vampire / S / Size: Pumpkin / M / Size: Pumpkin / L / Size: Ghost / L / Size: Vampire / M / Size: Ghost / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 
 26. Customizable Chicken Coop T-Shirt, Farmhouse Flock Apparel, Comfort Colors Tee
-   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Butter / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
+   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Butter / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
 
 27. Capybara Halloween Shirt, Funny Ghost Witch Pumpkin Tee, Spooky Season Comfort Colors Shirt
    - Size: Pumpkin / 3XL / Size: Ghost / 3XL / Size: Witch / 3XL / Size: Vampire / 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Size: Witch / 2XL / Size: Vampire / 2XL / Size: Pumpkin / 2XL / Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Size: Vampire / L / Size: Pumpkin / XL / Size: Pumpkin / L / Size: Pumpkin / S / Size: Pumpkin / M / Size: Ghost / S / Size: Witch / S / Size: Vampire / S / Size: Witch / M / Size: Witch / L / Size: Witch / XL / Size: Vampire / M / Size: Ghost / M / Size: Ghost / L / Size: Ghost / XL / Size: Vampire / XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Size: Witch / 2XL / Size: Pumpkin / 2XL / Size: Vampire / 2XL / Size: Ghost / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Vampire / L / Size: Vampire / XL / Size: Ghost / L / Size: Ghost / XL / Size: Ghost / S / Size: Witch / M / Size: Witch / L / Size: Witch / XL / Size: Witch / S / Size: Pumpkin / S / Size: Pumpkin / M / Size: Ghost / M / Size: Vampire / S / Size: Pumpkin / XL / Size: Vampire / M / Size: Pumpkin / L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 
 28. Raccoon Opossum Christmas Lights Shirt, Funny Caffeine Denial Holiday Tee
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L | Etsy $23.99 | Printify $13.04 | Shipping $4.95 | Net $3.47 | Margin 14.5%
 
 
 
 29. Personalized Vintage Circus Pet T-Shirt, Custom Pet Photo Tee, Comfort Colors Shirt, FunHaus Style
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Butter / Clothing sizes: 2XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
-   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: M / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: L / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: XL / Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
+   - Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Comfort Colors® Colors: Butter / Clothing sizes: 2XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
+   - Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Lagoon Blue / Clothing sizes: XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: L / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
 
 30. Capybara Shirt Don't Worry, Be Capy Funny Capybara Beach Garment Dyed Cotton T-Shirt
-   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
-   - Comfort Colors® Colors: Lagoon Blue / Clothing sizes: S / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: L / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: XL | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
-   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
+   - Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Net unavailable | Margin unavailable
 
 
 
 31. Personalized Christmas Shirt, Holiday Magic Maker Tee, Custom Name Gingerbread Shirt, Comfort Colors
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
-   - Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
-   - Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL | Etsy $25.99 | Printify $16.44 | Shipping $4.95 | Net $1.88 | Margin 7.2%
+   - Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
+   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
+   - Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Net unavailable | Margin unavailable
 
 
 
 32. It&#39;s Fall Y&#39;all Shirt, Turkey Gnome Tee, Thanksgiving Shirt, Funny Autumn Gift, Fall Shirt for Women and Men
-   - Gildan Colors: Natural / Clothing sizes: 3XL / Gildan Colors: Heliconia / Clothing sizes: 3XL / Gildan Colors: Turf Green / Clothing sizes: 3XL / Gildan Colors: Navy / Clothing sizes: 3XL / Gildan Colors: Orange / Clothing sizes: 3XL / Gildan Colors: Red / Clothing sizes: 3XL / Gildan Colors: Black / Clothing sizes: 3XL | Etsy $21.99 | Printify $13.10 | Shipping $4.95 | Net $1.60 | Margin 7.3%
-   - Gildan Colors: Navy / Clothing sizes: 4XL / Gildan Colors: Black / Clothing sizes: 5XL / Gildan Colors: Navy / Clothing sizes: 5XL / Gildan Colors: Black / Clothing sizes: 4XL / Gildan Colors: Heliconia / Clothing sizes: 4XL / Gildan Colors: Heliconia / Clothing sizes: 5XL / Gildan Colors: Natural / Clothing sizes: 4XL / Gildan Colors: Natural / Clothing sizes: 5XL / Gildan Colors: Red / Clothing sizes: 4XL / Gildan Colors: Red / Clothing sizes: 5XL / Gildan Colors: Orange / Clothing sizes: 4XL / Gildan Colors: Orange / Clothing sizes: 5XL | Etsy $22.99 | Printify $13.91 | Shipping $4.95 | Net $1.70 | Margin 7.4%
-   - Gildan Colors: Red / Clothing sizes: M / Gildan Colors: Turf Green / Clothing sizes: S / Gildan Colors: Red / Clothing sizes: S / Gildan Colors: Turf Green / Clothing sizes: XL / Gildan Colors: Turf Green / Clothing sizes: M / Gildan Colors: Turf Green / Clothing sizes: L / Gildan Colors: Heliconia / Clothing sizes: L / Gildan Colors: Heliconia / Clothing sizes: XL / Gildan Colors: Natural / Clothing sizes: S / Gildan Colors: Natural / Clothing sizes: M / Gildan Colors: Natural / Clothing sizes: L / Gildan Colors: Navy / Clothing sizes: XL / Gildan Colors: Orange / Clothing sizes: S / Gildan Colors: Orange / Clothing sizes: M / Gildan Colors: Heliconia / Clothing sizes: S / Gildan Colors: Orange / Clothing sizes: XL / Gildan Colors: Orange / Clothing sizes: L / Gildan Colors: Red / Clothing sizes: L / Gildan Colors: Red / Clothing sizes: XL / Gildan Colors: Navy / Clothing sizes: M / Gildan Colors: Black / Clothing sizes: XL / Gildan Colors: Navy / Clothing sizes: S / Gildan Colors: Black / Clothing sizes: S / Gildan Colors: Navy / Clothing sizes: L / Gildan Colors: Black / Clothing sizes: L / Gildan Colors: Black / Clothing sizes: M / Gildan Colors: Heliconia / Clothing sizes: M / Gildan Colors: Natural / Clothing sizes: XL | Etsy $18.99 | Printify $10.05 | Shipping $4.95 | Net $1.94 | Margin 10.2%
-   - Gildan Colors: Turf Green / Clothing sizes: 2XL / Gildan Colors: Orange / Clothing sizes: 2XL / Gildan Colors: Heliconia / Clothing sizes: 2XL / Gildan Colors: Red / Clothing sizes: 2XL / Gildan Colors: Black / Clothing sizes: 2XL / Gildan Colors: Navy / Clothing sizes: 2XL / Gildan Colors: Natural / Clothing sizes: 2XL | Etsy $21.99 | Printify $11.90 | Shipping $4.95 | Net $2.80 | Margin 12.7%
+   - Gildan Colors: Turf Green / Clothing sizes: 3XL / Gildan Colors: Orange / Clothing sizes: 3XL / Gildan Colors: Red / Clothing sizes: 3XL / Gildan Colors: Natural / Clothing sizes: 3XL / Gildan Colors: Navy / Clothing sizes: 3XL / Gildan Colors: Heliconia / Clothing sizes: 3XL / Gildan Colors: Black / Clothing sizes: 3XL | Etsy $21.99 | Printify $13.10 | Shipping $4.95 | Net $1.60 | Margin 7.3%
+   - Gildan Colors: Heliconia / Clothing sizes: 4XL / Gildan Colors: Orange / Clothing sizes: 4XL / Gildan Colors: Red / Clothing sizes: 5XL / Gildan Colors: Navy / Clothing sizes: 5XL / Gildan Colors: Red / Clothing sizes: 4XL / Gildan Colors: Orange / Clothing sizes: 5XL / Gildan Colors: Black / Clothing sizes: 4XL / Gildan Colors: Navy / Clothing sizes: 4XL / Gildan Colors: Black / Clothing sizes: 5XL / Gildan Colors: Heliconia / Clothing sizes: 5XL / Gildan Colors: Natural / Clothing sizes: 5XL / Gildan Colors: Natural / Clothing sizes: 4XL | Etsy $22.99 | Printify $13.91 | Shipping $4.95 | Net $1.70 | Margin 7.4%
+   - Gildan Colors: Turf Green / Clothing sizes: L / Gildan Colors: Turf Green / Clothing sizes: M / Gildan Colors: Turf Green / Clothing sizes: XL / Gildan Colors: Heliconia / Clothing sizes: S / Gildan Colors: Navy / Clothing sizes: S / Gildan Colors: Heliconia / Clothing sizes: M / Gildan Colors: Red / Clothing sizes: L / Gildan Colors: Black / Clothing sizes: M / Gildan Colors: Black / Clothing sizes: L / Gildan Colors: Black / Clothing sizes: XL / Gildan Colors: Turf Green / Clothing sizes: S / Gildan Colors: Red / Clothing sizes: M / Gildan Colors: Natural / Clothing sizes: S / Gildan Colors: Red / Clothing sizes: XL / Gildan Colors: Black / Clothing sizes: S / Gildan Colors: Navy / Clothing sizes: M / Gildan Colors: Navy / Clothing sizes: L / Gildan Colors: Navy / Clothing sizes: XL / Gildan Colors: Orange / Clothing sizes: S / Gildan Colors: Natural / Clothing sizes: M / Gildan Colors: Natural / Clothing sizes: L / Gildan Colors: Natural / Clothing sizes: XL / Gildan Colors: Red / Clothing sizes: S / Gildan Colors: Orange / Clothing sizes: M / Gildan Colors: Orange / Clothing sizes: L / Gildan Colors: Orange / Clothing sizes: XL / Gildan Colors: Heliconia / Clothing sizes: XL / Gildan Colors: Heliconia / Clothing sizes: L | Etsy $18.99 | Printify $10.05 | Shipping $4.95 | Net $1.94 | Margin 10.2%
+   - Gildan Colors: Red / Clothing sizes: 2XL / Gildan Colors: Black / Clothing sizes: 2XL / Gildan Colors: Turf Green / Clothing sizes: 2XL / Gildan Colors: Navy / Clothing sizes: 2XL / Gildan Colors: Heliconia / Clothing sizes: 2XL / Gildan Colors: Orange / Clothing sizes: 2XL / Gildan Colors: Natural / Clothing sizes: 2XL | Etsy $21.99 | Printify $11.90 | Shipping $4.95 | Net $2.80 | Margin 12.7%
 
 
 
 33. Funny Halloween Shirt, No Pumpkin Pie For You Sweetheart, Sarcastic Jack-o-Lantern Tee, Spooky Fall Gift
    - Gildan Colors: Red / Clothing sizes: 3XL / Gildan Colors: Black / Clothing sizes: 3XL / Gildan Colors: Orange / Clothing sizes: 3XL | Etsy $21.99 | Printify $13.10 | Shipping $4.95 | Net $1.60 | Margin 7.3%
-   - Gildan Colors: Black / Clothing sizes: 4XL / Gildan Colors: Black / Clothing sizes: 5XL / Gildan Colors: Orange / Clothing sizes: 5XL / Gildan Colors: Red / Clothing sizes: 5XL / Gildan Colors: Orange / Clothing sizes: 4XL / Gildan Colors: Red / Clothing sizes: 4XL | Etsy $22.99 | Printify $13.91 | Shipping $4.95 | Net $1.70 | Margin 7.4%
-   - Gildan Colors: Orange / Clothing sizes: M / Gildan Colors: Orange / Clothing sizes: L / Gildan Colors: Orange / Clothing sizes: XL / Gildan Colors: Black / Clothing sizes: L / Gildan Colors: Black / Clothing sizes: XL / Gildan Colors: Black / Clothing sizes: M / Gildan Colors: Red / Clothing sizes: S / Gildan Colors: Red / Clothing sizes: L / Gildan Colors: Red / Clothing sizes: M / Gildan Colors: Black / Clothing sizes: S / Gildan Colors: Red / Clothing sizes: XL / Gildan Colors: Orange / Clothing sizes: S | Etsy $18.99 | Printify $10.05 | Shipping $4.95 | Net $1.94 | Margin 10.2%
-   - Gildan Colors: Black / Clothing sizes: 2XL / Gildan Colors: Red / Clothing sizes: 2XL / Gildan Colors: Orange / Clothing sizes: 2XL | Etsy $21.99 | Printify $11.90 | Shipping $4.95 | Net $2.80 | Margin 12.7%
+   - Gildan Colors: Black / Clothing sizes: 5XL / Gildan Colors: Black / Clothing sizes: 4XL / Gildan Colors: Red / Clothing sizes: 5XL / Gildan Colors: Red / Clothing sizes: 4XL / Gildan Colors: Orange / Clothing sizes: 4XL / Gildan Colors: Orange / Clothing sizes: 5XL | Etsy $22.99 | Printify $13.91 | Shipping $4.95 | Net $1.70 | Margin 7.4%
+   - Gildan Colors: Orange / Clothing sizes: XL / Gildan Colors: Orange / Clothing sizes: M / Gildan Colors: Red / Clothing sizes: L / Gildan Colors: Orange / Clothing sizes: S / Gildan Colors: Orange / Clothing sizes: L / Gildan Colors: Black / Clothing sizes: XL / Gildan Colors: Black / Clothing sizes: S / Gildan Colors: Red / Clothing sizes: XL / Gildan Colors: Black / Clothing sizes: L / Gildan Colors: Black / Clothing sizes: M / Gildan Colors: Red / Clothing sizes: M / Gildan Colors: Red / Clothing sizes: S | Etsy $18.99 | Printify $10.05 | Shipping $4.95 | Net $1.94 | Margin 10.2%
+   - Gildan Colors: Orange / Clothing sizes: 2XL / Gildan Colors: Black / Clothing sizes: 2XL / Gildan Colors: Red / Clothing sizes: 2XL | Etsy $21.99 | Printify $11.90 | Shipping $4.95 | Net $2.80 | Margin 12.7%
 
 
 
 34. Custom Chicken Mom Shirt, Personalized Flock Tee, Backyard Chicken Keeper Apparel
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
-   - Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Light Green / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
-   - Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Light Green / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Light Green / Clothing sizes: L / Comfort Colors® Colors: Light Green / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Light Green / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Light Green / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
+   - Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
 
 35. Capybara Shirt Renaissance Art Parody Tee | Capybara Lover Gift | Michelangelo Inspired Graphic T-Shirt
-   - Comfort Colors® Colors: Violet / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
-   - Comfort Colors® Colors: Violet / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
-   - Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Violet / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Violet / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Violet / Clothing sizes: S / Comfort Colors® Colors: Violet / Clothing sizes: L / Comfort Colors® Colors: Violet / Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Violet / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Shipping $4.95 | Net $2.35 | Margin 7.3%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Violet / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Violet / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Violet / Clothing sizes: XL / Comfort Colors® Colors: Violet / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Violet / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Violet / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $31.99 | Printify $21.40 | Net unavailable | Margin unavailable
 
 
@@ -318,34 +315,33 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 38. Too for Coop Chicken Shirt, Funny Farm Animal Graphic Tee
-   - Comfort Colors® Colors: Ivory / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Light Green / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
-   - Comfort Colors® Colors: Ivory / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL / Comfort Colors® Colors: Light Green / Clothing sizes: 3XL / Comfort Colors® Colors: Ivory / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Light Green / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Light Green / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Light Green / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Light Green / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Ivory / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
+   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Ivory / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Ivory / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Ivory / Clothing sizes: XL / Comfort Colors® Colors: Ivory / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Ivory / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Ivory / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
 
 39. Too Cool for the Coop Chicken Shirt, Funny Rooster Graphic Tee, Backyard Farmer Apparel
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Light Green / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
-   - Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Light Green / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Light Green / Clothing sizes: M / Comfort Colors® Colors: Light Green / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Light Green / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Light Green / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
-   - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
+   - Comfort Colors® Colors: Light Green / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Sapphire / Clothing sizes: S | Etsy $21.99 | Printify $13.04 | Shipping $4.95 | Net $1.66 | Margin 7.6%
+   - Comfort Colors® Colors: Sapphire / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Light Green / Clothing sizes: 3XL / Comfort Colors® Colors: Sapphire / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Comfort Colors® Colors: Light Green / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: XL / Comfort Colors® Colors: Light Green / Clothing sizes: XL / Comfort Colors® Colors: Sapphire / Clothing sizes: L / Comfort Colors® Colors: Sapphire / Clothing sizes: M / Comfort Colors® Colors: Light Green / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Sapphire / Clothing sizes: 2XL / Comfort Colors® Colors: Light Green / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
 
 40. Personalized Thanksgiving Shirt, Here for the Pie Turkey Tee, Custom Name Friendsgiving Gift, Funny Thanksgiving Family Shirt
    - Sizes: 3XL | Etsy $21.99 | Printify $13.03 | Shipping $4.95 | Net $1.67 | Margin 7.6%
-   - Sizes: M / Sizes: XL / Sizes: S / Sizes: L | Etsy $18.99 | Printify $10.31 | Shipping $4.95 | Net $1.68 | Margin 8.8%
+   - Sizes: S / Sizes: M / Sizes: L / Sizes: XL | Etsy $18.99 | Printify $10.31 | Shipping $4.95 | Net $1.68 | Margin 8.8%
    - Sizes: 2XL | Etsy $20.99 | Printify $11.78 | Shipping $4.95 | Net $2.02 | Margin 9.6%
 
 
 
 41. Personalized Christmas Shirt, Custom Name Naughty List Tee, Funny Elf Holiday Top
    - Sizes: 3XL | Etsy $21.99 | Printify $13.03 | Shipping $4.95 | Net $1.67 | Margin 7.6%
-   - Sizes: S / Sizes: M / Sizes: L / Sizes: XL | Etsy $18.99 | Printify $10.31 | Shipping $4.95 | Net $1.68 | Margin 8.8%
+   - Sizes: M / Sizes: XL / Sizes: L / Sizes: S | Etsy $18.99 | Printify $10.31 | Shipping $4.95 | Net $1.68 | Margin 8.8%
    - Sizes: 2XL | Etsy $20.99 | Printify $11.78 | Shipping $4.95 | Net $2.02 | Margin 9.6%
 
 
@@ -353,58 +349,58 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 42. Raccoon Possum Christmas Sweatshirt, Funny Caffeine Denial Crewneck, Holiday Animal Pullover
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
-   - Sizes: L / Sizes: XL / Sizes: S / Sizes: M | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: S / Sizes: XL / Sizes: L / Sizes: M | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
 
 
 
 43. Possum Raccoon Pie Sweatshirt, Funny Wildlife Animal Crewneck Pullover
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
-   - Sizes: L / Sizes: XL / Sizes: S / Sizes: M | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: M / Sizes: S / Sizes: L / Sizes: XL | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
 
 
 
 44. Custom Pet Circus Sweatshirt: Vintage Carnival Dog or Cat Lover Retro Apparel
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
-   - Sizes: L / Sizes: XL / Sizes: M / Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: M / Sizes: XL / Sizes: S / Sizes: L | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
 
 
 
 45. Personalized Christmas Sweatshirt, Custom Name Gingerbread Sweatshirt, Holiday Magic Maker, Christmas Gift for Mom
    - Sizes: 2XL | Etsy $37.99 | Printify $22.35 | Shipping $8.79 | Net $2.99 | Margin 7.9%
    - Sizes: 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
-   - Sizes: L / Sizes: M / Sizes: S / Sizes: XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Sizes: M / Sizes: XL / Sizes: L / Sizes: S | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
 
 
 
 46. Capybara Tank Top | Renaissance Art Parody Sleeveless Shirt, Creation of Adam
    - Sizes: 2XL | Etsy $26.99 | Printify $17.04 | Shipping $4.95 | Net $2.19 | Margin 8.1%
-   - Sizes: M / Sizes: L / Sizes: XL / Sizes: XS / Sizes: S | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
+   - Sizes: XS / Sizes: XL / Sizes: S / Sizes: M / Sizes: L | Etsy $24.99 | Printify $14.61 | Shipping $4.95 | Net $2.81 | Margin 11.2%
    - Sizes: XL / Sizes: L / Sizes: M / Sizes: S | Etsy $24.99 | Printify $14.61 | Net unavailable | Margin unavailable
    - Sizes: 2XL | Etsy $26.99 | Printify $17.04 | Net unavailable | Margin unavailable
 
 
 
 47. Opossum Christmas Mug, Funny Santa's Helper Coffee Cup, Coworker Boss Gift, Animal Lover Mug
-   - Mug color: Navy / Mug color: Black / Mug color: Red / Mug color: Yellow | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Navy / Mug color: Yellow / Mug color: Black / Mug color: Red | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
 
 
 
 48. Possum Mug, Playing Dead Is Your Cardio, Custom Name Funny Opossum Coffee Cup, Personalized Ceramic Gift
-   - Mug color: Black / Mug color: Red / Mug color: Pink / Mug color: Yellow / Mug color: Light Blue / Mug color: Navy | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Navy / Mug color: Light Blue / Mug color: Yellow / Mug color: Pink / Mug color: Black / Mug color: Red | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
 
 
 
 49. Angel Capybara Mug, Heaven Sent Mostly Coffee Cup, Ceramic Accent Mug
-   - Mug color: Black / Mug color: Navy / Mug color: Pink / Mug color: Light Blue / Mug color: Yellow / Mug color: Red | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
+   - Mug color: Pink / Mug color: Navy / Mug color: Yellow / Mug color: Red / Mug color: Light Blue / Mug color: Black | Etsy $16.99 | Printify $6.45 | Shipping $7.29 | Net $1.39 | Margin 8.2%
 
 
 
-50. Funny Gingerbread Christmas Sweatshirt, Sassy Holiday Sweatshirt for Women, Choose Your Gingerbread, Christmas Humor Crewneck
-   - Size: Christmas Lights / 3XL / Size: Rolling Pin / 3XL / Size: Gingerbread House / 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
-   - Size: Gingerbread House / L / Size: Gingerbread House / S / Size: Gingerbread House / M / Size: Rolling Pin / L / Size: Rolling Pin / XL / Size: Christmas Lights / L / Size: Rolling Pin / M / Size: Christmas Lights / XL / Size: Rolling Pin / S / Size: Christmas Lights / S / Size: Gingerbread House / XL / Size: Christmas Lights / M | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
-   - Size: Gingerbread House / 2XL / Size: Christmas Lights / 2XL / Size: Rolling Pin / 2XL | Etsy $38.99 | Printify $22.35 | Shipping $8.79 | Net $3.90 | Margin 10.0%
+50. Funny Gingerbread Christmas Sweatshirt, Sassy Holiday Sweatshirt, Choose Your Character
+   - Size: Gingerbread House / 3XL / Size: Christmas Lights / 3XL / Size: Rolling Pin / 3XL | Etsy $39.99 | Printify $23.79 | Shipping $8.79 | Net $3.36 | Margin 8.4%
+   - Size: Rolling Pin / M / Size: Rolling Pin / S / Size: Rolling Pin / XL / Size: Rolling Pin / L / Size: Gingerbread House / S / Size: Gingerbread House / L / Size: Christmas Lights / S / Size: Christmas Lights / L / Size: Christmas Lights / M / Size: Christmas Lights / XL / Size: Gingerbread House / M / Size: Gingerbread House / XL | Etsy $34.99 | Printify $19.45 | Shipping $8.79 | Net $3.18 | Margin 9.1%
+   - Size: Rolling Pin / 2XL / Size: Gingerbread House / 2XL / Size: Christmas Lights / 2XL | Etsy $38.99 | Printify $22.35 | Shipping $8.79 | Net $3.90 | Margin 10.0%
    - Size: Christmas Lights / S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
 
 
@@ -416,7 +412,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 52. Personalized Gingerbread Soy Candle, Custom Name Christmas Candle, Candle for Mom, Grandma or Friend
-   - Scents: Clean Cotton / Scents: Christmas Warmth / Scents: Cinnamon Vanilla / Scents: Unscented | Etsy $26.99 | Printify $13.55 | Shipping $8.29 | Net $2.34 | Margin 8.7%
+   - Scents: Unscented / Scents: Christmas Warmth / Scents: Clean Cotton / Scents: Cinnamon Vanilla | Etsy $26.99 | Printify $13.55 | Shipping $8.29 | Net $2.34 | Margin 8.7%
 
 
 
@@ -469,7 +465,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 59. Personalized Chief Memory Maker Hoodie, Gift for Mom or Grandma, Family Memories Pullover, Instant Preview
-   - Sizes: XL / Sizes: L / Sizes: M / Sizes: S | Etsy $39.99 | Printify $23.55 | Shipping $8.79 | Net $3.60 | Margin 9.0%
+   - Sizes: M / Sizes: L / Sizes: XL / Sizes: S | Etsy $39.99 | Printify $23.55 | Shipping $8.79 | Net $3.60 | Margin 9.0%
    - Sizes: 2XL | Etsy $42.99 | Printify $25.80 | Shipping $8.79 | Net $4.07 | Margin 9.5%
    - Sizes: 3XL | Etsy $44.99 | Printify $27.09 | Shipping $8.79 | Net $4.59 | Margin 10.2%
    - Sizes: 5XL / Sizes: 4XL | Etsy $45.99 | Printify $27.64 | Shipping $8.79 | Net $4.94 | Margin 10.7%
@@ -477,10 +473,10 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 60. Personalized Hanukkah Shirt, Custom Name Gnome Tee, 8 Days of Attitude, Funny Chanukah Gift, Jewish Holiday Shirt
-   - Gildan Colors: Light Pink / Clothing sizes: 2XL / Gildan Colors: Gold / Clothing sizes: 2XL / Gildan Colors: Carolina Blue / Clothing sizes: 2XL / Gildan Colors: Black / Clothing sizes: 2XL / Gildan Colors: Light Blue / Clothing sizes: 2XL / Gildan Colors: Royal / Clothing sizes: 2XL | Etsy $20.99 | Printify $11.90 | Shipping $4.95 | Net $1.90 | Margin 9.0%
-   - Gildan Colors: Gold / Clothing sizes: S / Gildan Colors: Gold / Clothing sizes: M / Gildan Colors: Light Pink / Clothing sizes: S / Gildan Colors: Light Blue / Clothing sizes: XL / Gildan Colors: Light Blue / Clothing sizes: M / Gildan Colors: Light Blue / Clothing sizes: L / Gildan Colors: Light Pink / Clothing sizes: M / Gildan Colors: Light Pink / Clothing sizes: L / Gildan Colors: Light Pink / Clothing sizes: XL / Gildan Colors: Carolina Blue / Clothing sizes: S / Gildan Colors: Carolina Blue / Clothing sizes: XL / Gildan Colors: Carolina Blue / Clothing sizes: M / Gildan Colors: Carolina Blue / Clothing sizes: L / Gildan Colors: Black / Clothing sizes: XL / Gildan Colors: Light Blue / Clothing sizes: S / Gildan Colors: Gold / Clothing sizes: XL / Gildan Colors: Royal / Clothing sizes: S / Gildan Colors: Royal / Clothing sizes: M / Gildan Colors: Royal / Clothing sizes: L / Gildan Colors: Royal / Clothing sizes: XL / Gildan Colors: Black / Clothing sizes: S / Gildan Colors: Black / Clothing sizes: M / Gildan Colors: Black / Clothing sizes: L / Gildan Colors: Gold / Clothing sizes: L | Etsy $18.99 | Printify $10.05 | Shipping $4.95 | Net $1.94 | Margin 10.2%
-   - Gildan Colors: Gold / Clothing sizes: 5XL / Gildan Colors: Gold / Clothing sizes: 4XL / Gildan Colors: Royal / Clothing sizes: 5XL / Gildan Colors: Carolina Blue / Clothing sizes: 4XL / Gildan Colors: Light Pink / Clothing sizes: 4XL / Gildan Colors: Light Pink / Clothing sizes: 5XL / Gildan Colors: Royal / Clothing sizes: 4XL / Gildan Colors: Light Blue / Clothing sizes: 4XL / Gildan Colors: Carolina Blue / Clothing sizes: 5XL / Gildan Colors: Light Blue / Clothing sizes: 5XL / Gildan Colors: Black / Clothing sizes: 5XL / Gildan Colors: Black / Clothing sizes: 4XL | Etsy $23.99 | Printify $13.91 | Shipping $4.95 | Net $2.60 | Margin 10.8%
-   - Gildan Colors: Gold / Clothing sizes: 3XL / Gildan Colors: Carolina Blue / Clothing sizes: 3XL / Gildan Colors: Light Pink / Clothing sizes: 3XL / Gildan Colors: Light Blue / Clothing sizes: 3XL / Gildan Colors: Black / Clothing sizes: 3XL / Gildan Colors: Royal / Clothing sizes: 3XL | Etsy $22.99 | Printify $13.10 | Shipping $4.95 | Net $2.51 | Margin 10.9%
+   - Gildan Colors: Light Pink / Clothing sizes: 2XL / Gildan Colors: Gold / Clothing sizes: 2XL / Gildan Colors: Light Blue / Clothing sizes: 2XL / Gildan Colors: Black / Clothing sizes: 2XL / Gildan Colors: Royal / Clothing sizes: 2XL / Gildan Colors: Carolina Blue / Clothing sizes: 2XL | Etsy $20.99 | Printify $11.90 | Shipping $4.95 | Net $1.90 | Margin 9.0%
+   - Gildan Colors: Black / Clothing sizes: S / Gildan Colors: Black / Clothing sizes: M / Gildan Colors: Black / Clothing sizes: L / Gildan Colors: Royal / Clothing sizes: M / Gildan Colors: Royal / Clothing sizes: S / Gildan Colors: Light Pink / Clothing sizes: XL / Gildan Colors: Royal / Clothing sizes: L / Gildan Colors: Carolina Blue / Clothing sizes: XL / Gildan Colors: Light Pink / Clothing sizes: L / Gildan Colors: Light Pink / Clothing sizes: M / Gildan Colors: Light Pink / Clothing sizes: S / Gildan Colors: Gold / Clothing sizes: XL / Gildan Colors: Black / Clothing sizes: XL / Gildan Colors: Light Blue / Clothing sizes: XL / Gildan Colors: Gold / Clothing sizes: L / Gildan Colors: Royal / Clothing sizes: XL / Gildan Colors: Gold / Clothing sizes: M / Gildan Colors: Gold / Clothing sizes: S / Gildan Colors: Light Blue / Clothing sizes: S / Gildan Colors: Light Blue / Clothing sizes: M / Gildan Colors: Light Blue / Clothing sizes: L / Gildan Colors: Carolina Blue / Clothing sizes: S / Gildan Colors: Carolina Blue / Clothing sizes: M / Gildan Colors: Carolina Blue / Clothing sizes: L | Etsy $18.99 | Printify $10.05 | Shipping $4.95 | Net $1.94 | Margin 10.2%
+   - Gildan Colors: Black / Clothing sizes: 5XL / Gildan Colors: Carolina Blue / Clothing sizes: 4XL / Gildan Colors: Black / Clothing sizes: 4XL / Gildan Colors: Gold / Clothing sizes: 4XL / Gildan Colors: Gold / Clothing sizes: 5XL / Gildan Colors: Light Pink / Clothing sizes: 5XL / Gildan Colors: Light Pink / Clothing sizes: 4XL / Gildan Colors: Royal / Clothing sizes: 5XL / Gildan Colors: Royal / Clothing sizes: 4XL / Gildan Colors: Carolina Blue / Clothing sizes: 5XL / Gildan Colors: Light Blue / Clothing sizes: 5XL / Gildan Colors: Light Blue / Clothing sizes: 4XL | Etsy $23.99 | Printify $13.91 | Shipping $4.95 | Net $2.60 | Margin 10.8%
+   - Gildan Colors: Light Pink / Clothing sizes: 3XL / Gildan Colors: Carolina Blue / Clothing sizes: 3XL / Gildan Colors: Light Blue / Clothing sizes: 3XL / Gildan Colors: Gold / Clothing sizes: 3XL / Gildan Colors: Royal / Clothing sizes: 3XL / Gildan Colors: Black / Clothing sizes: 3XL | Etsy $22.99 | Printify $13.10 | Shipping $4.95 | Net $2.51 | Margin 10.9%
 
 
 
@@ -491,19 +487,18 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 62. Opossum Raccoon Pie Shirt, Funny Thanksgiving Graphic Tee, Fall Animal Lover Gift
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Violet / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Violet / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Violet / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Violet / Clothing sizes: M / Comfort Colors® Colors: Violet / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Violet / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Violet / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
+   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Violet / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
+   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Violet / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Violet / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Violet / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Violet / Clothing sizes: XL / Comfort Colors® Colors: Violet / Clothing sizes: M / Comfort Colors® Colors: Violet / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
 
 63. Funny Opossum Santa's Helper Christmas Shirt, Wildlife Animal Lover Tee
-   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Violet / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
-   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Violet / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Violet / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Violet / Clothing sizes: S / Comfort Colors® Colors: Violet / Clothing sizes: L / Comfort Colors® Colors: Violet / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Violet / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Violet / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
+   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Violet / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Violet / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Comfort Colors® Colors: Violet / Clothing sizes: XL / Comfort Colors® Colors: Violet / Clothing sizes: L / Comfort Colors® Colors: Violet / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Violet / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
 
 
@@ -511,60 +506,60 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 64. Possum Raccoon Pie Graphic Tee, Funny Wildlife Animal Shirt
    - Clothing sizes: 2XL | Etsy $23.99 | Printify $14.28 | Shipping $4.95 | Net $2.23 | Margin 9.3%
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Clothing sizes: S / Clothing sizes: M / Clothing sizes: XL / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: L / Clothing sizes: XL / Clothing sizes: M / Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
 
 
 
 65. Opossum Raccoon Pie Dad Hat, Funny Thanksgiving Baseball Cap, Fall Animal Lover Gift
-   - ValuCap Colors: Black / ValuCap Colors: White / ValuCap Colors: Red / ValuCap Colors: Forest Green / ValuCap Colors: Navy | Etsy $26.99 | Printify $13.84 | Shipping $7.79 | Net $2.55 | Margin 9.4%
+   - ValuCap Colors: Black / ValuCap Colors: Forest Green / ValuCap Colors: Red / ValuCap Colors: Navy / ValuCap Colors: White | Etsy $26.99 | Printify $13.84 | Shipping $7.79 | Net $2.55 | Margin 9.4%
 
 
 
 66. Woodland Animals Hanukkah Tote Bag, Reusable Festival of Lights Shopping Bag
    - Sizes: 16" × 16'' / Handle Color: Navy / Sizes: 16" × 16'' / Handle Color: Black | Etsy $26.99 | Printify $15.44 | Shipping $6.09 | Net $2.65 | Margin 9.8%
-   - Sizes: 18" × 18'' / Handle Color: Navy / Sizes: 18" × 18'' / Handle Color: Black | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+   - Sizes: 18" × 18'' / Handle Color: Black / Sizes: 18" × 18'' / Handle Color: Navy | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
 
 
 
 67. Customizable Chicken Flock T-Shirt, Backyard Chicken Lover Apparel, Homestead Tee
-   - Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Light Green / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Light Green / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Light Green / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Light Green / Clothing sizes: S / Comfort Colors® Colors: Light Green / Clothing sizes: M / Comfort Colors® Colors: Light Green / Clothing sizes: L / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Light Green / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Butter / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Butter / Clothing sizes: 2XL / Comfort Colors® Colors: Black / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
 
 68. Chief Memory Maker Shirt, Personalized Mom Gift, Family Traditions Shirt, Grandma Gift, Holiday Memory Maker Tee, Instant Preview
-   - Comfort Colors® Colors: Black / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Black / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: L / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: M / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Butter / Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Butter / Clothing sizes: 2XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 4XL / Comfort Colors® Colors: Butter / Clothing sizes: 4XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 4XL / Comfort Colors® Colors: Navy / Clothing sizes: 4XL / Comfort Colors® Colors: Black / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 3XL / Comfort Colors® Colors: Navy / Clothing sizes: 3XL / Comfort Colors® Colors: Black / Clothing sizes: 3XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 3XL / Comfort Colors® Colors: Butter / Clothing sizes: 3XL / Comfort Colors® Colors: Red / Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Comfort Colors® Colors: Neon Pink / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: L / Comfort Colors® Colors: Neon Pink / Clothing sizes: XL / Comfort Colors® Colors: Butter / Clothing sizes: S / Comfort Colors® Colors: Butter / Clothing sizes: M / Comfort Colors® Colors: Navy / Clothing sizes: L / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: XL / Comfort Colors® Colors: Red / Clothing sizes: S / Comfort Colors® Colors: Red / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: L / Comfort Colors® Colors: Black / Clothing sizes: XL / Comfort Colors® Colors: Navy / Clothing sizes: S / Comfort Colors® Colors: Navy / Clothing sizes: M / Comfort Colors® Colors: Neon Pink / Clothing sizes: S / Comfort Colors® Colors: Black / Clothing sizes: M / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: S / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: M / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: L / Comfort Colors® Colors: Red / Clothing sizes: M / Comfort Colors® Colors: Red / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: L / Comfort Colors® Colors: Butter / Clothing sizes: XL / Comfort Colors® Colors: Black / Clothing sizes: S | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Comfort Colors® Colors: Black / Clothing sizes: 2XL / Comfort Colors® Colors: Navy / Clothing sizes: 2XL / Comfort Colors® Colors: Butter / Clothing sizes: 2XL / Comfort Colors® Colors: Red / Clothing sizes: 2XL / Comfort Colors® Colors: Lagoon Blue / Clothing sizes: 2XL / Comfort Colors® Colors: Neon Pink / Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Comfort Colors® Colors: Red / Clothing sizes: 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
 
 
 
 69. Funny Christmas Shirt, Gingerbread Man Tee, Sarcastic Holiday Gift, Fa La La B*tches
-   - Size: Rolling Pin / 4XL / Size: Gingerbread House / 4XL / Size: Christmas Lights / 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
-   - Size: Christmas Lights / 3XL / Size: Gingerbread House / 3XL / Size: Rolling Pin / 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Size: Rolling Pin / L / Size: Rolling Pin / S / Size: Rolling Pin / XL / Size: Rolling Pin / M / Size: Christmas Lights / XL / Size: Christmas Lights / L / Size: Christmas Lights / M / Size: Gingerbread House / L / Size: Gingerbread House / M / Size: Gingerbread House / S / Size: Christmas Lights / S / Size: Gingerbread House / XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
-   - Size: Christmas Lights / 2XL / Size: Rolling Pin / 2XL / Size: Gingerbread House / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
+   - Size: Christmas Lights / 4XL / Size: Gingerbread House / 4XL / Size: Rolling Pin / 4XL | Etsy $32.99 | Printify $21.40 | Shipping $4.95 | Net $3.26 | Margin 9.9%
+   - Size: Rolling Pin / 3XL / Size: Christmas Lights / 3XL / Size: Gingerbread House / 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
+   - Size: Rolling Pin / XL / Size: Rolling Pin / S / Size: Rolling Pin / M / Size: Rolling Pin / L / Size: Gingerbread House / M / Size: Gingerbread House / L / Size: Gingerbread House / XL / Size: Christmas Lights / S / Size: Gingerbread House / S / Size: Christmas Lights / L / Size: Christmas Lights / XL / Size: Christmas Lights / M | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Size: Rolling Pin / 2XL / Size: Christmas Lights / 2XL / Size: Gingerbread House / 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
    - Size: Gingerbread House / 4XL / Size: Christmas Lights / 4XL / Size: Rolling Pin / 4XL | Etsy $32.99 | Printify $21.40 | Net unavailable | Margin unavailable
 
 
 
 70. Personalized Pet Memorial Plaque, Custom Dog Cat Loss Keepsake, Acrylic Sympathy Sign
-   - Finish: Glossy / Finish: Frosted | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
+   - Finish: Frosted / Finish: Glossy | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
 
 
 
 71. Personalized Pet Memorial Plaque, Custom Acrylic Dog Cat Loss Keepsake
-   - Finish: Glossy / Finish: Frosted | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
+   - Finish: Frosted / Finish: Glossy | Etsy $47.99 | Printify $23.85 | Shipping $14.59 | Net $4.74 | Margin 9.9%
 
 
 
 72. Funny Capybara The Scream Parody T Shirt, Embrace Chaos Graphic Tee
    - Clothing sizes: 3XL | Etsy $26.99 | Printify $16.44 | Shipping $4.95 | Net $2.79 | Margin 10.3%
-   - Clothing sizes: S / Clothing sizes: M / Clothing sizes: L / Clothing sizes: XL | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
+   - Clothing sizes: M / Clothing sizes: S / Clothing sizes: XL / Clothing sizes: L | Etsy $22.99 | Printify $13.04 | Shipping $4.95 | Net $2.57 | Margin 11.2%
    - Clothing sizes: 2XL | Etsy $24.99 | Printify $14.28 | Shipping $4.95 | Net $3.14 | Margin 12.5%
 
 
@@ -575,7 +570,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 74. Matching Mom Grandma Sweatshirts, Personalized Chief Memory Maker Shirts, Mother Daughter Gift, Family Holiday Sweatshirt, Instant Preview
-   - Sizes: L / Sizes: S / Sizes: M | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
+   - Sizes: L / Sizes: M / Sizes: S | Etsy $35.99 | Printify $19.45 | Shipping $8.79 | Net $4.08 | Margin 11.3%
    - Sizes: 2XL | Etsy $39.99 | Printify $22.35 | Shipping $8.79 | Net $4.80 | Margin 12.0%
    - Sizes: XL | Etsy $36.99 | Printify $19.45 | Shipping $8.79 | Net $4.99 | Margin 13.5%
    - Sizes: 3XL | Etsy $42.99 | Printify $23.79 | Shipping $8.79 | Net $6.08 | Margin 14.1%
@@ -649,7 +644,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-88. Funny Holiday Tote Bag, The Magic of the Holidays Reusable Shopping Bag, Christmas Gift Tote for Moms, Holiday Errand Bag
+88. Funny Christmas Shopping Tote, Holiday Errand Bag for Mom, Reusable Cotton Canvas Gift
    - Etsy $19.99 | Printify $10.53 | Shipping $4.95 | Net $2.36 | Margin 11.8%
 
 
@@ -660,16 +655,16 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 90. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift
-   - Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Red | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
-   - Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Red | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
+   - Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Red | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+   - Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Red | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
    - Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Black | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
 
 
 
 91. Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Shopping Bag
-   - Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Red | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
-   - Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Red | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
-   - Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Black | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
+   - Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 18" × 18'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 18" × 18'' / Strap Color: Red | Etsy $29.99 | Printify $17.22 | Shipping $6.09 | Net $3.58 | Margin 11.9%
+   - Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Red / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 16" × 16'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 16" × 16'' / Strap Color: Red | Etsy $27.99 | Printify $15.44 | Shipping $6.09 | Net $3.55 | Margin 12.7%
+   - Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Black / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Red / Size: Red Tote Bag (AOP) / 13" × 13'' / Strap Color: Black / Size: Green Tote Bag (AOP) / 13" × 13'' / Strap Color: Red | Etsy $24.99 | Printify $12.63 | Shipping $6.09 | Net $3.65 | Margin 14.6%
 
 
 
@@ -695,7 +690,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 96. Funny Capybara Tee Personalized "is on Capy Time" Cotton T Shirt
-   - Sizes: XL / Sizes: L / Sizes: M / Sizes: S | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
+   - Sizes: S / Sizes: M / Sizes: XL / Sizes: L | Etsy $19.99 | Printify $10.31 | Shipping $4.95 | Net $2.58 | Margin 12.9%
    - Sizes: 2XL | Etsy $21.99 | Printify $11.78 | Shipping $4.95 | Net $2.92 | Margin 13.3%
    - Sizes: 3XL | Etsy $23.99 | Printify $13.03 | Shipping $4.95 | Net $3.48 | Margin 14.5%
 
@@ -795,13 +790,13 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 
-113. Personalized Garden Flag, Custom Name Holiday Yard Decor, Chief Holiday Chaos Officer, Halloween Thanksgiving Christmas New Years
+113. Personalized Holiday Garden Flag, Chief Holiday Chaos Officer, Custom Name Christmas Thanksgiving Decor
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
 
 
-114. Personalized Garden Flag, Custom Name Holiday Yard Decor, Halloween Thanksgiving Christmas New Years, Holiday Chaos in Progress
+114. Personalized Holiday Chaos Garden Flag, Custom Family Name Yard Decor, Halloween Thanksgiving Christmas
    - Sizes: 24.5'' × 32'' | Etsy $34.99 | Printify $20.44 | Shipping $6.39 | Net $4.59 | Margin 13.1%
    - Sizes: 12'' × 18'' | Etsy $22.99 | Printify $10.49 | Shipping $6.39 | Net $3.68 | Margin 16.0%
 
@@ -833,7 +828,7 @@ Each listing includes EVERY matched variant so variant pricing can be reviewed i
 
 
 120. Funny Christmas Apron, Gingerbread Apron, Sarcastic Baking Apron, Christmas Gift for Bakers, 3 Designs
-   - Size: Christmas Lights / One Size / Size: Rolling Pin / One Size / Size: Gingerbread House / One Size | Etsy $37.99 | Printify $22.54 | Shipping $6.19 | Net $5.40 | Margin 14.2%
+   - Size: Rolling Pin / One Size / Size: Gingerbread House / One Size / Size: Christmas Lights / One Size | Etsy $37.99 | Printify $22.54 | Shipping $6.19 | Net $5.40 | Margin 14.2%
 
 
 
