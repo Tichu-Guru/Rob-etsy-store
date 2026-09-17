@@ -4537,7 +4537,7 @@ for number, (_, listing_row) in enumerate(
         "   " + " | ".join(parts)
     )
 
-lines.append("")
+    lines.append("")
     # ---------------------------------------------------------
     # DAILY EMAIL: LISTINGS WITH LOW-PROFIT VARIANTS
     # ---------------------------------------------------------
