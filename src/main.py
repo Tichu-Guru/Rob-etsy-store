@@ -3803,7 +3803,571 @@ def main():
 
         "",
     ]
+    # ---------------------------------------------------------
+    # DAILY EMAIL: ALL LISTINGS PROFITABILITY
+    # ---------------------------------------------------------
+    #
+    # Show every active Etsy listing in the daily email.
+    #
+    # This is a listing-level summary. The detailed variant-level
+    # economics remain in the LISTINGS REQUIRING ATTENTION section
+    # below for listings that fall below the profitability threshold.
+    # ---------------------------------------------------------
 
+    lines += [
+        "ALL LISTINGS — PROFITABILITY",
+        "",
+        "Every active Etsy listing is shown below.",
+        "Worst margin represents the least-profitable calculable "
+        "matched variant in the listing.",
+        "",
+    ]
+
+    # Use the complete listing-level report, including listings
+    # that do not currently have calculable profitability.
+    all_listing_rows = report.copy()
+
+    # Put listings with the lowest margins first.
+    all_listing_rows["_email_margin_sort"] = pd.to_numeric(
+        all_listing_rows["worst_net_margin_pct"],
+        errors="coerce",
+    )
+
+    all_listing_rows = all_listing_rows.sort_values(
+        "_email_margin_sort",
+        ascending=True,
+        na_position="last",
+    )
+
+    for number, (_, listing_row) in enumerate(
+        all_listing_rows.iterrows(),
+        start=1,
+    ):
+        title = str(
+            listing_row.get(
+                "etsy_title",
+                "Untitled listing",
+            )
+            or "Untitled listing"
+        ).replace(
+            "\n",
+            " ",
+        ).replace(
+            "\r",
+            " ",
+        ).strip()
+
+        current_price = pd.to_numeric(
+            listing_row.get(
+                "current_etsy_price"
+            ),
+            errors="coerce",
+        )
+
+        matched_variants = listing_row.get(
+            "matched_variant_count"
+        )
+
+        worst_margin = pd.to_numeric(
+            listing_row.get(
+                "worst_net_margin_pct"
+            ),
+            errors="coerce",
+        )
+
+        best_margin = pd.to_numeric(
+            listing_row.get(
+                "best_net_margin_pct"
+            ),
+            errors="coerce",
+        )
+
+        worst_profit = pd.to_numeric(
+            listing_row.get(
+                "worst_net_profit"
+            ),
+            errors="coerce",
+        )
+
+        below_15 = pd.to_numeric(
+            listing_row.get(
+                "variants_with_losses"
+            ),
+            errors="coerce",
+        )
+
+        under_10 = pd.to_numeric(
+            listing_row.get(
+                "variants_under_10pct"
+            ),
+            errors="coerce",
+        )
+
+        ten_to_fifteen = pd.to_numeric(
+            listing_row.get(
+                "variants_10_to_14_99pct"
+            ),
+            errors="coerce",
+        )
+
+        target_price = pd.to_numeric(
+            listing_row.get(
+                "minimum_price_for_15pct_margin"
+            ),
+            errors="coerce",
+        )
+
+        price_increase = pd.to_numeric(
+            listing_row.get(
+                "price_increase_needed"
+            ),
+            errors="coerce",
+        )
+
+        status = str(
+            listing_row.get(
+                "status",
+                "NOT_CALCULABLE",
+            )
+            or "NOT_CALCULABLE"
+        )
+
+        parts = [
+            f"{number}. {title}"
+        ]
+
+        if pd.notna(current_price):
+            parts.append(
+                f"Price ${current_price:,.2f}"
+            )
+        else:
+            parts.append(
+                "Price unavailable"
+            )
+
+        if pd.notna(matched_variants):
+            parts.append(
+                f"Matched variants {int(matched_variants)}"
+            )
+        else:
+            parts.append(
+                "Matched variants 0"
+            )
+
+        if pd.notna(worst_margin):
+            parts.append(
+                f"Worst margin {worst_margin:.1f}%"
+            )
+        else:
+            parts.append(
+                "Worst margin N/A"
+            )
+
+        if pd.notna(best_margin):
+            parts.append(
+                f"Best margin {best_margin:.1f}%"
+            )
+        else:
+            parts.append(
+                "Best margin N/A"
+            )
+
+        if pd.notna(worst_profit):
+            parts.append(
+                f"Worst net ${worst_profit:,.2f}"
+            )
+        else:
+            parts.append(
+                "Worst net N/A"
+            )
+
+        if status == "NOT_CALCULABLE":
+            parts.append(
+                "Below 15%: N/A"
+            )
+        else:
+            below_threshold = 0
+
+            if pd.notna(under_10):
+                below_threshold += int(
+                    under_10
+                )
+
+            if pd.notna(ten_to_fifteen):
+                below_threshold += int(
+                    ten_to_fifteen
+                )
+
+            parts.append(
+                f"Below 15%: {below_threshold}"
+            )
+
+        if pd.notna(target_price):
+            parts.append(
+                f"15% price ${target_price:,.2f}"
+            )
+
+            if pd.notna(price_increase):
+                if price_increase > 0:
+                    parts.append(
+                        f"Increase ${price_increase:,.2f}"
+                    )
+                else:
+                    parts.append(
+                        "Increase $0.00"
+                    )
+        else:
+            parts.append(
+                "15% price N/A"
+            )
+
+        lines.append(
+            "   " + " | ".join(parts)
+        )
+
+    lines.append("")
+
+    # ---------------------------------------------------------
+    # DAILY EMAIL: LISTINGS REQUIRING ATTENTION
+    # ---------------------------------------------------------
+    #
+    # The detailed profitability information is VARIANT-LEVEL.
+    #
+    # A listing appears here when at least one matched variant
+    # is below the profitability threshold. For each flagged
+    # listing, show EVERY matched variant so the user can see
+    # the actual economics of each size/color/variation rather
+    # than seeing only a single "worst" variant.
+    # ---------------------------------------------------------
+
+    lines += [
+        "LISTINGS REQUIRING ATTENTION",
+        "",
+    ]
+
+    if low_profit_listings.empty:
+        lines += [
+            "None.",
+            "All calculable Etsy listings are at or above "
+            f"{LOW_PROFIT_THRESHOLD:.0f}% net margin.",
+            "",
+        ]
+
+    else:
+        lines += [
+            f"Listings with at least one variant below "
+            f"{LOW_PROFIT_THRESHOLD:.0f}% net margin are shown.",
+            "Each listing includes EVERY matched variant so "
+            "variant pricing can be reviewed individually.",
+            "",
+        ]
+
+        # -----------------------------------------------------
+        # GROUP LOW-PROFIT LISTINGS
+        # -----------------------------------------------------
+
+        flagged_listing_ids = set(
+            low_profit_listings[
+                "etsy_listing_id"
+            ].astype(str)
+        )
+
+        detail_data = profitability_all.copy()
+
+        if "etsy_listing_id" in detail_data.columns:
+            detail_data["etsy_listing_id"] = (
+                detail_data["etsy_listing_id"]
+                .astype(str)
+            )
+
+        # Preserve listing order from the low-profit summary.
+        for number, (_, listing_row) in enumerate(
+            low_profit_listings.iterrows(),
+            start=1,
+        ):
+
+            listing_id = str(
+                listing_row.get(
+                    "etsy_listing_id",
+                    "",
+                )
+            )
+
+            title = str(
+                listing_row.get(
+                    "etsy_title",
+                    "Untitled listing",
+                )
+            ).replace(
+                "\n",
+                " ",
+            ).replace(
+                "\r",
+                " ",
+            ).strip()
+
+            lines.append(
+                f"{number}. {title}"
+            )
+
+            listing_variants = detail_data[
+                detail_data["etsy_listing_id"]
+                == listing_id
+            ].copy()
+
+            if listing_variants.empty:
+                lines.append(
+                    "   No variant-level profitability "
+                    "data available."
+                )
+                lines.append("")
+                continue
+
+            # -------------------------------------------------
+            # COLLAPSE ECONOMICALLY IDENTICAL VARIANTS
+            # -------------------------------------------------
+
+            numeric_columns = [
+                "etsy_price_for_profit",
+                "printify_cost_for_profit",
+                "printify_shipping_for_profit",
+                "estimated_net_profit",
+                "estimated_net_margin_pct",
+                "minimum_price_for_15pct_margin_variant",
+            ]
+
+            for column in numeric_columns:
+                if column in listing_variants.columns:
+                    listing_variants[column] = pd.to_numeric(
+                        listing_variants[column],
+                        errors="coerce",
+                    )
+
+            listing_variants["_margin_sort"] = listing_variants[
+                "estimated_net_margin_pct"
+            ]
+
+            listing_variants = listing_variants.sort_values(
+                "_margin_sort",
+                ascending=True,
+                na_position="last",
+            )
+
+            def economic_variation_label(label):
+                value = str(
+                    label or ""
+                ).strip()
+
+                if not value:
+                    return ""
+
+                parts = [
+                    part.strip()
+                    for part in value.split("/")
+                    if part.strip()
+                ]
+
+                retained = []
+
+                for part in parts:
+                    lower = part.lower()
+
+                    decorative_prefixes = (
+                        "color:",
+                        "colors:",
+                        "color ",
+                        "colors ",
+                        "shape:",
+                        "shapes:",
+                        "shape ",
+                        "shapes ",
+                        "design:",
+                        "designs:",
+                        "design ",
+                        "designs ",
+                        "pattern:",
+                        "patterns:",
+                        "pattern ",
+                        "patterns ",
+                    )
+
+                    if lower.startswith(
+                        decorative_prefixes
+                    ):
+                        continue
+
+                    retained.append(part)
+
+                if retained:
+                    return " / ".join(retained)
+
+                return ""
+
+            listing_variants[
+                "_economic_variation"
+            ] = listing_variants[
+                "etsy_variation_label"
+            ].map(
+                economic_variation_label
+            )
+
+            economic_columns = [
+                "etsy_price_for_profit",
+                "printify_cost_for_profit",
+                "printify_shipping_for_profit",
+                "estimated_net_profit",
+                "estimated_net_margin_pct",
+                "minimum_price_for_15pct_margin_variant",
+            ]
+
+            available_economic_columns = [
+                column
+                for column in economic_columns
+                if column in listing_variants.columns
+            ]
+
+            collapsed_rows = []
+
+            for _, economic_group in listing_variants.groupby(
+                available_economic_columns,
+                dropna=False,
+                sort=False,
+            ):
+
+                row = economic_group.iloc[0].copy()
+
+                labels = []
+
+                for label in economic_group[
+                    "_economic_variation"
+                ].tolist():
+
+                    label = str(
+                        label or ""
+                    ).strip()
+
+                    if (
+                        label
+                        and label not in labels
+                    ):
+                        labels.append(label)
+
+                row[
+                    "_economic_variation"
+                ] = " / ".join(labels)
+
+                collapsed_rows.append(
+                    row
+                )
+
+            listing_variants = pd.DataFrame(
+                collapsed_rows
+            )
+
+            listing_variants = listing_variants.sort_values(
+                "_margin_sort",
+                ascending=True,
+                na_position="last",
+            )
+
+            for _, variant in listing_variants.iterrows():
+
+                variation_label = str(
+                    variant.get(
+                        "_economic_variation",
+                        "",
+                    )
+                    or ""
+                ).strip()
+
+                etsy_price = variant.get(
+                    "etsy_price_for_profit"
+                )
+
+                printify_cost = variant.get(
+                    "printify_cost_for_profit"
+                )
+
+                shipping = variant.get(
+                    "printify_shipping_for_profit"
+                )
+
+                net_profit = variant.get(
+                    "estimated_net_profit"
+                )
+
+                margin = variant.get(
+                    "estimated_net_margin_pct"
+                )
+
+                target_price = variant.get(
+                    "minimum_price_for_15pct_margin_variant"
+                )
+
+                parts = []
+
+                if variation_label:
+                    parts.append(
+                        variation_label
+                    )
+
+                if pd.notna(etsy_price):
+                    parts.append(
+                        f"Etsy ${etsy_price:,.2f}"
+                    )
+
+                if pd.notna(printify_cost):
+                    parts.append(
+                        f"Printify ${printify_cost:,.2f}"
+                    )
+
+                if pd.notna(shipping):
+                    parts.append(
+                        f"Shipping ${shipping:,.2f}"
+                    )
+
+                if pd.notna(net_profit):
+                    parts.append(
+                        f"Net ${net_profit:,.2f}"
+                    )
+                else:
+                    parts.append(
+                        "Net unavailable"
+                    )
+
+                if pd.notna(margin):
+                    parts.append(
+                        f"Margin {margin:.1f}%"
+                    )
+                else:
+                    parts.append(
+                        "Margin unavailable"
+                    )
+
+                if pd.notna(target_price):
+                    parts.append(
+                        f"15% price ${target_price:,.2f}"
+                    )
+
+                    if pd.notna(etsy_price):
+                        increase = (
+                            target_price
+                            - etsy_price
+                        )
+
+                        if increase > 0:
+                            parts.append(
+                                f"Increase ${increase:,.2f}"
+                            )
+
+                lines.append(
+                    "   - "
+                    + " | ".join(parts)
+                )
+
+            lines.append("")
+
+    
     # ---------------------------------------------------------
     # DAILY EMAIL: LISTINGS WITH LOW-PROFIT VARIANTS
     # ---------------------------------------------------------
