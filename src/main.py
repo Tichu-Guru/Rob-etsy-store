@@ -3825,7 +3825,7 @@ def main():
 
     # Use the complete listing-level report, including listings
     # that do not currently have calculable profitability.
-    all_listing_rows = report.copy()
+    all_listing_rows = listing_profitability.copy()
 
     # Put listings with the lowest margins first.
     all_listing_rows["_email_margin_sort"] = pd.to_numeric(
