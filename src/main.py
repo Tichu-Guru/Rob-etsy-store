@@ -378,10 +378,7 @@ def build_listing_profitability_report(
                 )
 
                 under_10_count = int(
-                    (
-                        (valid_margins >= 0)
-                        & (valid_margins < 10)
-                    ).sum()
+                    (valid_margins < 10).sum()
                 )
 
                 ten_to_fifteen_count = int(
