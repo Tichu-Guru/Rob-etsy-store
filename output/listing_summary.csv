@@ -123,13 +123,13 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4554616070,"Personalized Sherpa Fleece Blanket, Custom Christmas Throw, Elf Reindeer Plaid Designs",10,0,10,0,0,10,NO_PRINTIFY_PRODUCTS
 4554616404,"Personalized Hanukkah Sherpa Fleece Blanket, Festival of Lights Gift, Blue Gold Designs",4,0,4,0,0,4,NO_PRINTIFY_PRODUCTS
 4554623150,"Personalized Christmas Doormat, Custom Family Welcome Mat, Holiday Plaid Rug Designs",5,0,5,0,0,5,NO_PRINTIFY_PRODUCTS
-4554667392,"Personalized Hanukkah Pillow, Faux Suede Throw Pillow, Custom Gift Tag, Jewish Holiday Decor",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
-4554684813,"Personalized Pillow with Gift Tag, Faux Suede Christmas Motif, Plaid Holiday Decor",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
+4554667392,"Hanukkah Pillow, Personalized Faux Suede Custom Gift Tag Design",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
+4554684813,"Christmas Pillow, Personalized Faux Suede Plaid Throw with Gift Tag",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
 4554699463,"Personalized Snowflake Monogram Tote Bag, Custom Initial Christmas Gift",12,12,0,0,0,12,FULLY_MATCHED
 4554700261,"Capybara Raccoon Ceramic Mug, Whimsical Animal Coffee Cup, Funny Coworker Boss Gift",7,7,0,0,0,3,FULLY_MATCHED
 4554701147,"Sherpa Blanket, Custom Name Fall Leaves Throw, Personalized Cozy Fleece, Autumn Home Decor",4,4,0,0,0,0,FULLY_MATCHED
-4554706420,"Personalized Pillow, Faux Suede, Christmas Plaid, Holiday Decor, Gift Tag Design",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
-4554706846,"Personalized Pillow, Faux Suede Throw Pillow with Custom Gift Tag, Jewish Holiday Decor, Hanukkah Home Accent",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
+4554706420,"Personalized Plaid Pillow, Faux Suede Christmas Bow Design with Gift Tag",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
+4554706846,"Hanukkah Pillow, Personalized Faux Suede Holiday Throw with Insert",8,0,8,0,0,8,NO_PRINTIFY_PRODUCTS
 4554708636,"Canvas Tote Bag, Too for Coop Chickens, Farmhouse Shopping Bag",2,2,0,0,0,2,FULLY_MATCHED
 4554710012,"Pet Memorial Plaque Personalized, Custom Watercolor Portrait, Dog Cat Sympathy Gift, Acrylic Wood Stand",1,1,0,0,0,1,FULLY_MATCHED
 4554713122,"Personalized Chicken Flock Tote Bag, Custom Name Design, Farmhouse Shopping Bag",1,1,0,0,0,1,FULLY_MATCHED
@@ -162,60 +162,60 @@ etsy_listing_id,etsy_title,etsy_sku_rows,matched_skus,etsy_only_skus,unavailable
 4557429557,"Personalized Thanksgiving Table Runner, Custom Fall Table Decor, Autumn Pumpkin Runner for Thanksgiving Dinner, Optional Matching Napkins",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
 4558226653,"Personalized Blanket, Custom Family Name Throw, Snowflake Sherpa Fleece",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
 4559021971,"Personalized Fall Blanket, Custom Name Autumn Throw, Cozy Grandma Gift, Instant Preview",2,2,0,0,0,0,FULLY_MATCHED
-4559436165,"Personalized Velveteen Throw Blanket, Custom Name, Personalized Gift (50x60 or 60x80)",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
-4559501995,"Personalized Blanket, Custom Hanukkah Family Name Throw, Jewish Blanket, Festival of Lights Decor",4,0,4,0,0,0,NO_PRINTIFY_PRODUCTS
+4559436165,"Personalized Blanket, Velveteen Custom Name Throw in 50x60 or 60x80",6,0,6,0,0,0,NO_PRINTIFY_PRODUCTS
+4559501995,"Hanukkah Blanket, Personalized Velveteen Family Name Throw, 300 Gsm, 50x60 or 60x80",4,0,4,0,0,0,NO_PRINTIFY_PRODUCTS
 4559566941,"Personalized Blanket, Custom Family Name Throw, Holiday Gift",10,0,10,0,0,0,NO_PRINTIFY_PRODUCTS
 4561977513,"Personalized Pet Memorial Pillow, Custom Dog or Cat Photo Keepsake, Pet Loss Sympathy Gift",16,0,16,0,0,0,NO_PRINTIFY_PRODUCTS
-4561993417,"Personalized Pet Memorial Pillow Cover, Custom Dog Cat Silhouette, Faux Suede Keepsake (14-20 Inch)",16,0,16,0,0,0,NO_PRINTIFY_PRODUCTS
-4566956315,"Our First Christmas Ornament, Personalized Couple Photo Keepsake, Newlywed Wedding Gift, First Holiday Together, Instant Preview",3,3,0,0,0,3,FULLY_MATCHED
-4567701053,"Personalized Ornament Set, Custom Photo Memory Keepsake, Matching Gifts for Family, Friends, Reunions & Shared Memories, Instant Preview",3,3,0,0,0,3,FULLY_MATCHED
-4568115501,"Personalized Ornament Set, Custom Photo Christmas Ornaments, Bulk Coworker Gifts, Team Gifts, Family Keepsakes, Instant Preview",3,3,0,0,0,0,FULLY_MATCHED
+4561993417,"Pet Memorial Pillow, Personalized Faux Suede Cover in 4 Sizes",16,0,16,0,0,0,NO_PRINTIFY_PRODUCTS
+4566956315,"Memory Ornament, Personalized Ceramic Photo Keepsake Set, Custom Holiday Decoration",3,3,0,0,0,3,FULLY_MATCHED
+4567701053,"Custom Ornament Set, Personalized Ceramic Photo Keepsake in Sets of 3, 5, or 10",3,3,0,0,0,3,FULLY_MATCHED
+4568115501,"Photo Ornament, Personalized Ceramic Sets of 3, 5, or 10",3,3,0,0,0,0,FULLY_MATCHED
 4569716347,"Custom Sweatshirt, Personalized Chief Memory Maker Crewneck, Mother Daughter Gift, Family Holiday Sweatshirt, Instant Preview",42,42,0,0,0,0,FULLY_MATCHED
-4569768034,"Personalized Tote Bag, Custom Name Carrying the Holidays Since Forever, Funny Mom Christmas Shopping Bag, Instant Preview",1,1,0,0,0,0,FULLY_MATCHED
-4569776473,"Custom Apron, Personalized Mom or Grandma Gift, Chief Memory Maker Holiday Hostess Apron, Baking & Cooking Gift, Instant Preview",1,1,0,0,0,0,FULLY_MATCHED
-4569832511,"Personalized Hoodie, Chief Memory Maker, Gift for Mom or Grandma, Family Memories Pullover, Instant Preview",56,56,0,0,0,0,FULLY_MATCHED
-4570322135,"Personalized Blanket, Custom Grandma Gift, Chief Memory Maker Gift for Mom Who Makes Family Memories, Instant Preview",2,2,0,0,0,0,FULLY_MATCHED
-4570324294,"Personalized Shirt, Custom Mom Gift, Chief Memory Maker, Grandma Gift, Holiday Memory Maker Tee, Instant Preview",42,42,0,0,0,0,FULLY_MATCHED
+4569768034,"Personalized Tote, 100% Cotton Canvas 15 x 16 Inch Holiday Shopping Bag",1,1,0,0,0,0,FULLY_MATCHED
+4569776473,"Personalized Apron, 100% Polyester Chief Memory Maker Custom Cooking",1,1,0,0,0,0,FULLY_MATCHED
+4569832511,"Personalized Hoodie, Chief Memory Maker Design, 50% Cotton Pullover with Custom Name",56,56,0,0,0,0,FULLY_MATCHED
+4570322135,"Personalized Blanket, 100% Polyester Sherpa Throw in 50×60 or 60×80",2,2,0,0,0,0,FULLY_MATCHED
+4570324294,"Memory Maker Shirt, Personalized Comfort Colors® Tee with Holiday Artwork",42,42,0,0,0,0,FULLY_MATCHED
 4571598979,"Christmas Shopping Tote, Funny Holiday Errand Bag for Mom, Reusable Cotton Canvas Gift",1,1,0,0,0,0,FULLY_MATCHED
-4572253547,"Personalized Garden Flag, Chief Holiday Chaos Officer, Custom Name Christmas Thanksgiving Decor",2,2,0,0,0,0,FULLY_MATCHED
-4572281790,"Personalized Garden Flag, Custom Family Name Holiday Chaos Yard Decor, Halloween Thanksgiving Christmas",2,2,0,0,0,0,FULLY_MATCHED
-4572940029,"Personalized Christmas Sweatshirt, Custom Name Gingerbread Sweatshirt, Holiday Magic Maker, Christmas Gift for Mom",48,48,0,0,0,0,FULLY_MATCHED
-4573064561,"Christmas Sweatshirt, Sassy Holiday Sweatshirt, Funny Gingerbread Crewneck, Choose Your Character",108,108,0,0,0,0,FULLY_MATCHED
-4573323113,"Funny Christmas Apron, Gingerbread Apron, Sarcastic Baking Apron, Christmas Gift for Bakers, 3 Designs",3,3,0,0,0,0,FULLY_MATCHED
-4573448138,"Personalized Christmas Shirt, Holiday Magic Maker Tee, Custom Name Gingerbread Shirt, Comfort Colors",42,42,0,0,0,0,FULLY_MATCHED
+4572253547,"Custom Garden Flag, Personalized Chief Holiday Chaos Officer, 100% Poly Poplin Canvas",2,2,0,0,0,0,FULLY_MATCHED
+4572281790,"Custom Garden Flag, Personalized Family Name Holiday Decor in 2 Sizes",2,2,0,0,0,0,FULLY_MATCHED
+4572940029,"Personalized Christmas Sweatshirt, Custom Name Gingerbread Sweatshirt, Holiday Magic Maker, Christmas Gift for Mom",24,24,0,0,0,0,FULLY_MATCHED
+4573064561,"Gingerbread Crewneck, 50/50 Cotton-Poly Holiday Pullover with 3 Character Options",72,72,0,0,0,0,FULLY_MATCHED
+4573323113,"Gingerbread Apron, 100% Polyester Personalized Holiday Baking with 3 Designs",3,3,0,0,0,0,FULLY_MATCHED
+4573448138,"Custom Christmas Tee, Personalized Comfort Colors Shirt with Gingerbread Design",42,42,0,0,0,0,FULLY_MATCHED
 4573451235,"Funny Christmas Shirt, Gingerbread Man Tee, Sarcastic Holiday Gift, Fa La La B*tches",84,84,0,0,0,0,FULLY_MATCHED
-4573630110,"Funny Christmas Ornaments, Gingerbread Man Ornament, Sarcastic Holiday Decor, Adult Christmas Gift, Secret Santa Gift",9,9,0,0,0,0,FULLY_MATCHED
-4574100827,"Funny Christmas Mug, Gingerbread Mug, Sarcastic Christmas Coffee Cup, Funny Holiday Mug, Fa La La B*tches",1,1,0,0,0,0,FULLY_MATCHED
-4574118957,"Funny Christmas Tote Bag, Gingerbread Tote, Sarcastic Holiday Shopper, Fa La La B*tches",1,1,0,0,0,0,FULLY_MATCHED
-4574151716,"Funny Christmas Gingerbread Apron, Sarcastic Baking Apron, Holiday Kitchen Apron, Christmas Gift for Bakers",1,1,0,0,0,0,FULLY_MATCHED
-4574188695,"Personalized Candle, Custom Name Christmas Candle, Gingerbread Soy Candle for Mom, Grandma or Friend",4,4,0,0,0,0,FULLY_MATCHED
-4574588661,"Personalized Grandma Blanket, Custom Name Sherpa Blanket, Botanical Fern Throw, Nana Gift, Gift for Grandma",2,2,0,0,0,0,FULLY_MATCHED
-4575210498,"It&#39;s Fall Y&#39;all Shirt, Turkey Gnome Tee, Thanksgiving Shirt, Funny Autumn Gift, Fall Shirt for Women and Men",54,54,0,0,0,0,FULLY_MATCHED
-4575243991,"Funny Halloween Shirt, No Pumpkin Pie For You Sweetheart, Sarcastic Jack-o-Lantern Tee, Spooky Fall Gift",24,24,0,0,0,0,FULLY_MATCHED
-4575258611,"Funny Halloween Sweatshirt, No Pumpkin Pie For You, Sarcastic Pumpkin Crewneck, Spooky Fall Gift",24,24,0,0,0,0,FULLY_MATCHED
+4573630110,"Gingerbread Ornament, Ceramic Funny Holiday Decor in Sets of 3, 5, or 10",9,9,0,0,0,0,FULLY_MATCHED
+4574100827,"Gingerbread Man Mug, 11 Oz Ceramic Christmas Coffee Cup",1,1,0,0,0,0,FULLY_MATCHED
+4574118957,"Christmas Tote Bag, 12 Oz Cotton Canvas Gingerbread Shopper with Sarcastic Holiday Print",1,1,0,0,0,0,FULLY_MATCHED
+4574151716,"Gingerbread Apron, 100% Polyester Canvas with Adjustable Tie-Back Closure",1,1,0,0,0,0,FULLY_MATCHED
+4574188695,"Personalized Candle, 9 Oz Gingerbread Soy Wax with Custom Name and Scent Options",4,4,0,0,0,0,FULLY_MATCHED
+4574588661,"Personalized Blanket, Fern Throw with Custom Name and Sherpa Fleece",2,2,0,0,0,0,FULLY_MATCHED
+4575210498,"It&#39;s Fall Y&#39;all Shirt, Turkey Gnome Graphic Tee in 100% Cotton",54,54,0,0,0,0,FULLY_MATCHED
+4575243991,"Halloween Shirt, Jack-O-Lantern Tee With Pumpkin Pie Humor, 100% Cotton",24,24,0,0,0,0,FULLY_MATCHED
+4575258611,"Halloween Sweatshirt, 50/50 Blend Crewneck with Sarcastic Pumpkin Graphic",24,24,0,0,0,0,FULLY_MATCHED
 4575320656,"Personalized Hanukkah Shirt, Custom Name Gnome Tee, 8 Days of Attitude, Funny Chanukah Gift, Jewish Holiday Shirt",48,48,0,0,0,0,FULLY_MATCHED
-4575344080,"Personalized Thanksgiving Shirt, Here for the Pie Turkey Tee, Custom Name Friendsgiving Gift, Funny Thanksgiving Family Shirt",24,24,0,0,0,0,FULLY_MATCHED
+4575344080,"Personalized Shirt, 100% Cotton Thanksgiving Tee with Custom Name Turkey Design",24,24,0,0,0,0,FULLY_MATCHED
 4575364428,"Personalized Christmas Shirt, Custom Name Naughty List Tee, Funny Elf Holiday Top",30,30,0,0,0,0,FULLY_MATCHED
 4575502191,"Niagara Frontier Chord Authority T-Shirt | Music Notes, Choir Logo",8,8,0,0,0,0,FULLY_MATCHED
 4575899029,"Personalized Hanukkah Mug, 12oz Ceramic Gnome Coffee Cup, Custom Name, Both Sides Printed",1,1,0,0,0,0,FULLY_MATCHED
-4576032446,"Personalized Christmas Apron, Custom Name Baking Gift, Naughty List Gift for Baker",1,1,0,0,0,0,FULLY_MATCHED
-4576047765,"New Year&#39;s Sweatshirt, New Year&#39;s Eve Crewneck, Funny NYE Gnome Shirt, Gnome New Year Shirt, Another Trip Around the Sun, New Year Gift",18,18,0,0,0,0,FULLY_MATCHED
+4576032446,"Custom Baking Apron, Personalized Polyester Christmas with Pockets",1,1,0,0,0,0,FULLY_MATCHED
+4576047765,"New Years Crewneck, Gnome Sweatshirt In 50/50 Cotton-Poly Blend, 8 Oz/yd",18,18,0,0,0,0,FULLY_MATCHED
 4577954834,"2027 New Year&#39;s Eve T-Shirt, Funny Animal NYE Party Shirt",160,160,0,0,0,0,FULLY_MATCHED
 4578110924,"New Year&#39;s Eve Sweatshirt, Funny NYE Axolotl Party Shirt, 2027 or No Year",48,48,0,0,0,0,FULLY_MATCHED
 4578115469,"New Year&#39;s Eve Shirt, Another Trip Around the Sun, Funny Gnome NYE Party Tee",24,24,0,0,0,0,FULLY_MATCHED
-4578126457,"Personalized Journal, 2027 New Year Axolotl  Spiral Notebook, Ruled Journal",1,1,0,0,0,0,FULLY_MATCHED
+4578126457,"Named Journal, Personalized 2027 Axolotl Notebook with Metal Spiral, 6 x 8 in",1,1,0,0,0,0,FULLY_MATCHED
 4578548368,"New Year&#39;s Eve Trucker Hat, Funny Chicken Party Cap",3,3,0,0,0,0,FULLY_MATCHED
 4578600102,"Funny New Year&#39;s Eve Shirt, Out With The Old In With The Fabulous Chickens",84,84,0,0,0,0,FULLY_MATCHED
-4579124308,"Personalized Couples Pillow, 3 Custom Text Blocks, Custom Anniversary Gift",4,4,0,0,0,0,FULLY_MATCHED
-4579125085,"Personalized Couples Mug, 12 Oz Custom Text Mug with Instant Preview",1,1,0,0,0,0,FULLY_MATCHED
-4579128889,"Personalized Couples T-Shirt, 3 Custom Text Blocks, Instant Preview",28,28,0,0,0,0,FULLY_MATCHED
-4579273154,"Personalized Couples Blanket, Custom Text Sherpa Fleece Blanket",2,2,0,0,0,0,FULLY_MATCHED
-4580460247,"Hanukkah Gnome Mug, Funny Jewish Coffee Mug, Not Today Santa Ninja Gnome Latte Mug",1,1,0,0,0,0,FULLY_MATCHED
-4580491196,"Hanukkah Gnome Shirt, Funny Jewish T-Shirt, Not Today Santa Tee, Hanukkah Gift",32,32,0,0,0,0,FULLY_MATCHED
-4580501953,"Thanksgiving Apron, Funny Raccoon Apron, Fall Baking Apron, Pie Lover Gift, Autumn Kitchen Apron",1,1,0,0,0,0,FULLY_MATCHED
+4579124308,"Couples Pillow, Faux Suede Personalized Design with 3 Custom Text Blocks",4,4,0,0,0,0,FULLY_MATCHED
+4579125085,"Custom Couple Mug, 12 Oz White Ceramic Latte Mug with Personalized Text",1,1,0,0,0,0,FULLY_MATCHED
+4579128889,"Custom Couple Shirt, 3 Text Blocks, Comfort Colors® S–4XL",28,28,0,0,0,0,FULLY_MATCHED
+4579273154,"Personalized Blanket, Custom Sherpa Fleece with Names and Date, 50x60 or 60x80",2,2,0,0,0,0,FULLY_MATCHED
+4580460247,"Hanukkah Mug, 12 Oz White Ceramic Latte Cup with Ninja Gnome Design",1,1,0,0,0,0,FULLY_MATCHED
+4580491196,"Hanukkah Shirt with Blue Gnomes, 100% Cotton Jewish Tee in 8 Sizes",32,32,0,0,0,0,FULLY_MATCHED
+4580501953,"Thanksgiving Apron, Raccoon Pie Design, 100% Polyester Holiday Baking",1,1,0,0,0,0,FULLY_MATCHED
 4580555306,"Personalized Phone Case, Watercolor Multi-Pet Portraits, Custom Names",1224,1224,0,0,0,0,FULLY_MATCHED
-4580689777,"Personalized Pet Blanket, Custom Watercolor Multi Pet Portrait, Printed Faux Quilted Velveteen Throw",2,2,0,0,0,0,FULLY_MATCHED
-4580715596,"Hanukkah Garden Flag, Not Today Santa Gnome Yard Flag, Funny Jewish Holiday Decor, Printed Faux Quilted Garden Banner",2,2,0,0,0,0,FULLY_MATCHED
-4581142324,"Personalized Garden Flag, Custom Multi Pet Portrait Flag, Dog Cat Yard Decor",2,2,0,0,0,0,FULLY_MATCHED
-4581173598,"Personalized Garden Flag, Custom Multi Pet Portrait Flag, Dog Cat Yard Decor",2,2,0,0,0,0,FULLY_MATCHED
-4581960308,"Personalized Pet Cutting Board, Custom Watercolor Pet Portrait, Multi Pet Glass Kitchen Gift",2,2,0,0,0,0,FULLY_MATCHED
+4580689777,"Custom Pet Blanket, Velveteen Multi-Pet Portrait Throw with Faux Quilted Print",2,2,0,0,0,0,FULLY_MATCHED
+4580715596,"Hanukkah Garden Flag, Not Today Santa Gnome Design, Printed Faux-Quilted Decor",2,2,0,0,0,0,FULLY_MATCHED
+4581142324,"Custom Garden Flag, Multi-Pet Portrait on 100% Poly Poplin Canvas",2,2,0,0,0,0,FULLY_MATCHED
+4581173598,"Custom Pet Flag, Personalized Polyester Garden in Two Sizes",2,2,0,0,0,0,FULLY_MATCHED
+4581960308,"Custom Pet Cutting Glass Board, Watercolor Multi-Pet Portrait With Names",2,2,0,0,0,0,FULLY_MATCHED
